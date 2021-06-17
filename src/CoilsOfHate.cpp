@@ -4077,7 +4077,7 @@ Story::Base *processChoices(SDL_Window *window, SDL_Renderer *renderer, Characte
 
                 SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
 
-                putText(renderer, (std::to_string(player.Life)).c_str(), font, text_space, clrBK, BE_80, TTF_STYLE_NORMAL, splashw, boxh, startx, starty + text_bounds - boxh);
+                putText(renderer, (std::to_string(player.Life)).c_str(), font, text_space, clrDB, BE_80, TTF_STYLE_NORMAL, splashw, boxh, startx, starty + text_bounds - boxh);
 
                 SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_NONE);
             }
@@ -4088,7 +4088,7 @@ Story::Base *processChoices(SDL_Window *window, SDL_Renderer *renderer, Characte
 
                 SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
 
-                putText(renderer, (std::to_string(player.Money) + std::string(" gleenars")).c_str(), font, text_space, clrBK, BE_80, TTF_STYLE_NORMAL, splashw, boxh, startx, starty + text_bounds - (2 * boxh + infoh + box_space));
+                putText(renderer, (std::to_string(player.Money) + std::string(" gleenars")).c_str(), font, text_space, clrDB, BE_80, TTF_STYLE_NORMAL, splashw, boxh, startx, starty + text_bounds - (2 * boxh + infoh + box_space));
 
                 SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_NONE);
             }
@@ -4989,7 +4989,7 @@ bool processStory(SDL_Window *window, SDL_Renderer *renderer, Character::Base &p
         {
             auto textwidth = ((1 - Margin) * SCREEN_WIDTH) - (textx + arrow_size + button_space) - 2 * space;
 
-            text = createText(story->Text, FONT_FILE, font_size, clrBK, textwidth, TTF_STYLE_NORMAL);
+            text = createText(story->Text, FONT_FILE, font_size, clrDB, textwidth, TTF_STYLE_NORMAL);
         }
 
         auto compact = (text && text->h <= text_bounds - 2 * text_space) || text == NULL;
@@ -5069,7 +5069,7 @@ bool processStory(SDL_Window *window, SDL_Renderer *renderer, Character::Base &p
 
                     SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
 
-                    putText(renderer, (std::to_string(player.Life)).c_str(), font, text_space, clrBK, BE_80, TTF_STYLE_NORMAL, splashw, boxh, startx, starty + text_bounds - boxh);
+                    putText(renderer, (std::to_string(player.Life)).c_str(), font, text_space, clrDB, BE_80, TTF_STYLE_NORMAL, splashw, boxh, startx, starty + text_bounds - boxh);
 
                     SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_NONE);
                 }
@@ -5080,7 +5080,7 @@ bool processStory(SDL_Window *window, SDL_Renderer *renderer, Character::Base &p
 
                     SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
 
-                    putText(renderer, (std::to_string(player.Money) + std::string(" gleenars")).c_str(), font, text_space, clrBK, BE_80, TTF_STYLE_NORMAL, splashw, boxh, startx, starty + text_bounds - (2 * boxh + infoh + box_space));
+                    putText(renderer, (std::to_string(player.Money) + std::string(" gleenars")).c_str(), font, text_space, clrDB, BE_80, TTF_STYLE_NORMAL, splashw, boxh, startx, starty + text_bounds - (2 * boxh + infoh + box_space));
 
                     SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_NONE);
                 }
