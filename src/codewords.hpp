@@ -7,10 +7,14 @@ namespace Codeword
 {
     enum class Type
     {
-        NONE = -1
+        NONE = -1,
+        HECATOMB,
+        SATORI
     };
 
-    std::map<Codeword::Type, const char *> Descriptions = {};
+    std::map<Codeword::Type, const char *> Descriptions = {
+        {Codeword::Type::HECATOMB, "Hecatomb"},
+        {Codeword::Type::SATORI, "Satori"}};
 
     std::vector<Codeword::Type> Invisible = {};
 

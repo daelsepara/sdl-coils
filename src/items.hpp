@@ -11,8 +11,10 @@ namespace Item
         MAGIC_AMULET,
         MAGIC_WAND,
         SWORD,
+        JADE_WARRIORS_SWORD,
+        PLUMED_HELMET,
         First = MAGIC_WAND,
-        Last = SWORD
+        Last = PLUMED_HELMET
     };
 
     class Base
@@ -49,6 +51,8 @@ namespace Item
     auto MAGIC_AMULET = Item::Base("MAGIC AMULET", "MAGIC AMULET", Item::Type::MAGIC_AMULET);
     auto MAGIC_WAND = Item::Base("MAGIC WAND", "MAGIC WAND", Item::Type::MAGIC_WAND);
     auto SWORD = Item::Base("SWORD", "SWORD", Item::Type::SWORD);
+    auto JADE_WARRIORS_SWORD = Item::Base("JADE WARRIOR's SWORD", "JADE WARRIOR's SWORD", Item::Type::JADE_WARRIORS_SWORD);
+    auto PLUMED_HELMET = Item::Base("PLUMED HELMET", "PLUMED HELMET", Item::Type::PLUMED_HELMET);
 
     std::vector<Item::Type> UniqueItems = {};
 

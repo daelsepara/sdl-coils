@@ -5174,13 +5174,17 @@ bool processStory(SDL_Window *window, SDL_Renderer *renderer, Character::Base &p
                 {
                     putText(renderer, "This adventure is over.", font, text_space, clrWH, intRD, TTF_STYLE_NORMAL, splashw, boxh, startx, starty);
                 }
-                else if (player.Life <= 0)
+                else if (story->Type == Story::Type::HERO_DEATH)
                 {
-                    putText(renderer, "You have died. This adventure is over.", font, text_space, clrWH, intRD, TTF_STYLE_NORMAL, splashw, boxh, startx, starty);
+                    putText(renderer, "You have defeated Hate but died a Hero's Death.", font, text_space, clrWH, intLM, TTF_STYLE_NORMAL, splashw, boxh, startx, starty);
                 }
                 else if (story->Type == Story::Type::GOOD)
                 {
-                    putText(renderer, "You have defeated Hate! Further adventure awaits!", font, text_space, clrWH, intLM, TTF_STYLE_NORMAL, splashw, boxh, startx, starty);
+                    putText(renderer, "You have triumphed over Hate! Further adventure awaits!", font, text_space, clrWH, intLM, TTF_STYLE_NORMAL, splashw, boxh, startx, starty);
+                }
+                else if (player.Life <= 0)
+                {
+                    putText(renderer, "You have died. This adventure is over.", font, text_space, clrWH, intRD, TTF_STYLE_NORMAL, splashw, boxh, startx, starty);
                 }
 
                 renderButtons(renderer, controls, current, intMG, border_space, border_pts);
