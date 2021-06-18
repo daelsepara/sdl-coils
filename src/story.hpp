@@ -1995,6 +1995,212 @@ public:
     int Continue(Character::Base &player) { return 142; }
 };
 
+class Story070 : public Story::Base
+{
+public:
+    Story070()
+    {
+        ID = 70;
+
+        Text = "You creep along side streets, hiding your face from strangers, as you head towards the riverfront. You are plagued by midges but that is the least of your troubles. You can hear shrieks and the cries of hysterical mobs behind you as they rampage back and forth across the city. Making your way carefully to the quay you can see a row of three river barges, two laden with goods and one which has just finished unloading.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player)
+    {
+        if (Character::VERIFY_SKILL(player, Skill::Type::SEAFARING))
+        {
+            return 120;
+        }
+        else
+        {
+            return 134;
+        }
+    }
+};
+
+class Story071 : public Story::Base
+{
+public:
+    Story071()
+    {
+        ID = 71;
+
+        Text = "Caiaphas's story of what has been the fate of their many friends is chilling. As soon as you fled the city, the Overlord's guards -- along with foreign mercenaries who marched out of beyond -- started to round up all the Judain they could find. The executions have been carried out all day every day since then. A few, like you, escaped from the city; several thousand have gone to ground; but most of your folk have already perished. You vow then and there to avenge your fellow Judain.\n\n\"It is worse even than I have said,\" continues Caiaphas. \"Some have reported seeing a loathsome monster dragging its bulk through the streets at night. None knows where it comes from, but by daybreak there are always fewer people in the city.\"\n\n\"What is it?\" you ask, aghast.\n\n\"Hate itself. The embodiment of cruelty. It has been awakened and given living form by the Overlord's excesses. Now it stalks the streets beyond even his power to control, and it will not rest until our city has become a desolate ruin.\"\n\nYou hear his words with horror.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 181; }
+};
+
+class Story072 : public Story::Base
+{
+public:
+    Story072()
+    {
+        ID = 72;
+
+        Image = "images/mameluke.png";
+
+        Text = "The cloying smell of crushed roses and honeysuckle makes your senses swim again. The reek of Hate is all about you. You hear a deep voice, cursing bitterly, and the grunts and gasps of a strong man trying to lift a heavy boulder. The noises are coming from just around the next corner. You can't resist seeing who it is.\n\nThe strong form of a mulatto beckons you imploringly. He is stuck fast in the coils of Hate. Its gelid form has oozed around his body. He is covered from knees to armpits and will soon succumb. As you get closer you recognize him as your friend Mameluke. You must do something to save him.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Attack Hate with a SWORD", 83, Choice::Type::ANY_ITEM, {Item::SWORD}));
+        Choices.push_back(Choice::Base("Pummel Hate with punches and kicks", 93));
+        Choices.push_back(Choice::Base("[SPELLS] Use a spell of Rulership", 122, Skill::Type::SPELLS));
+        Choices.push_back(Choice::Base("[SPELLS] Cast a spell of Miasma", 136, Skill::Type::SPELLS));
+        Choices.push_back(Choice::Base("[SPELLS] Cast a spell of Thunderflash", 167, Skill::Type::SPELLS));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story073 : public Story::Base
+{
+public:
+    Story073()
+    {
+        ID = 73;
+
+        Text = "There is a great crash which echoes around the room and seems to shake the whole tower, followed by an explosion of spurting red flame which bathes the black spider in its punishing light. You feel giddy as the tower rocks, and the spider recoils before gathering itself to leap once more. It is badly hurt, but not yet incapacitated, though you have gained time to cast another spell. You cannot cast the same spell twice in a row.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Cast Miasma", 79));
+        Choices.push_back(Choice::Base("Cast Images to give yourself more time", 208));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story074 : public Story::Base
+{
+public:
+    std::string PreText = "";
+
+    Story074()
+    {
+        ID = 74;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        PreText = "The middle platform is a trap. The wood gives way as you land and you fall through, impaling yourself on metal spikes which stick into the soles of your feet.\n\nYou LOSE 2 Life Points.";
+
+        Character::GAIN_LIFE(player, -2);
+
+        if (player.Life > 0)
+        {
+            PreText += "\n\nYou extricate yourself and balance on the outside of the box. The pain is excruciating and it affects your ability to balance but you can't go back now. The heads of the garter snakes are starting to mesmerize you as they sway, as if silently willing you to fall among them. You nerve yourself to go on, you will never give up, and leap for the next rope.\n\nYou grab the rope and swing above the snakes, looking down to see their jaws opening wide and venom dribbling from the jaws. You can only hope they do not spit venom like some of the hooded cobras you have heard about that live in the fens around Bagoe. You swing slowly across the room to alight on the last box, which stays firm beneath your feet and from whe!e you can jump down and open the door beyond.";
+        }
+
+        Text = PreText.c_str();
+    }
+
+    int Continue(Character::Base &player) { return 180; }
+};
+
+class Story075 : public Story::Base
+{
+public:
+    Story075()
+    {
+        ID = 75;
+
+        Image = "images/filler3.png";
+
+        Text = "Lucie didn't need your help, she is already half-way to the dubious sanctuary of the Silver Eel tavern. You have lost the chance of picking up another SWORD. The dog-handler has retrieved it and he pulls his dog roughly behind him as he sets out home again.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Follow Lucie to the Silver Eel right now", 261));
+        Choices.push_back(Choice::Base("Bide your time and seek her out later today", 371));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story076 : public Story::Base
+{
+public:
+    Story076()
+    {
+        ID = 76;
+
+        Text = "You can't flee for ever. They are slowly running you down, urging their mounts to greater efforts with the cracks of bullhide whips. At last you are forced to stand your ground, fighting for breath. You are so exhausted you can hardly collect your wits.\n\n\"This one's a Judain!\" one of the brigands shouts.\"Didn't old Samfgash say there was a price on 'em in Godorno? Let's take the Judain to the main gate and claim the blood money.\"\n\nThe brigand leader agrees it would be sensible to turn you in for money as you have led them so close to the city in the chase. You try to escape but they will collect their money for your dead body just as they would if they turned you in alive. They cut you down like a hunted doe.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story077 : public Story::Base
+{
+public:
+    Story077()
+    {
+        ID = 77;
+
+        Text = "Hate has been grievously wounded fighting the Jade Warrior tomb guards of the Megiddo dynasty burial vaults. It cannot tear itself free from the chains and caltrops which bind and gall it.\n\nHate thrashes wildly and a tidal wave erupts from the canal, smashing against the Bargello keep, but it is the monster's death throes. Just as the sun sinks beneath the horizon the JEWEL glows white hot and the ruby light becomes a coruscating fan of many coloured motes that disintegrate the soft purple flesh. The monster falls and makes its own grave as the catacombs open up beneath its bulk to welcome it to its final rest. The sun sets and the city is quiet.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 416; }
+};
+
+class Story078 : public Story::Base
+{
+public:
+    Story078()
+    {
+        ID = 78;
+
+        Text = "\"I have been giving that matter much thought. It's not good for business with Hate disrupting the life of the city.\" Melmelo had the larceny side of business in the city nicely sewn up until the monster emerged from the catacombs. \"I can only think of one thing which might be the key to the city's salvation.\"\n\n\"What is that?\" you ask, avidly.\n\n\"The JEWEL OF SUNSET FIRE.\"\n\n\"Where is this JEWEL?\"\n\nMelmelo seems certain that it lies at the top of the Tower of the Sentinel at the east end of Fortuny Street. \"I have coveted it all my life. It is said to give wondrous powers to its wielder. But though many of us have tried to scale the tower -- both within, using stealth and cunning, and without, clinging like flies to the stones -- none of us survived.\"\n\n\"I will survive,\" you say determinedly. You can be reasonably sure Melmelo is telling you the truth for he wants to see Hate vanquished as much as any man does. He is already on top of the pile, here in Godorno.\n\nYou gained the codeword SUNSET.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Character::GET_CODEWORDS(player, {Codeword::Type::SUNSET});
+    }
+
+    int Continue(Character::Base &player) { return 160; }
+};
+
+class Story079 : public Story::Base
+{
+public:
+    Story079()
+    {
+        ID = 79;
+
+        Text = "With a dramatic gesture and a clap of your hands you bring forth a cloud of noxious vapours that fills the top room of the Tower of the Sentinel, obscuring the JEWEL from view. The gigantic spider falters momentarily then leaps towards you, seemingly unaffected by the poison gas. You haven't time to cast another spell.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Run for it back down the stairs", 146));
+        Choices.push_back(Choice::Base("Make a dash for the JEWEL OF SUNSET FIRE", 164));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
 auto prologue = Prologue();
 auto story001 = Story001();
 auto story002 = Story002();
@@ -2065,6 +2271,16 @@ auto story066 = Story066();
 auto story067 = Story067();
 auto story068 = Story068();
 auto story069 = Story069();
+auto story070 = Story070();
+auto story071 = Story071();
+auto story072 = Story072();
+auto story073 = Story073();
+auto story074 = Story074();
+auto story075 = Story075();
+auto story076 = Story076();
+auto story077 = Story077();
+auto story078 = Story078();
+auto story079 = Story079();
 
 void InitializeStories()
 {
@@ -2075,7 +2291,8 @@ void InitializeStories()
         &story030, &story031, &story032, &story033, &story034, &story035, &story036, &story037, &story038, &story039,
         &story040, &story041, &story042, &story043, &story044, &story045, &story046, &story047, &story048, &story049,
         &story050, &story051, &story052, &story053, &story054, &story055, &story056, &story057, &story058, &story059,
-        &story060, &story061, &story062, &story063, &story064, &story065, &story066, &story067, &story068, &story069};
+        &story060, &story061, &story062, &story063, &story064, &story065, &story066, &story067, &story068, &story069,
+        &story070, &story071, &story072, &story073, &story074, &story075, &story076, &story077, &story078, &story079};
 }
 
 #endif

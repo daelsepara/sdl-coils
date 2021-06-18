@@ -12,7 +12,8 @@ namespace Codeword
         SATORI,
         VENEFIX,
         IMPASSE,
-        COOL
+        COOL,
+        SUNSET
     };
 
     std::map<Codeword::Type, const char *> Descriptions = {
@@ -20,7 +21,8 @@ namespace Codeword
         {Codeword::Type::SATORI, "Satori"},
         {Codeword::Type::VENEFIX, "Venefix"},
         {Codeword::Type::IMPASSE, "Impasse"},
-        {Codeword::Type::COOL, "Cool"}};
+        {Codeword::Type::COOL, "Cool"},
+        {Codeword::Type::SUNSET, "Sunset"}};
 
     std::vector<Codeword::Type> Invisible = {};
 
