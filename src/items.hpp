@@ -18,8 +18,9 @@ namespace Item
         ELFIN_BOOTS,
         CENSER_OF_FRAGRANT_INCENSE,
         JEWEL_OF_SUNSET_FIRE,
+        KNIFE,
         First = MAGIC_WAND,
-        Last = CENSER_OF_FRAGRANT_INCENSE
+        Last = KNIFE
     };
 
     class Base
@@ -63,6 +64,7 @@ namespace Item
     auto ELFIN_BOOTS = Item::Base("ELFIN BOOTS", "ELFIN BOOTS", Item::Type::ELFIN_BOOTS);
     auto CENSER_OF_FRAGRANT_INCENSE = Item::Base("CENSER OF FRAGRANT INCENSE", "CENSER OF FRAGRANT INCENSE", Item::Type::CENSER_OF_FRAGRANT_INCENSE);
     auto JEWEL_OF_SUNSET_FIRE = Item::Base("JEWEL OF SUNSET FIRE", "JEWEL OF SUNSET FIRE", Item::Type::JEWEL_OF_SUNSET_FIRE);
+    auto KNIFE = Item::Base("KNIFE", "KNIFE", Item::Type::KNIFE);
 
     std::vector<Item::Type> UniqueItems = {};
 
