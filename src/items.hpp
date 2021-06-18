@@ -19,7 +19,8 @@ namespace Item
         CENSER_OF_FRAGRANT_INCENSE,
         JEWEL_OF_SUNSET_FIRE,
         KNIFE,
-        First = MAGIC_WAND,
+        DIAMOND,
+        First = MAGIC_AMULET,
         Last = KNIFE
     };
 
@@ -65,6 +66,7 @@ namespace Item
     auto CENSER_OF_FRAGRANT_INCENSE = Item::Base("CENSER OF FRAGRANT INCENSE", "CENSER OF FRAGRANT INCENSE", Item::Type::CENSER_OF_FRAGRANT_INCENSE);
     auto JEWEL_OF_SUNSET_FIRE = Item::Base("JEWEL OF SUNSET FIRE", "JEWEL OF SUNSET FIRE", Item::Type::JEWEL_OF_SUNSET_FIRE);
     auto KNIFE = Item::Base("KNIFE", "KNIFE", Item::Type::KNIFE);
+    auto DIAMOND = Item::Base("DIAMOND", "DIAMOND", Item::Type::DIAMOND);
 
     std::vector<Item::Type> UniqueItems = {};
 

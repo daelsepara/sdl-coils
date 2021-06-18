@@ -2805,6 +2805,188 @@ public:
     }
 };
 
+class Story110 : public Story::Base
+{
+public:
+    Story110()
+    {
+        ID = 110;
+
+        Text = "You slip into the great yellowstone library of Brunelesci unseen and take down what is a recent invention: the combined dictionary and bestiary. Crouching beneath a reading bench you are soon immersed in the cursive script. \"Hate, hatred, detestation, abhorrence, abomination, malignity,\" and there are quotes from Senecio, one of the great playwrights of the age. \"Do all men kill the thing they do not love? Hates any man the thing he would not kill?\" and \"The monster that turneth man against his daughter and mother against her firstborn son, servitor of Death and handmaid to Destruction, maker of wars and inspiration of man's blackest deeds.\"\n\nAccording to the scholar who compiled the lexicon and bestiary, \"Hate always shows its true face and so may be bested.\" Unfortunately he does not write how to overcome the monster. There is much written here, it is almost as if he was obsessed, \"In concert with Fear the most terrible of the Trinity of the Dark, Hate feeds on the bodies and souls of those who have given themselves up to the monster's embrace in despair, depravity and degradation.\"\n\nYou are still staring in fascination at the illuminated pages of the manuscript when the door opens and a soft-footed scholar librarian comes into the book-lined room. You have read enough and will learn nothing more here, so you creep out and return to Bumble Row, none the wiser but a little more oppressed of spirit.\n\nYou gained the codeword CODEX.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Character::GET_CODEWORDS(player, {Codeword::Type::CODEX});
+    }
+
+    int Continue(Character::Base &player) { return 160; }
+};
+
+class Story111 : public Story::Base
+{
+public:
+    Story111()
+    {
+        ID = 111;
+
+        Text = "Caiaphas's wife, Ruth, asks, \"Will we have to share our food with this stranger? There is precious little to go round as it is, without our having to feed every down-at-heel ragamuffin who stumbles across our hideout.\"\"Be quiet, woman. We will feed all of our kind.\"\n\nRuth used to be a generous mild-mannered woman who wouldn't hurt a flea. Adversity has certainly hardened her. \"Well spoken, Caiaphas,\" you say. \"Ruth, did you not know this miserable hovel is my home?\"\n\n\"Haven't you heard? We Judain cannot own property. We cannot even walk the streets. We haven't moved from this miserable place for days.\"\n\n\"What, none of you?\" You look to Caiaphas in surprise. \"Has no one ventured out for food or information?\"\n\nCaiaphas shakes his head and looks at the ground.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Ask him how they pass messages", 131));
+        Choices.push_back(Choice::Base("Quit the safety of the cellar to seek out more information and contacts to help the Judain cause", 141));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story112 : public Story::Base
+{
+public:
+    Story112()
+    {
+        ID = 112;
+
+        Text = "Rubbing the green emerald amulet ostentatiously you chant an incantation. A green glow suffuses your face evilly as the amulet lights up magically from within. The youth blenches, he makes a sign invoking the protection of one of the gods of Godorno, Hecasta the patroness of enchanters, and backs away.\n\n\"Judain witch. A plague take you and the pox turn you to dust,\" he mutters.\n\nIf that was his best effort at a curse, you have nothing to fear. He daren't challenge someone as powerful as you.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 201; }
+};
+
+class Story113 : public Story::Base
+{
+public:
+    Story113()
+    {
+        ID = 113;
+
+        Text = "The landlord is ignoring you, cleaning glasses that already sparkle in the sombre red light. The pipesmoker gives you a glance, then turns away. You can hear two women gossiping about the fate of some of their Judain acquaintances. \"It wouldn't do to call them friends in these times -- well, would it, darling?\"\n\nAt the far end of the tavern the tall stranger is staring morosely at his drink, while Lucie watches him fondly.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Tolerate the landlord's rudeness", 158));
+        Choices.push_back(Choice::Base("Force him to serve you", 169));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story114 : public Story::Base
+{
+public:
+    Story114()
+    {
+        ID = 114;
+
+        Text = "Seeking out some of your unsavoury underworld contacts, you manage to get an offer of 900 gleenars for the DIAMOND. You know it is worth much more than that. So does the fence, who says, \"You're lucky I deal with you at all these days. You know the trouble I could get into for talking to a Judain?\"\n\n\"Not as much trouble as if that Judain told the Overlord's men about you handling the Overlord's own DIAMOND,\" you say with an ingenuous smile.\n\nHe curses under his breath, but finally agrees to pay you 1,000 gleenars for the DIAMOND.\n\nOn your way back to join the others, you pass a narrow shop. You recognize it as the shop of Tarkamandor the Sage, where you have occasionally bought interesting items m the past. A lamp is burning in the window. You creep up and peek through the shutters. Tarkamandor is alone, polishing a carved ebony staff at his work bench.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Knock at the door", 318));
+        Choices.push_back(Choice::Base("Get back to Caiaphas and the others", 190));
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Character::GAIN_MONEY(player, 1000);
+
+        Character::LOSE_ITEMS(player, {Item::Type::DIAMOND});
+    }
+};
+
+class Story115 : public Story::Base
+{
+public:
+    Story115()
+    {
+        ID = 115;
+
+        Text = "You jump for the rope and clasp it tight, swinging out above the living carpet of serpents. You swing over one of the box platforms and towards another. The serpents' heads sway in time with you, their jaws wide to reveal dripping black venom.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Let the rope go and jump to the far platform", 87));
+        Choices.push_back(Choice::Base("Content yourself with alighting on the middle platform beneath where the rope hangs from the ceiling", 74));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story116 : public Story::Base
+{
+public:
+    Story116()
+    {
+        ID = 116;
+
+        Text = "The late afternoon sun slants over the close-packed rooftops and through the open doorway of the hovel where you are hiding. You have an inspiration. Lifting your amulet, you tilt it so that the gem reflects the sunbeam out onto the wall on the opposite side of the street. The guards are standing waiting for the dogs to be brought, but one of them catches the flicker of reflected light out of the corner of his eye. He spins, looking along the street away from where you're hiding, and yells, \"Hey! I saw something dart down that alley over there. Come on, lads!\"\n\nWhile they race off chasing sunbeams, you help Ruth to the safety of the Copper Street hideaway. Then you slink back to your own bolthole.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 414; }
+};
+
+class Story117 : public Story::Base
+{
+public:
+    Story117()
+    {
+        ID = 117;
+
+        Text = "You find Melmelo packing his belongings into a cart which is watched closely by his burly bodyguards. He himself carries a heavy treasure chest and loads it onto the cart.\n\n\"Leaving town, Melmelo?\" you ask. He nods. \"Take my advice, Judain. Get out while the going is good.\"\n\nYou give a puff of bitter laughter. \"You call this good? My people are the victims of a slaughter!\"\n\n\"It'll get far worse than this,\" says Melmelo. \"I'm off to Mazarkhand before the Overlord sets his sights on my wealth. Don't try to seek me out again, Judain. You'll find my friends remaining in the city will cover my tracks.\"\n\nAgreeing not to come here again, you walk away. It is tempting to think you might leave the city yourself, but your people need you.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 160; }
+};
+
+class Story118 : public Story::Base
+{
+public:
+    Story118()
+    {
+        ID = 118;
+
+        Text = "Rising quickly onto tiptoe you slip the noose snare from your ankle and somersault backwards. The black blanket, like a vampire's cloak, falls to the floor with a heavy thump. You have escaped the first of the defences of the , Overlord's bedchamber. The black monster flops about feebly then falls still.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Stay here to see what new trick or trap will test you next", 139));
+        Choices.push_back(Choice::Base("Retreat back into the catacombs", 161));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story119 : public Story::Base
+{
+public:
+    Story119()
+    {
+        ID = 119;
+
+        Text = "From your knowledge of mythology you remember that the Jade Warriors were set to guard the tombs of the Megiddo dynasty. Legend has it that one of the swords is the key to controlling the warriors. If you can get that sword you may be able to command them to do your bidding, perhaps even lead against the Overlord or the monster itself.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Look as closely as you can at the flashing haloed blades", 157));
+        Choices.push_back(Choice::Base("Attempt to grab the nearest one from the grip of the Jade Warrior which hefts it", 170));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
 auto prologue = Prologue();
 auto story001 = Story001();
 auto story002 = Story002();
@@ -2915,6 +3097,16 @@ auto story106 = Story106();
 auto story107 = Story107();
 auto story108 = Story108();
 auto story109 = Story109();
+auto story110 = Story110();
+auto story111 = Story111();
+auto story112 = Story112();
+auto story113 = Story113();
+auto story114 = Story114();
+auto story115 = Story115();
+auto story116 = Story116();
+auto story117 = Story117();
+auto story118 = Story118();
+auto story119 = Story119();
 
 void InitializeStories()
 {
@@ -2929,7 +3121,8 @@ void InitializeStories()
         &story070, &story071, &story072, &story073, &story074, &story075, &story076, &story077, &story078, &story079,
         &story080, &story081, &story082, &story083, &story084, &story085, &story086, &story087, &story088, &story089,
         &story090, &story091, &story092, &story093, &story094, &story095, &story096, &story097, &story098, &story099,
-        &story100, &story101, &story102, &story103, &story104, &story105, &story106, &story107, &story108, &story109};
+        &story100, &story101, &story102, &story103, &story104, &story105, &story106, &story107, &story108, &story109,
+        &story110, &story111, &story112, &story113, &story114, &story115, &story116, &story117, &story118, &story119};
 }
 
 #endif
