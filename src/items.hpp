@@ -14,8 +14,12 @@ namespace Item
         JADE_WARRIORS_SWORD,
         PLUMED_HELMET,
         THROWING_KNIVES,
+        HEALING_SALVE,
+        ELFIN_BOOTS,
+        CENSER_OF_FRAGRANT_INCENSE,
+        JEWEL_OF_SUNSET_FIRE,
         First = MAGIC_WAND,
-        Last = THROWING_KNIVES
+        Last = CENSER_OF_FRAGRANT_INCENSE
     };
 
     class Base
@@ -55,6 +59,10 @@ namespace Item
     auto JADE_WARRIORS_SWORD = Item::Base("JADE WARRIOR's SWORD", "JADE WARRIOR's SWORD", Item::Type::JADE_WARRIORS_SWORD);
     auto PLUMED_HELMET = Item::Base("PLUMED HELMET", "PLUMED HELMET", Item::Type::PLUMED_HELMET);
     auto THROWING_KNIVES = Item::Base("THROWING KNIVES", "THROWING KNIVES", Item::Type::THROWING_KNIVES);
+    auto HEALING_SALVE = Item::Base("HEALING SALVE", "HEALING SALVE", Item::Type::HEALING_SALVE);
+    auto ELFIN_BOOTS = Item::Base("ELFIN BOOTS", "ELFIN BOOTS", Item::Type::ELFIN_BOOTS);
+    auto CENSER_OF_FRAGRANT_INCENSE = Item::Base("CENSER OF FRAGRANT INCENSE", "CENSER OF FRAGRANT INCENSE", Item::Type::CENSER_OF_FRAGRANT_INCENSE);
+    auto JEWEL_OF_SUNSET_FIRE = Item::Base("JEWEL OF SUNSET FIRE", "JEWEL OF SUNSET FIRE", Item::Type::JEWEL_OF_SUNSET_FIRE);
 
     std::vector<Item::Type> UniqueItems = {};
 

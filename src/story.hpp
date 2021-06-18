@@ -1598,6 +1598,197 @@ public:
     int Continue(Character::Base &player) { return 160; }
 };
 
+class Story050 : public Story::Base
+{
+public:
+    Story050()
+    {
+        ID = 50;
+
+        Text = "Walking is better than crawling. On a difficult climb you should keep three holds, using your hands and feet, on what you are climbing at all times. If you do this you will succeed in all but the most difficult of climbs. The wind is whipping around you, however, and the baleful wails of the gargoyles seem destined to make you falter and tumble to your death.\n\nIt is slow going and you have to force yourself not to look down, but step by step you edge around to the corner. But what if there is something round there waiting to attack you?";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Decide you cannot manage the tower and return to the ground", 172));
+        Choices.push_back(Choice::Base("Press on", 304));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story051 : public Story::Base
+{
+public:
+    Story051()
+    {
+        ID = 51;
+
+        Text = "Tarkamandor tells you he has decided to quit the city. \"Matters have gone too far,\" he says. \"Each day I fear the guards will come to drag me off to Grond.\"\n\n\"Why should you fear?\" you say with a trace of bitterness. \"You are not Judain.\"\n\nHe gives a snort of ironic laughter. \"Do you think that what has been going on is a simple matter of persecution? It goes deeper than that. The Overlord started his attacks on your people to distract attention from his disastrous policies, reasoning that once the populace had a scapegoat to blame they would be easier to control.\"\n\n\"That strategy has worked well, them\"\n\n\"Now it is out of control! Hate is rife in the city. It extends its influence like a cancer. Today it is you Judain who are marched off to the prison. Tomorrow it may he the aged, or the infirm, or those who dare to speak out against the Overlord. That's why I'm leaving.\" He takes a few more steps, the wheels of his cart sloshing through the rut of mire in the middle of the street, then pauses and looks back. \"As long as I'm going, I suppose I ought to sell some of my stock. Are you interested?\"\n\nHe has a HEALING SALVE which can be used once at any time except when in combat; it will RESTORE ALL LOST Life Points. Another item on the cart is a pair of ELFIN BOOTS which grant their wearer one use of the AGILITY skill and must then be discarded. Tarkamandor also offers you a CENSER OF FRAGRANT INCENSE which he swears is blessed by the temple, a SWORD, a set of THROWING KNIVES, and a MAGIC WAND.";
+
+        Bye = "Bidding Tarkamandor farewell, you set off to the meeting.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::SHOP;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Shop = {{Item::HEALING_SALVE, 80}, {Item::ELFIN_BOOTS, 100}, {Item::CENSER_OF_FRAGRANT_INCENSE, 100}, {Item::SWORD, 10}, {Item::THROWING_KNIVES, 15}, {Item::MAGIC_WAND, 60}};
+    }
+
+    int Continue(Character::Base &player) { return 94; }
+};
+
+class Story052 : public Story::Base
+{
+public:
+    std::string PreText = "";
+
+    Story052()
+    {
+        ID = 52;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        PreText = "You advance quickly on Skakshi, getting in close to match your sword against his club. As you lunge forward, the haft of the club catches you a painful blow on the shoulder and you feel the spikes tear your jerkin and bite into the flesh beneath.\n\nYou LOSE 3 Life Points.";
+
+        Character::GAIN_LIFE(player, -3);
+
+        if (player.Life > 0)
+        {
+            PreText += "\n\nYou send the pommel of your sword crashing into Skakshi's jaw with stunning force. He gives a surprised grunt as his knees fold under him. Before he can rise and continue the battle, you have the point of your sword at his throat. \"Take me to Melmelo,\" you say to him as you get your breath back.\n\nHe looks at your sword uneasily as he slowly gets to his feet. \"I'll take you,\" he says sullenly.";
+        }
+
+        Text = PreText.c_str();
+    }
+
+    int Continue(Character::Base &player) { return 181; }
+};
+
+class Story053 : public Story::Base
+{
+public:
+    Story053()
+    {
+        ID = 53;
+
+        Text = "You walk quickly along towards the main gate, hiding your face from strangers. After a time you realize you are being followed by a gang of young street urchins. You turn off the main thoroughfare and duck and dive down back alleys but these orphans seem to know this quarter of the city by heart. They must have explored every inch in their quest to stay alive.\n\nDeciding to ignore them you return to the main street and toward the twin arches of the main gates. As you approach the campanile, its bell sounds a steady doleful ringing. There is a creak as the gate guards push the heavy gate back. There is no way out here for anyone. You will have to try to slip out of the city another way.\n\nThe walls are high and well patrolled.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Explore the river quay to see if you may escape upriver by stowing away on a barge", 70));
+        Choices.push_back(Choice::Base("Try to bribe the guards", 398));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story054 : public Story::Base
+{
+public:
+    Story054()
+    {
+        ID = 54;
+
+        Text = "You back away out of Hate's reach to recover your breath. The monster strains at the links binding it, but cannot break them. If you have a MAGICAL SALVE with which to heal your wounds, now is the time to use it.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Return to the fray", 5));
+        Choices.push_back(Choice::Base("Use the JEWEL OF SUNSET FIRE", 349, {Item::JEWEL_OF_SUNSET_FIRE}));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story055 : public Story::Base
+{
+public:
+    Story055()
+    {
+        ID = 55;
+
+        Text = "You walk on, unconcerned, until you see the people ahead of you leaving their work in the fields and returning hurriedly to their farmhouses. Looking back down the road you see the dust cloud is caused by a large group of horsemen clad in the Overlord's livery of purple and black. They have seen you and are calling to you to stop.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Do as they say", 101));
+        Choices.push_back(Choice::Base("Hide in one of the farmhouses", 125));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story056 : public Story::Base
+{
+public:
+    Story056()
+    {
+        ID = 56;
+
+        Text = "Your sword rasps from its sheath. The youth starts to retreat, throwing his knife away and yelling at the top of his voice: \"Help, murder! A Judain tried to kill me! Help me!\"\n\nBefore you can sheathe your SWORD the shutters in the houses overlooking the street are flung open and the cry is taken up. A group of cobblers come advancing on you wielding their little hammers. Pots and pans rain down on your head from the windows above. A steaming hot sago pudding lands on your head and oozes down underneath your jerkin as you jump nimbly aside to avoid the contents of a chamber pot. You have no choice but to flee before the mob overwhelms you.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 225; }
+};
+
+class Story057 : public Story::Base
+{
+public:
+    Story057()
+    {
+        ID = 57;
+
+        Text = "The dog buries its jaws in your calf and clamps hard like a blacksmith's vice. The pain is terrible and if you struggle the dog may take a chunk out of your leg. There is no time to think of a way out, the blood is soaking your boots. You are calling out your surrender to the dog-handler when he inserts a sharp dagger into your spine and you know no more. Who would have thought a hero such as you could be caught by a dog? There is no one left to save the Judain now.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story058 : public Story::Base
+{
+public:
+    Story058()
+    {
+        ID = 58;
+
+        Text = "You duck and the blade buries itself in the wooden panel behind you, making a sound like a woodpecker as it vibrates there. You follow up quickly, as Skakshi bends to pull a knife from his other boot. You are too quick for him and wrestle him to the ground before he can pull the knife.\n\n\"I will do what you want, Judain sc--\" He chokes back the insult. \"What is it you want of me?\"\n\n\"Take me to Melmelo's hideout; take me to the guildmaster of thieves. I have a proposition to put to him, for his ears only.\"\n\n\"I can do that easily enough. Follow me.\"";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 181; }
+};
+
+class Story059 : public Story::Base
+{
+public:
+    Story059()
+    {
+        ID = 59;
+
+        Text = "You are thoroughly versed in the criminal haunts and goings-on of the city. You make your way along twisting alleys until you stand before an ornamental villa with a hot bubbling fountain in front of it. The grandeur of the house is at odds with the ramshackle district in which it is located. This is the home of Melmelo, head of what is jocularly known as the Thieves' Guild -- a loose alliance of crooks and shady merchants who between them have most crime in the city sewn up.\n\nYou pause before knocking at the door. You have always resisted getting drawn into Melmelo's organization, and he has let it be known that he is not pleased by your disdain for his activities. On the other hand, he is a man who adheres to his own code of honour. You cannot imagine him stooping so low as handing you to the authorities for a reward.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Knock at the door", 12));
+        Choices.push_back(Choice::Base("Retrace your steps, abandoning your plan to consult Melmelo", 214));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
 auto prologue = Prologue();
 auto story001 = Story001();
 auto story002 = Story002();
@@ -1648,6 +1839,16 @@ auto story046 = Story046();
 auto story047 = Story047();
 auto story048 = Story048();
 auto story049 = Story049();
+auto story050 = Story050();
+auto story051 = Story051();
+auto story052 = Story052();
+auto story053 = Story053();
+auto story054 = Story054();
+auto story055 = Story055();
+auto story056 = Story056();
+auto story057 = Story057();
+auto story058 = Story058();
+auto story059 = Story059();
 
 void InitializeStories()
 {
@@ -1656,7 +1857,8 @@ void InitializeStories()
         &story010, &story011, &story012, &story013, &story014, &story015, &story016, &story017, &story018, &story019,
         &story020, &story021, &story022, &story023, &story024, &story025, &story026, &story027, &story028, &story029,
         &story030, &story031, &story032, &story033, &story034, &story035, &story036, &story037, &story038, &story039,
-        &story040, &story041, &story042, &story043, &story044, &story045, &story046, &story047, &story048, &story049};
+        &story040, &story041, &story042, &story043, &story044, &story045, &story046, &story047, &story048, &story049,
+        &story050, &story051, &story052, &story053, &story054, &story055, &story056, &story057, &story058, &story059};
 }
 
 #endif
