@@ -1147,6 +1147,239 @@ public:
     }
 };
 
+class Story030 : public Story::Base
+{
+public:
+    Story030()
+    {
+        ID = 30;
+
+        Image = "images/concubine.png";
+
+        Text = "The Overlord lies beside his concubine, the silk sheets disturbed by his restless tossing and turning. The back of the girl is towards you and her fair pale skin is disfigured by what look like vile purple birthmarks that are weeping a clear yellowish fluid and puckered at the edges. She seems to be sleeping the sleep of the damned. He is breathing stertorously and twitching occasionally, while she is as still as death. The smell of putrefaction is here just as it pervades and penetrates the whole city.\n\nThe richness of the wall-hangings, furniture and pictures, ransacked and taxed from the old nobility, have been placed and hung without taste.\n\nThe Overlord lies there at your mercy. Will you avenge the terrible suffering of your fellow Judain, or carry off the concubine so that you can question her and find out what is happening to the city and its Overlord?";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Get to the bed", 40));
+        Choices.push_back(Choice::Base("You would rather accept discretion as the better part of valour and make a run for it", 161));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story031 : public Story::Base
+{
+public:
+    Story031()
+    {
+        ID = 31;
+
+        Text = "You cling to the axles of a slaver's cart in the mews of Slave Market Plaza and let yourself fall, unnoticed, to the cobbles as it turns a corner. Next you pick your way through a maze of old alleyways, built soon after this part of the city was razed to the ground in the Great Fire of two thousand years ago. You are soon looking at the doors of the Inn of the Inner Temple.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 63; }
+};
+
+class Story032 : public Story::Base
+{
+public:
+    Story032()
+    {
+        ID = 32;
+
+        Text = "You have made the right choice. Skakshi cannot get past your guard as your BLADE cuts through the air. He is becoming increasingly desperate. \"Impossible ...\" he gasps, face twisted into a look of fury. \"You must be cheating -- using some Judain sorcery to aid you!\"\n\nYou are about to step up the tempo of your attack when he throws down the club and tries to make a run for the door.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Cut him down", 36));
+        Choices.push_back(Choice::Base("Let him escape", 43));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story033 : public Story::Base
+{
+public:
+    Story033()
+    {
+        ID = 33;
+
+        Image = "images/filler1.png";
+
+        Text = "You spin on your heel. The fierce look of anger on your face makes the boy step back in fear, but he is used to treating your kind with scorn. He recovers himself.\n\n\"Judain scum, your kind aren't wanted here.\"\n\nHe pulls a tanner's knife from his pocket. It is long, sharp and menacing.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("[SWORDPLAY] Break the law of Godorno by unsheathing your sword here in the street", 56, Skill::Type::SWORDPLAY));
+        Choices.push_back(Choice::Base("Use [UNARMED COMBAT]", 92, Skill::Type::UNARMED_COMBAT));
+        Choices.push_back(Choice::Base("Rely on [STREETWISE]", 99, Skill::Type::STREETWISE));
+        Choices.push_back(Choice::Base("[CHARMS] There is no time to cast a spell, but you have an AMULET", 112, Skill::Type::CHARMS));
+        Choices.push_back(Choice::Base("You had better run", 130));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story034 : public Story::Base
+{
+public:
+    std::string PreText = "";
+
+    Story034()
+    {
+        ID = 34;
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Return to Bumble Row and ponder what to do next", 6));
+        Choices.push_back(Choice::Base("Return to Grond to free more of the guards and prisoners", 311));
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        PreText = "";
+
+        if (Character::VERIFY_CODEWORDS(player, {Codeword::Type::VENEFIX}))
+        {
+            Character::REMOVE_CODEWORD(player, Codeword::Type::VENEFIX);
+        }
+        else
+        {
+            Character::GET_CODEWORDS(player, {Codeword::Type::SATORI});
+
+            PreText = "You gained the codeword SATORI.\n\n";
+        }
+
+        PreText += "As soon as they are outside the gates of Grond, the freed guards flee. They are leaving the city taking only what they can grab as they run. This is the most sensible option and a very tempting one for you.";
+
+        Text = PreText.c_str();
+    }
+};
+
+class Story035 : public Story::Base
+{
+public:
+    Story035()
+    {
+        ID = 35;
+
+        Text = "The cloud of dust is coming closer and when it is no more than a quarter of a mile away you begin to make out the figures of several horsemen. They are moving at a fast trot, faster than merchants or most other travellers. They could be brigands.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Flee back towards the city of Godorno, hoping to elude them until nightfall", 44));
+        Choices.push_back(Choice::Base("Stand your ground, greet them, and offer to throw in your lot with them", 64));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story036 : public Story::Base
+{
+public:
+    std::string PreText = "";
+
+    Story036()
+    {
+        ID = 36;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Character::GET_CODEWORDS(player, {Codeword::Type::IMPASSE});
+
+        PreText = "You gained the codeword IMPASSE.\n\nYou cut Skakshi down in a welter of blood, wipe your BLADE on a barcloth, and replace it in its scabbard before looking round you once more.\n\nAll is quiet in the Inn of the Inner Temple. No one will meet your eye. They stare at Skakshi's corpse, shocked at the sudden violence you have done to one of their comrades. You don't expect any trouble from them after that demonstration. Nor will you make many friends here. You feel Skakshi's pockets, quickly finding a concealed flap in which you discover a set of THROWING KNIVES.\n\nYou look up from the body. One man gives you a narrow glare and spits on the floor. You won't make any friends here so you decide to go back to your· lair on Bumble Row.\n\nIn your heart you know that you did not have to kill Skakshi. Perhaps you are beginning to succumb to the general hysteria and hatred that seems to be infetting most others in the city?";
+
+        Take = {Item::THROWING_KNIVES};
+
+        Limit = 1;
+
+        if (Character::VERIFY_CODEWORDS(player, {Codeword::Type::SATORI}))
+        {
+            Character::REMOVE_CODEWORD(player, Codeword::Type::SATORI);
+        }
+        else
+        {
+            Character::GET_CODEWORDS(player, {Codeword::Type::VENEFIX});
+
+            PreText += "\n\nYou gained the codeword VENFIX.";
+        }
+
+        Text = PreText.c_str();
+    }
+
+    int Continue(Character::Base &player) { return 214; }
+};
+
+class Story037 : public Story::Base
+{
+public:
+    Story037()
+    {
+        ID = 37;
+
+        Image = "images/filler2.png";
+
+        Text = "You know from expenence that the dust cloud is raised by a group of riders riding at a canter. They will overtake you within half an hour.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Hide in one of the farms until they pass", 69));
+        Choices.push_back(Choice::Base("Choose a place to ambush them in case they are the Overlord's men", 82));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story038 : public Story::Base
+{
+public:
+    Story038()
+    {
+        ID = 38;
+
+        Text = "People turn to stare as you run past and then take up the hue and cry as they are engulfed by the mob that pursues you. You run on, your lungs beginning to hurt. They are not closing but you don't know how much longer you can keep going like this. Every time you see a likely place to hide t~ere seems to be someone else there. You turn a corner and run on in the direction of the main gate where the trade road enters the city. Behind you can hear the sound of hoofs on the cobbles. A squadron of the Overlord's cavalry is giving chase. Ahead there is a drinking house, outside is a HORSE tethered to a post.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Steal the HORSE", 237));
+        Choices.push_back(Choice::Base("Hide in the drinking house", 255));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story039 : public Story::Base
+{
+public:
+    Story039()
+    {
+        ID = 39;
+
+        Text = "You are not scared of a mere dog. You walk out from hiding nonchalantly enough but the dog is at you in a trice.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player)
+    {
+        if (Character::VERIFY_ITEMS(player, {Item::Type::SWORD}))
+        {
+            return 68;
+        }
+        else
+        {
+            return 57;
+        }
+    }
+};
+
 auto prologue = Prologue();
 auto story001 = Story001();
 auto story002 = Story002();
@@ -1177,13 +1410,24 @@ auto story026 = Story026();
 auto story027 = Story027();
 auto story028 = Story028();
 auto story029 = Story029();
+auto story030 = Story030();
+auto story031 = Story031();
+auto story032 = Story032();
+auto story033 = Story033();
+auto story034 = Story034();
+auto story035 = Story035();
+auto story036 = Story036();
+auto story037 = Story037();
+auto story038 = Story038();
+auto story039 = Story039();
 
 void InitializeStories()
 {
     Stories = {
         &prologue, &story001, &story002, &story003, &story004, &story005, &story006, &story007, &story008, &story009,
         &story010, &story011, &story012, &story013, &story014, &story015, &story016, &story017, &story018, &story019,
-        &story020, &story021, &story022, &story023, &story024, &story025, &story026, &story027, &story028, &story029};
+        &story020, &story021, &story022, &story023, &story024, &story025, &story026, &story027, &story028, &story029,
+        &story030, &story031, &story032, &story033, &story034, &story035, &story036, &story037, &story038, &story039};
 }
 
 #endif
