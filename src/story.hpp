@@ -1380,6 +1380,224 @@ public:
     }
 };
 
+class Story040 : public Story::Base
+{
+public:
+    Story040()
+    {
+        ID = 40;
+
+        Text = "As you pad quietly towards the Overlord;s bed the candles flicker in a gust of wind. Far off you can hear the baying of his hunting dogs in their kennels. Farther off still the wind carries the moans and screams of the unfortunates in Grond.\n\nThe Overlord's bed is set on a rich ruby-red carpet with intricate patterns of gold and silver thread woven into it. There are signs and sigils, perhaps magical wards.";
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Choices.clear();
+
+        if (!Character::VERIFY_SKILL(player, Skill::Type::CHARMS))
+        {
+            Choices.push_back(Choice::Base("Walk quietly across the carpet to the concubine's side", 24));
+            Choices.push_back(Choice::Base("Jump straight onto the bed so your feet don't touch the carpet", 98));
+        }
+    }
+
+    int Continue(Character::Base &player) { return 135; }
+};
+
+class Story041 : public Story::Base
+{
+public:
+    Story041()
+    {
+        ID = 41;
+
+        Text = "You pass a troubled night in your lair and wake listening to the chittering of the rats that flourish as the city becomes a slum. You feel better for the rest and wake refreshed.\n\nYou RECOVER 2 Life Points.\n\nYou wash in cold water and plan what to do on this grey morning. There is only one course of action left to you. You will have to attack Hate itself and vanquish it utterly if you are to save your people.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Character::GAIN_LIFE(player, 2);
+    }
+
+    int Continue(Character::Base &player) { return 272; }
+};
+
+class Story042 : public Story::Base
+{
+public:
+    Story042()
+    {
+        ID = 42;
+
+        Text = "There is a whoof as a thick cloud of smoke explodes around you. You grope your way through the smoke towards the Jade Warriors. One of them looms towards you, the light gleaming dully now off its facets and its sword is working mechanically. You recoil in fright but it lumbers past you making elaborate passes in the air, as if engaged in a display of an ancient style of swordplay. The others are also lurching about at random. The smoke seems to have scrambled their senses. Each is cutting and thrusting at the air around it but they seem oblivious of you.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player)
+    {
+        if (Character::VERIFY_SKILL(player, Skill::Type::FOLKLORE))
+        {
+            return 119;
+        }
+        else
+        {
+            return 133;
+        }
+    }
+};
+
+class Story043 : public Story::Base
+{
+public:
+    Story043()
+    {
+        ID = 43;
+
+        Text = "Skakshi slams the door as he goes and the other drinkers follow without so much as a glance in your direction. They do not dare to share the drinking hall of the Inn of the Inner Temple with you. You have made no friends here and you won't get a meeting with Melmelo now. He will hear everything that has happened here and he is not an easy man to find and get to talk to.\n\nThe landlord stoops to pick up the spiked club which still has congealed blood sticking to it from the last time it was used and puts it back behind the bar.\n\nYou gained the codeword COOL.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Character::GET_CODEWORDS(player, {Codeword::Type::COOL});
+    }
+
+    int Continue(Character::Base &player) { return 214; }
+};
+
+class Story044 : public Story::Base
+{
+public:
+    Story044()
+    {
+        ID = 44;
+
+        Image = "images/filler3.png";
+
+        Text = "Your steady run keeps you out of their clutches but you are already in sight of the city of Godorno once more. They seem intent on chasing you back as far as the city walls. Perhaps they mean to sneak into the city to rob the cityfolk, but they will not find it easy to pass through the city gates.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Change your mind about fleeing and offer to throw your lot in with them", 64));
+        Choices.push_back(Choice::Base("Keep running and hide in the city once more", 76));
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        if (Character::VERIFY_SKILL(player, Skill::Type::AGILITY))
+        {
+            Choices[1].Destination = 188;
+        }
+        else
+        {
+            Choices[1].Destination = 76;
+        }
+    }
+};
+
+class Story045 : public Story::Base
+{
+public:
+    Story045()
+    {
+        ID = 45;
+
+        Text = "You also manage to free two hundred of the grateful guards who cannot believe their luck. They wipe themselves off along the walls. Most of them look as if they are in shock. They shouldn't give you too much trouble. You are more likely to face trouble from the Judain you have set free. They can see their tormenters among them and they want to take their revenge. \"Now die, dogs, die slowly and in pain!\" they cry. \"Let us see how you like to be put to the torture. Kill them! Heat the irons and warm their vitals.\" The Judain are near hys~erical and they begin to slaughter the guards out of hand, while others try to drag some of them back to the torture chambers. The guards are petrified.\n\nWill you stop the slaughter by killing one of your fellow Judain? In the heat of the moment there is no time for finesse, and your people are behaving no better than savage beasts who have lost all control.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Stop the slaughter", 269));
+        Choices.push_back(Choice::Base("Let your people take their natural revenge", 348));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story046 : public Story::Base
+{
+public:
+    Story046()
+    {
+        ID = 46;
+
+        Image = "images/caiaphas.png";
+
+        Text = "You tap on the door, then kneel and place your ear to the planking to hear what goes on beneath. You can hear men whispering. They must fear you are one of the Overlord's men. You call out quietly your name, and that you are Judain. At last you persuade them to open the trap door. Down in the cellar are three families hiding from the Overlord's butchers. There is a big man whom you recognize as Caiaphas, the rabbi at the synagogue before it was torn down. He carries a rusty old spear which he casts aside as soon as he sees you.\n\n\"Caiaphas, old friend,\" you say in greeting. \"What has come to pass here? Why do all our people cower below ground like rats?\"\n\nCaiaphas looks sombre and one of the women starts to cry as he tells the story in a rumbling basso voice which would be most impressive were he not cowering in a damp cellar.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 71; }
+};
+
+class Story047 : public Story::Base
+{
+public:
+    Story047()
+    {
+        ID = 47;
+
+        Image = "images/filler2.png";
+
+        Text = "You never retire for the night without first casting a charm to watch over you while you sleep, keeping you safe from thieves and nocturnal predators. In the small hours, a high ringing chime resounds through your dreams, bringing you instantly awake. You look around. You can see nothing in the darkness. Eventually the feeling of danger passes and you drift off back to sleep.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 330; }
+};
+
+class Story048 : public Story::Base
+{
+public:
+    Story048()
+    {
+        ID = 48;
+
+        Text = "The youth is not content to leave it there. He means to draw blood. He closes stealthily and is about to stab you. His shadow falls across you before the blow is struck.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Use [STREETWISE]", 99, Skill::Type::STREETWISE));
+        Choices.push_back(Choice::Base("Use [UNARMED COMBAT]", 92, Skill::Type::UNARMED_COMBAT));
+        Choices.push_back(Choice::Base("There is no time to draw a SWORD or use SORCERY: you must run for it", 130));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story049 : public Story::Base
+{
+public:
+    Story049()
+    {
+        ID = 49;
+
+        Text = "You find the librarian outside the building, staring at a glimmering pile of ashes. As you go closer, you see that someone has piled up the books of the library and torched them. The librarian falls to his knees, overcome with distress. \"They burned my books!\" he groans, tears running into his beard. \n\n\"Who did? And why?\" you ask.\n\n\"The Overlord's men. They said that knowledge was the enemy oflaw and order. They claimed that lies had been written in the books by Judain authors. Oh, such a waste ... !\"\n\nThere is no chance now of finding more about Hate from the writings of ancient scholars; you may not visit the library again should you be given the option. You wonder if the Overlord has truly gone mad.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 160; }
+};
+
 auto prologue = Prologue();
 auto story001 = Story001();
 auto story002 = Story002();
@@ -1420,6 +1638,16 @@ auto story036 = Story036();
 auto story037 = Story037();
 auto story038 = Story038();
 auto story039 = Story039();
+auto story040 = Story040();
+auto story041 = Story041();
+auto story042 = Story042();
+auto story043 = Story043();
+auto story044 = Story044();
+auto story045 = Story045();
+auto story046 = Story046();
+auto story047 = Story047();
+auto story048 = Story048();
+auto story049 = Story049();
 
 void InitializeStories()
 {
@@ -1427,7 +1655,8 @@ void InitializeStories()
         &prologue, &story001, &story002, &story003, &story004, &story005, &story006, &story007, &story008, &story009,
         &story010, &story011, &story012, &story013, &story014, &story015, &story016, &story017, &story018, &story019,
         &story020, &story021, &story022, &story023, &story024, &story025, &story026, &story027, &story028, &story029,
-        &story030, &story031, &story032, &story033, &story034, &story035, &story036, &story037, &story038, &story039};
+        &story030, &story031, &story032, &story033, &story034, &story035, &story036, &story037, &story038, &story039,
+        &story040, &story041, &story042, &story043, &story044, &story045, &story046, &story047, &story048, &story049};
 }
 
 #endif
