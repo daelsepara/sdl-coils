@@ -1789,6 +1789,212 @@ public:
     }
 };
 
+class Story060 : public Story::Base
+{
+public:
+    Story060()
+    {
+        ID = 60;
+
+        Text = "You sprint for it, little caring that you will crush the poor snakes you tread on. They writhe underfoot and hiss balefully. You are half-way across the room when you slip as one of the serpents rolls under the ball of your foot. You fall face down in a sea of serpentine coils and the envenomed fangs of the snakes are soon piercing your soft flesh and injecting the deadly venom. The poison of the garter snake is virulent indeed and you are soon dead. There is no one left to save the Judain now.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story061 : public Story::Base
+{
+public:
+    std::string PreText = "";
+
+    Story061()
+    {
+        ID = 61;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        PreText = "You fling up the door and jump down into the cellar to find yourself surrounded by several men, one of whomjabs you with a rusty old spear before you can regain your balance.\n\nYou LOSE 3 Life Points.";
+
+        Character::GAIN_LIFE(player, -3);
+
+        if (player.Life > 0)
+        {
+            PreText += "\n\n\"Wait! A fellow Judain!\" realizes one of them. You recognize the tall imposing figure of Caiaphas, rabbi at the synagogue before it was torn down by the mob.\n\n\"I am,\" you reply with a nod. \"As, I see, are all of you.\"\n\nThere are three Judain families hiding down here from the Overlord's butchers. The rusty old spear is thrown aside as they welcome you with open arms.";
+        }
+
+        Text = PreText.c_str();
+    }
+
+    int Continue(Character::Base &player) { return 71; }
+};
+
+class Story062 : public Story::Base
+{
+public:
+    Story062()
+    {
+        ID = 62;
+
+        Text = "Your sixth sense has not failed you. Your instinct for danger leads you to look up into the canopy of the Overlord's four-poster bed, even as the filigree begins to tighten painfully around your ankle. Above you, what looks like a black blanket floats eerily down from beneath the canopy to engulf you.";
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Choices.clear();
+
+        if (!Character::VERIFY_SKILL(player, Skill::Type::AGILITY))
+        {
+            Choices.push_back(Choice::Base("[SWORDPLAY] Use a SWORD", 84, Skill::Type::SWORDPLAY));
+            Choices.push_back(Choice::Base("Cry for help", 109));
+        }
+    }
+
+    int Continue(Character::Base &player) { return 118; }
+};
+
+class Story063 : public Story::Base
+{
+public:
+    Story063()
+    {
+        ID = 63;
+
+        Text = "The Inn of the Inner Temple has fake columns along its front and amusing and irreverent cartoons of many gods and goddesses painted above its lintel. Inside it is no more than a low seedy hall divided into cubicles. The drinkers all have their backs to you. There is a board near the door to which several notices have been stuck. Some are reward posters, offering money in return for help arresting some of the inn's regulars. They have been defaced and scrawled on. One of the posters offers a reward of ten gleenars for any Judain, dead or alive. You tear it down as you walk past, dropping the crumpled paper into the spittoon beside the bar.\n\nMost of those drinking in the cubicles would happily kill you for even a miserable sum like ten gleenars.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Talk to the people in the nearest cubicle", 197));
+        Choices.push_back(Choice::Base("Leave the inn", 214));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story064 : public Story::Base
+{
+public:
+    Story064()
+    {
+        ID = 64;
+
+        Text = "The brigands accept you into their band and though the life is hard you flourish. Within the year you lead your own band, preying on the rich and overlooking the psychopathic excesses of your men. You are a successful brigand leader, but the Judain perish in Godorno.\n\nThe next time you see the city, it has sunk into the sea leaving only the tops of the fortresses and towers piercing the waves to show where the city that was once the jewel of the east now lies.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story065 : public Story::Base
+{
+public:
+    Story065()
+    {
+        ID = 65;
+
+        Choices.clear();
+
+        Controls = Story::Controls::NONE;
+    }
+
+    int Background(Character::Base &player)
+    {
+        if (Character::VERIFY_CODEWORDS(player, {Codeword::Type::VENEFIX}))
+        {
+            return 335;
+        }
+        else
+        {
+            return 91;
+        }
+    }
+};
+
+class Story066 : public Story::Base
+{
+public:
+    Story066()
+    {
+        ID = 66;
+
+        Text = "You summon up all your concentration and cast the puissant spell as the Jade Warriors lurch menacingly towards you. They are mere cyphers. There is no will within them to conquer. In vain you struggle to tamper with the circuits that set them in motion but it is quite beyond you. You are powerless as the Jade Warriors surround you and their razor-sharp swords slice into your vitals. You are slain and there is no one left to save the poor doomed Judain. Hate will conquer all.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story067 : public Story::Base
+{
+public:
+    Story067()
+    {
+        ID = 67;
+
+        Text = "\"There's a price on your head, Skakshi, my friend. Melmelo wants you dead and he's hired Hammer, the assassin, to take care of you.\"\n\n\"It isn't true!\" he scoffs. \"Why should Melmelo want me dead?\"\n\n\"He is afraid. He fears you seek to supplant him as guildmaster of thieves. He has grown fat and worried on the juicy sinecures of the guild.\"\n\n\"I'm going to find Melmelo and have it out with him once and for all,\" Skakshi snarls at this. He stalks out of the inn. In his high dudgeon he fails to notice you follow him, slinking stealthily through the shadows. Shadowing men is something you have done many times before -- there isn't an urchin of the streets who could lose you in the byways and catacombs of Godorno.\n\nSoon you are following Skakshi up the steps towards Melmelo's town stronghold. He walks past an ornamental steam bath that bubbles away in the garden. Melmelo's villa is built on the site of a thermal spring.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 356; }
+};
+
+class Story068 : public Story::Base
+{
+public:
+    Story068()
+    {
+        ID = 68;
+
+        Text = "A dog, however, is no match for a man with a SWORD -- all you have to do is prod it with the weapon and it goes yelping back to its master with its tail between its legs.\n\nYou look around for Lucie. She is heading towards the Old Quarter, probably to the Silver Eel tavern which is one of her haunts. You know it as a dubious drinking-house whose customers have a dangerous reputation.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Follow Lucie", 261));
+        Choices.push_back(Choice::Base("Return to Bumble Row for the time being and seek her out this afternoon", 371));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story069 : public Story::Base
+{
+public:
+    Story069()
+    {
+        ID = 69;
+
+        Text = "You leave the road and walk across melon beds past a farmhouse safely out of sight of the riders, where a young woman greets you and offers you mash beer, while her father looks on warily. You accept their hospitality. They seem simple honest people. They ask who you are and where you come from. \"You are Judain, are you not? Tell me why are the Judain so proud? And are you all as rich as they say?\"\n\n\"We are proud because we are the chosen ones,\" you explain. \"We have remained together, never marrying outside our kind through the difficulties of our troubled history. I wish we were all rich, but I, I must confess, am almost beggared.\"\n\n\"Why did you leave the road?\" asks the girl.\n\n\"The riders. They carry word to Bagoe that we Judain are outcast. They will put a price upon our heads.\"\n\n\"We will hide you and smuggle you past the town by the back paths.\"\n\nAlthough you are dogged by the Overlord's riders for more than a week, the farmers are as good as their word. They keep you well fed, allowing you to build up your strength for the day you must flee.\n\nYou RECOVER 3 Life Points.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Character::GAIN_LIFE(player, 3);
+    }
+
+    int Continue(Character::Base &player) { return 142; }
+};
+
 auto prologue = Prologue();
 auto story001 = Story001();
 auto story002 = Story002();
@@ -1849,6 +2055,16 @@ auto story056 = Story056();
 auto story057 = Story057();
 auto story058 = Story058();
 auto story059 = Story059();
+auto story060 = Story060();
+auto story061 = Story061();
+auto story062 = Story062();
+auto story063 = Story063();
+auto story064 = Story064();
+auto story065 = Story065();
+auto story066 = Story066();
+auto story067 = Story067();
+auto story068 = Story068();
+auto story069 = Story069();
 
 void InitializeStories()
 {
@@ -1858,7 +2074,8 @@ void InitializeStories()
         &story020, &story021, &story022, &story023, &story024, &story025, &story026, &story027, &story028, &story029,
         &story030, &story031, &story032, &story033, &story034, &story035, &story036, &story037, &story038, &story039,
         &story040, &story041, &story042, &story043, &story044, &story045, &story046, &story047, &story048, &story049,
-        &story050, &story051, &story052, &story053, &story054, &story055, &story056, &story057, &story058, &story059};
+        &story050, &story051, &story052, &story053, &story054, &story055, &story056, &story057, &story058, &story059,
+        &story060, &story061, &story062, &story063, &story064, &story065, &story066, &story067, &story068, &story069};
 }
 
 #endif
