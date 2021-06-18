@@ -9,12 +9,14 @@ namespace Codeword
     {
         NONE = -1,
         HECATOMB,
-        SATORI
+        SATORI,
+        VENEFIX
     };
 
     std::map<Codeword::Type, const char *> Descriptions = {
         {Codeword::Type::HECATOMB, "Hecatomb"},
-        {Codeword::Type::SATORI, "Satori"}};
+        {Codeword::Type::SATORI, "Satori"},
+        {Codeword::Type::VENEFIX, "Venefix"}};
 
     std::vector<Codeword::Type> Invisible = {};
 

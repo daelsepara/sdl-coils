@@ -5470,7 +5470,7 @@ bool mainScreen(SDL_Window *window, SDL_Renderer *renderer, int storyID)
 {
     auto font_size = 20;
 
-    auto *introduction = "Alone in the labyrinthine streets of the ancient city of Godorno, you frantically attempt to save your people -- the Judain -- from their tyrannical ruler, the Overlord. Terrified of being hunted down, the Judain have gone to ground. But now there is an even greater menace: Hate, the very embodiment of all that is sinister, has invaded the city. Its tentacles emerge from the sewers beneath the city, destroying everything. No one is safe. Will you be able to vanquish Hate and prevent the annihilation of your People?";
+    auto *introduction = "Alone in the labyrinthine streets of the ancient city of Godorno, you frantically attempt to save your people -- the Judain -- from their tyrannical ruler, the Overlord. Terrified of being hunted down, the Judain have gone to ground. But now there is an even greater menace: Hate, the very embodiment of all that is sinister, has invaded the city. Its tentacles emerge from the sewers beneath the city, destroying everything. No one is safe. Will you be able to vanquish Hate and prevent the annihilation of your people?";
 
     auto splash = createImage("images/coils-of-hate-cover.png");
 

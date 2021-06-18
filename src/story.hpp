@@ -929,7 +929,6 @@ public:
     int Continue(Character::Base &player) { return 171; }
 };
 
-
 class Story019 : public Story::Base
 {
 public:
@@ -945,6 +944,207 @@ public:
     }
 
     int Continue(Character::Base &player) { return 7; }
+};
+
+class Story020 : public Story::Base
+{
+public:
+    Story020()
+    {
+        ID = 20;
+
+        Text = "You resolve to enter the prison fortress of Grond. Once there, you can free the captured Judain and other political prisoners detained to await the mercy of the Overlord's torturers. But you cannot succeed at such an ambitious mission alone, and you are unwilling to put your fellow Judain at further risk. They are brave enough, but to get inside the prison you will need the help of an expert rogue.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Pay a visit to your mulatto friend, Mameluke, who has been useful to you in the past", 303));
+        Choices.push_back(Choice::Base("Call on the little gamine Lucie", 293));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story021 : public Story::Base
+{
+public:
+    std::string PreText = "";
+
+    Story021()
+    {
+        ID = 21;
+
+        Image = "images/filler2.png";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        PreText = "Your ploy works. The lasso catches Tormil's leg and with the help of some bystanders you are able to drag him free.\n\n\"Why do we help him?\" asks one of the men as he releases the rope. \"The Overlord's men treat us like cattle!\"\n\n\"True, he has earned our hatred,\" you say. \"But now, see, he deserves our pity.\" \n\nTormil weeps over the body of his daughter, past saving in the body of the monster. You creep away while he mourns.";
+
+        if (Character::VERIFY_CODEWORDS(player, {Codeword::Type::VENEFIX}))
+        {
+            Character::REMOVE_CODEWORD(player, Codeword::Type::VENEFIX);
+        }
+        else
+        {
+            Character::GET_CODEWORDS(player, {Codeword::Type::SATORI});
+
+            PreText += "\n\nYou gained the codeword SATORI.";
+        }
+
+        Text = PreText.c_str();
+    }
+
+    int Continue(Character::Base &player) { return 160; }
+};
+
+class Story022 : public Story::Base
+{
+public:
+    Story022()
+    {
+        ID = 22;
+
+        Text = "You realize that the cloud of dust is thrown up from the hoofs of horses being ridden fast. You take cover in the bushes beside the road - a prudent move which conceals you from the brigands who soon go thundering past. Obviously the trouble in Godorno has led to lawlessness in the surrounding countryside. If you venture further you have a good chance of simply being slaughtered for the clothes on your back. On the other hand, if you return to the city you might at least sell your life dearly in the Judain cause.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Strike out into the depths of the forest", 14));
+        Choices.push_back(Choice::Base("Risk returning to the gates of Godorno", 188));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story023 : public Story::Base
+{
+public:
+    Story023()
+    {
+        ID = 23;
+
+        Text = "The wind whistles, causing the miserable wailing of the gargoyles to roll around you as the air streams through the holes in their faces. This is going to be a very dangerous climb.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player)
+    {
+        if (Character::VERIFY_SKILL(player, Skill::Type::AGILITY))
+        {
+            return 50;
+        }
+        else
+        {
+            return 203;
+        }
+    }
+};
+
+class Story024 : public Story::Base
+{
+public:
+    Story024()
+    {
+        ID = 24;
+
+        Text = "You step gingerly onto the carpet and the gold and silver filigree threads seem to bunch and tighten beneath the balls of your feet. The Overlord stops breathing for a moment and you copy him. Then he rolls over and the stertorous noise starts again. In his sleep his hand caresses the girl's flank, but she doesn't wake. You take another step and then struggle to make another, but the wires have snared around your ankle. The slender metal thread is cutting into your skin like a cheesewire. Cursing, you bend to free yourself. It should be easy enough to get free before the wire cuts through your leg.\n\nYour sixth sense alerts you to a louring presence somewhere above, a presence that broods, heavy with hate. You dart a look upwards at the canopy of the Overlord's bed.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 62; }
+};
+
+class Story025 : public Story::Base
+{
+public:
+    Story025()
+    {
+        ID = 25;
+
+        Text = "The guard squeezes your hand fiercely and tries to heave himself out of Hate's soft embrace. You are drawn towards the purple flesh as the guard, driven to feats of great strength by terror, pulls on you for all he is worth. His face is as purple as Hate as he exerts a great effort and you are dragged into the translucent flesh of the monster. You have joined the orgy of despair and the poor guard who dragged you in cannot escape. He is exhausted. You must lie together, like eggs in a basket, as Hate goes on devouring lost souls. There is no one left to save the Judain now. Hate will conquer all.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story026 : public Story::Base
+{
+public:
+    Story026()
+    {
+        ID = 26;
+
+        Text = "You were a fool to return to the Inn of the Inner Temple. Skakshi's friends seize you when you go to the latrines. Your last sight is of the knife protruding from your heart as you die face down in the puddles of urine mingling with your own blood. You have failed to save the city from Hate.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story027 : public Story::Base
+{
+public:
+    Story027()
+    {
+        ID = 27;
+
+        Text = "Lucie gives a sweetmeat to the dog which wolfs it down and then starts to nuzzle the pocket of her dress for more. The dog-handler leers at the pretty young girl.\n\nYou walk out into the street and the dog notices you right away, giving vent to the sighting cry -- a series of short urgent barks which sound like \"Look there, look there, look there.\" The dog-handler sees you and slips the dog off the leash and runs towards you, drawing his SWORD. Lucie sticks out her leg and trips him. He goes sprawling flat on his face in the muddy gutter, his SWORD clattering towards you across the cobbles. The dog stops still with its tail down.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Make a dash for the SWORD", 124));
+        Choices.push_back(Choice::Base("Go to Lucie's help without delay", 75));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story028 : public Story::Base
+{
+public:
+    Story028()
+    {
+        ID = 28;
+
+        Text = "Your senses have been honed razor-keen by your many escapades on the hazy edge of the law. When a thief treads lightly on the steps leading down to your cellar hideout, you are instantly awake and on your feet. A figure stands in the shadows. Snatching up your SWORD, you call for the intruder to stay where he is. His response is to turn and bolt away. You chase him up to the street, but he is already out of sight. Your only impression was of a small build and very quick reflexes. You must be on the look-out for such a person.\n\nYou go back to your lair and spend the rest of the night undisturbed.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 7; }
+};
+
+class Story029 : public Story::Base
+{
+public:
+    Story029()
+    {
+        ID = 29;
+
+        Text = "After a perilous exploration to find the best way up, you mount the tower. Your fingers clutch into the cracks between the massive stone blocks, and you use the ivy to help you climb. Your gasps of breath are drowned by the whistle and roar of the wind as it claws at the jutting masonry so far from the ground.\n\nAt last, a hundred feet up, you reach a set of steps winding round the outside of the tower. There is no balustrade and the steps are no more than a foot wide, winding in a spiral up the outside of the tower. There is nothing at all to hold on to.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Try to walk up the steps", 50));
+        Choices.push_back(Choice::Base("Crawl up the steps", 23));
+        Choices.push_back(Choice::Base("Give up and leave the tower", 172));
+
+        Controls = Story::Controls::STANDARD;
+    }
 };
 
 auto prologue = Prologue();
@@ -967,12 +1167,23 @@ auto story016 = Story016();
 auto story017 = Story017();
 auto story018 = Story018();
 auto story019 = Story019();
+auto story020 = Story020();
+auto story021 = Story021();
+auto story022 = Story022();
+auto story023 = Story023();
+auto story024 = Story024();
+auto story025 = Story025();
+auto story026 = Story026();
+auto story027 = Story027();
+auto story028 = Story028();
+auto story029 = Story029();
 
 void InitializeStories()
 {
     Stories = {
         &prologue, &story001, &story002, &story003, &story004, &story005, &story006, &story007, &story008, &story009,
-        &story010, &story011, &story012, &story013, &story014, &story015, &story016, &story017, &story018, &story019};
+        &story010, &story011, &story012, &story013, &story014, &story015, &story016, &story017, &story018, &story019,
+        &story020, &story021, &story022, &story023, &story024, &story025, &story026, &story027, &story028, &story029};
 }
 
 #endif
