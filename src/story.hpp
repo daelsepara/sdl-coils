@@ -2565,6 +2565,246 @@ public:
     int Continue(Character::Base &player) { return 201; }
 };
 
+class Story100 : public Story::Base
+{
+public:
+    Story100()
+    {
+        ID = 100;
+
+        Text = "Decide what to do next.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Seek out Melmelo, the master of theGuild of Thieves", 153));
+        Choices.push_back(Choice::Base("Visit the library to look for more information about Hate", 110));
+        Choices.push_back(Choice::Base("Organize the defence of the city", 174));
+        Choices.push_back(Choice::Base("Go to confront Hate itself", 272));
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        if (Character::VERIFY_CODEWORDS(player, {Codeword::Type::SUNSET}))
+        {
+            Choices[0].Destination = 117;
+        }
+        else if (Character::VERIFY_CODEWORDS(player, {Codeword::Type::IMPASSE}))
+        {
+            Choices[0].Destination = 26;
+        }
+        else if (Character::VERIFY_CODEWORDS(player, {Codeword::Type::COOL}))
+        {
+            Choices[0].Destination = 334;
+        }
+        else
+        {
+            Choices[0].Destination = 153;
+        }
+
+        if (Character::VERIFY_CODEWORDS(player, {Codeword::Type::CODEX}))
+        {
+            Choices[1].Destination = 49;
+        }
+        else
+        {
+            Choices[1].Destination = 110;
+        }
+    }
+};
+
+class Story101 : public Story::Base
+{
+public:
+    Story101()
+    {
+        ID = 101;
+
+        Text = "\"Your money or your life,\" comes the age-old cry from the leader. The horsemen are brigands, disguised as the Overlord's men!";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Surrender everything you have to them", 8));
+        Choices.push_back(Choice::Base("Ask to join their merry band and live the next chapter of your life as a brigand", 64));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story102 : public Story::Base
+{
+public:
+    Story102()
+    {
+        ID = 102;
+
+        Text = "You speak the word of power and disappear, but the Jade Warriors must be sensing you by some other means than sight. Skulking in the shadows will not avail you here. They lurch menacingly towards you. You have no time to cast a spell and are powerless as the Jade Warriors surround you and slice into your vitals with their razor-sharp swords. You are slain. There is no one left now to save the Judain. Hate will subdue all.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story103 : public Story::Base
+{
+public:
+    Story103()
+    {
+        ID = 103;
+
+        Text = "You try to duck the tentacle but it crashes down, smashing you like an avalanche crushing you into the midst of a mound of rubble that was once the Bargello, the strongest building in the city. The monster carries all before it. Soon you are all partners in the eternal orgy of despair. The city crumbles and is lost for ever beneath the waves. Hate has completed its work.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story104 : public Story::Base
+{
+public:
+    Story104()
+    {
+        ID = 104;
+
+        Text = "You conjure a cloud of smoke which engulfs you and all those nearby. The crowd and the soldiers fall back. The smoke makes them cough and their eyes smart, but it doesn't affect you. You then cast a spell of Disguise and those who can still see pay no attention to a bent old woman coughing and rubbing her eyes, who staggers out of the smoke and shuffies away from the plaza. Still looking like an old woman you run nimbly away from the plaza, ducking under a milk cart as you feel the spell start to wear off. Then, looking like yourself again, you go on. You hide your face from strangers as far as possible but the people of Godorno are mad for the blood of the Judain and you soon attract suspicion once more.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 38; }
+};
+
+class Story105 : public Story::Base
+{
+public:
+    Story105()
+    {
+        ID = 105;
+
+        Text = "It looks like there is no back exit from this building, but you recall seeing a trap door in the alley running behind it. Dragging the frightened Ruth behind you, you descend to the cellar. Sure enough, there is a ramp for delivery of wine barrels. You make your escape, emerging in the alley at the back of the house while the soldiers are bursting in the front way.\n\nRuth cannot thank you enough. \"My baby will be born, thanks to you,\" she sobs as you lead her back to Copper Street.\n\n\"I hope to save many others,\" you tell her. \"All our people, in fact.\" Once she is safe with Caiaphas, you return to your own bolthole.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 414; }
+};
+
+class Story106 : public Story::Base
+{
+public:
+    std::string PreText = "";
+
+    Story106()
+    {
+        ID = 106;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        PreText = "The Overlord's men are tipped off by a mysterious informer. You are ambushed on your way to the meeting and have to fight to get away. As you run, a crossbow quarrel buries itself in your shoulder.\n\n";
+
+        if (Character::VERIFY_SKILL(player, Skill::Type::CHARMS))
+        {
+            PreText += "[CHARMS] Your magic gives you some protection. ";
+        }
+        else
+        {
+            Character::GAIN_LIFE(player, -3);
+
+            PreText += "You LOSE 3 Life Points.";
+        }
+
+        if (player.Life > 0)
+        {
+            PreText += "\n\nYou return to Copper Street to hear the terrible news. Many other Judain were also captured and are now swinging dead in gibbets beside the Avenue of Skulls. \"There is no trust in the hell-pit this city has become,\" groans Caiaphas, himself bleeding from a deep gash across his forehead. He barely escaped from the meeting alive.\n\n\"From now on, secrecy shall be our watchword,\" you agree. You find yourself a hideout on Medallion Street. Only a few hand-picked comrades know where to find you. You are determined not to let the Overlord's men set another trap for you.";
+        }
+
+        Text = PreText.c_str();
+    }
+
+    int Continue(Character::Base &player) { return 414; }
+};
+
+class Story107 : public Story::Base
+{
+public:
+    Story107()
+    {
+        ID = 107;
+
+        Image = "images/ruby-light.png";
+
+        Text = "The jewel sparkles in the rays of the setting sun and then kindles into a blinding aura. There is a flaring sound and a beam of ruby light strikes Hate between the eyes like a mace blow. The monster squirms and writhes, desperate to free itself from the chains that have bitten deep and scored its soft purple flesh, but it cannot yet break free. With a last great spasm it starts to rip the chains away from their anchorage in the plaza and prepares to fall upon the parapet and smash you and the Bargello into the water.\n\nThe chains are pulling apart. A link snaps with a sound like a pot of Greek fire exploding and plumes of water turn to steam in the ruby beam. The sun is about to slip from the heavens and dusk is upon you. If Hate is not destroyed before nightfall you have no hope.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player)
+    {
+        if (Character::VERIFY_CODEWORDS(player, {Codeword::Type::SATORI}))
+        {
+            return 401;
+        }
+        else if (Character::VERIFY_CODEWORDS(player, {Codeword::Type::HECATOMB}))
+        {
+            return 77;
+        }
+        else
+        {
+            return 364;
+        }
+    }
+};
+
+class Story108 : public Story::Base
+{
+public:
+    Story108()
+    {
+        ID = 108;
+
+        Text = "You duck too late. In your last moment you see the dagger arcing through the air, its blade glinting in the light of the lanterns as it flies unerringly towards your neck. You fall to the floor, impaled, andSkakshi gloats.\n\n\"What a shame I can't claim the extra reward forbringing in a live Judain for the torture,\" he chucklesto himself, satisfied his standing amongst his villainous peers is all the higher for having despatched you with contemptuous ease. There is no one left to save the Judain now. Hate will subdue all.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story109 : public Story::Base
+{
+public:
+    Story109()
+    {
+        ID = 109;
+
+        Text = "Disturbed by your noise, the Overlord yawns, rubs sleep out of his eyes and looks about him. As he sees you his eyes widen with fear and.he reaches furtively beneath his pillow. He pulls out a small blowpipe and puffs out a tiny dart which bites into your neck like a hornet sting. It is tipped with curare, a very painful death. There is no one left now to save the Judain. Hate will subdue all.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
 auto prologue = Prologue();
 auto story001 = Story001();
 auto story002 = Story002();
@@ -2665,6 +2905,16 @@ auto story096 = Story096();
 auto story097 = Story097();
 auto story098 = Story098();
 auto story099 = Story099();
+auto story100 = Story100();
+auto story101 = Story101();
+auto story102 = Story102();
+auto story103 = Story103();
+auto story104 = Story104();
+auto story105 = Story105();
+auto story106 = Story106();
+auto story107 = Story107();
+auto story108 = Story108();
+auto story109 = Story109();
 
 void InitializeStories()
 {
@@ -2678,7 +2928,8 @@ void InitializeStories()
         &story060, &story061, &story062, &story063, &story064, &story065, &story066, &story067, &story068, &story069,
         &story070, &story071, &story072, &story073, &story074, &story075, &story076, &story077, &story078, &story079,
         &story080, &story081, &story082, &story083, &story084, &story085, &story086, &story087, &story088, &story089,
-        &story090, &story091, &story092, &story093, &story094, &story095, &story096, &story097, &story098, &story099};
+        &story090, &story091, &story092, &story093, &story094, &story095, &story096, &story097, &story098, &story099,
+        &story100, &story101, &story102, &story103, &story104, &story105, &story106, &story107, &story108, &story109};
 }
 
 #endif
