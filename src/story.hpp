@@ -2987,6 +2987,26 @@ public:
     }
 };
 
+class Story120 : public Story::Base
+{
+public:
+    Story120()
+    {
+        ID = 120;
+
+        Image = "images/quay.png";
+
+        Text = "You are no expert on the ways of bargees, who are looked down upon by real seamen. You do know, however, that the tide is due to rise strongly this evening and that the bargees like to do the hard work of poling their barges upstream on a rising tide at dusk when it is no longer unbearably hot.\n\nThere are three barges at the quay. The first is a big barge which is little more than a wide raft. It has a huge pile of lime for cargo. The second has just been unloaded, an ordinary grain barge; you can see rats scavenging the dropped grains of corn. The third is a smaller barge with a shallow draught which is loaded with barrels under a tarpaulin. These shallower barges are used on the small tributary, the Palayal river, which descends from the great forest to the north. This looks the most likely barge to leave on the tide.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Hide under the tarpaulin on the small barge", 183));
+        Choices.push_back(Choice::Base("Hide in the lime on the raft barge", 152));
+        Choices.push_back(Choice::Base("Join the rats on the grain barge", 166));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
 auto prologue = Prologue();
 auto story001 = Story001();
 auto story002 = Story002();
@@ -3107,6 +3127,7 @@ auto story116 = Story116();
 auto story117 = Story117();
 auto story118 = Story118();
 auto story119 = Story119();
+auto story120 = Story120();
 
 void InitializeStories()
 {
@@ -3122,7 +3143,8 @@ void InitializeStories()
         &story080, &story081, &story082, &story083, &story084, &story085, &story086, &story087, &story088, &story089,
         &story090, &story091, &story092, &story093, &story094, &story095, &story096, &story097, &story098, &story099,
         &story100, &story101, &story102, &story103, &story104, &story105, &story106, &story107, &story108, &story109,
-        &story110, &story111, &story112, &story113, &story114, &story115, &story116, &story117, &story118, &story119};
+        &story110, &story111, &story112, &story113, &story114, &story115, &story116, &story117, &story118, &story119,
+        &story120};
 }
 
 #endif
