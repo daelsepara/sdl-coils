@@ -2538,7 +2538,7 @@ public:
     {
         ID = 98;
 
-        Text = "It is a difficylt leap but you just make it, launching yourself high in the air from a short run up. You land beside the girl and the bodies on the bed rock as the bedsprings bounce. The Overlord twitches again but does not awaken, while the girl lies inert, her back still towards you. You carry the concubine off for questioning.";
+        Text = "It is a difficult leap but you just make it, launching yourself high in the air from a short run up. You land beside the girl and the bodies on the bed rock as the bedsprings bounce. The Overlord twitches again but does not awaken, while the girl lies inert, her back still towards you. You carry the concubine off for questioning.";
 
         Choices.clear();
 
@@ -3188,6 +3188,235 @@ public:
     }
 };
 
+class Story130 : public Story::Base
+{
+public:
+    std::string PreText = "";
+
+    Story130()
+    {
+        ID = 130;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        PreText = "The youth is quick and he moves to stab you in the back as you flee.";
+
+        if (Character::VERIFY_SKILL(player, Skill::Type::AGILITY))
+        {
+            PreText += "\n\n[AGILITY] You are faster and soon leave him behind.";
+        }
+        else
+        {
+            PreText += "\n\nYou feel a sharp cold pain as the blade bites into sinew and muscle and rasps against your shoulder blade.\n\nYou LOSE 1 Life Point as blood stains your clothes dark red.";
+
+            Character::GAIN_LIFE(player, -1);
+
+            if (player.Life > 0)
+            {
+                PreText += "\n\nYou are lucky it was not a killing blow. This guttersnipe is good with his knife. \"I thought you Judain had black blood,\" he sneers as he lets you go.";
+            }
+        }
+
+        Text = PreText.c_str();
+    }
+
+    int Continue(Character::Base &player) { return 201; }
+};
+
+class Story131 : public Story::Base
+{
+public:
+    Story131()
+    {
+        ID = 131;
+
+        Text = "The Judain have long had a system for moving gold around the city unseen. They now carry messages in the same way, using dives and back streets, safe houses, and, sometimes, even the catacombs. You can contact all the Judain through them, but their morale is low. So many of their kith and kin have been carried off to Grond.\n\n\"Do not despair. Are we not a proud people?\" you say. \"We have many advantages. First, the Overlord fears us, or why else would he turn his guards against us? Second, we know the secret ways bentath the city and we can already, pass messages without fear of interception. Third, we have a leader now: me.\" Caiaphas protests, \"But what can we do? We are not armed. Each of us has already lost a loved one, swinging in an iron cage. We will all stiffer the same fate if we come out of hiding.\"\n\n\"Then we will stay hidden, strike only at night, always in a different part of the city. Let us strike fear into the hearts of the good burghers of Godorno. Let no one say the Judain are cowards.\"\n\n\"And we have money, stashed in the vaults under the warehouses in The Crescent Canal Avenue.\" \n\n\"How much?\"\n\n\"A talent. The weight of a man in gold.\" This is unlooked-for good news. The cunning Judain can do much with their money. Men can be bought as easily in the godforsaken city of Godorno as anywhere.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Suggest holding a meeting in one of the old warehouses on Crescent Avenue", 106));
+        Choices.push_back(Choice::Base("Give the word to stay hidden but organize into cells of five people each with a different target", 175));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story132 : public Story::Base
+{
+public:
+    Story132()
+    {
+        ID = 132;
+
+        Text = "\"You want to ask Skakshi,\" says one of the four men.\n\n\"Where is he to be found?\"\n\nThey laugh mockingly at this. \"In the Inn of the Inner Temple, of course -- when he's not out jewelling, that is!\"\n\nYou will get no more out of them.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Order a drink from the bar", 113));
+        Choices.push_back(Choice::Base("Join Lucie and the tall stranger", 227));
+        Choices.push_back(Choice::Base("Leave", 199));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story133 : public Story::Base
+{
+public:
+    Story133()
+    {
+        ID = 133;
+
+        Text = "Each of the Jade Warriors has a vivid plume of feathers adorning his helmet. One is azure, another black, the third is viridian and the fourth old gold. You decide to try to take one of their SWORDs, but which one will you take?";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Take that of the of the azure-plumed warrior", 182));
+        Choices.push_back(Choice::Base("... the viridian warrior", 123));
+        Choices.push_back(Choice::Base("... the black-plumed warrior", 11));
+        Choices.push_back(Choice::Base("... the warrior decked in old gold", 129));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story134 : public Story::Base
+{
+public:
+    Story134()
+    {
+        ID = 134;
+
+        Text = "Which barge will you stow away on? The first is a big barge which is little more than a wide raft. It has a huge pile of lime for cargo.\n\nThe second has just been unloaded; it is an ordinary grain barge, and you can see rats scavenging the dropped grains of corn.\n\nThe third is a smaller barge with a shallow draught. It is loaded with barrels under a tarpaulin.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Choose the first barge", 152));
+        Choices.push_back(Choice::Base("Board the second barge", 166));
+        Choices.push_back(Choice::Base("Board the third barge", 183));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story135 : public Story::Base
+{
+public:
+    std::string PreText = "";
+
+    Story135()
+    {
+        ID = 135;
+
+        Image = "images/filler1.png";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Jump onto the bed without stepping on the carpet", 140));
+        Choices.push_back(Choice::Base("Look about to find where the danger lurks", 62));
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        PreText = "You grasp the AMULET but it burns you. You must be in mortal peril for the stone to burn so fiercely. As it is your hand is scorched.\n\nYou LOSE 1 Life Point.";
+
+        Character::GAIN_LIFE(player, -1);
+
+        if (player.Life > 0)
+        {
+            PreText += "\n\nThe odour of your own charred flesh is added to the pervading stench of corruption and decay that has settled over the city like a shroud. You have dropped the PENDANT and it is smouldering on the carpet, melting the filigree. It is too hot to pick up.";
+
+            Character::LOSE_ITEMS(player, {Item::Type::MAGIC_AMULET});
+
+            if (Character::VERIFY_SKILL(player, Skill::Type::AGILITY))
+            {
+                Choices[0].Destination = 98;
+            }
+            else
+            {
+                Choices[0].Destination = 140;
+            }
+        }
+
+        Text = PreText.c_str();
+    }
+};
+
+class Story136 : public Story::Base
+{
+public:
+    Story136()
+    {
+        ID = 136;
+
+        Text = "With a word of power and a clap of your hands you bring forth a great fog of noxious gas. Mameluke succumbs immediately; when the fog clears you can see he has sunk completely under the purple shimmering translucent surface of the monster. Hate doesn't seem to have suffered any ill effects from the spell, though its body convulses as it throws out a purple coil to envelop you. You turn tail and flee back to Bumble Row as quickly as you can, mourning the loss of a brave dear friend.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 159; }
+};
+
+class Story137 : public Story::Base
+{
+public:
+    Story137()
+    {
+        ID = 137;
+
+        Text = "Hate sends another barrage of baneful magic against you, but you walk forth without fear. The sky above turns from indigo to the deep grey of night. The monster looms ahead of you like a great crag in the darkness of the street. You begin to recite to yourself: \"Yea, though I walk in the valley of the shadow of death, I will fear no evil ...\"\n\nA tentacle lashes out with the force of a steel cable, only to recoil in a hissing. Hate gives vent to a bellow of pain. It cannot abide to touch you, for your soul carries none of the taint on which it thrives.\n\nYou advance until you are right in front of the monster. Its maw gapes like a great cavern from which the fetid gusts of its breath waft dreadfully.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Step into Hate's maw", 400));
+        Choices.push_back(Choice::Base("Look around for a weapon to use against it", 295));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story138 : public Story::Base
+{
+public:
+    Story138()
+    {
+        ID = 138;
+
+        Text = "The KNIVES are perfect for the job. You send them end over end in quick succession into the bloated gasbag of a body which is punctured. Black ichor sprays all over the room and the spider hunches up against the ceiling to die. The KNIVES from are now out of reach high in the dead spider's web.\n\nYou step up to the frame and hold the JEWEL aloft in both hands. The room is suffused with a glow of power. At last you have a weapon with which to combat Hate. Now all you have to do is bring it safely down from the tower.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Character::LOSE_ITEMS(player, {Item::Type::THROWING_KNIVES});
+    }
+
+    int Continue(Character::Base &player) { return 308; }
+};
+
+class Story139 : public Story::Base
+{
+public:
+    Story139()
+    {
+        ID = 139;
+
+        Text = "It is no trick or trap which faces you now but the tramping feet of the Overlord's personal bodyguard which alert you to danger. It sounds as if a troop of twenty men or so is approaching down one of the corridors. You can hear barked orders, they know there is an intruder.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Stand your ground", 350));
+        Choices.push_back(Choice::Base("Retreat into the catacombs", 161));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
 auto prologue = Prologue();
 auto story001 = Story001();
 auto story002 = Story002();
@@ -3318,6 +3547,16 @@ auto story126 = Story126();
 auto story127 = Story127();
 auto story128 = Story128();
 auto story129 = Story129();
+auto story130 = Story130();
+auto story131 = Story131();
+auto story132 = Story132();
+auto story133 = Story133();
+auto story134 = Story134();
+auto story135 = Story135();
+auto story136 = Story136();
+auto story137 = Story137();
+auto story138 = Story138();
+auto story139 = Story139();
 
 void InitializeStories()
 {
@@ -3334,7 +3573,8 @@ void InitializeStories()
         &story090, &story091, &story092, &story093, &story094, &story095, &story096, &story097, &story098, &story099,
         &story100, &story101, &story102, &story103, &story104, &story105, &story106, &story107, &story108, &story109,
         &story110, &story111, &story112, &story113, &story114, &story115, &story116, &story117, &story118, &story119,
-        &story120, &story121, &story122, &story123, &story124, &story125, &story126, &story127, &story128, &story129};
+        &story120, &story121, &story122, &story123, &story124, &story125, &story126, &story127, &story128, &story129,
+        &story130, &story131, &story132, &story133, &story134, &story135, &story136, &story137, &story138, &story139};
 }
 
 #endif
