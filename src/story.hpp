@@ -3007,6 +3007,187 @@ public:
     }
 };
 
+class Story121 : public Story::Base
+{
+public:
+    std::string PreText = "";
+
+    Story121()
+    {
+        ID = 121;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        PreText = "You grow steadily weaker on the meagre diet of scraps.\n\nYou LOSE 2 Life Points.";
+
+        Character::GAIN_LIFE(player, -2);
+
+        if (player.Life > 0)
+        {
+            PreText += "\n\nSince it is too dangerous to risk lighting a fire, some of the others suggest catching rats and salting strips of their flesh to eat when the rations run out. The thought is as revolting to you as it is to Caiaphas the rabbi.\n\n\"Is it our destiny to spend our last days like ravening beasts?\" he asks. \"No! We are the Chosen People -- let us go forth and die gloriously against the Overlord's men.\"\n\nHe snatches up his spear and climbs the steps to the trap door, but then you call out something that stops him in his tracks, and he and the other Judain all turn to look at you in a new light.\n\n\"Die gloriously?\" you say. \"Why do that, when we can win?\"\n\nFor the first time in days, there is a look of hope in their eyes. They wait to hear your plan. You must not let them down.";
+        }
+
+        Text = PreText.c_str();
+    }
+
+    int Continue(Character::Base &player) { return 131; }
+};
+
+class Story122 : public Story::Base
+{
+public:
+    Story122()
+    {
+        ID = 122;
+
+        Text = "The casting of the Rulership spell was most inadvisable. You are attacking the mind of a being that has already overcome and subdued those minds and bodies of millions before you. Do you think they were all feeble-minded dolts eager to share Hate's embrace? Hate's mind is like a god's, incomprehensible and unfathomably powerful. With a great cry of joy you throw wide your arms and plunge into the hot purple softness of Hate, to join the eternal orgy of despair. There is no one left to save the Judain now. Hate will conquer all.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story123 : public Story::Base
+{
+public:
+    Story123()
+    {
+        ID = 123;
+
+        Image = "images/filler2.png";
+
+        Text = "You steal up behind one of the Jade Warriors and throw yourself against its sword arm, wrenching the blade from its grasp.\n\n\"Obey me, Jade Warriors of the Megiddo dynasty!\" you cry on impulse.\n\nTheir only response is to whirr and swivel towards you and advance with swords aloft. There seems no escape from their deadly flashing blades, and you cry out in agony as your stolen sword is dashed from your grip and you are cut to the bone.\n\nYou LOSE 4 Life Points.";
+
+        Bye = "You flee from the tomb chamber.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Character::GAIN_LIFE(player, -4);
+    }
+
+    int Continue(Character::Base &player) { return 16; }
+};
+
+class Story124 : public Story::Base
+{
+public:
+    Story124()
+    {
+        ID = 124;
+
+        Text = "You dart across the street and snatch up the SWORD before the dog-handler can stop you. The dog starts to run forward, but you prod it with the point of the SWORD and it goes skulking back to its master with its tail between its legs.\n\nYou look round for Lucie. She is heading towards the Old Quarter, probably to the Silver Eel tavern which is one of her haunts. You know it as a dubious drinking-house whose customers have a dangerous reputation.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Follow Lucie now", 261));
+        Choices.push_back(Choice::Base("Return to Bumble Row for the time being and seek her out this afternoon", 371));
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Character::GET_ITEMS(player, {Item::SWORD});
+    }
+};
+
+class Story125 : public Story::Base
+{
+public:
+    Story125()
+    {
+        ID = 125;
+
+        Text = "You reach the safety of one of the buildings just as the horsemen reach the first farmstead and begin torching it. There are nearly thirty of them, cruel looking men and well armed -- clearly they are brigands who have donned the uniforms of the Overlord's men.\n\nThe peasants have fled to the hills; those who were too slow to make off with their most treasured possessions have to plead for their lives.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("[SPELLS] Rely on your magic and make yourself invisible", 18, Skill::Type::SPELLS));
+        Choices.push_back(Choice::Base("Throw in your lot with them, hoping they will let you join their band", 64));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story126 : public Story::Base
+{
+public:
+    Story126()
+    {
+        ID = 126;
+
+        Text = "You grab Ruth by the shoulder and pull her into the cess-pit at the back of the empty house. The smell is revolting, and you nearly throw up when you have to push your face down into the rancid ordure. The guards conduct a search of the vicinity and one of them pokes his head through the open doorway, but it does not occur to him that anyone could bring themselves to take cover where you have done. Indeed, the very art of concealment is to hide where your enemy does not think to look!\n\nWhen they have gone, you help Ruth out into the street. \"We look like two escaped lunatics,\" she wails, wiping the greasy muck off her face.\n\n\"It's nothing that a few pails of water won't cure,\" you assure her. \"I can't say we'd be as easy to set right after a spell in the prison.\" Bidding her good-day, you return to your hideout.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 414; }
+};
+
+class Story127 : public Story::Base
+{
+public:
+    Story127()
+    {
+        ID = 127;
+
+        Text = "Bracing yourself, you crouch with both hands holding your sword aloft. The monster wraps itself around the sword point, constricts and pierces itself. There is no blood but with one mighty rip you cleave the thing in twain. It flops on the floor, twitching slightly, then falls still. Only sorcery can create a beast without any lifeblood in it.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Stay here to see what new trick or trap will test you next", 139));
+        Choices.push_back(Choice::Base("Retreat back into the catacombs", 161));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story128 : public Story::Base
+{
+public:
+    Story128()
+    {
+        ID = 128;
+
+        Text = "You have no difficulty, even in these troubled times, finding a foreign merchant who will give you 600 gleenars for the diamond. You know it is worth much more than that, but the merchant shows you the gold in a sack. \"Others could promise more,\" he points out, \"but you might wait for ever to get your hands on the gold. I offer an immediate exchange.\"";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Accept the deal (GET 600 dinars)", 190, Choice::Type::GAIN_MONEY, 600));
+        Choices.push_back(Choice::Base("Refuse the deal", 190));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story129 : public Story::Base
+{
+public:
+    Story129()
+    {
+        ID = 129;
+
+        Text = "The gold plume sways as the Jade Warrior swivels its head to observe you closely, brandishing its sword as it does so. It clicks and whirrs ominously as it advances to do battle. You steal up behind the Jade Warrior and throw yourself against its sword arm, wrenching the blade from its grasp.\n\nThe other warriors close in around you and though you defend yourself ably with the Jade Warrior's sword you are no match for three magical bodyguards of the Megiddo dynasty vaults. You are slain and there is no one left who can save the Judain. Hate will conquer all.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
 auto prologue = Prologue();
 auto story001 = Story001();
 auto story002 = Story002();
@@ -3128,6 +3309,15 @@ auto story117 = Story117();
 auto story118 = Story118();
 auto story119 = Story119();
 auto story120 = Story120();
+auto story121 = Story121();
+auto story122 = Story122();
+auto story123 = Story123();
+auto story124 = Story124();
+auto story125 = Story125();
+auto story126 = Story126();
+auto story127 = Story127();
+auto story128 = Story128();
+auto story129 = Story129();
 
 void InitializeStories()
 {
@@ -3144,7 +3334,7 @@ void InitializeStories()
         &story090, &story091, &story092, &story093, &story094, &story095, &story096, &story097, &story098, &story099,
         &story100, &story101, &story102, &story103, &story104, &story105, &story106, &story107, &story108, &story109,
         &story110, &story111, &story112, &story113, &story114, &story115, &story116, &story117, &story118, &story119,
-        &story120};
+        &story120, &story121, &story122, &story123, &story124, &story125, &story126, &story127, &story128, &story129};
 }
 
 #endif
