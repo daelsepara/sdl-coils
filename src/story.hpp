@@ -4273,6 +4273,243 @@ public:
     int Continue(Character::Base &player) { return 209; }
 };
 
+class Story180 : public Story::Base
+{
+public:
+    Story180()
+    {
+        ID = 180;
+
+        Text = "Various cabbalistic signs like ancient cave paintings have been daubed on the outside of the topmost door in terracotta and charcoal. If your hopes are not disappointed the JEWEL OF SUNSET FIRE lies inside this topmost room.\n\nAt the top of the staircase is a series of frescoes showing the tower and depicting the grisly fates that befall those who rashly try to climb it. To your absolute horror and consternation the final fresco is a picture of you, squashed fiat beneath a gigantic bloated black spider. Above the spider you can see the orb shining brightly in its frame.\n\nYou walk on up a narrower spiral of stairs that lines the outer wall and at last pause before the final door. Gingerly you push it open, wincing at the creak of its rusty hinges. There is a brooding presence of evil here. Your heart hammers in your chest as you step forward.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 150; }
+};
+
+class Story181 : public Story::Base
+{
+public:
+    Story181()
+    {
+        ID = 181;
+
+        Text = "You think to relieve Skakshi of any weapons lest he attempt to double-cross you. Although he protests he has no more, a quick frisk of his clothing reveals a set of THROWING KNIVES. You look grimly at him, but he gives a weak smile, and says: \"I like to keep something up my sleeve for contingencies -- you'd do the same.\"";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Take = {Item::THROWING_KNIVES};
+
+        Limit = 1;
+    }
+
+    int Continue(Character::Base &player) { return 291; }
+};
+
+class Story182 : public Story::Base
+{
+public:
+    Story182()
+    {
+        ID = 182;
+
+        Text = "You steal up behind one of the Jade Warriors and throw yourself against its sword arm, wrenching the blade from its armoured grasp.\n\n\"Obey me, Jade Warriors of the Megiddo dynasty!\" you cry on impulse, but their only response is to advance on you with swords aloft. There seems no escape from their deadly flashing blades, and you cry out in agony as your stolen sword is dashed from your grip and you are cut to the bone.\n\nYou LOSE 4 Life Points.";
+
+        Bye = "You flee from the tomb chamber.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Character::GAIN_LIFE(player, -4);
+    }
+
+    int Continue(Character::Base &player) { return 16; }
+};
+
+class Story183 : public Story::Base
+{
+public:
+    Story183()
+    {
+        ID = 183;
+
+        Text = "An hour before dusk the members of the crew return from whichever wine cellar they have been squandering their money in and prepare to cast off. They look over their cargo briefly but do not notice you huddled under a pile of ropes. They sing as they pole the barge, a sombre song with a pounding beat about how a man may toil his whole life away and at the end have nothing to show for it but the clothes he will die in.\n\nYou guess from the movements of the barge it has turned up the Palayal river. You are being borne towards the Great Forest. You guess they are making for the town of Bagoe twenty miles upriver. You lie still, listening to the lapping of water at the bows and feeling the rhythmic surge as the crew drives the barge on, poling in time. After three hours of dirges the crew tie up for the rest of the night against the deserted riverbank. While they snore you leap from barge to shore and walk inland to the Bagoe road.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 222; }
+};
+
+class Story184 : public Story::Base
+{
+public:
+    std::string PreText = "";
+
+    Story184()
+    {
+        ID = 184;
+
+        Bye = "The reek of camphor and honeysuckle makes your head reel. Staggering under Hate's onslaught, you look up to see the largest of its tentacles smashing down towards you.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        PreText = "You fight a pitched battle (ace to face with Hate, your blade hacking great quivering chunks out of its loathsome warty mass. The people of the city peer timidly from the cracked facades of their houses, astonished to see such bravery from a single lone Judain. Hate screams and lashes out at you, raining rubble down on your head in its frenzy to stop the punishing blows you are inflicting.\n\n";
+
+        auto DAMAGE = -8;
+
+        if (Character::VERIFY_SKILL(player, Skill::Type::CHARMS))
+        {
+            DAMAGE = -5;
+
+            PreText += "[CHARMS] Blind luck protects you. ";
+        }
+
+        Character::GAIN_LIFE(player, DAMAGE);
+
+        PreText += "You LOSE " + std::to_string(-DAMAGE) + " Life Points.";
+
+        Text = PreText.c_str();
+    }
+
+    int Continue(Character::Base &player)
+    {
+        if (Character::VERIFY_CODEWORDS(player, {Codeword::Type::GORDIAN}))
+        {
+            return 54;
+        }
+        else
+        {
+            return 103;
+        }
+    }
+};
+
+class Story185 : public Story::Base
+{
+public:
+    Story185()
+    {
+        ID = 185;
+
+        Text = "You are turning the corner into Hanging Gardens -- once one of the wonders of the world, now a tumbledown jungle of rubble and festooned plants rioting over the houses -- when your face starts to itch unpleasantly. You are only half-way to Mameluke's garret and the broad-shouldered black man is striding on ahead, confidently. The pink mucus of Hate is infesting you. Mameluke looks at you with concern as your eyes become vacant and you are assailed by numbing dreams in which you walk open-armed into the embrace of Hate, to join in the orgy of despair. Mameluke is tugging at your arm and pulling you along the road towards Chink Street where his poor garret perches atop a building like a landlocked lighthouse. The cry of the city guard nearby urges Mameluke to greater efforts as the doleful dirge of 'Bring out your dead, bring out your dead,' tolls mournfully from the nearby Courtyard of Idle Fancies.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Send Mameluke on alone", 211));
+        Choices.push_back(Choice::Base("Try to keep up with him as the guards approach", 221));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story186 : public Story::Base
+{
+public:
+    Story186()
+    {
+        ID = 186;
+
+        Text = "How will you attack the giant spider that lurks so menacingly above? The fresco outside the door warned you only too clearly of your fate should you falter or fail.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("[SPELLS] Conjure a gas cloud", 79, Skill::Type::SPELLS));
+        Choices.push_back(Choice::Base("[SPELLS] Conjure a flash of stunning force", 73, Skill::Type::SPELLS));
+        Choices.push_back(Choice::Base("[SPELLS] Conjure multiple illusory images to confuse your foe", 208, Skill::Type::SPELLS));
+        Choices.push_back(Choice::Base("Throw a set of THROWNING KNIVES", 138, {Item::THROWING_KNIVES}));
+        Choices.push_back(Choice::Base("Throw the JADE WARRIOR's SWORD", 234, {Item::JADE_WARRIORS_SWORD}));
+        Choices.push_back(Choice::Base("Make a dash into the room, beneath the gigantic spider, and make a grab for the JEWEL", 164));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story187 : public Story::Base
+{
+public:
+    Story187()
+    {
+        ID = 187;
+
+        Text = "You are forced to confront Hate without a weapon or strategy. You have only your own qualities as a hero to help you in this battle.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player)
+    {
+        if (Character::VERIFY_CODEWORDS(player, {Codeword::Type::SATORI}))
+        {
+            return 137;
+        }
+        else
+        {
+            return 295;
+        }
+    }
+};
+
+class Story188 : public Story::Base
+{
+public:
+    Story188()
+    {
+        ID = 188;
+
+        Text = "The gate is manned by grim-looking sentries in the uniform of the Overlord's city watch. There are four of them, sitting two and two on benches set into the wall of the gatehouse that spans the road between the two gates. The outer gate opens outward into the countryside and the inner gate opens inwards into the city. Each man has a sword and a crossbow, though their bows look a little rusty with lack of use. They are slovenly soldiers, doubtless very corrupt.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("[SPELLS] Go invisible", 207, Skill::Type::SPELLS));
+        Choices.push_back(Choice::Base("[SPELLS] Control their minds with magic", 218, Skill::Type::SPELLS));
+        Choices.push_back(Choice::Base("[STREETWISE] Bluff your way through", 229, Skill::Type::STREETWISE));
+        Choices.push_back(Choice::Base("Try bribing them", 191));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story189 : public Story::Base
+{
+public:
+    Story189()
+    {
+        ID = 189;
+
+        Text = "Placing a money pouch on the bar, you ask, \"Tell me about Lucie. Does she frequent the Silver Eel often? And who is her companion?\"\n\nThe landlord pockets the money pouch after first weighing it carefully in his hand. He glances nervously at the gang of four and says, \"Yes, she haunts this place often. She's never alone. I see some of them again and again but she has a lot of friends, does little Lucie. She's a ornery girl that one. Knows her own mind and no mistake. Forever taking up with the most disreputable mountebanks and desperadoes. Always twists 'em round her little finger, mind.\"\n\n\"And what about her friend?\"\n\n\"That's Tyutchev, a foreigner. See how pale he is? Doesn't it make you feel ill just to look a.t him? He usually comes in with his doxy, Cassandra -- or is it he is her pretty boy? She's a terrible proud and beautiful woman, wearing gear like a Fury from the Abyss. At any rate, they had a terrible fight in here last week. I never saw a woman wield a sword with such skill and venom. It glowed cold blue, and where it struck the bar I found crystals of ice.\"\n\n\"Who won the fight?\" you ask, incredulous.\n\n\"They were both bleeding badly. It was a terrible battle. But they went out together. I do declare I've never had the misfortune to serve two less pleasant and outright perilous characters.\"\n\n\"What do they all want with Lucie?\" you wonder aloud.\n\nHe cracks a rancid-toothed smile. \"What does any man want with Lucie?\"\n\nYou thank the landlord for his information and, leaving the alepot on the bar, walk over to the couple, who are watching you intently. Lucie smiles as she did when you met her in the street.\n\nYou LOST 3 gleenars.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Character::GAIN_MONEY(player, -3);
+    }
+
+    int Continue(Character::Base &player) { return 227; }
+};
+
 auto prologue = Prologue();
 auto story001 = Story001();
 auto story002 = Story002();
@@ -4453,6 +4690,16 @@ auto story176 = Story176();
 auto story177 = Story177();
 auto story178 = Story178();
 auto story179 = Story179();
+auto story180 = Story180();
+auto story181 = Story181();
+auto story182 = Story182();
+auto story183 = Story183();
+auto story184 = Story184();
+auto story185 = Story185();
+auto story186 = Story186();
+auto story187 = Story187();
+auto story188 = Story188();
+auto story189 = Story189();
 
 void InitializeStories()
 {
@@ -4474,7 +4721,8 @@ void InitializeStories()
         &story140, &story141, &story142, &story143, &story144, &story145, &story146, &story147, &story148, &story149,
         &story150, &story151, &story152, &story153, &story154, &story155, &story156, &story157, &story158, &story159,
         &story160, &story161, &story162, &story163, &story164, &story165, &story166, &story167, &story168, &story169,
-        &story170, &story171, &story172, &story173, &story174, &story175, &story176, &story177, &story178, &story179};
+        &story170, &story171, &story172, &story173, &story174, &story175, &story176, &story177, &story178, &story179,
+        &story180, &story181, &story182, &story183, &story184, &story185, &story186, &story187, &story188, &story189};
 }
 
 #endif
