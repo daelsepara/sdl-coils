@@ -4063,6 +4063,216 @@ public:
     }
 };
 
+class Story170 : public Story::Base
+{
+public:
+    Story170()
+    {
+        ID = 170;
+
+        Text = "You steal up behind one of the Jade Warriors and throw yourself against its sword arm, wrenching the blade from its jade grasp.\n\n\"Obey me, Jade Warriors of the Megiddo dynasty!\" you cry on impulse.\n\nTheir only response is to swivel towards you and advance with swords aloft. There seems no escape from their deadly flashing blades, and you cry out in agony as your stolen sword is dashed from yo ur grip and you are cut to the bone.\n\nYou LOSE 4 Life Points.";
+
+        Bye = "You flee from the tomb chamber.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Character::GAIN_LIFE(player, -4);
+    }
+
+    int Continue(Character::Base &player) { return 16; }
+};
+
+class Story171 : public Story::Base
+{
+public:
+    Story171()
+    {
+        ID = 171;
+
+        Text = "The return journey takes no longer than the outward trek and you are soon faced with the battlemented towers and guarded walls of Godorno, city of the Forsaken. Carrion crows, habitually solitary scavengers, wheel in great flocks above the city and the wind carries the dismal cries of the unfortunates being tortured in the prison fortress of Grond to your unwilling ears.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Stow away aboard a barge on the Palayal river and re-enter the city that way", 155));
+        Choices.push_back(Choice::Base("Present yourself at the gate and bluff your way through", 188));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story172 : public Story::Base
+{
+public:
+    Story172()
+    {
+        ID = 172;
+
+        Text = "At least this way you live to fight another day. You reach the bottom of the tower again safely and as you walk back out onto the path to the street the great bronze doors swing shut with a sound like the knell of doom. You try the gates but they are sealed shut. You needn't worry -- Melmelo, the guildmaster of thieves, probably just wanted to get his own hands on the jewel. He can go to the trouble of finding it for himself. You slink back to Bumble Row.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 160; }
+};
+
+class Story173 : public Story::Base
+{
+public:
+    Story173()
+    {
+        ID = 173;
+
+        Text = "With a word of power and a clap of your hands you bring forth a great cloud of noxious vapours, the Miasma. Several of the guards succumb immediately, sinking beneath the glassy purple surface for the last time. The spell doesn't seem to have affected the monster but it convulses suddenly, throwing a dripping purple coil out at you. You decide it is time to flee back to your lair on Bumble Row.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 159; }
+};
+
+class Story174 : public Story::Base
+{
+public:
+    Story174()
+    {
+        ID = 174;
+
+        Text = "Exploiting the rekindled morale of the Judain resistance and the other townsfolk who are rallying to your banner, you make your plans for the defence of the city. If you construct barricades in certain sectors of the city you can challenge the Overlord's authority. If his men cannot capture the barricades all will know that the writing is on the wall; it will only be a matter of time before you are storming the palace.\n\nThe barricade is composed of flagstones and carts, doors stripped from nearby deserted houses, and even pews from the nearest temple. The carts have been laden with mud. Even an elephant could not break through. The blockage is ten feet high and in places a parapet has been built on the defender's side from which potshots can be taken at the Overlord's city guards as they advance. You have archers in the windows and on the roofs of the houses on either side of the barricade. Morale is high; the stories of your exploits have placed you high in the esteem of your people.\n\nBut you have not chosen the sites for your barricades well. The Overlord's guards are quick to exploit your mistake. They pour a rain of crossbow quarrels from the roof into the brave defenders, slaughtering many, before charging the barricade. The ensuing battle is a slaughter. The guards have roused themselves to one last great effort to reclaim the streets of the city and they are putting the brave defenders to the sword. You decide discretion is the better part of valour and retreat to Bumble Row.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 41; }
+};
+
+class Story175 : public Story::Base
+{
+public:
+    Story175()
+    {
+        ID = 175;
+
+        Text = "You muse on the good fortune of finding your fellows so well provided for. \"A talent, more than I could have hoped for in my wildest dreams. With a talent of gold we can buy all the help we need.\"\n\n\"Ah, but taking gold from Judain is a capital offence, punishable by impalement.\"\n\n\"Even talking to a Judain is a capital offence, unless you are interrogating one.\"\n\n\"Are we not the Judain? Have we not the merchant's silver tongue? We have never wanted for those to do our bidding in the past.\"\n\n\"In the past the people were not in the grip of fear. Where once they thought of lining their pockets they now count themselves lucky if they can line their stomachs and stay out of trouble.\"";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 190; }
+};
+
+class Story176 : public Story::Base
+{
+public:
+    std::string PreText = "";
+
+    Story176()
+    {
+        ID = 176;
+
+        Bye = "You conduct a quick search of the upper rooms and leave as soon as you have the DIAMOND.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        PreText = "You must silence the soldier quickly, before his cries bring the neighbours. But even as you race up the stairs towards him, your thoughts are awhirl with the mystery of what went wrong. There was no fault in your magic. However, the plan relied on everyone in the house being asleep at the instant you cast the charm. Evidently this one soldier was awake guarding the DIAMOND, so the charm failed to affect him. You can well imagine his fright and confusion when he heard you moving around downstairs and then discovered that everyone else in the house was in a deathly deep sleep from which he could not rouse them.\n\nThe first sweep of his sword is clumsy. You dodge in under his guard anxious to end the fight as quickly as possible. You have fought much tougher opponents in your time.\n\n";
+
+        auto DAMAGE = -2;
+
+        if (Character::VERIFY_SKILL(player, Skill::Type::SWORDPLAY))
+        {
+            DAMAGE = 0;
+
+            PreText += "[SWORDPLAY] You SUFFER NO LOSS of Life Points.";
+        }
+        else if (Character::VERIFY_SKILL(player, Skill::Type::UNARMED_COMBAT))
+        {
+            DAMAGE = -1;
+
+            PreText += "[UNARMED COMBAT] ";
+        }
+
+        if (DAMAGE < 0)
+        {
+            Character::GAIN_LIFE(player, DAMAGE);
+
+            PreText += "You LOST " + std::to_string(-DAMAGE) + " Life Point(s).";
+        }
+
+        Text = PreText.c_str();
+    }
+
+    int Continue(Character::Base &player) { return 358; }
+};
+
+class Story177 : public Story::Base
+{
+public:
+    Story177()
+    {
+        ID = 177;
+
+        Text = "Mameluke is glad to accompany you back to your little hidey-hole on Bumble Row. \"I see the toymakers and panderers have shut up shop some time since,\" he remarks. \"It used to be such a gay place, Bumble Row.\"\n\n\"Nothing but a dive for dogs like us in these cursed times,\" you say wryly.\n\n\"Don't be hard on yourself! You saved my life. How can I repay you?\"\n\n\"Forget it. I am happy just to see you free and breathing.\"\n\n\"I will help you in any way I can,\" he tells you. \"Remember, you just have to call on me and I'll be there.\"\n\n\"Thanks, Mameluke. It's good to have at least one true friend when all around are turning to hatred. For a start you can help me plan what to do next.\"\n\n\"I suppose we could flee the city?\"\n\n\"No. My place is here. I want to save my people -- not just my people; all the citizens.\"\n\n\"And you are the one to save all, a youngster like you?\" he asks with affectionate mockery.\n\n\"Who else is there?\" You explain to Mameluke how you have organized the Judain resistance and Mameluke is amazed at what you have done. The word from the palace is that the Overlord's soldiers are deserting in droves rather than patrol the city streets, which they have come to see as a fate worse than death. So your tactics are working.\n\n\"But it's not the Overlord who is our real enemy; it's the monster, Hate.\"\n\nHe gives you a frightened look. \"But what can we do against Hate itself?\"\n\n\"We need to find out everything we can about it. I will contact those with an ear inside the palace. Perhaps the Overlord has entered into some God-forsaken compact with the monster.\"\n\nYou wish Mameluke farewell and ponder how you can confront your inimical foe.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 6; }
+};
+
+class Story178 : public Story::Base
+{
+public:
+    Story178()
+    {
+        ID = 178;
+
+        Text = "The underside of the black monster is lined with barbed thorns which inject poison into your bloodstream. Try as you might, you can't break free. The poison turns your blood to cloying syrup and your heart stops beating. You have died when revenge for the Judain was almost within your grasp. Hate will subdue all.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story179 : public Story::Base
+{
+public:
+    Story179()
+    {
+        ID = 179;
+
+        Image = "images/tough-guy.png";
+
+        Text = "He is a tough-looking burly man and obviously used to dealing with rowdies like yourself. He snatches up a bottle ready to smash it against your skull. He had not reckoned with your skill at [UNARMED COMBAT], however. You wrestle with him, throwing him against the bar repeatedly and then seizing his right arm and twisting it up behind his back. Your skill and speed are too much for his brute strength -- and your mental attitude has been hardened by adversity as you have watched the rape of your people.\n\nHe is in pain now and submits, becoming totally still. You make him pour you a drink of ale and ask him about Lucie and her friend.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 209; }
+};
+
 auto prologue = Prologue();
 auto story001 = Story001();
 auto story002 = Story002();
@@ -4233,6 +4443,16 @@ auto story166 = Story166();
 auto story167 = Story167();
 auto story168 = Story168();
 auto story169 = Story169();
+auto story170 = Story170();
+auto story171 = Story171();
+auto story172 = Story172();
+auto story173 = Story173();
+auto story174 = Story174();
+auto story175 = Story175();
+auto story176 = Story176();
+auto story177 = Story177();
+auto story178 = Story178();
+auto story179 = Story179();
 
 void InitializeStories()
 {
@@ -4253,7 +4473,8 @@ void InitializeStories()
         &story130, &story131, &story132, &story133, &story134, &story135, &story136, &story137, &story138, &story139,
         &story140, &story141, &story142, &story143, &story144, &story145, &story146, &story147, &story148, &story149,
         &story150, &story151, &story152, &story153, &story154, &story155, &story156, &story157, &story158, &story159,
-        &story160, &story161, &story162, &story163, &story164, &story165, &story166, &story167, &story168, &story169};
+        &story160, &story161, &story162, &story163, &story164, &story165, &story166, &story167, &story168, &story169,
+        &story170, &story171, &story172, &story173, &story174, &story175, &story176, &story177, &story178, &story179};
 }
 
 #endif
