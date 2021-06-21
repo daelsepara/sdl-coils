@@ -3876,6 +3876,193 @@ public:
     int Continue(Character::Base &player) { return 6; }
 };
 
+class Story160 : public Story::Base
+{
+public:
+    Story160()
+    {
+        ID = 160;
+
+        Text = "You must decide your next bold stroke to free the city from the grip of hatred and unreason.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player)
+    {
+        if (Character::VERIFY_CODEWORDS(player, {Codeword::Type::SUNSET}))
+        {
+            return 337;
+        }
+        else
+        {
+            return 100;
+        }
+    }
+};
+
+class Story161 : public Story::Base
+{
+public:
+    Story161()
+    {
+        ID = 161;
+
+        Text = "You slink back into the catacombs, dousing your lantern so you will not be discovered. You are soon under the stables. It is cold and damp down here, but there is a strong breeze, almost a gale. The air should be still here under the city, like the nighted airs of the pyramids of the ancients. Hate has undermined it so much that part of the catacombs have come to light, you guess. That means the monsters that have lurked here since the city was built will be wandering out onto the streets to add to the woes of the poor cityfolk. Since the storm drains prove to be blocked, you enter the burial crypts of the Megiddo dynasty.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 365; }
+};
+
+class Story162 : public Story::Base
+{
+public:
+    Story162()
+    {
+        ID = 162;
+
+        Text = "At the top of the last set of eight steps is a landing. The inside wall is covered by a tapestry and there is a single arrow slit in the outside wall. As you walk beside the tapestry gazing for a moment at its depiction of the labours of Coronus, the floor spins and you are shot backward through the tapestry into another room.\n\nYou are standing on a wooden platform. There are four other platforms in the room, the furthest in front of the only door. There is nothing to show how you came through the wall behind you and no way of return.\n\nThe floor of the room is submerged under a living carpet of orange and black garter snakes. It is too far to jump to the nearest platform above the snakes, but there is a rope hanging from the ceiling half-way between you and it.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Jump for the rope and hope to swing onto the next platform", 115));
+        Choices.push_back(Choice::Base("Make a dash for it through the mass of snakes", 60));
+        Choices.push_back(Choice::Base("Use [CHARMS]", 168, Skill::Type::CHARMS));
+        Choices.push_back(Choice::Base("[SPELLS] Cast Silver Shield to push the snakes aside", 80, Skill::Type::SPELLS));
+        Choices.push_back(Choice::Base("[SPELLS] Cast Thunderflash to stun them", 149, Skill::Type::SPELLS));
+        Choices.push_back(Choice::Base("[SPELLS] Cast Miasma to poison them", 10, Skill::Type::SPELLS));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story163 : public Story::Base
+{
+public:
+    Story163()
+    {
+        ID = 163;
+
+        Text = "You throw down the SWORD just in time as the monster tries to lap its black wings over you. The Overlord begins to wake up and the monster floats up again to attack you. You decide discretion is the better part of valour and retreat, leaving the concubine to her fate. By the look of her she will be one of Hate's many guests before the night is out.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 161; }
+};
+
+class Story164 : public Story::Base
+{
+public:
+    Story164()
+    {
+        ID = 164;
+
+        Text = "As you make a dash for the jewel the spider drops to flatten you. Its heavy bloated black sack of an abdo- men engulfs you and you are borne to the floor, where you begin to suffocate. Terror lends you the strength of seven men but even as you try to fight your way clear so the spider's venom does its deadly work. The likeness of you at the top of the stairs did indeed tell the story of your grisly and hopeless fate. The JEWEL OF SUNSET FIRE cannot so easily be stolen from the tower. There is no one left to save the Judain now. Hate will subdue all.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story165 : public Story::Base
+{
+public:
+    Story165()
+    {
+        ID = 165;
+
+        Text = "The Thunderflash spell was the right choice for such circumstances. The bang makes the walls of the prison reverberate with echoes. There is a flare of spurting red fire which sears and burns the cloying purple softness of the monster, which convulses and expels some of the guards. The purple flesh is cauterized and it recedes, allowing a few more of the guards to break free as the coil twitches and recoils. Those still caught implore their comrades to stay and free them but not one of those you have freed waits to help a friend. They bolt for it, but then they are either terrified or in shock.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 34; }
+};
+
+class Story166 : public Story::Base
+{
+public:
+    Story166()
+    {
+        ID = 166;
+
+        Text = "To your dismay, the rats, instead of fleeing, set up an angry chittering as if protesting at your trespass. They are sleek with grain and their yellow teeth look needle sharp. Some are more than a foot long and evil looking. A bargee hears them and rouses a couple of his mates. They start to amble in your direction.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Hide in the barge laden with lime", 152));
+        Choices.push_back(Choice::Base("Hide under the tarpaulin on the smallest of the barges", 183));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story167 : public Story::Base
+{
+public:
+    Story167()
+    {
+        ID = 167;
+
+        Text = "The casting of a Thunderflash spell makes the walls of the neighbouring houses reverberate with echoes. There is a flare of spurting red fire which sears and bums the cloying purple softness of the monster. It convulses and expels Mameluke, who rolls onto the floor, then struggling to his feet, wiping the strands of gelid purple slime from his body with the backs of his hands.\n\nHe thanks you and would embrace you as a friend, but you step back, anxious to avoid contamination by the putrescent slime of Hate.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Take him back with you to your hidey-hole on Bumble Row", 177));
+        Choices.push_back(Choice::Base("Lose him in the byways of the city", 239));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story168 : public Story::Base
+{
+public:
+    Story168()
+    {
+        ID = 168;
+
+        Text = "You start to swing your AMULET like a pendulum and begin to hum softly. The heads of the snakes sway gently in time, like wheat in the summer breeze. Still humming the charm, you step onto the living carpet which writhes beneath your sole, while baleful hisses warn you not to linger. Garter snakes coil around your thighs but they are nestling there and do not bury their venom-tipped fangs in your soft flesh.\n\nYou step trancelike across the living carpet of snakes and through the far door, where you face another spiral staircase. Once outside the door the snake coils loosen and they glide to the floor out of sight.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 180; }
+};
+
+class Story169 : public Story::Base
+{
+public:
+    Story169()
+    {
+        ID = 169;
+
+        Text = "How will you make the landlord pay attention to you?";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("[UNARMED COMBAT] Hurdle the bar and brawl with him", 179, Skill::Type::UNARMED_COMBAT));
+        Choices.push_back(Choice::Base("Try-bribing him to tell you about Lucie and her foreign friend (3 gleenars)", 189, Choice::Type::MONEY, 3));
+        Choices.push_back(Choice::Base("[SPELLS] Use magic", 219, Skill::Type::SPELLS));
+        Choices.push_back(Choice::Base("Approach Lucie and her ominous friend", 227));
+        Choices.push_back(Choice::Base("Leave the tavern", 199));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
 auto prologue = Prologue();
 auto story001 = Story001();
 auto story002 = Story002();
@@ -4036,6 +4223,16 @@ auto story156 = Story156();
 auto story157 = Story157();
 auto story158 = Story158();
 auto story159 = Story159();
+auto story160 = Story160();
+auto story161 = Story161();
+auto story162 = Story162();
+auto story163 = Story163();
+auto story164 = Story164();
+auto story165 = Story165();
+auto story166 = Story166();
+auto story167 = Story167();
+auto story168 = Story168();
+auto story169 = Story169();
 
 void InitializeStories()
 {
@@ -4055,7 +4252,8 @@ void InitializeStories()
         &story120, &story121, &story122, &story123, &story124, &story125, &story126, &story127, &story128, &story129,
         &story130, &story131, &story132, &story133, &story134, &story135, &story136, &story137, &story138, &story139,
         &story140, &story141, &story142, &story143, &story144, &story145, &story146, &story147, &story148, &story149,
-        &story150, &story151, &story152, &story153, &story154, &story155, &story156, &story157, &story158, &story159};
+        &story150, &story151, &story152, &story153, &story154, &story155, &story156, &story157, &story158, &story159,
+        &story160, &story161, &story162, &story163, &story164, &story165, &story166, &story167, &story168, &story169};
 }
 
 #endif
