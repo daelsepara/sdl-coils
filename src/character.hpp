@@ -62,7 +62,7 @@ namespace Character
 
         int StoryID = 0;
 
-        Character::Gender Gender = Character::Gender::MALE;
+        Character::Gender Gender = Character::Gender::NONE;
 
 #if defined(_WIN32) || defined(__arm__)
         long long Epoch = 0;

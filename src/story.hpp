@@ -3660,6 +3660,222 @@ public:
     int Continue(Character::Base &player) { return 180; }
 };
 
+class Story150 : public Story::Base
+{
+public:
+    Story150()
+    {
+        ID = 150;
+
+        Image = "images/giant-spider.png";
+
+        Text = "The ceiling o( the room is clear crystal. The dome of crystal that tops the tower is supported by huge iron struts from a black boss directly above the jewel. You look up as you start to cross the floor to the casket, just as a flash of lightning illuminates everything in stark outline. The angled struts are in fact the legs of a giant spider whose eyes seem to follow your every move as you inch slowly beneath the arches of its legs.\n\nThe keening of the gargoyles reaches a new frenzied high and the crystal that protects you from the tower-spinning spider explodes into shards and dust. The wind falls away, the keening drops to a low moan and now you hear for the first time the wheezing susurratioins of the spider's breath. You can see its thorax opening and closing like a bellows.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Dash beneath it to seize the JEWEL and CASKET", 164));
+        Choices.push_back(Choice::Base("Attack it from the doorway", 186));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story151 : public Story::Base
+{
+public:
+    Story151()
+    {
+        ID = 151;
+
+        Text = "As soon as you place your heel against the soft flesh of Hate it disappears from sight and _the flesh turns to liquid, engulfing you up to the waist.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player)
+    {
+        if (Character::VERIFY_CODEWORDS(player, {Codeword::Type::SATORI}))
+        {
+            return 91;
+        }
+        else
+        {
+            return 335;
+        }
+    }
+};
+
+class Story152 : public Story::Base
+{
+public:
+    Story152()
+    {
+        ID = 152;
+
+        Text = "There is nowhere to hide but inside the lime. There is lime dust everywhere, and wherever you go you leave a trail of chalky footsteps. You try to rub the footsteps away and burrow into the lime, leaving a small hole next to your nose to breathe through. As you lie there in the lime you daren't move in case someone sees you. But what if a small part of you is uncovered? Your dark clothes will be spotted against the white lime.\n\nYour uncomfortable wait is ended when someone pokes a boathook into your side. The bargees clear the lime away from your head under the eyes of a group of the Overlord's soldiers.\n\n\"It's a Judain,\" says one of the soldiers. Their captain orders them to knock you out and throw you in the river. Stuck inside the heavy mound of lime you are helpless as they cosh you over the head. You are food for the fishes.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story153 : public Story::Base
+{
+public:
+    Story153()
+    {
+        ID = 153;
+
+        Text = "Caiaphas looks very long-faced at your question. \"If it's the keys to the secret ways beneath the city you want then talk to Melmelo, the Master Thief. But beware. Nameless horrors lurk in the ever-nighted labyrinths... things best left undisturbed.\"\n\nThe only way you know of contacting Melmelo is by asking a thief. The only place you can be sure to find a thief when you want one is The Inner Temple, an inn in the middle of the oldest part of the city.\n\nThe streets are being patrolled by the Overlord's men.";
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Choices.clear();
+
+        if (!Character::VERIFY_SKILL(player, Skill::Type::STREETWISE))
+        {
+            Choices.push_back(Choice::Base("Risk the streets", 307));
+            Choices.push_back(Choice::Base("Try to stow away inside a slaver's cart and pass unseen", 31));
+        }
+    }
+
+    int Continue(Character::Base &player) { return 59; }
+};
+
+class Story154 : public Story::Base
+{
+public:
+    Story154()
+    {
+        ID = 154;
+
+        Text = "With a word of power you unleash the Baffiement spell. It has no discernible effect on the monster but one of the guards goes glassy-eyed and his head lolls back into the pillow of Hate's body, to be submerged for ever in the orgy of despair. The monster convulses suddenly, throwing a coil out towards you. You decide it is time to flee back to your hidey-hole on Bumble Row.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 159; }
+};
+
+class Story155 : public Story::Base
+{
+public:
+    Story155()
+    {
+        ID = 155;
+
+        Text = "Your journey to Bagoe on the Palayal river is charmed. You find food dropped in a sack by the side of the path and are treated to a beer at an inn. At Bagoe you are welcomed aboard a barge and the bargees promise to hide you when you near Godorno. They say you will easily be able to slip ashore, unseen in the dead of night.\n\nThey are as good as their word and one fine dawn you find yourself back in Godorno, with the wharfs and warehouses behind you and the city before you. The revetments of the buildings lend the city an unmistakable air of patrician hauteur. This is the hub of the civilized world.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 300; }
+};
+
+class Story156 : public Story::Base
+{
+public:
+    Story156()
+    {
+        ID = 156;
+
+        Choices.clear();
+
+        Controls = Story::Controls::NONE;
+    }
+
+    int Background(Character::Base &player)
+    {
+        if (Character::VERIFY_SKILL(player, Skill::Type::CHARMS))
+        {
+            return 47;
+        }
+        else if (Character::VERIFY_SKILL(player, Skill::Type::ROGUERY))
+        {
+            return 28;
+        }
+        else
+        {
+            return 19;
+        }
+    }
+};
+
+class Story157 : public Story::Base
+{
+public:
+    Story157()
+    {
+        ID = 157;
+
+        Image = "images/filler1.png";
+
+        Text = "One of the swords has a halo which shines brighter than the others. You steal up behind the Jade Warrior and throw yourself against its sword arm, wrenching the BLADE from its grasp.\n\n\"Obey me, Jade Warriors,\" you cry out on impulse. To your relief and amazement they line up before you and stand to attention. The warrior from whom you took the sword picks up another from behind an awning. The warriors are ready to do your bidding. They whirr and click as they follow you dutifully to the edge of the precincts of the burial chambers, and there they grind to a halt. There is nothing you can do to move them further. Although you cannot command the Jade Warriors to go forth and attack Hate, you tell them that they must attack Hate if it should loop its coils into the burial chambers of the Megiddo dynasty. You leave all doors and traps wide open in the hope that Hate will blunder in and get carved up.\n\nSure enough, when you return the next day the place shows the signs of an epic battle. Great gouts of translucent flesh hang from lintel and corners. There is a fine green powder in the air, like pulverized glass. The Jade Warriors have been ground to dust by Hate but, judging by the quantity of purple ichor smeared over the walls, they must have given the monster acute indigestion.\n\nYou OBTAINED a JADE WARRIOR's SWORD. You gained the codeword HECATOMB.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Character::GET_ITEMS(player, {Item::JADE_WARRIORS_SWORD});
+
+        Character::GET_CODEWORDS(player, {Codeword::Type::HECATOMB});
+
+        Take = {Item::PLUMED_HELMET};
+
+        Limit = 1;
+    }
+
+    int Continue(Character::Base &player) { return 160; }
+};
+
+class Story158 : public Story::Base
+{
+public:
+    Story158()
+    {
+        ID = 158;
+
+        Text = "As a Judain in Godorno you have become used to being treated with disdain. You didn't want to drink anyway. The two women favour you with glances dripping with disdain, as if you were something someone had scraped off the heels of their boots. Try as you can to keep calm, this kind of prejudice is really upsetting. They are street sluts, no better, perhaps worse than slaves, yet here they are treating you like a worm. Still if you are to be tolerant then you must apply that understanding to members of their ancient profession just as you would wish them to extend it to all Judain.\n\nDetermined to find out what Lucie is up to you walk over to the couple, who are watching you intently. Lucie smiles as she did when you met her in the Garden of Statues.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 227; }
+};
+
+class Story159 : public Story::Base
+{
+public:
+    Story159()
+    {
+        ID = 159;
+
+        Text = "You have the word passed round to all the cells to lie low. Until further orders your people will cease their campaign of terror against the Overlord's men. A pity -- they had almost won control of the streets. They are dying, though: day by day, Hate takes off more of your fellow Judain to the orgy of eternal despair, where they are joined by hundreds more of the Overlord's men and thousands of the ordinary folk of the city. You will have to vanquish Hate.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 6; }
+};
+
 auto prologue = Prologue();
 auto story001 = Story001();
 auto story002 = Story002();
@@ -3810,6 +4026,16 @@ auto story146 = Story146();
 auto story147 = Story147();
 auto story148 = Story148();
 auto story149 = Story149();
+auto story150 = Story150();
+auto story151 = Story151();
+auto story152 = Story152();
+auto story153 = Story153();
+auto story154 = Story154();
+auto story155 = Story155();
+auto story156 = Story156();
+auto story157 = Story157();
+auto story158 = Story158();
+auto story159 = Story159();
 
 void InitializeStories()
 {
@@ -3828,7 +4054,8 @@ void InitializeStories()
         &story110, &story111, &story112, &story113, &story114, &story115, &story116, &story117, &story118, &story119,
         &story120, &story121, &story122, &story123, &story124, &story125, &story126, &story127, &story128, &story129,
         &story130, &story131, &story132, &story133, &story134, &story135, &story136, &story137, &story138, &story139,
-        &story140, &story141, &story142, &story143, &story144, &story145, &story146, &story147, &story148, &story149};
+        &story140, &story141, &story142, &story143, &story144, &story145, &story146, &story147, &story148, &story149,
+        &story150, &story151, &story152, &story153, &story154, &story155, &story156, &story157, &story158, &story159};
 }
 
 #endif
