@@ -3417,6 +3417,249 @@ public:
     }
 };
 
+class Story140 : public Story::Base
+{
+public:
+    Story140()
+    {
+        ID = 140;
+
+        Text = "The leap was further than you thought. As you take off, after a short run up, your foot slips and you sprawl forward onto the carpet. The silver and gold filigree springs out of the weave and binds itself around your limbs, tightening and cutting into your flesh. You are held fast.\n\nAbove you black shape detaches itself from the underside of the canopy of the Overlord's four-poster bed and settles heavily over you. Its skin sports rows of barbed spines that inject a poison into your bloodstream. Try as you might, you can't break free. The poison turns your blood to cloying syrup and your heart stops beating. You have died with revenge for the Judain almost within your grasp. Hate will subdue all.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story141 : public Story::Base
+{
+public:
+    Story141()
+    {
+        ID = 141;
+
+        Image = "images/madman.png";
+
+        Text = "It is not hard to make contact with others of your kind. The Judain are well known for their sharpness and cunning. Word has been passed round among the Judain that all is not well with the other inhabitants of the city. Hundreds of people have mysteriously disappeared without trace. Something or somebody is carrying off the people of Godorno as they sleep.\n\nThere is a rumble outside as a town house crashes to the ground, killing its occupants. The very foundations of Godorno are rotten to the core.\n\nA madman totters down the street shouting in a hoarse croak, \"We have brought it all upon ourselves. Too much evil, bad living, we are miserable sinners suffering the retribution of divine punishment ...\" He totters on, lapsing into a babble as he is pelted with mud by women washing clothes in a water butt.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 212; }
+};
+
+class Story142 : public Story::Base
+{
+public:
+    Story142()
+    {
+        ID = 142;
+
+        Text = "On your way past Bagoe you pass a series of shrines to various deities and demigods, including one sacred to the Judain. The farmer and his daughter say goodbye to you here, leaving a large watermelon and advice as to how to find the road ahead. Then they are gone. You may never meet such kind and gentle people again.\n\nThe shrine is a circle within a circle of white marble arches hung with creeper, set up on a hillside. Inside the shrine, which hasn't been visited for some time, you find the holy book of teachings, The Songs of Suleiman, which tells of the Judain's flight from captivity and their search for the Promised Land. It is full of the most marvellous stories of heroism in the face of stark adversity. The stories of your great people lift up your heart and give you the strength to dare to be a hero and the saviour of your people. You decide to return to the god-forsaken city of Godorno. The understanding you gain here in this shrine means you will never nurture hatred in your heart.\n\nYou gained the codeword SATORI.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Character::GET_CODEWORDS(player, {Codeword::Type::SATORI});
+    }
+
+    int Continue(Character::Base &player) { return 171; }
+};
+
+class Story143 : public Story::Base
+{
+public:
+    std::string PreText = "";
+
+    Story143()
+    {
+        ID = 143;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        PreText = "There are four guards, tall heavy-looking men with cold hard eyes. Each has a sword in his right hand and a dirk with a spike for catching blows in the left. You launch yourself into them with a ferocious cry which makes them hesitate. You cannon into the nearest, jabbing him hard in the midriff, and he doubles up in pain. Then another of the guards recovers his wits and lashes out at you. You have to fight your way past them.\n\n";
+
+        auto DAMAGE = -3;
+
+        if (Character::VERIFY_ANY_SKILLS(player, {Skill::Type::SWORDPLAY, Skill::Type::UNARMED_COMBAT, Skill::Type::AGILITY}))
+        {
+            DAMAGE = -1;
+
+            if (Character::VERIFY_SKILL(player, Skill::Type::SWORDPLAY))
+            {
+                PreText += "[SWORDPLAY] ";
+            }
+
+            if (Character::VERIFY_SKILL(player, Skill::Type::UNARMED_COMBAT))
+            {
+                PreText += "[UNARMED COMBAT] ";
+            }
+
+            if (Character::VERIFY_SKILL(player, Skill::Type::AGILITY))
+            {
+                PreText += "[AGILITY] ";
+            }
+        }
+
+        Character::GAIN_LIFE(player, DAMAGE);
+
+        PreText += "You LOST " + std::to_string(-DAMAGE) + " Life Point(s).";
+
+        if (player.Life > 0)
+        {
+            PreText += "\n\nDeciding that you cannot fight them all, you lead the guards off along the street. They cannot keep up with you in their heavy armour and you soon lose them. Doubling back, you meet up with Ruth and escort her back to Copper Street. She promises to tell Caiaphas you have saved her life. You bid her good-bye and return to your hideout.";
+
+            if (Character::VERIFY_CODEWORDS(player, {Codeword::Type::VENEFIX}))
+            {
+                Character::REMOVE_CODEWORD(player, Codeword::Type::VENEFIX);
+            }
+            else
+            {
+                Character::GET_CODEWORDS(player, {Codeword::Type::SATORI});
+
+                PreText += "\n\nYou gained the codeword SATORI.";
+            }
+        }
+
+        Text = PreText.c_str();
+    }
+
+    int Continue(Character::Base &player) { return 414; }
+};
+
+class Story144 : public Story::Base
+{
+public:
+    Story144()
+    {
+        ID = 144;
+
+        Text = "Standing beneath the Tower of the Sentinel, which looms three hundred feet above you against the glowering dusk sky, you feel very small and alone. If the greatest thieves of Godorno have tried to climb this tower and failed, what hope is there for this poor Judain?\n\nAt the top of the Sentinel's tower, the JEWEL OF SUNSET FIRE shines like a shooting star. The JEWEL OF SUNSET FIRE is a so-called eye of power that can vanquish evil. The sheer-sided tower is of chequered grey and red mosaic tiles, overlain with the black grime of centuries. It has stood on this spot since before the coming of the corsairs who ravaged the Old Empire. It was the lighthouse for Godorno before the sea level dropped in the great cataclysm. Looking up at the gaunt forbidding tower as it juts against the grey sky you are reminded of the frontispiece of a book you saw once -- The Tale of Nuth, Prince of Thieves -- which tells of the vain· attempt to steal the JEWEL by the greatest thief of the Old Empire.\n\nThe black gate is reached under a trellis which is woven thickly with purple kiss-flowers, that smell unpleasantly like honeysuckle. To your surprise it opens at your touch and you walk into the atrium where small trees are growing in tubs. There is a curving marble staircase that leads up into the tower itself and you begin your long and dangerous climb.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 29; }
+};
+
+class Story145 : public Story::Base
+{
+public:
+    Story145()
+    {
+        ID = 145;
+
+        Text = "You flourish your SWORD and swipe at the black monster. It wraps itself around the blade and starts to entwine itself around your arm.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Throw down the SWORD", 163));
+        Choices.push_back(Choice::Base("Try to prize your arm free without relinquishing your beloved WEAPON", 178));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story146 : public Story::Base
+{
+public:
+    Story146()
+    {
+        ID = 146;
+
+        Text = "Somehow you survive the outside staircase and the other perils of the tower and live to see another day. You are the first to survive the Tower of the Sentinel in a very long time. Disconsolately you return to Bumble Row to hatch another plot. You cannot return to the Tower of the Sentinel as you dare not face that hideous spider agam.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 160; }
+};
+
+class Story147 : public Story::Base
+{
+public:
+    Story147()
+    {
+        ID = 147;
+
+        Text = "You cleave the great tentacle in two, missing Lucie as though by a miracle. You have done it. Leaping to the top of the parapet of the Bargello, you grab the Jewel of Sunset Fire from inside your jerkin and climb up into the last rays of daylight. As you do so you see the world's most terrifying sight. Rising slowly out of the hole that was once the old quarter of the city is the head of Hate itself. Two baleful green eyes twice the height of a man glare at you as the slow bulk of Hate starts to ooze towards the parapet. The eyes are ringed by the faces of the most depraved lost souls, all beckoning you to join them. They still live on, crushed side by side and looking out to see what Hate sees. They have quite lost their minds.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player)
+    {
+        if (Character::VERIFY_CODEWORDS(player, {Codeword::Type::GORDIAN}))
+        {
+            return 107;
+        }
+        else
+        {
+            return 375;
+        }
+    }
+};
+
+class Story148 : public Story::Base
+{
+public:
+    Story148()
+    {
+        ID = 148;
+
+        Text = "What a noble deed you have just done. They let Mameluke go and grasp you instead. They have no regard for the Judain and beat you to a pulp in the street, where they leave you to die. You will perish here and there is no one left to save the Judain.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story149 : public Story::Base
+{
+public:
+    Story149()
+    {
+        ID = 149;
+
+        Text = "With a clap of your hands you cast a Thunderflash spell. There is a blinding light and a whipcrack, then the smell of seared flesh. The living carpet is a writhing, boiling sea of serpentine coils. You have certainly distracted the snakes. You run in boldly. The living carpet writhes beneath the soles of your feet and there is a baleful hissing.\n\nOne of the snakes sinks its fangs into the soft flesh of your calf but you make it to the other side and slam the door shut behind you. The venom of the garter snake is virulent indeed and your blood burns while you fight for breath.\n\nYou LOSE 4 Life Points.";
+
+        Bye = "You find yourself looking up another spiral staircase. Once outside the door the snake coils loosen and it glides to the floor and out of sight.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Character::GAIN_LIFE(player, -4);
+    }
+
+    int Continue(Character::Base &player) { return 180; }
+};
+
 auto prologue = Prologue();
 auto story001 = Story001();
 auto story002 = Story002();
@@ -3557,6 +3800,16 @@ auto story136 = Story136();
 auto story137 = Story137();
 auto story138 = Story138();
 auto story139 = Story139();
+auto story140 = Story140();
+auto story141 = Story141();
+auto story142 = Story142();
+auto story143 = Story143();
+auto story144 = Story144();
+auto story145 = Story145();
+auto story146 = Story146();
+auto story147 = Story147();
+auto story148 = Story148();
+auto story149 = Story149();
 
 void InitializeStories()
 {
@@ -3574,7 +3827,8 @@ void InitializeStories()
         &story100, &story101, &story102, &story103, &story104, &story105, &story106, &story107, &story108, &story109,
         &story110, &story111, &story112, &story113, &story114, &story115, &story116, &story117, &story118, &story119,
         &story120, &story121, &story122, &story123, &story124, &story125, &story126, &story127, &story128, &story129,
-        &story130, &story131, &story132, &story133, &story134, &story135, &story136, &story137, &story138, &story139};
+        &story130, &story131, &story132, &story133, &story134, &story135, &story136, &story137, &story138, &story139,
+        &story140, &story141, &story142, &story143, &story144, &story145, &story146, &story147, &story148, &story149};
 }
 
 #endif
