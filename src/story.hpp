@@ -5306,7 +5306,7 @@ public:
     {
         ID = 227;
 
-        Text = "Tyutchev looks at you insolently. His direct stare makes you feel very uncomfortable. He has challenged many a poor fellow with a look like this, and most of them didn't live to tell the tale. Now he says, \"So a Judain comes ready for the slaughter! It's hardly worth the bother of collecting the ten gleenars' reward, but then there is the pleasure of killing you.\"\n\nHe speaks as though you were a slimebeast that had crawled out from under a stone. He draws ·his sword, a great one-and-a-half-hander, which he wields with negligent ease and power, as if it were a toothpick. It thrums through the air as he prepares to slaughter you. With a surprisingly quick movement for so large a man he manages to put himself between you and the only door. It doesn't look as if the latrine here backs onto the outside world so there is no escape that way. Perhaps that is why so many thieves drink here -- they are never bothered by the city guard. You have no choice but to fight.";
+        Text = "Tyutchev looks at you insolently. His direct stare makes you feel very uncomfortable. He has challenged many a poor fellow with a look like this, and most of them didn't live to tell the tale. Now he says, \"So a Judain comes ready for the slaughter! It's hardly worth the bother of collecting the ten gleenars' reward, but then there is the pleasure of killing you.\"\n\nHe speaks as though you were a slimebeast that had crawled out from under a stone. He draws his sword, a great one-and-a-half-hander, which he wields with negligent ease and power, as if it were a toothpick. It thrums through the air as he prepares to slaughter you. With a surprisingly quick movement for so large a man he manages to put himself between you and the only door. It doesn't look as if the latrine here backs onto the outside world so there is no escape that way. Perhaps that is why so many thieves drink here -- they are never bothered by the city guard. You have no choice but to fight.";
 
         Choices.clear();
 
@@ -5352,6 +5352,229 @@ public:
 
         Controls = Story::Controls::STANDARD;
     }
+};
+
+class Story230 : public Story::Base
+{
+public:
+    Story230()
+    {
+        ID = 230;
+
+        Choices.clear();
+
+        Controls = Story::Controls::NONE;
+    }
+
+    int Background(Character::Base &player)
+    {
+        if (Character::HAS_SKILL(player, Skill::Type::SWORDPLAY) && Character::VERIFY_CODEWORDS(player, {Codeword::Type::SATORI}))
+        {
+            return 184;
+        }
+        else
+        {
+            return 396;
+        }
+    }
+};
+
+class Story231 : public Story::Base
+{
+public:
+    Story231()
+    {
+        ID = 231;
+
+        Text = "You gather the girl into your arms; she is as light as a feather pillow and quite limp. Her face is untouched by the blemishes which mar her body and she is quite beautiful, as you would expect of the Overlord's concubine.\n\nNow how are you going to get both her and yourself across the carpet without stepping on it?";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Wrap her in the silk bedspread and drag her from the bed, after leaping clear", 319));
+        Choices.push_back(Choice::Base("Carry her over your shoulderin a fireman's lift and walk quickly across the carpet", 285));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story232 : public Story::Base
+{
+public:
+    Story232()
+    {
+        ID = 232;
+
+        Text = "Picking the pocket of one of the guards while you hand him your gold with the other hand is child's play to someone of your accomplishments. You palm his gold to your other hand and let the coins drop one by one into his greedily outstretched palm.\n\n\"Where's my share?\" demands another of the gate guards, holding out his palm, while his other hand rests menacingly on the pommel of his rapier. You clap him on the back and empty his money pouch as you do so, also relieving him of a fine gold chain that hangs at his neck in the process. All four guards are soon happy with their own money newly shared out among them and at last you and the old seller of eggs are allowed to proceed into the city.\n\nYou OBTAINED 15 gleenars.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Character::GAIN_MONEY(player, 15);
+    }
+
+    int Continue(Character::Base &player) { return 380; }
+};
+
+class Story233 : public Story::Base
+{
+public:
+    Story233()
+    {
+        ID = 233;
+
+        Image = "images/filler2.png";
+
+        Text = "How will you lift the hearts of the men and women on the barricade? They are quailing before the presence of Hate. Some start to wail as they recognize loved ones sunk in the cloying purple embrace of the monster.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Tell them they have nothing to fear for they are of pure heart", 408));
+        Choices.push_back(Choice::Base("Tell them that death on the barricade will lead to eternal salvation", 379));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story234 : public Story::Base
+{
+public:
+    Story234()
+    {
+        ID = 234;
+
+        Image = "images/tower.png";
+
+        Text = "The SWORD leaves your hand like an arrow and buries itself into the bloated gasbag of a body, which is instantly ruptured. Black ichor sprays all over the room and the spider hunches up against the ceiling to die.\n\nThe JADE WARRIOR's SWORD is now out of reach high in the dead spider's web.\n\nYou step up to the frame and hold the JEWEL aloft in both hands. Now all you have to do is bring it safely down from the tower.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Character::LOSE_ITEMS(player, {Item::Type::JADE_WARRIORS_SWORD});
+    }
+
+    int Continue(Character::Base &player) { return 308; }
+};
+
+class Story235 : public Story::Base
+{
+public:
+    Story235()
+    {
+        ID = 235;
+
+        Text = "You find several buyers among the captains of the sailing ships moored along Tartars' Quay. Most are keen to return to their homelands before the wave of hatred and persecution engulfs them as it has your own people. No friends of the Overlord who has wrecked their livelihoods, they receive you warmly and consider your wares.\n\nAfter some deliberation, they announce the price they will pay for each item. You can sell any of the following, if you possess them: JADE WARRIOR's SWORD, JEWEL OF SUNSET FIRE, PLUMED HELMET, MAGIC WAND, MAGIC AMULET, HEALING SALVE, THROWING KNIVES.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::SELL;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Sell = {{Item::JADE_WARRIORS_SWORD, 500}, {Item::JEWEL_OF_SUNSET_FIRE, 1500}, {Item::PLUMED_HELMET, 50}, {Item::MAGIC_WAND, 100}, {Item::MAGIC_AMULET, 60}, {Item::HEALING_SALVE, 100}, {Item::THROWING_KNIVES, 40}};
+    }
+
+    int Continue(Character::Base &player)
+    {
+        if (player.Money > 499)
+        {
+            return 415;
+        }
+        else
+        {
+            return 6;
+        }
+    }
+};
+
+class Story236 : public Story::Base
+{
+public:
+    Story236()
+    {
+        ID = 236;
+
+        Image = "images/filler3.png";
+
+        Text = "\"She's an ornery girl that one,\" he mutters after casting a look in her direction. \"Knows her own mind and no mistake. Forever taking up with the most disreputable mountebanks and desperadoes. Always twists 'em round her little finger, mind.\"\n\n\"And what about her friend?\"\n\n\"That's Tyutchev, a foreigner. See how pale he is? Doesn't it make you feel ill just to look at hjm? He usually comes in with his doxy, Cassandra -- or is it he is her pretty boy? She's a terrible proud and beautiful woman, wearing gear like a Fury from the Abyss. At any rate, they had a terrible fight in here last week. I never saw a woman wield a sword with such skill and venom. It glowed cold blue, and where it struck the bar I found crystals of ice.\"\n\n\"Who won the fight?\" you ask, although you would hardly expect the loser of a swordfight to be sitting drinking ale a week later.\n\n\"They were both bleeding badly. It was a terrible battle. But they went out together. I do declare I've never had the misfortune to serve two less pleasant and outright perilous characters.\"\n\n\"What do they all want with Lucie?\" you wonder aloud.\n\nHe cracks a rancid-toothed smile. \"What does any man want with Lucie?\"\n\nYou thank the landlord for his information and, leaving the alepot on the bar, walk over to the couple, who are watching you intently. Lucie smiles as she did when you met her in the street.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 227; }
+};
+
+class Story237 : public Story::Base
+{
+public:
+    Story237()
+    {
+        ID = 237;
+
+        Text = "The horse looks skittish. Its chestnut flanks are darkened by sweat and its eyes dart about nervously while it snorts and fidgets. It seems to be afraid of something.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player)
+    {
+        if (Character::VERIFY_SKILL(player, Skill::Type::AGILITY))
+        {
+            return 271;
+        }
+        else if (Character::VERIFY_SKILL(player, Skill::Type::WILDERNESS_LORE))
+        {
+            return 226;
+        }
+        else
+        {
+            return 289;
+        }
+    }
+};
+
+class Story238 : public Story::Base
+{
+public:
+    Story238()
+    {
+        ID = 238;
+
+        Text = "You are soon trussed up, helpless, and frogmarched into the prison fortress of Grond to join hundreds more of your people. You will never see the light of day again. There is no one left to save your people now. They will all perish and be wiped from the face of the earth.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story239 : public Story::Base
+{
+public:
+    Story239()
+    {
+        ID = 239;
+
+        Text = "It is the work of just a few minutes to throw Mameluke off your trail in the old quarter of the city. You hear him calling: \"Where are you, Judain? Let us be friends. I will help you against the Overlord. Come back ...\"\n\nHe screams suddenly and the gurgling sound is cut off, as though he were a pig being slaughtered. If you had taken him with you he would not now be dead -- but perhaps you should not blame yourself for the mindless ferocity of the Overlord's guards. No one in Godorno is safe these days.\n\nYou double back to your lair on Bumble Row.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 299; }
 };
 
 auto prologue = Prologue();
@@ -5584,6 +5807,16 @@ auto story226 = Story226();
 auto story227 = Story227();
 auto story228 = Story228();
 auto story229 = Story229();
+auto story230 = Story230();
+auto story231 = Story231();
+auto story232 = Story232();
+auto story233 = Story233();
+auto story234 = Story234();
+auto story235 = Story235();
+auto story236 = Story236();
+auto story237 = Story237();
+auto story238 = Story238();
+auto story239 = Story239();
 
 void InitializeStories()
 {
@@ -5610,7 +5843,8 @@ void InitializeStories()
         &story190, &story191, &story192, &story193, &story194, &story195, &story196, &story197, &story198, &story199,
         &story200, &story201, &story202, &story203, &story204, &story205, &story206, &story207, &story208, &story209,
         &story210, &story211, &story212, &story213, &story214, &story215, &story216, &story217, &story218, &story219,
-        &story220, &story221, &story222, &story223, &story224, &story225, &story226, &story227, &story228, &story229};
+        &story220, &story221, &story222, &story223, &story224, &story225, &story226, &story227, &story228, &story229,
+        &story230, &story231, &story232, &story233, &story234, &story235, &story236, &story237, &story238, &story239};
 }
 
 #endif
