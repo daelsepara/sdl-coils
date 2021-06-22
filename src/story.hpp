@@ -6655,6 +6655,193 @@ public:
     }
 };
 
+class Story290 : public Story::Base
+{
+public:
+    Story290()
+    {
+        ID = 290;
+
+        Text = "A great crash echoes round the room and seems to shake the whole tower. It is followed by an explosion of spurting red flame which bathes the black spider in its punishing light. You feel giddy as the tower rocks. The spider recoils, its legs buckle under it and it struggles in vain to get up. The JEWEL OF SUNSET FIRE is yours for the taking. You make a dash for it before the gigantic spider, which is giving out a high keening hiss, can recover.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 308; }
+};
+
+class Story291 : public Story::Base
+{
+public:
+    Story291()
+    {
+        ID = 291;
+
+        Text = "Skakshi takes you by a devious route, perhaps hoping you will get lost in the foreigners' quarter, which you have been travelling through now for ten minutes.\n\n\"What do you have in mind for Melmelo?\" Skakshi is anxious to know whether you intend the Guildmaster of Thieves any harm. There is naked ambition gleaming in his eyes; he is a truly nasty piece of work.\n\n\"Wait and see,\" you tell him.\n\nAt last you stand before a white stuccoed villa with an ornamental steam bath bubbling in the garden.\n\n\"This is Melmelo's place. The soft living here has made him unfit to lead our guild. There are many who are just waiting for something to happen.\"\n\n\"Thank you, Skakshi, for guiding me here. What is the password? I don't want to be killed for calling without an invitation.\"\n\n\"Just shout, 'enchantress' and they will let you in. If anything happens remember it was me, honest Skakshi, who brought you here. Don't tell Melmelo though.\" With that he is gone; he blends into the shadows like a ghost.\n\nWalking up to the double doors of the villa you cry the password for all to hear.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 12; }
+};
+
+class Story292 : public Story::Base
+{
+public:
+    Story292()
+    {
+        ID = 292;
+
+        Text = "Taking the grandest gilded gondola from the tie-ups at Tartars' Quay you begin to pole effortlessly down the Grand Canal. Inside the gondola the benches are covered with black leather, neatly garnished with fine linen cloth, its edges trimmed with lace. The gilded ends of the boat are in the shape of dolphins' tails. There is no other traffic on the water and you are at leisure to notice the cracks developing in the waterfront villas as they begin to subside into the canal. Every now and then a cascade of tiles and chimney pots reminds you Godorno is sinking without trace.\n\nHow will you attract the attention of Hate as you pole down the canal?";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Sing a song", 314));
+        Choices.push_back(Choice::Base("Call aloud for Hate to come and make final reckoning with you", 323));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story293 : public Story::Base
+{
+public:
+    Story293()
+    {
+        ID = 293;
+
+        Image = "images/filler2.png";
+
+        Text = "You find Lucie loitering around the moored gondolas on Circle Canal. In better days she might have had rich pickings from dipping her hand into the purses of the wealthy. In these troubled times, few people dare venture into the streets with money in their pockets.\n\nYou explain that you want to get into Grond and free the prisoners there.\n\n\"Help free those vermin?\" she says. \"Why would I want to? Many are murderers, rapists and madmen!\"\n\n\"Many are brave men whose only crime was to speak out against the Overlord. Others are even more blameless. My fellow Judain, for instance, declared criminal simply because of race and creed.\"\n\nLucie seems not even to have heard you. \"Those beasts in Grond -- they are animals! Let Hate take them!\" She looks at you as though you have lost your wits, her pretty face contorted with hatred. The glint in her eyes is frightening. She looks mad.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Slap her to end this hysterical outburst", 336));
+        Choices.push_back(Choice::Base("Tell her to be calm", 346));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story294 : public Story::Base
+{
+public:
+    Story294()
+    {
+        ID = 294;
+
+        Text = "The burial crypts of the Megiddo dynasty are reputed to be guarded by the Jade Warriors, four enchanted statues of their most trusted and able bodyguards. If you are forced to flee into those crypts you risk disturbing them. It is said they have killed even the most cunning and dangerous grave robbers and defilers of tombs over the centuries.\n\nIt is also said that the Jade Warriors protect not only the ceremented mummies of the Megiddo dynasty but a vast panoply of war gear along with enough treasure to maintain a large army indefinitely. The SWORDs of the famed Megiddan Palace Guard are reputedly sharper than any ever made in the eastern world.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 409; }
+};
+
+class Story295 : public Story::Base
+{
+public:
+    Story295()
+    {
+        ID = 295;
+
+        Text = "Hate reaches for the crumbling building on either side of the street. Locking its tentacles around the famous Bridge of Sighs, it brings the whole structure crashing down on your head. You fall and are crushed under the rubble, while Hate goes lumbering past to bring about the final end of the cursed city of Godorno. You have failed.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story296 : public Story::Base
+{
+public:
+    Story296()
+    {
+        ID = 296;
+
+        Text = "You take up a martial stance before the first of the Jade Warriors, searching for a weakness to attack. Your fists and feet cannot shatter the jade, which is impervious to your blows. The BLADEs of the Jade Warriors are terribly sharp as you find to your cost when one bites into your thigh.\n\nYou LOSE 4 Life Points.";
+
+        Bye = "You have no choice but to flee.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Character::GAIN_LIFE(player, -4);
+    }
+
+    int Continue(Character::Base &player) { return 16; }
+};
+
+class Story297 : public Story::Base
+{
+public:
+    Story297()
+    {
+        ID = 297;
+
+        Choices.clear();
+
+        Controls = Story::Controls::NONE;
+    }
+
+    int Background(Character::Base &player)
+    {
+        if (Character::VERIFY_ITEMS(player, {Item::Type::SWORD}))
+        {
+            return 328;
+        }
+        else
+        {
+            return 384;
+        }
+    }
+};
+
+class Story298 : public Story::Base
+{
+public:
+    Story298()
+    {
+        ID = 298;
+
+        Text = "It tears you apart to leave Lucie but she is already a lost soul, lost for ever in despair. With a heavy heart you set out towards your lair on Bumble Row once more to get ready to prepare the Judain for battle.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 195; }
+};
+
+class Story299 : public Story::Base
+{
+public:
+    Story299()
+    {
+        ID = 299;
+
+        Text = "The surviving Judain of the city all look to you for leadership now. They are ashamed at not having stood up to the Overlord, but your news of his suffering has cheered them. They feel as if God has not yet forsaken them.\n\nYou circle various safe areas on your map of the city and assign a cell of five operatives to each, giving them a list of the people they are to support with their foraging. The high death rate at least means less mouths to feed.\n\nEach cell is also given a list of people to be assassinated. \"If you do your work well the Overlord will be forced to grant us pardon and we can begin life anew,\" you tell them to instil hope in their hearts. \"We will search for the Promised Land where there is only the one true God, Light of our Lives.\"\n\n\"Our miserable lives,\" grumbles one of the grandmothers.\n\n\"Enough,\" you say autocratically, beginning to revel in your leadership now, \"I want no dissent. You all know what you have to do. The heads of each resistance cell will meet at noon on the third day from now, underneath the Lord Mayor's house. I expect all of you to report success in your missions, and without loss. I'm relying on you. You know where to find me if you need me, now go, and keep your heads down.\"";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 6; }
+};
+
 auto prologue = Prologue();
 auto story001 = Story001();
 auto story002 = Story002();
@@ -6945,6 +7132,16 @@ auto story286 = Story286();
 auto story287 = Story287();
 auto story288 = Story288();
 auto story289 = Story289();
+auto story290 = Story290();
+auto story291 = Story291();
+auto story292 = Story292();
+auto story293 = Story293();
+auto story294 = Story294();
+auto story295 = Story295();
+auto story296 = Story296();
+auto story297 = Story297();
+auto story298 = Story298();
+auto story299 = Story299();
 
 void InitializeStories()
 {
@@ -6977,7 +7174,8 @@ void InitializeStories()
         &story250, &story251, &story252, &story253, &story254, &story255, &story256, &story257, &story258, &story259,
         &story260, &story261, &story262, &story263, &story264, &story265, &story266, &story267, &story268, &story269,
         &story270, &story271, &story272, &story273, &story274, &story275, &story276, &story277, &story278, &story279,
-        &story280, &story281, &story282, &story283, &story284, &story285, &story286, &story287, &story288, &story289};
+        &story280, &story281, &story282, &story283, &story284, &story285, &story286, &story287, &story288, &story289,
+        &story290, &story291, &story292, &story293, &story294, &story295, &story296, &story297, &story298, &story299};
 }
 
 #endif
