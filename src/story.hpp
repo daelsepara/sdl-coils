@@ -5807,6 +5807,204 @@ public:
     }
 };
 
+class Story250 : public Story::Base
+{
+public:
+    Story250()
+    {
+        ID = 250;
+
+        Text = "The guards here on the city gate look bored. You find a piece of straw in the road and walk up chewing . this like a milch cow. In your best country yokel accent you ask them if you can try your hand at their job to see if you would like to join the city guard. They are taken in by your country bumpkin act and one of them is only too glad to give up his place on the gate to you so that he can begin the evening's drinking early.\n\nYou stay with the guards at the gate and learn much of what has passed since you fled the city. The Judain are hanging dead in iron cages by the hundred. A few managed to flee the city but most have gone to ground in what the guards call 'their lairs and slum pits'. Things have been very bad for your people. The Overlord is trying to wipe you Judain from the face of the earth -- with a large measure of success, by the sound of it. After three hours on the gate you manage to slink unseen into the city while the others are in the gatehouse, brewing a pot of tea.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 300; }
+};
+
+class Story251 : public Story::Base
+{
+public:
+    Story251()
+    {
+        ID = 251;
+
+        Text = "You keep poling steadily along. The cresting wave smashes against the gondola and you are bumped by a large sea cow. It veers off and you pick yourself up from where you had fallen among the cushions and poll the boat further out. You call aloud but Hate has no ears wi.t h which to hear the pleas of the lost souls. Swanning around in a gondola is all very well but you haven't attracted the attentions of Hate. You pole back to the bank and return to your lair on Bumble Row.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 20; }
+};
+
+class Story252 : public Story::Base
+{
+public:
+    Story252()
+    {
+        ID = 252;
+
+        Text = "Two of the stanchions holding up the mound of rubble are cracked and buckling. It would be suicide to venture down there. If Lucie is buried down that hole she must be long since dead. There is nothing you can do to help her, only hope she spent the night in the arms of a lover and not in her own miserable little hovel. You return to your people to prepare them to face Hate.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 195; }
+};
+
+class Story253 : public Story::Base
+{
+public:
+    Story253()
+    {
+        ID = 253;
+
+        Image = "images/filler2.png";
+
+        Text = "Your fears were well founded. Put slightly off-balance because of the burden of the chest, you tread too heavily on a loose floorboard. There is an ominous creak. For a single ghastly moment your over-florid imagination likens it to the groan of scaffold timbers when a man is hanged. But the rope is not around your neck just yet -- even though the guards are already whirling, pulling the swords from their scabbards.\n\n\"A thief!\" they cry. \"Right under our very noses! Stop there, thief!\"";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player)
+    {
+        if (Character::VERIFY_SKILL(player, Skill::Type::AGILITY))
+        {
+            return 406;
+        }
+        else
+        {
+            return 283;
+        }
+    }
+};
+
+class Story254 : public Story::Base
+{
+public:
+    Story254()
+    {
+        ID = 254;
+
+        Image = "images/town-crier.png";
+
+        Text = "\"Now hear the will of the Overlord. The salt tax will be doubled forthwith.\" The crier's voice rings out confidently but there are growls of discontent all around.\n\nA man turns to you and says, \"Doubled! Do they intend to squeeze us till we are nought but dried husks lying in the dust?\"\n\n\"Ssh,\" you say, wanting to hear what else the town crier is saying.\n\n\"The amnesty for those who worship false gods is at an end,\" he declaims to the crowd. \"The punishment for heresy is death\"\n\nThere is a wail from somewhere in the crowd and two of the soldiers barge their way·towards the poor unfortunate. Townsfolk are knocked to the ground but no one lays hand on the soldieres. A woman dressed in a blue robe runs away up the street with the soldiers in hot pursuit.\n\nThe crier affects not to have noticed the disturbance. \"Now hear this. The Overlord decrees the Judain outcast. The life of a Judain is of no worth. The keeping of Judain as slaves within the precincts of the city may continue. It is the wish of the Overlord that all good citizens of Godorno shall not rest until the Judain have been driven out or enslaved.\"\n\nYou listen in horror. This means that none of your people is safe within the city. The crowds start to chant: \"Kill the Judain, kill the Judain.\" The man who spoke out with such indignation about the salt tax now looks at you and then points, shouting \"Judain!\" The mob will soon be baying for blood.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Use [CUNNING]", 301, Skill::Type::CUNNING));
+        Choices.push_back(Choice::Base("[SPELLS] Cast a spell of disguise", 88, Skill::Type::SPELLS));
+        Choices.push_back(Choice::Base("[SPELLS] Disappear in a puff of smoke", 104, Skill::Type::SPELLS));
+        Choices.push_back(Choice::Base("Use [STREETWISE]", 333, Skill::Type::STREETWISE));
+        Choices.push_back(Choice::Base("[SWORDPLAY] Fight with a SWORD", 270, Skill::Type::SWORDPLAY));
+        Choices.push_back(Choice::Base("Fight with [UNARMED COMBAT] ", 284, Skill::Type::UNARMED_COMBAT));
+        Choices.push_back(Choice::Base("You have none of these skills, or think that using them now would only get you killed: you are pelted with loose cobblestones as you run off (LOSE 4 Life Points)", 70, Choice::Type::LIFE, -4));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story255 : public Story::Base
+{
+public:
+    Story255()
+    {
+        ID = 255;
+
+        Text = "You duck down the steps into the drinking house and find to your horror that it is a haunt of off-duty gate guards and the Overlord's mercenaries. They sit around tables, drinking. Many still wear the purple and black livery of the Overlord. You walk quickly across the room looking for a second way out but there is none. You hear your pursuers rein in outside. There are too many enemies to fight.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Hide in the privy", 329));
+        Choices.push_back(Choice::Base("Surrender", 342));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story256 : public Story::Base
+{
+public:
+    Story256()
+    {
+        ID = 256;
+
+        Text = "Your own opinion is that the myth of the return of Harakadnezzar is only a story invented to deter would-be grave-robbers from rifling the more recently consecrated tombs. The story of Hate, however, is well known to all folklorists. Hate rises up in the foundations of ancient decadent cities, swallowing the proud, wicked and greedy into its ravening maw. This manifestation of the force of Hate was last heard of in the Old Empire city of Kush, a thousand years ago. There is nothing left of Kush now. The greatest and most powerful city the world has ever seen has become a giant dustbowl in the grasslands.";
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Choices.clear();
+
+        if (!Character::VERIFY_SKILL(player, Skill::Type::CHARMS))
+        {
+            Choices.push_back(Choice::Base("You are enjoying your ale", 267));
+            Choices.push_back(Choice::Base("Spurn it", 276));
+        }
+    }
+
+    int Continue(Character::Base &player) { return 287; }
+};
+
+class Story257 : public Story::Base
+{
+public:
+    Story257()
+    {
+        ID = 257;
+
+        Text = "You soon find Lucie, who is sprawled flat on her back in the road. She looks at you as though you have betrayed her and to your dismay you see she is going to cry. \"I only wanted to touch it, just for a moment,\" she cries, already in floods of tears.\n\n\"It is magically attuned to me. Only I can use it,\" you say hurriedly. You retrieve your amulet from the dust, but as you reach out to help Lucie up she shrugs you away, evading your grasp.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 261; }
+};
+
+class Story258 : public Story::Base
+{
+public:
+    Story258()
+    {
+        ID = 258;
+
+        Text = "Starting up suddenly from your chair you attempt to kill the Guildmaster of Thieves, but Melmelo is not one to be caught at a disadvantage. You encounter an invisible wall that stops you dead. It is coated in a transparent sticky slime and you are held fast. Defenceless, there is nothing you can do as Melmelo goes to work with his favourite knife. He takes no pleasure in killing you, he merely has the satisfaction that a dangerous enemy has been eliminated. There is no one left to save the Judain now. Hate will destroy everything.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story259 : public Story::Base
+{
+public:
+    Story259()
+    {
+        ID = 259;
+
+        Text = "They have only one reply to such a hideous threat. Even as you are calling the lepers forward, the guards shoot you with their crossbows from the arrow slits on either side and above the gates. You are peppered like a pincushion. As you die there is a low heartless cheer when the guards realize they have slaughtered yet another Judain. There is no one left now to save the Judain. Hate will subdue all.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
 auto prologue = Prologue();
 auto story001 = Story001();
 auto story002 = Story002();
@@ -6057,6 +6255,16 @@ auto story246 = Story246();
 auto story247 = Story247();
 auto story248 = Story248();
 auto story249 = Story249();
+auto story250 = Story250();
+auto story251 = Story251();
+auto story252 = Story252();
+auto story253 = Story253();
+auto story254 = Story254();
+auto story255 = Story255();
+auto story256 = Story256();
+auto story257 = Story257();
+auto story258 = Story258();
+auto story259 = Story259();
 
 void InitializeStories()
 {
@@ -6085,7 +6293,8 @@ void InitializeStories()
         &story210, &story211, &story212, &story213, &story214, &story215, &story216, &story217, &story218, &story219,
         &story220, &story221, &story222, &story223, &story224, &story225, &story226, &story227, &story228, &story229,
         &story230, &story231, &story232, &story233, &story234, &story235, &story236, &story237, &story238, &story239,
-        &story240, &story241, &story242, &story243, &story244, &story245, &story246, &story247, &story248, &story249};
+        &story240, &story241, &story242, &story243, &story244, &story245, &story246, &story247, &story248, &story249,
+        &story250, &story251, &story252, &story253, &story254, &story255, &story256, &story257, &story258, &story259};
 }
 
 #endif
