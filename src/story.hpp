@@ -862,11 +862,13 @@ public:
 class Story016 : public Story::Base
 {
 public:
-    std::string PreText = "";
-
     Story016()
     {
         ID = 16;
+
+        Text = "You turn tail and flee from the Jade Warriors, but on your way out you fall foul of a trap that stabs your thigh with a broken-off spear shaft.\n\nYou LOSE 1 Life Point.";
+
+        Bye = "You pull the shaft out. The blood wells forth ominously; you are lucky it didn't sever an artery. You hobble back to your bolt-hole on Bumble Row and lie down to recuperate.";
 
         Choices.clear();
 
@@ -875,16 +877,7 @@ public:
 
     void Event(Character::Base &player)
     {
-        PreText = "You turn tail and flee from the Jade Warriors, but on your way out you fall foul of a trap that stabs your thigh with a broken-off spear shaft.\n\nYou LOSE 1 Life Point.";
-
         Character::GAIN_LIFE(player, -1);
-
-        if (player.Life > 0)
-        {
-            PreText += "\n\nYou pull the shaft out. The blood wells forth ominously; you are lucky it didn't sever an artery. You hobble back to your bolt-hole on Bumble Row and lie down to recuperate.";
-        }
-
-        Text = PreText.c_str();
     }
 
     int Continue(Character::Base &player) { return 20; }
@@ -1648,6 +1641,10 @@ public:
     {
         ID = 52;
 
+        Text = "You advance quickly on Skakshi, getting in close to match your sword against his club. As you lunge forward, the haft of the club catches you a painful blow on the shoulder and you feel the spikes tear your jerkin and bite into the flesh beneath.\n\nYou LOSE 3 Life Points.";
+
+        Bye = "You send the pommel of your sword crashing into Skakshi's jaw with stunning force. He gives a surprised grunt as his knees fold under him. Before he can rise and continue the battle, you have the point of your sword at his throat. \"Take me to Melmelo,\" you say to him as you get your breath back.\n\nHe looks at your sword uneasily as he slowly gets to his feet. \"I'll take you,\" he says sullenly.";
+
         Choices.clear();
 
         Controls = Story::Controls::STANDARD;
@@ -1655,16 +1652,7 @@ public:
 
     void Event(Character::Base &player)
     {
-        PreText = "You advance quickly on Skakshi, getting in close to match your sword against his club. As you lunge forward, the haft of the club catches you a painful blow on the shoulder and you feel the spikes tear your jerkin and bite into the flesh beneath.\n\nYou LOSE 3 Life Points.";
-
         Character::GAIN_LIFE(player, -3);
-
-        if (player.Life > 0)
-        {
-            PreText += "\n\nYou send the pommel of your sword crashing into Skakshi's jaw with stunning force. He gives a surprised grunt as his knees fold under him. Before he can rise and continue the battle, you have the point of your sword at his throat. \"Take me to Melmelo,\" you say to him as you get your breath back.\n\nHe looks at your sword uneasily as he slowly gets to his feet. \"I'll take you,\" he says sullenly.";
-        }
-
-        Text = PreText.c_str();
     }
 
     int Continue(Character::Base &player) { return 181; }
@@ -1815,6 +1803,10 @@ public:
     {
         ID = 61;
 
+        Text = "You fling up the door and jump down into the cellar to find yourself surrounded by several men, one of whomjabs you with a rusty old spear before you can regain your balance.\n\nYou LOSE 3 Life Points.";
+
+        Bye = "Wait! A fellow Judain!\" realizes one of them. You recognize the tall imposing figure of Caiaphas, rabbi at the synagogue before it was torn down by the mob.\n\n\"I am,\" you reply with a nod. \"As, I see, are all of you.\"\n\nThere are three Judain families hiding down here from the Overlord's butchers. The rusty old spear is thrown aside as they welcome you with open arms.";
+
         Choices.clear();
 
         Controls = Story::Controls::STANDARD;
@@ -1822,16 +1814,7 @@ public:
 
     void Event(Character::Base &player)
     {
-        PreText = "You fling up the door and jump down into the cellar to find yourself surrounded by several men, one of whomjabs you with a rusty old spear before you can regain your balance.\n\nYou LOSE 3 Life Points.";
-
         Character::GAIN_LIFE(player, -3);
-
-        if (player.Life > 0)
-        {
-            PreText += "\n\n\"Wait! A fellow Judain!\" realizes one of them. You recognize the tall imposing figure of Caiaphas, rabbi at the synagogue before it was torn down by the mob.\n\n\"I am,\" you reply with a nod. \"As, I see, are all of you.\"\n\nThere are three Judain families hiding down here from the Overlord's butchers. The rusty old spear is thrown aside as they welcome you with open arms.";
-        }
-
-        Text = PreText.c_str();
     }
 
     int Continue(Character::Base &player) { return 71; }
@@ -5271,11 +5254,13 @@ public:
 class Story226 : public Story::Base
 {
 public:
-    std::string PreText = "";
-
     Story226()
     {
         ID = 226;
+
+        Text = "You know a little bit about horses and can ride tolerably well. Looking at the horse you see it is flinching from its own shadow. Taking its bridle you turn it till it is facing into the sun so it can no longer see its shadow. Mounting safely, you give the horse free rein: it surges into a gallop and you hang on grimly. Luckily for you the road to the main gate is straight. Within a few minutes you can see the wooden arches of the double gate ahead. People jump aside at the last moment from the path of your frothing mount.\n\nThe horse is still galloping wildly as you approach the gate and the gate guards tumble out of their guardhouse to stop you. One tries to grab the bridle but misses and falls over. Another is winding his crossbow. As you gallop past he lets fly and the bolt catches you in the side.\n\nYou LOSE 3 Life Points.";
+
+        Bye = "You hang on grimly as the twang of crossbows echoes from behind. Bolts zip past your ears. The horse gallops on, leaving pursuit behind. The towers and minarets of Godo mo are lost to view by the time the horse runs itself out. You dismount and carry on up the trade road on foot.";
 
         Choices.clear();
 
@@ -5284,16 +5269,7 @@ public:
 
     void Event(Character::Base &player)
     {
-        PreText = "You know a little bit about horses and can ride tolerably well. Looking at the horse you see it is flinching from its own shadow. Taking its bridle you turn it till it is facing into the sun so it can no longer see its shadow. Mounting safely, you give the horse free rein: it surges into a gallop and you hang on grimly. Luckily for you the road to the main gate is straight. Within a few minutes you can see the wooden arches of the double gate ahead. People jump aside at the last moment from the path of your frothing mount.\n\nThe horse is still galloping wildly as you approach the gate and the gate guards tumble out of their guardhouse to stop you. One tries to grab the bridle but misses and falls over. Another is winding his crossbow. As you gallop past he lets fly and the bolt catches you in the side.\n\nYou LOSE 3 Life Points.";
-
         Character::GAIN_LIFE(player, -3);
-
-        if (player.Life > 0)
-        {
-            PreText += "\n\nYou hang on grimly as the twang of crossbows echoes from behind. Bolts zip past your ears. The horse gallops on, leaving pursuit behind. The towers and minarets of Godo mo are lost to view by the time the horse runs itself out. You dismount and carry on up the trade road on foot.";
-        }
-
-        Text = PreText.c_str();
     }
 
     int Continue(Character::Base &player) { return 302; }
@@ -6221,6 +6197,218 @@ public:
     int Continue(Character::Base &player) { return 159; }
 };
 
+class Story270 : public Story::Base
+{
+public:
+    Story270()
+    {
+        ID = 270;
+
+        Text = "The Overlord's soldiers close on you with drawn swords. You fight for your life valiantly, your blade thrumming through the air, but you can't keep them off for ever. There are too many foes and they cut you down, while the townsfolk howl with glee. Your dying thought is, \"How could I have been so foolish to think I could fight my way out of this?\"";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story271 : public Story::Base
+{
+public:
+    Story271()
+    {
+        ID = 271;
+
+        Text = "You seize the bridle and leap into the saddle. The chestnut horse bucks and then arches its back and makes a series of straight-legged jumps to shake you from the saddle. You decide to give it free rein as you feel the horse's fear, hoping this will stop it bucking. It surges into a gallop and you hang on grimly. Luckily for you the road to the main gate is straight. Within a few minutes you can see the wooden arches of the double gate ahead. People jump aside at the last moment from the path of your frothing mount.\n\nThe horse is still galloping wildly as you approach the gate and the gate guards tumble out of their guardhouse to stop you. One tries to grab the bridle but misses and falls over. Another is winding his crossbow. As you gallop past he lets fly and the bolt catches you in the side.\n\nYou LOSE 3 Life Points.";
+
+        Bye = "You hang on grimly. The twangs of crossbow strings ring out behind you. Deadly quarrels go shooting past your ears. The horse gallops on, leaving pursuit behind. The towers and minarets of Godorno are lost to view by the time the horse runs itself out. It is lame. You dismount and carry on up the trade road on foot.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Character::GAIN_LIFE(player, -3);
+    }
+
+    int Continue(Character::Base &player) { return 302; }
+};
+
+class Story272 : public Story::Base
+{
+public:
+    Story272()
+    {
+        ID = 272;
+
+        Image = "images/filler1.png";
+
+        Text = "As head of the Judain resistance movement in Godorno you are now one of the most powerful people in the city. With power comes responsibility but you comfort yourself that you are doing your best. You wonder how many more Judain will die carrying out your orders. How many innocent people will suffer. Will the Overlord give in to your demands? Or will you all be taken to the prison fortress of Grand and tortured?\n\nThe Overlord is no longer the great enemy. It is Hate you must outwit. In order to do so you must know something about its movements. Where does it sleep? Can it be harmed? How long does it take to ingest lost souls? You need the answers to these questions but where will you seek them?";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Take a gondola down Grand Canal and hope Hate comes to you", 292));
+        Choices.push_back(Choice::Base("Explore the catacombs", 248));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story273 : public Story::Base
+{
+public:
+    Story273()
+    {
+        ID = 273;
+
+        Text = "You kneel beside her though her eyes implore you not to. She raises her arm to put it round you, then looks at the other. To your horror you see that a patch of wall has broken away to reveal something purple beneath. Lucie's arm has been drawn inside it. You are about to spring back when two tentacles whip out of the purple mass, twining round your windpipe and one wrist. Lucie is indeed a little lost soul, already being absorbed into the body of Hate. There is no escape for her -- and maybe no escape for you, either.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player)
+    {
+        if (Character::VERIFY_CODEWORDS(player, {Codeword::Type::SATORI}))
+        {
+            return 343;
+        }
+        else
+        {
+            return 335;
+        }
+    }
+};
+
+class Story274 : public Story::Base
+{
+public:
+    Story274()
+    {
+        ID = 274;
+
+        Image = "images/filler3.png";
+
+        Text = "Somehow, from the midst of chaos and despair, you must fashion a way that will deliver your people and save the city. But one wrong move will end in disaster.\n\nThere are three things you might use against the monster.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Use the JADE WARRIOR's SWORD", 230, {Item::JADE_WARRIORS_SWORD}));
+        Choices.push_back(Choice::Base("Use the JEWEL OF SUNSET FIRE", 349, {Item::JEWEL_OF_SUNSET_FIRE}));
+        Choices.push_back(Choice::Base("Use the CHAINS from the prison gates of Grond to shackle Hate", 392, {Item::CHAINS}));
+        Choices.push_back(Choice::Base("You have none of those items", 187));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story275 : public Story::Base
+{
+public:
+    Story275()
+    {
+        ID = 275;
+
+        Text = "The old woman doesn't betray the least surprise at your revelation. \"Best lie low, these are bad times for Judain and no mistake. Good luck.\"\n\nAnd with that she is off to find a place on the street to sell her meagre clutch of eggs. You walk on into the once bustling city.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 300; }
+};
+
+class Story276 : public Story::Base
+{
+public:
+    Story276()
+    {
+        ID = 276;
+
+        Text = "You pick up your alepot, then set it down on the bar again without drinking from it. It would not do to be poisoned when there are so many depending on you for leadership. The landlord's eyes flit from yours to the alepot and back again. It seems you have guessed aright: the landlord meant to avenge himself by poisoning you.\n\nThere is no sense in looking for more trouble here. You give the surly landlord a knowing look and prepare to quit the bar, determined never to darken its doors again.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Leave the Silver Eel", 199));
+        Choices.push_back(Choice::Base("Ask about Lucie and the tall stranger before you go", 236));
+        Choices.push_back(Choice::Base("Talk to her and her strange acquaintance", 227));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story277 : public Story::Base
+{
+public:
+    Story277()
+    {
+        ID = 277;
+
+        Text = "The JADE WARRIORS' SWORDs are the finest you have ever seen. One in particular seems almost to pulse with energy, catching light like droplets of honey along its sharp edge.\n\nWith such a SWORD you might conquer a kingdom. The lure of avarice is too great. Diving forward, you duck under the swipe of the nearest Jade Warrior and leap nimbly over the attack of the second. Jumping behind the Jade Warrior with the finest blade, you throw yourself against its sword arm, wrenching the blade from its strong grasp.\n\nThe others close in, and too late you realize your escape route is cut off. By reflex you raise the SWORD. \"Get away from me!\" you cry as menacingly as you can as they loom over you to slice your vitals.\n\nTo your relief and amazement they obey your command, lining up before you to stand at attention. They whirr and click as they follow you dutifully to the edge of the precincts of the burial chambers, and there they grind to a halt. There is nothing you can do to move them further. Although you cannot command the Jade Warriors to go forth and attack Hate, you tell them that they must attack Hate if it should loop its coils into the burial chambers of the Megiddo dynasty. You leave all doors and traps wide open in the hope that Hate will blunder in and get carved up.\n\nSure enough, when you return the next day the place shows the signs of an epic battle. Great gouts of translucent flesh hang from lintel and corners. There is a fine green powder in the air, like pulverized glass. The Jade Warriors have been ground to dust by Hate but, judging by the quantity of purple ichor smeared over the walls, they must have given the monster acute indigestion.\n\nYou OBTAINED a JADE WARRIOR's SWORD. You gained the codeword HECATOMB.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Character::GET_ITEMS(player, {Item::JADE_WARRIORS_SWORD});
+
+        Character::GET_CODEWORDS(player, {Codeword::Type::HECATOMB});
+
+        Take = {Item::PLUMED_HELMET};
+
+        Limit = 1;
+    }
+
+    int Continue(Character::Base &player) { return 174; }
+};
+
+class Story278 : public Story::Base
+{
+public:
+    Story278()
+    {
+        ID = 278;
+
+        Text = "You sit, exhausted, against a ramshackle wall and the city guards rein their horses in around you. You pass out with the sickness, only to come to a moment later as you are roughly hauled to your feet. The guards have dismounted to surround you. You are pushed around between them, then you double up as a knee is driven hard into your solar plexus.\n\nThey beat you badly and leave you for dead.\n\nYou LOSE 5 Life Points.";
+
+        Bye = "You drag yourself out of the gutter and manage to stagger to Mameluke's garrett.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Character::GAIN_LIFE(player, -5);
+    }
+
+    int Continue(Character::Base &player) { return 316; }
+};
+
+class Story279 : public Story::Base
+{
+public:
+    Story279()
+    {
+        ID = 279;
+
+        Text = "You are taking a terrible risk, stealing into the Overlord's palace. It is a dark night and you fight to control a blackness of heart which impels you to take revenge on the cruel tyrannical Overlord.\n\nEmerging out of the catacombs beneath the palace stables you make your way in by the postern gate and steal along strangely deserted corridors towards where you guess the Overlord's suite must be.\n\nThere are few guards here, though you can hear the sounds of a drunken brawl in the guardhouse itself. How can the Overlord's security be so lax? Is he losing his grip?\n\nAfter only five minutes inside the palace you are outside the Overlord's bedchamber. Holding your breath you push open the door and step through.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 30; }
+};
+
 auto prologue = Prologue();
 auto story001 = Story001();
 auto story002 = Story002();
@@ -6491,6 +6679,16 @@ auto story266 = Story266();
 auto story267 = Story267();
 auto story268 = Story268();
 auto story269 = Story269();
+auto story270 = Story270();
+auto story271 = Story271();
+auto story272 = Story272();
+auto story273 = Story273();
+auto story274 = Story274();
+auto story275 = Story275();
+auto story276 = Story276();
+auto story277 = Story277();
+auto story278 = Story278();
+auto story279 = Story279();
 
 void InitializeStories()
 {
@@ -6521,7 +6719,8 @@ void InitializeStories()
         &story230, &story231, &story232, &story233, &story234, &story235, &story236, &story237, &story238, &story239,
         &story240, &story241, &story242, &story243, &story244, &story245, &story246, &story247, &story248, &story249,
         &story250, &story251, &story252, &story253, &story254, &story255, &story256, &story257, &story258, &story259,
-        &story260, &story261, &story262, &story263, &story264, &story265, &story266, &story267, &story268, &story269};
+        &story260, &story261, &story262, &story263, &story264, &story265, &story266, &story267, &story268, &story269,
+        &story270, &story271, &story272, &story273, &story274, &story275, &story276, &story277, &story278, &story279};
 }
 
 #endif

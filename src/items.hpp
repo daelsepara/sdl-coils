@@ -20,8 +20,9 @@ namespace Item
         JEWEL_OF_SUNSET_FIRE,
         KNIFE,
         DIAMOND,
+        CHAINS,
         First = MAGIC_AMULET,
-        Last = KNIFE
+        Last = CHAINS
     };
 
     class Base
@@ -67,6 +68,7 @@ namespace Item
     auto JEWEL_OF_SUNSET_FIRE = Item::Base("JEWEL OF SUNSET FIRE", "JEWEL OF SUNSET FIRE", Item::Type::JEWEL_OF_SUNSET_FIRE);
     auto KNIFE = Item::Base("KNIFE", "KNIFE", Item::Type::KNIFE);
     auto DIAMOND = Item::Base("DIAMOND", "DIAMOND", Item::Type::DIAMOND);
+    auto CHAINS = Item::Base("CHAINS", "CHAINS", Item::Type::CHAINS);
 
     std::vector<Item::Type> UniqueItems = {};
 
