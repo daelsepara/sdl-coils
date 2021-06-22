@@ -4912,7 +4912,7 @@ public:
     {
         ID = 208;
 
-        Text = "The gigantic spider rocks back and forth, seemingly transfixed by the apparitions of you which have appeared on either hand. You have indeed won more time. It seems the spider cannot make a choice between three absolutely identical targets. It is not clever enough to begin a process of elimination";
+        Text = "The gigantic spider rocks back and forth, seemingly transfixed by the apparitions of you which have appeared on either hand. You have indeed won more time. It seems the spider cannot make a choice between three absolutely identical targets. It is not clever enough to begin a process of elimination.";
 
         Choices.clear();
         Choices.push_back(Choice::Base("Attack it with an energy spell", 290));
@@ -4939,6 +4939,192 @@ public:
     }
 
     int Continue(Character::Base &player) { return 227; }
+};
+
+class Story210 : public Story::Base
+{
+public:
+    Story210()
+    {
+        ID = 210;
+
+        Text = "You reach the scene of the disaster by late afternoon. There is no sign of Lucie. The shack where she was hiding has been levelled to the ground. A great pit has opened up beneath it and looking down into it you smell the galling purulent stench of corruption that comes from the coils of Hate.\n\nIs Lucie now just another lost soul, forced to live a half-life of torment within the corrupt flesh of Hate itself? You can't ask anyone if they have seen her, for they would not tell you if they had, out of fear of the Overlord's men.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Attempt to search for her down the hole", 360));
+        Choices.push_back(Choice::Base("Abandon her to her grisly fate", 252));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story211 : public Story::Base
+{
+public:
+    Story211()
+    {
+        ID = 211;
+
+        Text = "Mameluke doesn't realize how sick you are. His cheerfulness is wearing until he goes on ahead to light the fire and warm his rooms up for you. As soon as his broad back bobs out of sight round the corner you sink, exhausted, to the cobbled ground. The city watchmen are clip-clopping over the cobbles towards you on horseback.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player)
+    {
+        if (Character::VERIFY_SKILL(player, Skill::Type::CHARMS))
+        {
+            return 244;
+        }
+        else if (Character::VERIFY_ANY_SKILLS(player, {Skill::Type::CUNNING, Skill::Type::STREETWISE}))
+        {
+            return 264;
+        }
+        else
+        {
+            return 278;
+        }
+    }
+};
+
+class Story212 : public Story::Base
+{
+public:
+    Story212()
+    {
+        ID = 212;
+
+        Image = "images/filler1.png";
+
+        Text = "As you walk warily along Last Rites Street you see a captain of the guard, whom you remember is called Tormil, agreeing to help a citizen flee the city in return for most of his worldly weath. Only a rat like Tormil would take advantage of people's helplessness so callously. You stand in front of him and revile him for taking advantage of the oppressed.\n\n\"If I were not due to take over my guard duties at the palace I would slay you on the instant, Judain scum. But I swear I will bring you before the Overlord in chains.\" With that he sets out for the palace.\n\nHis victim waits nearby until Tormil has rounded a corner and is safely out of sight, before plucking up courage to talk to you.\n\n\"As it is some time before Tormil can fulfil his pledge to help me leave, might I return your kindness?\" he asks.\n\nHe barely gives you time to nod your acceptance before continuing in his nasal tones: \"I am, or was until recently, a jeweller's assistant in Mire Street. Alas my own honesty has put me out of a job, and left me in fear of my life. I must leave the city.\n\n\"Yet perhaps I may be revenged on my employer, and you may strike a blow for the Judain against the Overlord. A DIAMOND owned by a Judain shopkeeper I once knew, is now at my master's shop being fashioned into a mighty sceptre for the Overlord. Finding out my connection with the previous owner, however, my master went to call the Overlord's guards so that I might be taken away and thrown into Grand to languish there with my Judain friend. It is clear_ to see my master favours not the Judain, nor those who would be their friends.\n\n\"I beg you to reacquire the DIAMOND, if not for my friend, then for the Judain cause. Here is the address.\"\n\nHe gives clear directions to the jeweller's shop in Mire Street before making his farewells. He parts company saying, \"Not all are against the Judain. Goodbye.\"";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Turn your mind to acquiring the DIAMOND to order to finance the resistance effort", 241));
+        Choices.push_back(Choice::Base("Search for a hideout", 190));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story213 : public Story::Base
+{
+public:
+    Story213()
+    {
+        ID = 213;
+
+        Text = "Your search for another AMULET is interrupted by the venomed blade of Skakshi the master thief. He has crept up on you unseen and unheard as only a master rogue can. He turns the knife in your vitals and you die at his hands. If only you hadn't lost your charm AMULET it might have warned you of the danger. There is no one left to save the Judain now. Hate will subdue all.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story214 : public Story::Base
+{
+public:
+    Story214()
+    {
+        ID = 214;
+
+        Text = "It is time to spy out the lay of the land. Only by prowling around the streets yourself will you know what is really happening. As you pass towards the foreigners' quarter you are greeted silently by many of your people from their look-out and alarm posts. They melt away at the first sign of soldiers, so you are far from safe on the streets.\n\nTurning a corner you come upon a most distressing sight. A virulent throbbing mass of purple slime presses up through a fissure into the sewers of the city. On a pile of rubble, many figures are caught in the sticky slime like flies on a piece of honey-smeared paper.\n\nYou recognize one of the faces staring out mutely, barely submerged under a violet sheen of skin. It is the daughter of Torrriil, the captain of the palace guard who has sworn to deliver you to the Overlord in chains. Tormil's own daughter has fallen into the embrace of Hate. She is just another lost soul now. You decide to show her to Tormil; then you can ask him to join you in the resistance or try to trick him into joining his daughter, enmeshed in the coils of Hate.\n\nYou find Tormil on his journey home from the sword practice halls. You call to him from a dark alleyway and he stops and peers at you. \"Come with me, Captain Tormil. I have something to show you.\"\n\n\"What do you want with me?\"\n\n\"I have found your missing daughter. I want nothing but to bring you to her.\"\n\n\"Lead on. I will follow -- at a distance. No tricks.\" He follows you warily to the fallen wall. You scramble to the top of the pile of rubble and point. He stands beside you and gazes into the dull glassy eyes of his daughter, who tries to reach out a hand towards him, but cannot.\n\nTormil breaks into tears, then flourishing his sword, he runs down the rubble slope to hack at the bloated form of Hate.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Let him die: glad to see him meet his doom in Hate's coils", 95));
+        Choices.push_back(Choice::Base("Try to save him", 265));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story215 : public Story::Base
+{
+public:
+    Story215()
+    {
+        ID = 215;
+
+        Text = "The guards crane their heads towards you, desperate for you to save them. They goggle at you comically, as if they have never seen a person free to walk about on the earth before.\n\n\"Here, grab my hand,\" implores one of the guards, who is standing in Hate up to his knees. He tries to smile at you but it is the smile of a traitor.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Grab his proferred hand and drag him out", 25));
+        Choices.push_back(Choice::Base("Ignore him and pass on down the line", 13));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story216 : public Story::Base
+{
+public:
+    Story216()
+    {
+        ID = 216;
+
+        Text = "The water of the pool is cloudy and you cannot be sure how deep it is. Touching it cautiously reveals it is cold but not deathly cold and to the taste it is as pure as spring water.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Step in", 245));
+        Choices.push_back(Choice::Base("Skirt round to the side of the pool", 203));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story217 : public Story::Base
+{
+public:
+    Story217()
+    {
+        ID = 217;
+
+        Text = "Hardly daring even to breathe, you insert a bent pin into the lock and twist it with consummate precision. No surgeon ever operated so carefully upon a patient, no swain ever gave such loving entreaties to his paramour, no artist ever wielded his brush with such fine skill, as you work now upon that tiny lock.\n\nYour diligence is rewarded; the lock abandons its duties with a soft tut. The lid of the coffer yields to your eager touch, and you allow yourself a smile as you lift out the gemstone you came for. Placing it in your mouth for safekeeping -- the sweetest lozenge you ever saw -- you skulk back noiselessly across the room and descend the stairs to emerge moments later into the night air.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 358; }
+};
+
+class Story218 : public Story::Base
+{
+public:
+    Story218()
+    {
+        ID = 218;
+
+        Text = "Touching your wand, you speak a cantrip which confuses the guards' minds so that they see you as a long-lost friend. They slap you on the back, offer you beer and wish you well in the city. The old woman, who sells eggs in the city, follows you through the city gate. She is mumbling to herself through toothless gums. She obviously can't afford a set of false teeth, which are a recent invention in Godorno and one of the wonders of modern medicine.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 380; }
+};
+
+class Story219 : public Story::Base
+{
+public:
+    Story219()
+    {
+        ID = 219;
+
+        Text = "The potent spell of Visceral Pang should suffice to bring the landlord to his knees and force him to do your bidding. You mouth the arcane words and twirl your fingers in the patterns that bring magic to life. The spell catches and the landlord's face grows pale, then very flushed. He makes a rush for the latrines but the pain pulls him up short and he doubles over in agony.\n\n\"You will serve a Judain, my good man, and be quick about it,\" you say, looking around to gauge the reaction of the other drinkers.\n\nThe two women are looking at you in a new light. The pipesmoker is tapping out his pipe. Lucie looks shocked. The eyes of the tall stranger transfix you with a piercing stare. The gang of four are all fingering hidden weapons and checking their escape routes.\n\n\"A pot of your finest ale, landlord,\" you say, letting the spell go. The landlord straightens slowly, holding his stomach, and reaches for an alepot.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Ask him about Lucie and the tall stranger", 236));
+        Choices.push_back(Choice::Base("Ask if he knows who or what is carrying off the good burghers of Godorno and leaving their hearts bobbing in the Crescent Canal", 246));
+
+        Controls = Story::Controls::STANDARD;
+    }
 };
 
 auto prologue = Prologue();
@@ -5151,6 +5337,16 @@ auto story206 = Story206();
 auto story207 = Story207();
 auto story208 = Story208();
 auto story209 = Story209();
+auto story210 = Story210();
+auto story211 = Story211();
+auto story212 = Story212();
+auto story213 = Story213();
+auto story214 = Story214();
+auto story215 = Story215();
+auto story216 = Story216();
+auto story217 = Story217();
+auto story218 = Story218();
+auto story219 = Story219();
 
 void InitializeStories()
 {
@@ -5175,7 +5371,8 @@ void InitializeStories()
         &story170, &story171, &story172, &story173, &story174, &story175, &story176, &story177, &story178, &story179,
         &story180, &story181, &story182, &story183, &story184, &story185, &story186, &story187, &story188, &story189,
         &story190, &story191, &story192, &story193, &story194, &story195, &story196, &story197, &story198, &story199,
-        &story200, &story201, &story202, &story203, &story204, &story205, &story206, &story207, &story208, &story209};
+        &story200, &story201, &story202, &story203, &story204, &story205, &story206, &story207, &story208, &story209,
+        &story210, &story211, &story212, &story213, &story214, &story215, &story216, &story217, &story218, &story219};
 }
 
 #endif
