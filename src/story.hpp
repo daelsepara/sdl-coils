@@ -4495,7 +4495,7 @@ public:
     {
         ID = 189;
 
-        Text = "Placing a money pouch on the bar, you ask, \"Tell me about Lucie. Does she frequent the Silver Eel often? And who is her companion?\"\n\nThe landlord pockets the money pouch after first weighing it carefully in his hand. He glances nervously at the gang of four and says, \"Yes, she haunts this place often. She's never alone. I see some of them again and again but she has a lot of friends, does little Lucie. She's a ornery girl that one. Knows her own mind and no mistake. Forever taking up with the most disreputable mountebanks and desperadoes. Always twists 'em round her little finger, mind.\"\n\n\"And what about her friend?\"\n\n\"That's Tyutchev, a foreigner. See how pale he is? Doesn't it make you feel ill just to look a.t him? He usually comes in with his doxy, Cassandra -- or is it he is her pretty boy? She's a terrible proud and beautiful woman, wearing gear like a Fury from the Abyss. At any rate, they had a terrible fight in here last week. I never saw a woman wield a sword with such skill and venom. It glowed cold blue, and where it struck the bar I found crystals of ice.\"\n\n\"Who won the fight?\" you ask, incredulous.\n\n\"They were both bleeding badly. It was a terrible battle. But they went out together. I do declare I've never had the misfortune to serve two less pleasant and outright perilous characters.\"\n\n\"What do they all want with Lucie?\" you wonder aloud.\n\nHe cracks a rancid-toothed smile. \"What does any man want with Lucie?\"\n\nYou thank the landlord for his information and, leaving the alepot on the bar, walk over to the couple, who are watching you intently. Lucie smiles as she did when you met her in the street.\n\nYou LOST 3 gleenars.";
+        Text = "Placing a money pouch on the bar, you ask, \"Tell me about Lucie. Does she frequent the Silver Eel often? And who is her companion?\"\n\nThe landlord pockets the money pouch after first weighing it carefully in his hand. He glances nervously at the gang of four and says, \"Yes, she haunts this place often. She's never alone. I see some of them again and again but she has a lot of friends, does little Lucie. She's an ornery girl that one. Knows her own mind and no mistake. Forever taking up with the most disreputable mountebanks and desperadoes. Always twists 'em round her little finger, mind.\"\n\n\"And what about her friend?\"\n\n\"That's Tyutchev, a foreigner. See how pale he is? Doesn't it make you feel ill just to look a.t him? He usually comes in with his doxy, Cassandra -- or is it he is her pretty boy? She's a terrible proud and beautiful woman, wearing gear like a Fury from the Abyss. At any rate, they had a terrible fight in here last week. I never saw a woman wield a sword with such skill and venom. It glowed cold blue, and where it struck the bar I found crystals of ice.\"\n\n\"Who won the fight?\" you ask, incredulous.\n\n\"They were both bleeding badly. It was a terrible battle. But they went out together. I do declare I've never had the misfortune to serve two less pleasant and outright perilous characters.\"\n\n\"What do they all want with Lucie?\" you wonder aloud.\n\nHe cracks a rancid-toothed smile. \"What does any man want with Lucie?\"\n\nYou thank the landlord for his information and, leaving the alepot on the bar, walk over to the couple, who are watching you intently. Lucie smiles as she did when you met her in the street.\n\nYou LOST 3 gleenars.";
 
         Choices.clear();
 
@@ -4732,6 +4732,215 @@ public:
     }
 };
 
+class Story200 : public Story::Base
+{
+public:
+    Story200()
+    {
+        ID = 200;
+
+        Text = "You take your usual care in the alleys and backways of the old city but this time your sixth sense has failed you. An assassin has you in the sights of his crossbow. A poisoned bolt catches you in the shoulder, spinning you round so that you fall in an ungainly heap on the cobblestones. Someone had marked you out, for what reason, you will never know. There is no one left to save the Judain now. Hate will conquer all.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story201 : public Story::Base
+{
+public:
+    Story201()
+    {
+        ID = 201;
+
+        Text = "This street winds down towards the riverfront and the centre of the city. It is crossed by large avenues lined with tall straight cedars that lead up to the citadel. You hear the ringing of the town crier's bell. At the end of the street is Greenbark Plaza. Here a large walled flowerbed encircles a rare sight. It is a greenbark tree, eighty feet tall. The smooth bark is striped lime green and grey-green and the heart-shaped leaves are golden yellow. There is a shrine here to the tree spirit with a few offerings of potash and wine.\n\nNext to the shrine is the town crier dressed in his traditional black and gold tabard. He unfurls a scroll and begins to declaim to the gathered crowd. He is flanked by a bodyguard of the Overlord's men armoured in black leather. You push forward to hear better.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 254; }
+};
+
+class Story202 : public Story::Base
+{
+public:
+    Story202()
+    {
+        ID = 202;
+
+        Text = "Being among friends has its advantages. An old moneylender, Sekritt the Blind, has just such a PENDANT as you might use as a MAGICAL AMULET. It was pawned to him by an itinerant sorcerer many years ago. You are lucky. He was about to sell it to a young sorceress who had decided to risk trying to escape from the city down the catacombs -- an unwise move if ever there was one.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        if (Character::HAS_SKILL(player, Skill::Type::CHARMS))
+        {
+            if (!Character::VERIFY_ITEMS(player, {Item::Type::MAGIC_AMULET}))
+            {
+                Character::GET_ITEMS(player, {Item::MAGIC_AMULET});
+            }
+        }
+    }
+
+    int Continue(Character::Base &player) { return 160; }
+};
+
+class Story203 : public Story::Base
+{
+public:
+    Story203()
+    {
+        ID = 203;
+
+        Text = "As you go to step on a piece of mosaic majolica, your foot feels no resistance. You have stepped off the side of the tower and with a dreadful heave of the stomach you realize you are falling two hundred feet to be smashed on the rocks of what was once the entrance to Old Godorno harbour. Who will save your people now? Not you, a shattered body at the base of the Tower of the Sentinel.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story204 : public Story::Base
+{
+public:
+    Story204()
+    {
+        ID = 204;
+
+        Text = "You quickly ignite the incense, and smoke billows forth from the censer. The Jade Warriors are soon swathed in the roiling white clouds, and you grope your way through the smoke towards them. One of the warriors looms towards you, the light gleaming dully now off its facets and its sword is working mechanically. You recoil in fright but it lumbers past making elaborate passes in the air, as if engaged in a display of an ancient style of swordplay. The others are also lurching about at random. The smoke seems to have scrambled their senses. Each is cutting and thrusting at the air around it but they seem oblivious of you.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player)
+    {
+        if (Character::VERIFY_SKILL(player, Skill::Type::FOLKLORE))
+        {
+            return 119;
+        }
+        else
+        {
+            return 133;
+        }
+    }
+};
+
+class Story205 : public Story::Base
+{
+public:
+    Story205()
+    {
+        ID = 205;
+
+        Text = "You pole the boat as fast as you can to the nearest bank. Behind you there is a splash and a snort as an ugly but harmless sea cow breaks the surface of the water. You are exhausted from your attempt at flight, however, and step from the boat to rest at the edge of the murky canal, sitting on the road and basking in the midday sun.\n\nSoon you have the uneasy feeling of being watched.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 374; }
+};
+
+class Story206 : public Story::Base
+{
+public:
+    std::string PreText = "";
+
+    Story206()
+    {
+        ID = 206;
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        PreText = "How much gold are you offering me?\" From his tone of voice you can tell the guard does not believe you.\n\n\"The weight of a man's forearm in real red gold. You'll be rich beyond your wildest dreams.\"\n\nHe snorts. \"There is not so much wealth in the whole city, outside the Overlord's palace!\"\n\n\"The Overlord has indeed sucked the city dry in his greed. But what of the usurers, the bankers? They have kept their stash of gold safe underground in these troubled times.\"\n\nHe fixes you with a suspicious glare. \"Bring me the gold and I'll hand over the keys. I'll not be responsible for the mayhem which follows. I won't be your scapegoat, Judain.\"\n\n\"If you are wise,\" you tell him, \"you'll quit the city at the first opportunity, never to return.\"\n\nYou need 500 gleenars to cover the bribe you have offered him.";
+
+        Choices.clear();
+
+        if (player.Money < 500)
+        {
+            PreText += "\n\nYou must find the money somewhere else. It is unlikely that the other Judain would willingly part with most of the resistance fund for such a risky venture.";
+
+            Choices.push_back(Choice::Base("Try selling some of your possessions", 235));
+            Choices.push_back(Choice::Base("[SPELLS] Use magic to make them accept any specious argument you come up with", 288, Skill::Type::SPELLS));
+        }
+
+        Text = PreText.c_str();
+    }
+
+    int Continue(Character::Base &player) { return 415; }
+};
+
+class Story207 : public Story::Base
+{
+public:
+    Story207()
+    {
+        ID = 207;
+
+        Text = "Your spell of Invisibility works as neatly as it always does. You congratulate yourself and make a mental note you could earn good money as a teacher of spellcasting at a sorcerer's academy. You walk to the gate unseen, just in front of an old woman who has come to the city to sell eggs. As you step through the outer gate one of the guards closes the inner one against you, while another pushes shut the outer gate, not minding the protestations of the old woman, who is now trapped beside you.\n\n\"My wife could do with a dozen eggs for pancakes,\" he says to her. \"Haven't you heard about the Overlord's new tax, old woman? The egg tax!\"\n\n\"Leave my eggs alone. It was all I could do to glean enough grains of wheat to feed my poor little chicks. You wouldn't take an old woman's livelihood would you? Not an old woman who's never done you any harm, nor wouldn't want to?\"\n\nThe guards decide to have a little fun at the woman's expense. Their captain is lounging bored on a seat beside the wall. Your invisibility will wear off soon.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Cast Miasma", 362));
+        Choices.push_back(Choice::Base("Cast Visceral Pang", 372));
+        Choices.push_back(Choice::Base("Cast Rulership", 382));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story208 : public Story::Base
+{
+public:
+    Story208()
+    {
+        ID = 208;
+
+        Text = "The gigantic spider rocks back and forth, seemingly transfixed by the apparitions of you which have appeared on either hand. You have indeed won more time. It seems the spider cannot make a choice between three absolutely identical targets. It is not clever enough to begin a process of elimination";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Attack it with an energy spell", 290));
+        Choices.push_back(Choice::Base("Create a cloud of poisonous smoke", 79));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story209 : public Story::Base
+{
+public:
+    Story209()
+    {
+        ID = 209;
+
+        Image = "images/couple.png";
+
+        Text = "\"I need some information. Perhaps you can help me?\" You wait for the landlord's reply, knowing that if you can get him to say yes he will probably end up telling you what you want to know.\n\n\"Maybe I can,\" he concedes gruffly.\n\n\"Tell me about Lucie. Does she frequent the Silver Eel often? And who is her companion?\"\n\n\"She might, then again she might not. What's it to you?\"\n\n\"If she's the girl I think she is, she has come into an inheritance. I'm trying to find out whether she is in fact the girl in question. I am sure she will be very appreciative of any help you can give.\"\n\nHis eyes light up with the thought of a reward. \"Yes, she haunts this place often. She's never alone. I see some of them again and again -- but she has a lot of friends, does little Lucie. She's an ornery girl that one. Knows her own mind and no mistake. Forever taking up with the most disreputable mountebanks and desperadoes. Always twists 'em round her little finger, mind.\"\n\n\"And what about her friend?\"\n\n\"That's Tyutchev, a foreigner. See how pale he is? Doesn't it make you feel ill just to look at him? He usually comes in with his doxy, Cassandra -- or is it he is her pretty boy? She's a terrible proud and beautiful woman, wearing gear like a Fury from the Abyss. At any rate, they had a terrible fight in here last week. I never saw a woman wield a sword with such skill and venom. It glowed cold blue, and where it struck the bar I found crystals of ice.\"\n\n\"Who won the fight?\" you ask, incredulous.\n\n\"They were both bleeding badly. It was a terrible battle. But they went out together. I do declare I've never had the misfortune to serve two less pleasant and outright perilous characters.\"\n\n\"What do they all want with Lucie?\" you wonder aloud.\n\nHe cracks a rancid-toothed smile. \"What does any man want with Lucie?\"\n\nYou thank the landlord for his information and, leaving the alepot on the bar, walk over to the couple, who are watching you intently. Lucie smiles as she did when you met her in the street.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 227; }
+};
+
 auto prologue = Prologue();
 auto story001 = Story001();
 auto story002 = Story002();
@@ -4932,6 +5141,16 @@ auto story196 = Story196();
 auto story197 = Story197();
 auto story198 = Story198();
 auto story199 = Story199();
+auto story200 = Story200();
+auto story201 = Story201();
+auto story202 = Story202();
+auto story203 = Story203();
+auto story204 = Story204();
+auto story205 = Story205();
+auto story206 = Story206();
+auto story207 = Story207();
+auto story208 = Story208();
+auto story209 = Story209();
 
 void InitializeStories()
 {
@@ -4955,7 +5174,8 @@ void InitializeStories()
         &story160, &story161, &story162, &story163, &story164, &story165, &story166, &story167, &story168, &story169,
         &story170, &story171, &story172, &story173, &story174, &story175, &story176, &story177, &story178, &story179,
         &story180, &story181, &story182, &story183, &story184, &story185, &story186, &story187, &story188, &story189,
-        &story190, &story191, &story192, &story193, &story194, &story195, &story196, &story197, &story198, &story199};
+        &story190, &story191, &story192, &story193, &story194, &story195, &story196, &story197, &story198, &story199,
+        &story200, &story201, &story202, &story203, &story204, &story205, &story206, &story207, &story208, &story209};
 }
 
 #endif
