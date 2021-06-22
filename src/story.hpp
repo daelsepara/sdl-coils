@@ -5127,6 +5127,233 @@ public:
     }
 };
 
+class Story220 : public Story::Base
+{
+public:
+    Story220()
+    {
+        ID = 220;
+
+        Text = "You throw yourself down on your bed in the row of crooked houses down Bumble Row and try to sleep. A taint in the air stops your slumber and there is a sound like wet kippers being thrown onto a marble slab. It is getting louder. You roll off your bed in time to see a purple veil close over the door. Hate has sealed you in. Its skin starts to swell into a great blister which slowly expands until it covers the whole room. You are caught up in the coils of Hate and have joined the eternal orgy of despair. You cannot even save yourself now, much less your oppressed people.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story221 : public Story::Base
+{
+public:
+    Story221()
+    {
+        ID = 221;
+
+        Text = "Mameluke comes back for you when he sees you are struggling to keep up. You rest one arm over his shoulder and stagger on, supported by his strong frame. The Overlord's guard trot round the corner ahead and you pull up, scanning their faces for signs of pity. There are none.\n\n\"Get out of our way,\" says Mameluke. \"I'm taking this poor citizen home -- got mistaken for a Judain and given a pretty savage beating. Known to me for years, I'll vouch for ...\"\n\n\"Get away from the wretched Judain.\"\n\nThe captain of the guard means to take you in for questioning.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Give yourself up and try to save Mameluke", 148));
+        Choices.push_back(Choice::Base("Try to escape", 193));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story222 : public Story::Base
+{
+public:
+    Story222()
+    {
+        ID = 222;
+
+        Text = "You make good progress along the rutted road by the light of the moon. Most goods are carried to Bagoe by river so there are no brigands on this road. As the sun rises you pass farms growing fruit and olives, vines and tomatoes and the great purple hubloe fruit which is so popular in Godorno. Every now and then the sweep of the Palayal river comes into view where road and river run side by side. You press on, hoping to reach Bagoe before the bargees from Godorno.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 247; }
+};
+
+class Story223 : public Story::Base
+{
+public:
+    Story223()
+    {
+        ID = 223;
+
+        Text = "You draw your sword with a flourish and advance steadily on Skakshi. The landlord throws him a spiked club with which to defend himself. You can see by the way he hefts it he knows how to use it to pulp . brains. Your sword gives you the advantage over his rude weapon but you have never trained against a man wielding a spiked club.\n\nHow will you fight this battle?";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Move in close so that the smooth edge of the club shaft will fall on you if you are hit", 52));
+        Choices.push_back(Choice::Base("Keep your distance and use looping cutting blows rather than fierce lunges", 32));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story224 : public Story::Base
+{
+public:
+    std::string PreText = "";
+
+    Story224()
+    {
+        ID = 224;
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Use the JADE WARRIOR's SWORD", 230, {Item::JADE_WARRIORS_SWORD}));
+        Choices.push_back(Choice::Base("Use the JEWEL OF SUNSET FIRE", 349, {Item::JEWEL_OF_SUNSET_FIRE}));
+        Choices.push_back(Choice::Base("You have neither of those items", 187));
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        PreText = "You lure the monster to attack, then clamp the shackles of your chains around its tentacles. As you do, another tentacle swipes away the cornice of a building above and you are struck by a shower of falling masonry.\n\n";
+
+        auto DAMAGE = -3;
+
+        if (Character::VERIFY_SKILL(player, Skill::Type::AGILITY))
+        {
+            DAMAGE = -1;
+
+            PreText += "[AGILITIY] You dodge aside from the brunt of the rubble. ";
+        }
+
+        Character::GAIN_LIFE(player, DAMAGE);
+
+        PreText += "You LOSE " + std::to_string(-DAMAGE) + " Life Point(s).";
+
+        if (player.Life > 0)
+        {
+            PreText += "\n\nYou survey your handiwork. You have tethered Hate to the columns of the cathedral. If only the chains hold, you may be able to destroy it once and for all.\n\nYou gained the codeword GORDIAN.";
+
+            Character::GET_CODEWORDS(player, {Codeword::Type::GORDIAN});
+        }
+
+        Text = PreText.c_str();
+    }
+};
+
+class Story225 : public Story::Base
+{
+public:
+    Story225()
+    {
+        ID = 225;
+
+        Image = "images/mob.png";
+
+        Text = "This street winds down towards the riverfront and the centre of the city. It is crossed by large avenues that lead up to the citadel, lined with tall straight cedars. You hear the ringing of the town crier's bell. At the end of the street is Greenbark Plaza. The mob is still chasing you, growing hysterical in its desire for your blood. If you are caught you will surely be stoned to death.";
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Choices.clear();
+
+        if (!Character::VERIFY_SKILL(player, Skill::Type::ROGUERY))
+        {
+            Choices.push_back(Choice::Base("Run on into Greenbark Plaza", 2));
+            Choices.push_back(Choice::Base("Duck down one of the smaller side streets", 385));
+        }
+    }
+
+    int Continue(Character::Base &player) { return 369; }
+};
+
+class Story226 : public Story::Base
+{
+public:
+    std::string PreText = "";
+
+    Story226()
+    {
+        ID = 226;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        PreText = "You know a little bit about horses and can ride tolerably well. Looking at the horse you see it is flinching from its own shadow. Taking its bridle you turn it till it is facing into the sun so it can no longer see its shadow. Mounting safely, you give the horse free rein: it surges into a gallop and you hang on grimly. Luckily for you the road to the main gate is straight. Within a few minutes you can see the wooden arches of the double gate ahead. People jump aside at the last moment from the path of your frothing mount.\n\nThe horse is still galloping wildly as you approach the gate and the gate guards tumble out of their guardhouse to stop you. One tries to grab the bridle but misses and falls over. Another is winding his crossbow. As you gallop past he lets fly and the bolt catches you in the side.\n\nYou LOSE 3 Life Points.";
+
+        Character::GAIN_LIFE(player, -3);
+
+        if (player.Life > 0)
+        {
+            PreText += "\n\nYou hang on grimly as the twang of crossbows echoes from behind. Bolts zip past your ears. The horse gallops on, leaving pursuit behind. The towers and minarets of Godo mo are lost to view by the time the horse runs itself out. You dismount and carry on up the trade road on foot.";
+        }
+
+        Text = PreText.c_str();
+    }
+
+    int Continue(Character::Base &player) { return 302; }
+};
+
+class Story227 : public Story::Base
+{
+public:
+    Story227()
+    {
+        ID = 227;
+
+        Text = "Tyutchev looks at you insolently. His direct stare makes you feel very uncomfortable. He has challenged many a poor fellow with a look like this, and most of them didn't live to tell the tale. Now he says, \"So a Judain comes ready for the slaughter! It's hardly worth the bother of collecting the ten gleenars' reward, but then there is the pleasure of killing you.\"\n\nHe speaks as though you were a slimebeast that had crawled out from under a stone. He draws ·his sword, a great one-and-a-half-hander, which he wields with negligent ease and power, as if it were a toothpick. It thrums through the air as he prepares to slaughter you. With a surprisingly quick movement for so large a man he manages to put himself between you and the only door. It doesn't look as if the latrine here backs onto the outside world so there is no escape that way. Perhaps that is why so many thieves drink here -- they are never bothered by the city guard. You have no choice but to fight.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 297; }
+};
+
+class Story228 : public Story::Base
+{
+public:
+    Story228()
+    {
+        ID = 228;
+
+        Text = "You pour oil from your lantern onto the soft cloying purple flesh of Hate but it will not kindle. Hate is inflammable. The bloated purple mass heaves as it breathes and you can make out the tracks of the lost ones' tears, deep inside the translucent body. You will have to try something else.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Ask some of the trapped guards what to do", 215));
+        Choices.push_back(Choice::Base("Use a SWORD", 192, {Item::SWORD}));
+        Choices.push_back(Choice::Base("[SPELLS] Cast Miasma", 173, Skill::Type::SPELLS));
+        Choices.push_back(Choice::Base("[SPELLS] Cast Thunderflash", 165, Skill::Type::SPELLS));
+        Choices.push_back(Choice::Base("[SPELLS] Cast Bafflement", 154, Skill::Type::SPELLS));
+        Choices.push_back(Choice::Base("[SPELLS] Cast Rulership", 122, Skill::Type::SPELLS));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story229 : public Story::Base
+{
+public:
+    Story229()
+    {
+        ID = 229;
+
+        Text = "\"What do you think of the disguise?\" you say before the gate guards can challenge you. \"Eh? What do you think? What do I look like?\"\n\nYou seem utterly confident and they all look at you and smile. \"Reckon you're a spitting image of a Judain, \" says one.\n\n\"Ain't I just? And I'm going to make a lot of friends among the Judain scum of the city and turn them over to the Overlord's men, for the reward. I reckon I'll make a fortune.\"\n\n\"You want to watch out. They're powerful deep people, the Judain. They stick together like like ...\"\n\n\"Like rats and grain sacks!\" another puts in.\n\nYou and the old seller of eggs are allowed to proceed into the city. To your annoyance the old woman has the look of a tittle tattle. She mumbles constantly through toothless gums. \"I heard what you said in there. It ain't right. What have the Judain done to hurt you? Just raising their children as decent and honest as other folk, I'll warrant.\"";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Tell the old woman that you really are Judain", 275));
+        Choices.push_back(Choice::Base("Try to lose her in the streets and hope she does you no harm", 286));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
 auto prologue = Prologue();
 auto story001 = Story001();
 auto story002 = Story002();
@@ -5347,6 +5574,16 @@ auto story216 = Story216();
 auto story217 = Story217();
 auto story218 = Story218();
 auto story219 = Story219();
+auto story220 = Story220();
+auto story221 = Story221();
+auto story222 = Story222();
+auto story223 = Story223();
+auto story224 = Story224();
+auto story225 = Story225();
+auto story226 = Story226();
+auto story227 = Story227();
+auto story228 = Story228();
+auto story229 = Story229();
 
 void InitializeStories()
 {
@@ -5372,7 +5609,8 @@ void InitializeStories()
         &story180, &story181, &story182, &story183, &story184, &story185, &story186, &story187, &story188, &story189,
         &story190, &story191, &story192, &story193, &story194, &story195, &story196, &story197, &story198, &story199,
         &story200, &story201, &story202, &story203, &story204, &story205, &story206, &story207, &story208, &story209,
-        &story210, &story211, &story212, &story213, &story214, &story215, &story216, &story217, &story218, &story219};
+        &story210, &story211, &story212, &story213, &story214, &story215, &story216, &story217, &story218, &story219,
+        &story220, &story221, &story222, &story223, &story224, &story225, &story226, &story227, &story228, &story229};
 }
 
 #endif
