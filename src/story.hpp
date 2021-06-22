@@ -6005,6 +6005,222 @@ public:
     }
 };
 
+class Story260 : public Story::Base
+{
+public:
+    std::string PreText = "";
+
+    Story260()
+    {
+        ID = 260;
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Type = Story::Type::NORMAL;
+
+        Choices.clear();
+
+        if (player.Money > 9)
+        {
+            PreText = "You have enough money in your purse to bribe the guards so you can enter the city.";
+
+            Choices.push_back(Choice::Base("Hand over 10 gleenars", 300, Choice::Type::LOSE_MONEY, 10));
+        }
+        else
+        {
+            Type = Story::Type::DOOM;
+
+            PreText = "You do have not enough to bribe the guards so they decide that the price the Overlord has put on every Judain's head makes it worth their while to kill you, steal your money, and claim the reward. Perhaps another hero will arise to save your people, but you cannot even save yourself.";
+        }
+
+        Text = PreText.c_str();
+    }
+};
+
+class Story261 : public Story::Base
+{
+public:
+    Story261()
+    {
+        ID = 261;
+
+        Image = "images/filler1.png";
+
+        Text = "Lucie's light little feet carry her to the door of the notorious Silver Eel tavern. A long, low, dark grey building without a single window facing out onto the street, it is a notorious haunt of thieves and cutthroats. On the steps Lucie is greeted by a huge man dressed in black quilted leather armour, who has a bush of corn yellow hair in corkscrew spirals.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Follow onto her turf, inside the Silver Eel", 86));
+        Choices.push_back(Choice::Base("Slink back to your hidey-hole on Bumble Row", 199));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story262 : public Story::Base
+{
+public:
+    Story262()
+    {
+        ID = 262;
+
+        Text = "Your times spent skulking unseen while casing the houses of the well-to-do will stand you in good stead now. One of the things you have learned is to make sure you always know of two possible escape routes. One is the storm drain that feeds into the Imperial Basin, where the Crescent Canal and Grand Canal meet. The other is the secret tunnel that leads underground to the burial crypts of the Megiddo dynasty, a family of kings who made great conquests in Godorno's golden age and brought prosperity to the city they ruled.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player)
+    {
+        if (Character::VERIFY_SKILL(player, Skill::Type::FOLKLORE))
+        {
+            return 294;
+        }
+        else
+        {
+            return 339;
+        }
+    }
+};
+
+class Story263 : public Story::Base
+{
+public:
+    Story263()
+    {
+        ID = 263;
+
+        Text = "You speak the word of power and disappear. But Skakshi is not dismayed. He reaches for a pouch at his belt and flings a sparkling dust from it into the air in your general direction. The dust clings to you and sparkles in the ruddy light, limning your outline brightly for all to see, Skakshi sends the knife hurtling across the room at your breast, which it grazes. He reaches for another stiletto immediately.\n\nYou LOSE 1 Life Point.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Flee from the inn and bolt for home", 200));
+        Choices.push_back(Choice::Base("[SPELLS] Cast the potent spell of the Visceral Pang", 312, Skill::Type::SPELLS));
+        Choices.push_back(Choice::Base("[SPELLS] Cast the puissant spell known as Miasma", 390, Skill::Type::SPELLS));
+        Choices.push_back(Choice::Base("[SPELLS] You wish to humiliate him by seizing his mind using Rulership", 242, Skill::Type::SPELLS));
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Character::GAIN_LIFE(player, -1);
+    }
+};
+
+class Story264 : public Story::Base
+{
+public:
+    Story264()
+    {
+        ID = 264;
+
+        Text = "You skulk in the shadows, then roll into the gutter where you play dead. This is an old thief's trick to avoid a hue and cry. The watchguards walk slowly past not giving yet another corpse in the plague-ridden city another glance and soon pass out of sight. Summoning all your strength you skulk through the shadows to the lighthouse-like garret, where Mameluke is warming some broth.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 316; }
+};
+
+class Story265 : public Story::Base
+{
+public:
+    Story265()
+    {
+        ID = 265;
+
+        Text = "How will you try to save him? You shout a warning but he is heedless of the danger, desperate to save his daughter who is already beyond salvation.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("[SPELLS] Magic has a chance of saving him", 97, Skill::Type::SPELLS));
+        Choices.push_back(Choice::Base("Grab one of the fishermen's ropes coiled nearby and lasso Tormil with it", 21));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story266 : public Story::Base
+{
+public:
+    Story266()
+    {
+        ID = 266;
+
+        Text = "You drop the concubine and the black cape-like monster wraps itself around her like the coils of a serpent. Her body twitches spasmodically as you leap from the bed, just clearing the edge of the carpet in safety.\n\nThe Overlord grunts and turns over; his fat form wobbles loosely as he stirs. He is waking up. You must make a run for it before he summons his bodyguards.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        if (Character::VERIFY_CODEWORDS(player, {Codeword::Type::SATORI}))
+        {
+            Character::REMOVE_CODEWORD(player, Codeword::Type::SATORI);
+        }
+    }
+
+    int Continue(Character::Base &player) { return 161; }
+};
+
+class Story267 : public Story::Base
+{
+public:
+    Story267()
+    {
+        ID = 267;
+
+        Text = "The honeyed ale slips down your gullet, filling your stomach with a heavy warm glow. The amber nectar is thick and almost sticky, yet strangely moreish. You finish the pot with relish, wipe your mouth backhanded and fall suddenly to the floor. The landlord has poisoned you in revenge for the pain you caused with your spell. You will not live to see this day out and there is no one who can save your people from extinction.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story268 : public Story::Base
+{
+public:
+    Story268()
+    {
+        ID = 268;
+
+        Text = "Which enchantment will you use on the heartless prison guards and torturers of Grond?";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Cast a spell to make them feel uninterested in worldly affairs", 378));
+        Choices.push_back(Choice::Base("Cast a spell to make them your friends", 361));
+        Choices.push_back(Choice::Base("Cast a spell to terrify them", 341));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story269 : public Story::Base
+{
+public:
+    Story269()
+    {
+        ID = 269;
+
+        Text = "Luckily it is enough that the Judain can see by the look in your eyes you would kill them to protect the wretched guards. They fall back.\n\n\"Have mercy on these poor dogs,\" you say. \"Do not fall to the depths of their depravity. Is this not the fate they have reserved for you? Are we not more noble than they? Let us show them our superiority by sparing them, that their very existence may be a testament to our nobility.\"\n\nYour exhortations have appealed to their sense of vanity. They will spare the guards. You wander through the dark bones of the castle foundations, freeing those who are still alive, before returning to your hideout.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 159; }
+};
+
 auto prologue = Prologue();
 auto story001 = Story001();
 auto story002 = Story002();
@@ -6265,6 +6481,16 @@ auto story256 = Story256();
 auto story257 = Story257();
 auto story258 = Story258();
 auto story259 = Story259();
+auto story260 = Story260();
+auto story261 = Story261();
+auto story262 = Story262();
+auto story263 = Story263();
+auto story264 = Story264();
+auto story265 = Story265();
+auto story266 = Story266();
+auto story267 = Story267();
+auto story268 = Story268();
+auto story269 = Story269();
 
 void InitializeStories()
 {
@@ -6294,7 +6520,8 @@ void InitializeStories()
         &story220, &story221, &story222, &story223, &story224, &story225, &story226, &story227, &story228, &story229,
         &story230, &story231, &story232, &story233, &story234, &story235, &story236, &story237, &story238, &story239,
         &story240, &story241, &story242, &story243, &story244, &story245, &story246, &story247, &story248, &story249,
-        &story250, &story251, &story252, &story253, &story254, &story255, &story256, &story257, &story258, &story259};
+        &story250, &story251, &story252, &story253, &story254, &story255, &story256, &story257, &story258, &story259,
+        &story260, &story261, &story262, &story263, &story264, &story265, &story266, &story267, &story268, &story269};
 }
 
 #endif
