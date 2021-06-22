@@ -1294,7 +1294,7 @@ public:
     {
         Character::GET_CODEWORDS(player, {Codeword::Type::IMPASSE});
 
-        PreText = "You gained the codeword IMPASSE.\n\nYou cut Skakshi down in a welter of blood, wipe your BLADE on a barcloth, and replace it in its scabbard before looking round you once more.\n\nAll is quiet in the Inn of the Inner Temple. No one will meet your eye. They stare at Skakshi's corpse, shocked at the sudden violence you have done to one of their comrades. You don't expect any trouble from them after that demonstration. Nor will you make many friends here. You feel Skakshi's pockets, quickly finding a concealed flap in which you discover a set of THROWING KNIVES.\n\nYou look up from the body. One man gives you a narrow glare and spits on the floor. You won't make any friends here so you decide to go back to your· lair on Bumble Row.\n\nIn your heart you know that you did not have to kill Skakshi. Perhaps you are beginning to succumb to the general hysteria and hatred that seems to be infetting most others in the city?";
+        PreText = "You gained the codeword IMPASSE.\n\nYou cut Skakshi down in a welter of blood, wipe your BLADE on a barcloth, and replace it in its scabbard before looking round you once more.\n\nAll is quiet in the Inn of the Inner Temple. No one will meet your eye. They stare at Skakshi's corpse, shocked at the sudden violence you have done to one of their comrades. You don't expect any trouble from them after that demonstration. Nor will you make many friends here. You feel Skakshi's pockets, quickly finding a concealed flap in which you discover a set of THROWING KNIVES.\n\nYou look up from the body. One man gives you a narrow glare and spits on the floor. You won't make any friends here so you decide to go back to your lair on Bumble Row.\n\nIn your heart you know that you did not have to kill Skakshi. Perhaps you are beginning to succumb to the general hysteria and hatred that seems to be infetting most others in the city?";
 
         Take = {Item::THROWING_KNIVES};
 
@@ -3548,7 +3548,7 @@ public:
     {
         ID = 144;
 
-        Text = "Standing beneath the Tower of the Sentinel, which looms three hundred feet above you against the glowering dusk sky, you feel very small and alone. If the greatest thieves of Godorno have tried to climb this tower and failed, what hope is there for this poor Judain?\n\nAt the top of the Sentinel's tower, the JEWEL OF SUNSET FIRE shines like a shooting star. The JEWEL OF SUNSET FIRE is a so-called eye of power that can vanquish evil. The sheer-sided tower is of chequered grey and red mosaic tiles, overlain with the black grime of centuries. It has stood on this spot since before the coming of the corsairs who ravaged the Old Empire. It was the lighthouse for Godorno before the sea level dropped in the great cataclysm. Looking up at the gaunt forbidding tower as it juts against the grey sky you are reminded of the frontispiece of a book you saw once -- The Tale of Nuth, Prince of Thieves -- which tells of the vain· attempt to steal the JEWEL by the greatest thief of the Old Empire.\n\nThe black gate is reached under a trellis which is woven thickly with purple kiss-flowers, that smell unpleasantly like honeysuckle. To your surprise it opens at your touch and you walk into the atrium where small trees are growing in tubs. There is a curving marble staircase that leads up into the tower itself and you begin your long and dangerous climb.";
+        Text = "Standing beneath the Tower of the Sentinel, which looms three hundred feet above you against the glowering dusk sky, you feel very small and alone. If the greatest thieves of Godorno have tried to climb this tower and failed, what hope is there for this poor Judain?\n\nAt the top of the Sentinel's tower, the JEWEL OF SUNSET FIRE shines like a shooting star. The JEWEL OF SUNSET FIRE is a so-called eye of power that can vanquish evil. The sheer-sided tower is of chequered grey and red mosaic tiles, overlain with the black grime of centuries. It has stood on this spot since before the coming of the corsairs who ravaged the Old Empire. It was the lighthouse for Godorno before the sea level dropped in the great cataclysm. Looking up at the gaunt forbidding tower as it juts against the grey sky you are reminded of the frontispiece of a book you saw once -- The Tale of Nuth, Prince of Thieves -- which tells of the vain attempt to steal the JEWEL by the greatest thief of the Old Empire.\n\nThe black gate is reached under a trellis which is woven thickly with purple kiss-flowers, that smell unpleasantly like honeysuckle. To your surprise it opens at your touch and you walk into the atrium where small trees are growing in tubs. There is a curving marble staircase that leads up into the tower itself and you begin your long and dangerous climb.";
 
         Choices.clear();
 
@@ -3686,7 +3686,7 @@ public:
     {
         ID = 151;
 
-        Text = "As soon as you place your heel against the soft flesh of Hate it disappears from sight and _the flesh turns to liquid, engulfing you up to the waist.";
+        Text = "As soon as you place your heel against the soft flesh of Hate it disappears from sight and the flesh turns to liquid, engulfing you up to the waist.";
 
         Choices.clear();
 
@@ -4510,6 +4510,228 @@ public:
     int Continue(Character::Base &player) { return 227; }
 };
 
+class Story190 : public Story::Base
+{
+public:
+    Story190()
+    {
+        ID = 190;
+
+        Image = "images/filler3.png";
+
+        Text = "Your allies suggest various places for you to make a hideout and you choose a damp cellar on Medallion Street -- it seems the best option. You are on your way there when there is a commotion ahead of you. Seeing a group of city guards approaching, you duck into the ruin of an abandoned building. To your dismay, they stop in the street outside and you hear one of them say, \"A Judain went in here, I think. Fetch the dogs -- they'll soon sniff the wretch out!\"\n\nThere is a frightened whimper in the darkness behind you. You whirl to see Caiaphas\"s wife, Ruth -- the one who was reluctant to share the food with you. You remember hearing from Caiaphas that she is with child. She is hidden, trembling, behind a pillar at the back of the hall. You know that the guards will not return to barracks until they have caught their quota of Judain.";
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Choices.clear();
+
+        if (Character::VERIFY_ANY_SKILLS(player, {Skill::Type::ROGUERY, Skill::Type::CHARMS, Skill::Type::STREETWISE}))
+        {
+            Choices.push_back(Choice::Base("Use [ROGUERY]", 126, Skill::Type::ROGUERY));
+            Choices.push_back(Choice::Base("[CHARMS] Use magic", 116, Skill::Type::CHARMS));
+            Choices.push_back(Choice::Base("Make use of [STREETWISE] here", 105, Skill::Type::STREETWISE));
+        }
+        else
+        {
+            Choices.push_back(Choice::Base("Dash out into the street and fight the guards to buy Ruth time to escape", 143));
+            Choices.push_back(Choice::Base("Push her out into the street to save yourself -- surely they will not harm a pregnant woman", 240));
+        }
+    }
+};
+
+class Story191 : public Story::Base
+{
+public:
+    Story191()
+    {
+        ID = 191;
+
+        Text = "As you step through the outer gate one of the ill-favoured guards closes the inner one against you with a loud thud, while another pushes shut the outer gate, to trap you, not minding the protestations of an old woman coming into the city to sell eggs, who is now barred. If they realize you are Judain they could turn you in. There is little doubt that they would, these men are more known for their greed than their scruples.\n\nThere is a placard on the inside gate proclaiming that the reward for turning in a Judain has been increased to thirty gleenars. You guess the Judain are encouraged to try to bribe their way to freedom and so the pogrom is making the Overlord rich as the prisoners are tricked out of their worldly wealth yet still left to rot in Grond.\n\nThe reward, however, is more money than the gold you carry on you, which is all you have.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player)
+    {
+        if (Character::VERIFY_SKILL(player, Skill::Type::ROGUERY))
+        {
+            return 232;
+        }
+        else if (Character::VERIFY_SKILL(player, Skill::Type::CUNNING))
+        {
+            return 250;
+        }
+        else
+        {
+            return 260;
+        }
+    }
+};
+
+class Story192 : public Story::Base
+{
+public:
+    Story192()
+    {
+        ID = 192;
+
+        Text = "You hack wildly at the cloying purple flesh of Hate, opening up great gashes in its side which pour out vile yellow pus. As fast as you cut so the tentacle twitches, spasms and convulses, sucking the wretched guards into its soft embrace. You are not making any progress, you are just burying the guards deeper in the morass of despair.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Try using the flat of your SWORD instead", 370));
+        Choices.push_back(Choice::Base("Try to torch the purple flesh of Hate", 228));
+        Choices.push_back(Choice::Base("Ask some of the trapped guards what to do", 215));
+        Choices.push_back(Choice::Base("[SPELLS] Conjure a poisonous fog", 173, Skill::Type::SPELLS));
+        Choices.push_back(Choice::Base("[SPELLS] Conjure a blast of energy", 165, Skill::Type::SPELLS));
+        Choices.push_back(Choice::Base("[SPELLS] Cast a spell of Baffiement", 154, Skill::Type::SPELLS));
+        Choices.push_back(Choice::Base("[SPELLS] Cast a spell of Rulership", 122, Skill::Type::SPELLS));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story193 : public Story::Base
+{
+public:
+    Story193()
+    {
+        ID = 193;
+
+        Text = "If you escape, the guards will slaughter Mameluke. He calls out for you to run and save yourself. \"It's not worth losing your life over me. You have much to do. I could almost imagine you were a Tartar, such is your courage.\"\n\nMameluke hasn't lost his loquacity even in the moment of his downfall.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player)
+    {
+        if (Character::VERIFY_SKILL(player, Skill::Type::CHARMS))
+        {
+            return 244;
+        }
+        else if (Character::VERIFY_ANY_SKILLS(player, {Skill::Type::CUNNING, Skill::Type::STREETWISE}))
+        {
+            return 264;
+        }
+        else
+        {
+            return 278;
+        }
+    }
+};
+
+class Story194 : public Story::Base
+{
+public:
+    Story194()
+    {
+        ID = 194;
+
+        Text = "The lepers would follow you to the ends of the earth. As the pinnacles and battlements of Grand come into view they murmur unhappily but still shuffie hopefully along in your wake. They tell you they have been chained to the walls of their sanatorium from the time they contracted the disease. It is hard to imagine what fierce spark of life drives these people on, but there they are shuffiing in your wake. Two are travelling on tea trays with wheels attached, shifting lumps of iron forwards and backwards, to make their makeshift carts move over the rough cobbles. It is enough to break your heart to look at, but then you have seen much, much worse.\n\nTurning into Last Rites Street you are faced by the looming vastness of Grond. The grey stone matches the pallid skin of your pathetic band. The guard shut and barricade the gates against your motley crew before you can demand the release of the prisoners.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Offer some of the Judain's gold to the captain of the guard, in exchange for access to the prison fortress", 206));
+        Choices.push_back(Choice::Base("[SPELLS] Try ensorcelling your way in", 268, Skill::Type::SPELLS));
+        Choices.push_back(Choice::Base("Threaten to infect the guards with the slow rotting death of leprosy to see if that will loosen the gates", 259));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story195 : public Story::Base
+{
+public:
+    Story195()
+    {
+        ID = 195;
+
+        Text = "The apprehension in your people is almost palpable as they face their sternest test by far -- pitched battle with the Overlord's guard. You buoy their spirits by promising them a fine banquet in the Overlord's palace by nightfall. Your enthusiasm is infectious and they are ready to follow you now. You decide to accompany one of the detachments led by your fellow Judain, who have no military training but enjoy the respect of their people. You go with Caiaphas to the barricade facing the Grand Canal.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 353; }
+};
+
+class Story196 : public Story::Base
+{
+public:
+    Story196()
+    {
+        ID = 196;
+
+        Text = "Lucie's eyes sparkle with malice. \"This is the Judain who slew your captain, Overlord. This guilty wretch deserves to die.\"\n\n\"And die the poor wretch will, undoubtedly, after interrogation.\" Lucie's smile of triumph is dripping with hatred. Something must have happened to her mind, else why would she lie and betray you. She is not the same girl you met standing in the rain near the Palazzo del Megiddo. She isn't behaving as she would with the riff-raff she usually disports herself with. Hate has got to her, just as it is taking over the minds of all the wretches of Godorno.\n\nNone the less you are fated to die in the prison fortress of Grand. By tomorrow your body will be hanging in an iron cage outside the Overlord's palace as a warning to the Judain to give up their futile struggle. There is no one left to save them now. Hate will conquer all.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story197 : public Story::Base
+{
+public:
+    Story197()
+    {
+        ID = 197;
+
+        Text = "You recognize some of those present as senior members of the Thieves' Guild, grown rich on the juicy pickings of the latterday well-to-do of Godorno. They are well dressed, urbane looking men.\n\n\"Skakshi, I see you lurking there. I have a proposition to put to Melmelo -- just the thing for Godorno's master thief.\" You know Skakshi likes to think of himself as the master thief of Godorno. He is no friend to Melmelo the Guildmaster.\n\n\"I can take you to Melmelo for the price I would be given if I turned you over to the city guard: ten gleenars. Do you have ten gleenars, Judain scum?\"\n\nThere are chuckles from the other customers at Skakshi's insolence.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Teach him a lesson in how to talk to his betters", 281));
+        Choices.push_back(Choice::Base("Agree to this bargain (10 gleenars)", 291, Choice::Type::LOSE_MONEY, 10));
+        Choices.push_back(Choice::Base("Tell Skakshi you will never pay his blood money", 43));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story198 : public Story::Base
+{
+public:
+    Story198()
+    {
+        ID = 198;
+
+        Text = "Tyutchev has led you into a trap. As a net is dropped from an archway above, entangling you, Tyutchev spins on his heel and slices yout head from your shoulders with a single blow of his sword. You took one chance too many. No one is left to save your people now.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story199 : public Story::Base
+{
+public:
+    Story199()
+    {
+        ID = 199;
+
+        Image = "images/filler3.png";
+
+        Text = "As you hurry away from the inn, you remember you have to attend the meeting of the heads of the resistance cells. As you make your way quickly through the desolate streets, you pass an old man pushing a cart filled with curios. He is Tarkamandor, a collector and trader who deals in enchanted items.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Stop to talk to him", 51));
+        Choices.push_back(Choice::Base("Press on to the meeting without delay", 94));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
 auto prologue = Prologue();
 auto story001 = Story001();
 auto story002 = Story002();
@@ -4700,6 +4922,16 @@ auto story186 = Story186();
 auto story187 = Story187();
 auto story188 = Story188();
 auto story189 = Story189();
+auto story190 = Story190();
+auto story191 = Story191();
+auto story192 = Story192();
+auto story193 = Story193();
+auto story194 = Story194();
+auto story195 = Story195();
+auto story196 = Story196();
+auto story197 = Story197();
+auto story198 = Story198();
+auto story199 = Story199();
 
 void InitializeStories()
 {
@@ -4722,7 +4954,8 @@ void InitializeStories()
         &story150, &story151, &story152, &story153, &story154, &story155, &story156, &story157, &story158, &story159,
         &story160, &story161, &story162, &story163, &story164, &story165, &story166, &story167, &story168, &story169,
         &story170, &story171, &story172, &story173, &story174, &story175, &story176, &story177, &story178, &story179,
-        &story180, &story181, &story182, &story183, &story184, &story185, &story186, &story187, &story188, &story189};
+        &story180, &story181, &story182, &story183, &story184, &story185, &story186, &story187, &story188, &story189,
+        &story190, &story191, &story192, &story193, &story194, &story195, &story196, &story197, &story198, &story199};
 }
 
 #endif
