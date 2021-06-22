@@ -6409,6 +6409,252 @@ public:
     int Continue(Character::Base &player) { return 30; }
 };
 
+class Story280 : public Story::Base
+{
+public:
+    Story280()
+    {
+        ID = 280;
+
+        Image = "images/filler1.png";
+
+        Text = "The walls of the prison are purple, pulsating slowly. They are lined with guards, sucked into the tentacles of Hate which have infested the prison. A score of despairing, pleading looks are turned on you, followed by a chorus of low moans. This has been the work of but a single night for all-devouring Hate. Most of the men have been sucked in only as far as both elbows, or knees, but they are all exhausted by their fruitless struggles to break free. When they get tired and lose concentration they have all touched Hate with their other hand or foot and so become deeper enmeshed. Unable any longer to resist the pull of Hate they are being submerged in the purple morass inch by inch; every time Hate takes a breath its flesh advances over them imperceptibly.\n\nMost of the men are wailing out repentance for the atrocities they have committed on the poor prisoners of Grond.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Set them free", 249));
+        Choices.push_back(Choice::Base("Leave them to their harsh but deserved fate and go on to free the Judain", 332));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story281 : public Story::Base
+{
+public:
+    std::string PreText = "";
+
+    Story281()
+    {
+        ID = 281;
+
+        Image = "images/skakshi.png";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("[SPELLS] Try for a quick casting of Visceral Pang", 313, Skill::Type::SPELLS));
+        Choices.push_back(Choice::Base("[SPELLS] Cast Miasma", 390, Skill::Type::SPELLS));
+        Choices.push_back(Choice::Base("[SPELLS] Cast Vanish", 263, Skill::Type::SPELLS));
+        Choices.push_back(Choice::Base("[SPELLS] Cast Rulership", 242, Skill::Type::SPELLS));
+        Choices.push_back(Choice::Base("[SWORDPLAY] Fight", 223, Skill::Type::SWORDPLAY));
+        Choices.push_back(Choice::Base("[CUNNING] Rely on your wits", 67, Skill::Type::CUNNING));
+        Choices.push_back(Choice::Base("You have none of these skills", 357));
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        PreText = "How will you teach proud Skakshi a lesson? The thief vaults nimbly over the table and draws a stiletto from his boot. It is a balanced knife, good for throwing. You haven't long in which to do something.";
+
+        if (Character::HAS_SKILL(player, Skill::Type::SPELLS))
+        {
+            PreText += "\n\nYou can use magic but be warned that it is difficult to work a spell in such a short time, however.";
+        }
+
+        Text = PreText.c_str();
+    }
+};
+
+class Story282 : public Story::Base
+{
+public:
+    std::string PreText = "";
+
+    Story282()
+    {
+        ID = 282;
+
+        Image = "images/disappear.png";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Bandage yourself up before making your escape", 383));
+        Choices.push_back(Choice::Base("Run for it straight away", 393));
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        PreText = "The word of power you speak does its work and you disappear from view. One of the guards has the sense to let his crossbow off and the quarrel buries itself joltingly in your chest. You bite your lip to stop yourself moaning in agony.\n\nYou LOSE 6 Life Points.";
+
+        Character::GAIN_LIFE(player, -6);
+
+        if (player.Life > 0)
+        {
+            PreText += "\n\nYou hide in a doorway, satisfied that the guards can't see you yet.";
+        }
+
+        Text = PreText.c_str();
+    }
+};
+
+class Story283 : public Story::Base
+{
+public:
+    std::string PreText = "";
+
+    Story283()
+    {
+        ID = 283;
+
+        Bye = "You survive to gain victory. You step over the soldiers' bodies and snatch up the treasure chest, then hurry off into the night.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        PreText = "The penalty for fighting with the Overlord's guards is to be hung in chains until the wind dries you out like a raisin. That's if you get caught, of course. But either way -- whether you are killed in this struggle, or arrested and taken to Grond -- it means you are now in a fight to the death.\n\nIt is a grim battle, fought almost in silence. The only sounds are frantic pants of breath and the scuff of quick footfalls as you manoeuvre back and forth across the room. At least you have one thing in your favour: although outnumbered, you are able to get your back to a comer, making it difficult for the soldiers to press their advantage.\n\n";
+
+        auto DAMAGE = -5;
+
+        if (Character::VERIFY_SKILL(player, Skill::Type::SWORDPLAY))
+        {
+            DAMAGE = -1;
+
+            PreText += "[SWORDPLAY] ";
+        }
+        else if (Character::VERIFY_SKILL(player, Skill::Type::UNARMED_COMBAT))
+        {
+            DAMAGE = -3;
+
+            PreText += "[UNARMED COMBAT] ";
+        }
+
+        Character::GAIN_LIFE(player, DAMAGE);
+
+        PreText += "You LOST " + std::to_string(-DAMAGE) + " Life Point(s).";
+
+        Text = PreText.c_str();
+    }
+
+    int Continue(Character::Base &player) { return 358; }
+};
+
+class Story284 : public Story::Base
+{
+public:
+    Story284()
+    {
+        ID = 284;
+
+        Text = "The Overlord's soldiers close in on you with drawn swords. You fight for your life valiantly. Your fists and feet are a blur, but you can't keep them off forever. There are too many foes and they cut you down while the townsfolk howl with glee. Your dying thought is: \"How could I have been so foolish to think I could fight my way out ot this?\"";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story285 : public Story::Base
+{
+public:
+    Story285()
+    {
+        ID = 285;
+
+        Text = "As you prepare to step off the bed, a black monstrous being emerges noiselessly from the canopy of the Overlord's bed and glides down to settle over the girl. It looks like a manta ray or a vampire's cape. You see that the underside of the creature is covered with barbed spines which ooze a yellow venom.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Drop the girl, who is still limp in your arms, and jump from the bed", 266));
+        Choices.push_back(Choice::Base("Carry her quickly over the carpet before prising the thing off her", 322));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story286 : public Story::Base
+{
+public:
+    Story286()
+    {
+        ID = 286;
+
+        Text = "She is surprisingly sprightly for an aged crone. She scuttles along after you cackling to herself in a witch-like way. You turn towards Green bark Plaza when two lines of guards block the road at either end of the narrow short street you are in. They are armed with crossbows which they are pointing at your chest.\n\n\"We're taking you to Grand, Judain. The Overlord's torturers can amuse themselves with you.\"";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Surrender to them and be tortured", 238));
+        Choices.push_back(Choice::Base("[SPELLS] Turn invisible", 282, Skill::Type::SPELLS));
+        Choices.push_back(Choice::Base("Fight your way out", 405));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story287 : public Story::Base
+{
+public:
+    Story287()
+    {
+        ID = 287;
+
+        Text = "The AMULET gives a flare of violet light in the flickering lamplight of the inn. You know that signal well. It is a warning of poison and deceit, visible only to your own eyes. You look with narrowed eyes at the landlord, then at the alepot on the bar.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 276; }
+};
+
+class Story288 : public Story::Base
+{
+public:
+    Story288()
+    {
+        ID = 288;
+
+        Text = "It is hardly an act of trust to use magic against your own allies, even if the cause is a good one.\n\nCaiaphas pulls a long face at being asked to give up such a large part of the Judain hoard and asks in his rumbling basso voice, \"How many of our fellow Judain remain alive in Grond?\"\n\n\"If there is but one of our kind remaining alive it is worth it,\" you reply glibly.\n\nCaiaphas doesn't look as if he agrees. He turns to little high-voiced Annas, who asks, \"How can we be sure the guard will hand over the keys?\"\n\n\"No keys, no money,\" you say.\n\n\"He might just hand over a set of keys to the Overlord's kitchens!\"\n\n\"There would be no profit in it for him.\"\n\nAnnas peers at you, not sure if you understood his objection. \"And why do you suddenly wish to help the prison guards?\" he asks. \"Every day you give us orders to kill the Overlord's men and we obey. Have you lost your mind?\"\n\n\"It is the only course. We must show compassion if we are to avoid being consumed by Hate.\"\n\nAmazingly, Annas looks convinced, but Caiaphas asks, \"What of the murderers, the lunatics, and thieves who will also. be set free?\"\n\nYou give a curt wave of your hand. \"What of them? The city cannot fall into any worse state.\"\n\nCaiaphas shrugs. You have your gold.\n\nYou RECEIVED 500 gleenars.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        if (Character::VERIFY_CODEWORDS(player, {Codeword::Type::SATORI}))
+        {
+            Character::REMOVE_CODEWORD(player, Codeword::Type::SATORI);
+        }
+
+        Character::GAIN_MONEY(player, 500);
+    }
+
+    int Continue(Character::Base &player) { return 415; }
+};
+
+class Story289 : public Story::Base
+{
+public:
+    Story289()
+    {
+        ID = 289;
+
+        Text = "Seizing the bridle you vault into the saddle. The chestnut horse bucks and then, arching its back, makes a series of straight-legged jumps that shake you from the saddle before you can settle. You fall to the cobbles, stunned, listening in a detached way as the hoofbeats of your pursuers come closer and stop. Your head is swimming as the soldiers dismount.\n\n\"Judain scum,\" says one of them, plunging a sword in your back, killing you as if you were no more than a dog. \"That's one less to worry about,\" he says.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
 auto prologue = Prologue();
 auto story001 = Story001();
 auto story002 = Story002();
@@ -6689,6 +6935,16 @@ auto story276 = Story276();
 auto story277 = Story277();
 auto story278 = Story278();
 auto story279 = Story279();
+auto story280 = Story280();
+auto story281 = Story281();
+auto story282 = Story282();
+auto story283 = Story283();
+auto story284 = Story284();
+auto story285 = Story285();
+auto story286 = Story286();
+auto story287 = Story287();
+auto story288 = Story288();
+auto story289 = Story289();
 
 void InitializeStories()
 {
@@ -6720,7 +6976,8 @@ void InitializeStories()
         &story240, &story241, &story242, &story243, &story244, &story245, &story246, &story247, &story248, &story249,
         &story250, &story251, &story252, &story253, &story254, &story255, &story256, &story257, &story258, &story259,
         &story260, &story261, &story262, &story263, &story264, &story265, &story266, &story267, &story268, &story269,
-        &story270, &story271, &story272, &story273, &story274, &story275, &story276, &story277, &story278, &story279};
+        &story270, &story271, &story272, &story273, &story274, &story275, &story276, &story277, &story278, &story279,
+        &story280, &story281, &story282, &story283, &story284, &story285, &story286, &story287, &story288, &story289};
 }
 
 #endif
