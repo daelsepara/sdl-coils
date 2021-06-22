@@ -2462,7 +2462,7 @@ public:
     {
         ID = 94;
 
-        Text = "The heads of each cell have risked coming together at the granary warehouse behind the old army stables on Slipshod Row. There are some two hundred people here, waiting for you to address them. Now that they are standing up to the Overlord, they are regaining their self respect. They report the number of their people dragged off to the Grand by the Overlord's guards is much diminished. Resistance fighters have assassinated over thirty key figures in the bureaucracy. If they continue to act with such success the Overlord will soon have to meet your demands.\n\n\"There is bound to be a backlash,\" you caution. \"Beware of anyone who is not of our people. They are jealous of us. At the end of this meeting, I am going to give you all new assignments and new safe houses in which to lie low. If we keep moving like this the Overlord\"s men can never find us all, even if they catch one of us for torture.\"\n\nYour people are cheered to find you have thought about the situation and they look to you increasingly for leadership.";
+        Text = "The heads of each cell have risked coming together at the granary warehouse behind the old army stables on Slipshod Row. There are some two hundred people here, waiting for you to address them. Now that they are standing up to the Overlord, they are regaining their self respect. They report the number of their people dragged off to the Grond by the Overlord's guards is much diminished. Resistance fighters have assassinated over thirty key figures in the bureaucracy. If they continue to act with such success the Overlord will soon have to meet your demands.\n\n\"There is bound to be a backlash,\" you caution. \"Beware of anyone who is not of our people. They are jealous of us. At the end of this meeting, I am going to give you all new assignments and new safe houses in which to lie low. If we keep moving like this the Overlord\"s men can never find us all, even if they catch one of us for torture.\"\n\nYour people are cheered to find you have thought about the situation and they look to you increasingly for leadership.";
 
         Choices.clear();
 
@@ -4633,7 +4633,7 @@ public:
     {
         ID = 194;
 
-        Text = "The lepers would follow you to the ends of the earth. As the pinnacles and battlements of Grand come into view they murmur unhappily but still shuffie hopefully along in your wake. They tell you they have been chained to the walls of their sanatorium from the time they contracted the disease. It is hard to imagine what fierce spark of life drives these people on, but there they are shuffiing in your wake. Two are travelling on tea trays with wheels attached, shifting lumps of iron forwards and backwards, to make their makeshift carts move over the rough cobbles. It is enough to break your heart to look at, but then you have seen much, much worse.\n\nTurning into Last Rites Street you are faced by the looming vastness of Grond. The grey stone matches the pallid skin of your pathetic band. The guard shut and barricade the gates against your motley crew before you can demand the release of the prisoners.";
+        Text = "The lepers would follow you to the ends of the earth. As the pinnacles and battlements of Grond come into view they murmur unhappily but still shuffie hopefully along in your wake. They tell you they have been chained to the walls of their sanatorium from the time they contracted the disease. It is hard to imagine what fierce spark of life drives these people on, but there they are shuffiing in your wake. Two are travelling on tea trays with wheels attached, shifting lumps of iron forwards and backwards, to make their makeshift carts move over the rough cobbles. It is enough to break your heart to look at, but then you have seen much, much worse.\n\nTurning into Last Rites Street you are faced by the looming vastness of Grond. The grey stone matches the pallid skin of your pathetic band. The guard shut and barricade the gates against your motley crew before you can demand the release of the prisoners.";
 
         Choices.clear();
         Choices.push_back(Choice::Base("Offer some of the Judain's gold to the captain of the guard, in exchange for access to the prison fortress", 206));
@@ -4668,7 +4668,7 @@ public:
     {
         ID = 196;
 
-        Text = "Lucie's eyes sparkle with malice. \"This is the Judain who slew your captain, Overlord. This guilty wretch deserves to die.\"\n\n\"And die the poor wretch will, undoubtedly, after interrogation.\" Lucie's smile of triumph is dripping with hatred. Something must have happened to her mind, else why would she lie and betray you. She is not the same girl you met standing in the rain near the Palazzo del Megiddo. She isn't behaving as she would with the riff-raff she usually disports herself with. Hate has got to her, just as it is taking over the minds of all the wretches of Godorno.\n\nNone the less you are fated to die in the prison fortress of Grand. By tomorrow your body will be hanging in an iron cage outside the Overlord's palace as a warning to the Judain to give up their futile struggle. There is no one left to save them now. Hate will conquer all.";
+        Text = "Lucie's eyes sparkle with malice. \"This is the Judain who slew your captain, Overlord. This guilty wretch deserves to die.\"\n\n\"And die the poor wretch will, undoubtedly, after interrogation.\" Lucie's smile of triumph is dripping with hatred. Something must have happened to her mind, else why would she lie and betray you. She is not the same girl you met standing in the rain near the Palazzo del Megiddo. She isn't behaving as she would with the riff-raff she usually disports herself with. Hate has got to her, just as it is taking over the minds of all the wretches of Godorno.\n\nNone the less you are fated to die in the prison fortress of Grond. By tomorrow your body will be hanging in an iron cage outside the Overlord's palace as a warning to the Judain to give up their futile struggle. There is no one left to save them now. Hate will conquer all.";
 
         Type = Story::Type::DOOM;
 
@@ -4998,7 +4998,7 @@ public:
 
         Image = "images/filler1.png";
 
-        Text = "As you walk warily along Last Rites Street you see a captain of the guard, whom you remember is called Tormil, agreeing to help a citizen flee the city in return for most of his worldly weath. Only a rat like Tormil would take advantage of people's helplessness so callously. You stand in front of him and revile him for taking advantage of the oppressed.\n\n\"If I were not due to take over my guard duties at the palace I would slay you on the instant, Judain scum. But I swear I will bring you before the Overlord in chains.\" With that he sets out for the palace.\n\nHis victim waits nearby until Tormil has rounded a corner and is safely out of sight, before plucking up courage to talk to you.\n\n\"As it is some time before Tormil can fulfil his pledge to help me leave, might I return your kindness?\" he asks.\n\nHe barely gives you time to nod your acceptance before continuing in his nasal tones: \"I am, or was until recently, a jeweller's assistant in Mire Street. Alas my own honesty has put me out of a job, and left me in fear of my life. I must leave the city.\n\n\"Yet perhaps I may be revenged on my employer, and you may strike a blow for the Judain against the Overlord. A DIAMOND owned by a Judain shopkeeper I once knew, is now at my master's shop being fashioned into a mighty sceptre for the Overlord. Finding out my connection with the previous owner, however, my master went to call the Overlord's guards so that I might be taken away and thrown into Grand to languish there with my Judain friend. It is clear_ to see my master favours not the Judain, nor those who would be their friends.\n\n\"I beg you to reacquire the DIAMOND, if not for my friend, then for the Judain cause. Here is the address.\"\n\nHe gives clear directions to the jeweller's shop in Mire Street before making his farewells. He parts company saying, \"Not all are against the Judain. Goodbye.\"";
+        Text = "As you walk warily along Last Rites Street you see a captain of the guard, whom you remember is called Tormil, agreeing to help a citizen flee the city in return for most of his worldly weath. Only a rat like Tormil would take advantage of people's helplessness so callously. You stand in front of him and revile him for taking advantage of the oppressed.\n\n\"If I were not due to take over my guard duties at the palace I would slay you on the instant, Judain scum. But I swear I will bring you before the Overlord in chains.\" With that he sets out for the palace.\n\nHis victim waits nearby until Tormil has rounded a corner and is safely out of sight, before plucking up courage to talk to you.\n\n\"As it is some time before Tormil can fulfil his pledge to help me leave, might I return your kindness?\" he asks.\n\nHe barely gives you time to nod your acceptance before continuing in his nasal tones: \"I am, or was until recently, a jeweller's assistant in Mire Street. Alas my own honesty has put me out of a job, and left me in fear of my life. I must leave the city.\n\n\"Yet perhaps I may be revenged on my employer, and you may strike a blow for the Judain against the Overlord. A DIAMOND owned by a Judain shopkeeper I once knew, is now at my master's shop being fashioned into a mighty sceptre for the Overlord. Finding out my connection with the previous owner, however, my master went to call the Overlord's guards so that I might be taken away and thrown into Grond to languish there with my Judain friend. It is clear_ to see my master favours not the Judain, nor those who would be their friends.\n\n\"I beg you to reacquire the DIAMOND, if not for my friend, then for the Judain cause. Here is the address.\"\n\nHe gives clear directions to the jeweller's shop in Mire Street before making his farewells. He parts company saying, \"Not all are against the Judain. Goodbye.\"";
 
         Choices.clear();
         Choices.push_back(Choice::Base("Turn your mind to acquiring the DIAMOND to order to finance the resistance effort", 241));
@@ -5577,6 +5577,236 @@ public:
     int Continue(Character::Base &player) { return 299; }
 };
 
+class Story240 : public Story::Base
+{
+public:
+    Story240()
+    {
+        ID = 240;
+
+        Text = "You grab Ruth and shove her roughly out into the street. The guards laugh as they take her. \"Tryin' to make a run for it, were you, darlin'?\" sneers one as he manhandles her.\n\nShe screams out that she is pregnant, but they only sneer, \"Two for the price of one.\" They drag her away and her distraught screaming is a torment you will never forget. It will trouble your conscience and wake you from your dreams till the day you die.\n\nYou return to your cellar hideout.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        if (Character::VERIFY_CODEWORDS(player, {Codeword::Type::SATORI}))
+        {
+            Character::REMOVE_CODEWORD(player, Codeword::Type::SATORI);
+        }
+    }
+
+    int Continue(Character::Base &player) { return 414; }
+};
+
+class Story241 : public Story::Base
+{
+public:
+    Story241()
+    {
+        ID = 241;
+
+        Text = "Returning to the cellar, you tell your cronies what you've learned while gathering rumours: \"The talk is of a certain jeweller on Mire Street. Recently he took delivery of a large DIAMOND, which the Overlord himself is paying to have worked into a sceptre. The DIAMOND in question was seized from a Judain shopkeeper when he was hauled off to Grond.\"\n\nAnnas blows out his cheeks. \"Stealing the Overlord's own DIAMOND, eh? You\"ve never been one to do things by halves, I'll say that.\"\n\n\"Still,\" adds Caiaphas, rubbing the long prow of his jaw, \"I'll admit we could use the money. Much of our operations rely on bribes -- and the traders from overseas demand high prices for weapons they're selling us these days.\"\n\nYou take a casual stroll down Mire Street to inspect the premises. The jeweller's house comprises an elegant shop with oak-framed bottle glass windows, above which live the jeweller and his family. Seeing a patrol of the city militia ahead, you dodge into cover down a side alley and wait for them to pass. You will return here tonight.";
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Choices.clear();
+
+        if (Character::VERIFY_ANY_SKILLS(player, {Skill::Type::ROGUERY, Skill::Type::CHARMS, Skill::Type::CUNNING}))
+        {
+            Choices.push_back(Choice::Base("Use [ROGUERY]", 306, Skill::Type::ROGUERY));
+            Choices.push_back(Choice::Base("Use [CHARMS]", 327, Skill::Type::CHARMS));
+            Choices.push_back(Choice::Base("Resort to [CHARMS]", 327, Skill::Type::CUNNING));
+        }
+        else
+        {
+            Choices.push_back(Choice::Base("Proceed with the attempt", 386));
+            Choices.push_back(Choice::Base("Give up", 190));
+        }
+    }
+};
+
+class Story242 : public Story::Base
+{
+public:
+    Story242()
+    {
+        ID = 242;
+
+        Text = "It takes too long for you to concentrate your mind on the Rulership spell. You need to marshal every atom of your strength of will for this spell and your preparations are rudely and painfully interrupted by Skakshi's second stiletto dagger which buries its tip in your heart. You fall dead and there is no one left to save the wretched Judain from being wiped out for ever.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story243 : public Story::Base
+{
+public:
+    Story243()
+    {
+        ID = 243;
+
+        Text = "You seek out a foreign trader named Sardis, finally tracking him down in a tavern off Tartars' Quay. He always has a few odd trinkets to sell, brought from distant lands. When you explain your requirements, he gives a wink and pulls something from his pocket. It is an AMULET on a silver chain. You recognize the aura at once, and reach to inspect it.\n\nSardis closes his fingers around it and smiles. \"First, let us discuss the price,\" he says. \"I have braved many dangers to traverse the seas with my wares. First there were the pirates of Far Cathay, then the sirens in the Straits of Nullity. I hardly care even to remember the frightening mist phantoms that beset the ship as we lay becalmed off Hengist Head ...\"\n\nYou sigh. \"Enough, Sardis. Spare me this tiresome routine. For once, will you break with the habit of a lifetime and just state the price!\"\n\n\"For this AMULET? A mere nine gleenars! And see, here I also have a fine SWORD of best Moorish steel, for which I ask only six gleenars.\"";
+
+        Choices.clear();
+
+        Controls = Story::Controls::SHOP;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Shop = {{Item::MAGIC_AMULET, 9}, {Item::SWORD, 6}};
+    }
+
+    int Continue(Character::Base &player) { return 160; }
+};
+
+class Story244 : public Story::Base
+{
+public:
+    Story244()
+    {
+        ID = 244;
+
+        Text = "This time you pick the charm oflnfernal Apparition, which causes you to resemble a nighted fiend from the pits ofhell. You walk stiff-legged down the street towards them, screaming in the tongue of the fierce cannibals of the Isles of the Gaels. The troops pass you in two streams on either side of the cobbled street, making the sign of protection of the one god tolerated in Godorno, though you notice one or two fingering charms sacred to their old gods, behind their backs. It is tempting to cause trouble by denouncing them as heretics but you haven't the energy. The guards walk slowly past and out of sight.\n\nSummoning all your strength you skulk through the shadows to the lighthouse garret, where Mameluke is warming some broth.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 316; }
+};
+
+class Story245 : public Story::Base
+{
+public:
+    Story245()
+    {
+        ID = 245;
+
+        Text = "To your relief the pool is only three feet deep and you step out wet but unharmed on the far side. The moaning of the gargoyles dies away and it is only now it has ceased you realize how oppressive the doleful sound was.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Explore the sides of this odd-shaped room, around the edges of the pool", 203));
+        Choices.push_back(Choice::Base("Waste no time and open the door ahead of you", 162));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story246 : public Story::Base
+{
+public:
+    Story246()
+    {
+        ID = 246;
+
+        Text = "\"It's the old beast from the catacombs. The ancient wicked heart of the city, claiming the people for its own.\" He hands you the pot of ale, which smells strongly of malt, barley and honey.\n\n\"What is the old beast?\"\n\n\"Some say it is the spirit of the Harakadnezzar, the Great Tyrant. It is said that when robbers desecrated his tombs he became absorbed into the bones of the world, gaining strength in the dark places far from the light. Now he has come forth to avenge himself. Others say it is the many-limbed beast, Hate. It attacks the wicked and decadent, carrying people off who have hate in their hearts. One thing I do know, it isn't good for trade.\"";
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Choices.clear();
+
+        if (!Character::VERIFY_ANY_SKILLS(player, {Skill::Type::FOLKLORE, Skill::Type::CHARMS}))
+        {
+            Choices.push_back(Choice::Base("Quaff the ale he has given you", 267));
+            Choices.push_back(Choice::Base("Leave it untouched", 276));
+        }
+    }
+
+    int Continue(Character::Base &player)
+    {
+        if (Character::VERIFY_SKILL(player, Skill::Type::FOLKLORE))
+        {
+            return 256;
+        }
+        else
+        {
+            return 287;
+        }
+    }
+};
+
+class Story247 : public Story::Base
+{
+public:
+    Story247()
+    {
+        ID = 247;
+
+        Text = "You are still miies from Bagoe and your spirits are lifting as you find the farmers much more friendly than the cityfolk, though you dare not stop to chat. The workers in the fields wave solemn greetings as you pass. You wave back to one and notice he is looking from you back down the road. Turning back you see a cloud of dust or smoke. Perhaps one of the farmers is burning off some old tomato plants.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player)
+    {
+        if (Character::VERIFY_SKILL(player, Skill::Type::WILDERNESS_LORE))
+        {
+            return 37;
+        }
+        else
+        {
+            return 55;
+        }
+    }
+};
+
+class Story248 : public Story::Base
+{
+public:
+    Story248()
+    {
+        ID = 248;
+
+        Text = "Where will you enter the catacombs? There is a new fissure opened up in the sea wall at the old dock. There is also a way into the catacombs beneath the Overlord's stables.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Go to the sea wall", 352));
+        Choices.push_back(Choice::Base("Go to the Overlord's stables", 262));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story249 : public Story::Base
+{
+public:
+    Story249()
+    {
+        ID = 249;
+
+        Text = "How will you try to free the guards?";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Try to torch the purple flesh of Hate", 228));
+        Choices.push_back(Choice::Base("Ask some of the trapped guards what to do", 215));
+        Choices.push_back(Choice::Base("[SPELLS] Magic might do the trick: attack Hate using Miasma", 173, Skill::Type::SPELLS));
+        Choices.push_back(Choice::Base("[SPELLS] Cast Thunderflash", 165, Skill::Type::SPELLS));
+        Choices.push_back(Choice::Base("[SPELLS] Cast Bafflement", 154, Skill::Type::SPELLS));
+        Choices.push_back(Choice::Base("[SPELLS] Cast Rulership", 122, Skill::Type::SPELLS));
+        Choices.push_back(Choice::Base("Use a SWORD", 192, {Item::SWORD}));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
 auto prologue = Prologue();
 auto story001 = Story001();
 auto story002 = Story002();
@@ -5817,6 +6047,16 @@ auto story236 = Story236();
 auto story237 = Story237();
 auto story238 = Story238();
 auto story239 = Story239();
+auto story240 = Story240();
+auto story241 = Story241();
+auto story242 = Story242();
+auto story243 = Story243();
+auto story244 = Story244();
+auto story245 = Story245();
+auto story246 = Story246();
+auto story247 = Story247();
+auto story248 = Story248();
+auto story249 = Story249();
 
 void InitializeStories()
 {
@@ -5844,7 +6084,8 @@ void InitializeStories()
         &story200, &story201, &story202, &story203, &story204, &story205, &story206, &story207, &story208, &story209,
         &story210, &story211, &story212, &story213, &story214, &story215, &story216, &story217, &story218, &story219,
         &story220, &story221, &story222, &story223, &story224, &story225, &story226, &story227, &story228, &story229,
-        &story230, &story231, &story232, &story233, &story234, &story235, &story236, &story237, &story238, &story239};
+        &story230, &story231, &story232, &story233, &story234, &story235, &story236, &story237, &story238, &story239,
+        &story240, &story241, &story242, &story243, &story244, &story245, &story246, &story247, &story248, &story249};
 }
 
 #endif
