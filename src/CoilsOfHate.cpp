@@ -5130,6 +5130,10 @@ bool processStory(SDL_Window *window, SDL_Renderer *renderer, Character::Base &p
                 {
                     putText(renderer, "You have defeated Hate but died a Hero's Death.", font, text_space, clrWH, intLM, TTF_STYLE_NORMAL, splashw, boxh, startx, starty);
                 }
+                else if (story->Type == Story::Type::MARTYR_DEATH)
+                {
+                    putText(renderer, "You have defeated Hate but died a Martyr's Death.", font, text_space, clrWH, intLM, TTF_STYLE_NORMAL, splashw, boxh, startx, starty);
+                }
                 else if (story->Type == Story::Type::GOOD)
                 {
                     putText(renderer, "You have triumphed over Hate! Further adventure awaits!", font, text_space, clrWH, intLM, TTF_STYLE_NORMAL, splashw, boxh, startx, starty);

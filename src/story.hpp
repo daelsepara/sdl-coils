@@ -156,6 +156,7 @@ namespace Story
         NORMAL = 0,
         GOOD,
         HERO_DEATH,
+        MARTYR_DEATH,
         DOOM
     };
 
@@ -6247,7 +6248,7 @@ public:
 
         Image = "images/filler1.png";
 
-        Text = "As head of the Judain resistance movement in Godorno you are now one of the most powerful people in the city. With power comes responsibility but you comfort yourself that you are doing your best. You wonder how many more Judain will die carrying out your orders. How many innocent people will suffer. Will the Overlord give in to your demands? Or will you all be taken to the prison fortress of Grand and tortured?\n\nThe Overlord is no longer the great enemy. It is Hate you must outwit. In order to do so you must know something about its movements. Where does it sleep? Can it be harmed? How long does it take to ingest lost souls? You need the answers to these questions but where will you seek them?";
+        Text = "As head of the Judain resistance movement in Godorno you are now one of the most powerful people in the city. With power comes responsibility but you comfort yourself that you are doing your best. You wonder how many more Judain will die carrying out your orders. How many innocent people will suffer. Will the Overlord give in to your demands? Or will you all be taken to the prison fortress of Grond and tortured?\n\nThe Overlord is no longer the great enemy. It is Hate you must outwit. In order to do so you must know something about its movements. Where does it sleep? Can it be harmed? How long does it take to ingest lost souls? You need the answers to these questions but where will you seek them?";
 
         Choices.clear();
         Choices.push_back(Choice::Base("Take a gondola down Grand Canal and hope Hate comes to you", 292));
@@ -6473,8 +6474,6 @@ public:
     {
         ID = 282;
 
-        Image = "images/disappear.png";
-
         Choices.clear();
         Choices.push_back(Choice::Base("Bandage yourself up before making your escape", 383));
         Choices.push_back(Choice::Base("Run for it straight away", 393));
@@ -6506,6 +6505,8 @@ public:
     {
         ID = 283;
 
+        Image = "images/diamond.png";
+
         Bye = "You survive to gain victory. You step over the soldiers' bodies and snatch up the treasure chest, then hurry off into the night.";
 
         Choices.clear();
@@ -6515,7 +6516,7 @@ public:
 
     void Event(Character::Base &player)
     {
-        PreText = "The penalty for fighting with the Overlord's guards is to be hung in chains until the wind dries you out like a raisin. That's if you get caught, of course. But either way -- whether you are killed in this struggle, or arrested and taken to Grond -- it means you are now in a fight to the death.\n\nIt is a grim battle, fought almost in silence. The only sounds are frantic pants of breath and the scuff of quick footfalls as you manoeuvre back and forth across the room. At least you have one thing in your favour: although outnumbered, you are able to get your back to a comer, making it difficult for the soldiers to press their advantage.\n\n";
+        PreText = "The penalty for fighting with the Overlord's guards is to be hung in chains until the wind dries you out like a raisin. That's if you get caught, of course. But either way -- whether you are killed in this struggle, or arrested and taken to Grond -- it means you are now in a fight to the death.\n\nIt is a grim battle, fought almost in silence. The only sounds are frantic pants of breath and the scuff of quick footfalls as you manoeuvre back and forth across the room. At least you have one thing in your favour: although outnumbered, you are able to get your back to a corner, making it difficult for the soldiers to press their advantage.\n\n";
 
         auto DAMAGE = -5;
 
@@ -7052,7 +7053,7 @@ public:
     {
         ID = 311;
 
-        Text = "Grand is as you left it. There are still prisoners clamouring to be set free. You open as many doors as you can, prising the shackles off the poor prisoners, some of whom are too far gone even to begrateful.\n\nSoon you have released a multitude from the prison fortress. A mob of escaped convicts and their cruel guards start fighting outside the fortress walls. You leave them to it. They probably deserve each other. The city has sunk into a desperate state. You could almost imagine you were in hell.\n\nA moment of inspiration lightens your mood, however, as you decide to have the massive CHAINS which support the portcullis of the prison taken out. A sorcerer of ancient times forged those metal links. Perhaps you can use them to tether Hate.";
+        Text = "Grond is as you left it. There are still prisoners clamouring to be set free. You open as many doors as you can, prising the shackles off the poor prisoners, some of whom are too far gone even to begrateful.\n\nSoon you have released a multitude from the prison fortress. A mob of escaped convicts and their cruel guards start fighting outside the fortress walls. You leave them to it. They probably deserve each other. The city has sunk into a desperate state. You could almost imagine you were in hell.\n\nA moment of inspiration lightens your mood, however, as you decide to have the massive CHAINS which support the portcullis of the prison taken out. A sorcerer of ancient times forged those metal links. Perhaps you can use them to tether Hate.";
 
         Choices.clear();
 
@@ -7140,7 +7141,7 @@ public:
     {
         ID = 315;
 
-        Text = "Dodging the Overlord's soldiers turns what would be an easy walk into a nightmarish series of short hops between patrols. You are continually forced to lie low for long periods until the coast is clear. Not until early evening do you reach the row of crooked houses, long since abandoned an~ ransacked. They do, however, provide a snug hole in which to lie low. You make yourself as comfortable as possible in the dank cellar of one of the houses, using broken crates to make a rough pallet on which to sleep.\n\nYou begin to draw up your plans the next morning. It could be worth watching to see if the Overlord leaves his palace, as you might be able to spot a weak link in his security arrangements.";
+        Text = "Dodging the Overlord's soldiers turns what would be an easy walk into a nightmarish series of short hops between patrols. You are continually forced to lie low for long periods until the coast is clear. Not until early evening do you reach the row of crooked houses, long since abandoned and ransacked. They do, however, provide a snug hole in which to lie low. You make yourself as comfortable as possible in the dank cellar of one of the houses, using broken crates to make a rough pallet on which to sleep.\n\nYou begin to draw up your plans the next morning. It could be worth watching to see if the Overlord leaves his palace, as you might be able to spot a weak link in his security arrangements.";
 
         Choices.clear();
 
@@ -7232,6 +7233,237 @@ public:
         Choices.push_back(Choice::Base("Go back onto the carpet to cut the concubine free", 322));
 
         Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story320 : public Story::Base
+{
+public:
+    std::string PreText = "";
+
+    Story320()
+    {
+        ID = 320;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        PreText = "Your compassion for the wounded and maimed stands you in good stead. Whatever black thoughts have plagued your heart in the past, your noble and good deeds here in the prison fortress of Grond have shown you to be a pure-hearted hero.";
+
+        if (Character::VERIFY_CODEWORDS(player, {Codeword::Type::VENEFIX}))
+        {
+            Character::REMOVE_CODEWORD(player, Codeword::Type::VENEFIX);
+        }
+        else
+        {
+            Character::GET_CODEWORDS(player, {Codeword::Type::SATORI});
+
+            PreText += "\n\nYou gained the codeword SATORI.";
+        }
+
+        Text = PreText.c_str();
+    }
+
+    int Continue(Character::Base &player) { return 159; }
+};
+
+class Story321 : public Story::Base
+{
+public:
+    Story321()
+    {
+        ID = 321;
+
+        Text = "Tyutchev is leading you by the back alleys towards the foreigners' quarter.";
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Choices.clear();
+
+        if (!Character::VERIFY_SKILL(player, Skill::Type::ROGUERY))
+        {
+            Choices.push_back(Choice::Base("Keep following him", 198));
+            Choices.push_back(Choice::Base("Give up and return to your hidey-hole on Bumble Row", 160));
+        }
+    }
+
+    int Continue(Character::Base &player) { return 410; }
+};
+
+class Story322 : public Story::Base
+{
+public:
+    Story322()
+    {
+        ID = 322;
+
+        Image = "images/filler3.png";
+
+        Text = "As soon as you step onto the carpet the gold and silver filigree threads seem to bunch and tighten beneath the balls of your feet. You take another step and then struggle to make another, but the wires have snared around your ankle. The slender metal thread is cutting into your skin like a cheesewire. Cursing, you drop the concubine and bend to free yourself. It should be easy enough to get free before the wire cuts through your leg.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 305; }
+};
+
+class Story323 : public Story::Base
+{
+public:
+    Story323()
+    {
+        ID = 323;
+
+        Text = "Call as loud as you like for Hate has no ears with which to hears the cries of the tormented. Your cries do attract two rowing boats, however, which glide out from the granary wharf and are soon overtaking you. They are probably pirates so you pole rapidly towards the bank and decide to descend into the catacombs to seek Hate there.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Enter the crypts of the Megiddo dynasty", 365));
+        Choices.push_back(Choice::Base("Ascend through the cellars of the Overlord's palace", 339));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story324 : public Story::Base
+{
+public:
+    Story324()
+    {
+        ID = 324;
+
+        Text = "\"No, I will not place myself in danger. I would be a fool to do so.\"\n\n\"Don't you trust me?\" Lucie looks shocked and hurt. \"I've been doing my best to help you and now you won't trust me.\"\n\n\"Lucie ...\" You reach out to touch her, but she spits at you and runs off. Bewildered at her strange behaviour, you return to Bumble Row.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 160; }
+};
+
+class Story325 : public Story::Base
+{
+public:
+    Story325()
+    {
+        ID = 325;
+
+        Text = "Hate has nourished itself on your evil thoughts of murder and revenge. You are ready now, a soul already lost. Tonight you will walk open-armed into the sickly embrace of Hate and give yourself up for ever, sucked into Hate's orgy of despair. There is no one left to save your fellow Judain. Hate will conquer all.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story326 : public Story::Base
+{
+public:
+    Story326()
+    {
+        ID = 326;
+
+        Text = "As soon as you order the retreat, panic breaks out. By the time you have restored some semblance of order and discipline all the barricades have been smashed. Barricades are of no use against the monster. Your only hope is to kill it. This is the moment of truth. Triumph or perish.\n\nDusk begins to fill the streets. Only the decaying spires of the cathedrals still catch the golden glint of daylight. This may be the last sunset you will ever see, as the great rolling bulk of Hate comes slithering through the canals and streets towards you.\n\nHate extrudes a tentacle. In the pits of its green eyes, a flicker of intelligence shows. It recognizes you as its foe. A beam of shimmering mauve light shines down on you as the monster unleashes its magic.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player)
+    {
+        if (Character::VERIFY_CODEWORDS(player, {Codeword::Type::VENEFIX}))
+        {
+            return 399;
+        }
+        else
+        {
+            return 274;
+        }
+    }
+};
+
+class Story327 : public Story::Base
+{
+public:
+    Story327()
+    {
+        ID = 327;
+
+        Text = "You arrive back at the jeweller's house in the dead of night. Clouds cover the moon like grave soil on the face of a corpse. Underfoot, the cobblestones glisten blackly. A cat prowls in the shadows across the street, making barely less noise than you. You have always prided yourself on your stealth and cool nerve, but more useful than either of these is your mastery of magic. For tonight's work, your normal humdrum repertoire of charms will not suffice; you dredge your memory for a more arcane enchantment. Murmuring an antique rhyme, you work a charm that will keep all the house's occupants asleep by making their dreams more vivid than reality itself. Even an earthquake could not rouse them before dawn. Confident that nothing can go wrong now, you force the front and enter.\n\nThe interior of the shop is dark. You see no reason not to light the lamps; it will make your job easier, and any passer-by would just assume the jeweller is working late. A hasty but thorough search of the shop reveals no sign of the diamond, but that is only to be expected. Probably it is kept in a treasure chest. Stepping over a slumbering guard dog, you start up the stairs.\n\nA floorboard creaks on the landing above. Startled, you look up to see a young soldier in the uniform of the Overlord's troop standing there. His face is ashen with fright, but he musters a brave semblance of self-assurance as he calls: \"You there! You're under arrest!\"";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Advance up the stairs to attack him", 176));
+        Choices.push_back(Choice::Base("Run out of the shop and go back to join your friends", 190));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story328 : public Story::Base
+{
+public:
+    Story328()
+    {
+        ID = 328;
+
+        Text = "Tyutchev is one of the greatest living warriors. His sword has drunk the blood of scores of unfortunates who crossed him, or perhaps just admitted to worshipping the wrong god. There is a gleam of pleasure in his cruel eyes as he hefts his sword in one hand. You can be sure he will grant you no mercy, if he bests you.\n\nHis weapon is almost two feet longer than your blade and his reach is immense.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Try to get in close", 338));
+        Choices.push_back(Choice::Base("Warily keep your distance and try to parry his first blow", 363));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story329 : public Story::Base
+{
+public:
+    std::string PreText = "";
+
+    Story329()
+    {
+        ID = 329;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        PreText = "The stinking latrine offers no escape but a very high window up near the ceiling.";
+
+        if (!Character::VERIFY_SKILL(player, Skill::Type::AGILITY))
+        {
+            PreText += "\n\nWithout [AGILITY], you have no choice but to surrender.";
+        }
+
+        Text = PreText.c_str();
+    }
+
+    int Continue(Character::Base &player)
+    {
+        if (Character::VERIFY_SKILL(player, Skill::Type::AGILITY))
+        {
+            return 368;
+        }
+        else
+        {
+            return 342;
+        }
     }
 };
 
@@ -7555,6 +7787,16 @@ auto story316 = Story316();
 auto story317 = Story317();
 auto story318 = Story318();
 auto story319 = Story319();
+auto story320 = Story320();
+auto story321 = Story321();
+auto story322 = Story322();
+auto story323 = Story323();
+auto story324 = Story324();
+auto story325 = Story325();
+auto story326 = Story326();
+auto story327 = Story327();
+auto story328 = Story328();
+auto story329 = Story329();
 
 void InitializeStories()
 {
@@ -7590,7 +7832,8 @@ void InitializeStories()
         &story280, &story281, &story282, &story283, &story284, &story285, &story286, &story287, &story288, &story289,
         &story290, &story291, &story292, &story293, &story294, &story295, &story296, &story297, &story298, &story299,
         &story300, &story301, &story302, &story303, &story304, &story305, &story306, &story307, &story308, &story309,
-        &story310, &story311, &story312, &story313, &story314, &story315, &story316, &story317, &story318, &story319};
+        &story310, &story311, &story312, &story313, &story314, &story315, &story316, &story317, &story318, &story319,
+        &story320, &story321, &story322, &story323, &story324, &story325, &story326, &story327, &story328, &story329};
 }
 
 #endif
