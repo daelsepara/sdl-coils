@@ -5873,7 +5873,7 @@ public:
 
         Image = "images/town-crier.png";
 
-        Text = "\"Now hear the will of the Overlord. The salt tax will be doubled forthwith.\" The crier's voice rings out confidently but there are growls of discontent all around.\n\nA man turns to you and says, \"Doubled! Do they intend to squeeze us till we are nought but dried husks lying in the dust?\"\n\n\"Ssh,\" you say, wanting to hear what else the town crier is saying.\n\n\"The amnesty for those who worship false gods is at an end,\" he declaims to the crowd. \"The punishment for heresy is death\"\n\nThere is a wail from somewhere in the crowd and two of the soldiers barge their way·towards the poor unfortunate. Townsfolk are knocked to the ground but no one lays hand on the soldieres. A woman dressed in a blue robe runs away up the street with the soldiers in hot pursuit.\n\nThe crier affects not to have noticed the disturbance. \"Now hear this. The Overlord decrees the Judain outcast. The life of a Judain is of no worth. The keeping of Judain as slaves within the precincts of the city may continue. It is the wish of the Overlord that all good citizens of Godorno shall not rest until the Judain have been driven out or enslaved.\"\n\nYou listen in horror. This means that none of your people is safe within the city. The crowds start to chant: \"Kill the Judain, kill the Judain.\" The man who spoke out with such indignation about the salt tax now looks at you and then points, shouting \"Judain!\" The mob will soon be baying for blood.";
+        Text = "\"Now hear the will of the Overlord. The salt tax will be doubled forthwith.\" The crier's voice rings out confidently but there are growls of discontent all around.\n\nA man turns to you and says, \"Doubled! Do they intend to squeeze us till we are nought but dried husks lying in the dust?\"\n\n\"Ssh,\" you say, wanting to hear what else the town crier is saying.\n\n\"The amnesty for those who worship false gods is at an end,\" he declaims to the crowd. \"The punishment for heresy is death\"\n\nThere is a wail from somewhere in the crowd and two of the soldiers barge their way towards the poor unfortunate. Townsfolk are knocked to the ground but no one lays hand on the soldieres. A woman dressed in a blue robe runs away up the street with the soldiers in hot pursuit.\n\nThe crier affects not to have noticed the disturbance. \"Now hear this. The Overlord decrees the Judain outcast. The life of a Judain is of no worth. The keeping of Judain as slaves within the precincts of the city may continue. It is the wish of the Overlord that all good citizens of Godorno shall not rest until the Judain have been driven out or enslaved.\"\n\nYou listen in horror. This means that none of your people is safe within the city. The crowds start to chant: \"Kill the Judain, kill the Judain.\" The man who spoke out with such indignation about the salt tax now looks at you and then points, shouting \"Judain!\" The mob will soon be baying for blood.";
 
         Choices.clear();
         Choices.push_back(Choice::Base("Use [CUNNING]", 301, Skill::Type::CUNNING));
@@ -7653,6 +7653,299 @@ public:
     int Continue(Character::Base &player) { return 409; }
 };
 
+class Story340 : public Story::Base
+{
+public:
+    Story340()
+    {
+        ID = 340;
+
+        Image = "images/filler2.png";
+
+        Text = "Hate is trying to claim you for its own. Your vision blurs and your head aches. You close your eyes and all you can see is the staring green pools of Hate's eyes. Hate is searching your soul for evil thoughts but you pass the test. You lie back as Hate leaves you to search for another lost soul and the fever passes.\n\nMameluke mops your brow with a moist sponge. You gratefully accept his offer of a couch for the night and wake up feeling a little refreshed, though the cries of Grond's tortured damned still sicken.\n\nYou RECOVER 2 Life Points.";
+
+        Bye = "Thanking Mameluke for his help, you return to your hideout on Bumble Row.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Character::GAIN_LIFE(player, 2);
+    }
+
+    int Continue(Character::Base &player) { return 159; }
+};
+
+class Story341 : public Story::Base
+{
+public:
+    Story341()
+    {
+        ID = 341;
+
+        Text = "Did you think you could frighten five hundred guards inside a huge fortress with ten-foot thick walls that stand forty feet high into letting you in among them? They have only one reply to such a hideous apparition as you have conjured: they shoot you with their crossbows from the arrow slits on either side and above the gates. You are peppered like a pincushion. As you die and the magic fades there is a low heartless cheer as the guards realize they have slaughtered yet another Judain. There is no hero left now to save the city. Hate will subdue all.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story342 : public Story::Base
+{
+public:
+    Story342()
+    {
+        ID = 342;
+
+        Text = "You are taken under arrest to the prison fortress of Grond. The courtyard is thronged with captive Judain. More are being brought in all the time. Without a chance to say who you are, or to pretend loyalty to the Overlord, they force you into underground cellars where, in the cramped dark, you fight to breathe. When the air is gone the weight of dead people pressing on you cannot be borne. You have no choice but to give up your spirit as the rest of your people have already.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story343 : public Story::Base
+{
+public:
+    Story343()
+    {
+        ID = 343;
+
+        Text = "You are pure of heart and so manage to break free as two tentacles snap forth from Hate's coils and try to drag you into the soft cloying flesh of the monster. You turn tail and flee up the stairway and out into the street where the fresher air makes your senses swim. You will have to abandon Lucie. She is already a lost soul. You slink back towards your hidey-hole on Bumble Row to ponder your next actions.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 195; }
+};
+
+class Story344 : public Story::Base
+{
+public:
+    Story344()
+    {
+        ID = 344;
+
+        Text = "You strike out bravely for the nearest bank. Unlike most of the folk of Godorno, who pass their whole lives within a stone's throw of the water, you can swim quite strongly. Behind you there is a splash as the gilded gondola is moved by something large, and then the snort of an ugly but harmless sea cow. You have swum too far to turn back now so you swim on and soon gain the bank. You haul yourself out of the murky canal and sit on the road to dry in the midday sun. Soon you have the uneasy feeling of being watched.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 374; }
+};
+
+class Story345 : public Story::Base
+{
+public:
+    Story345()
+    {
+        ID = 345;
+
+        Image = "images/lucie.png";
+
+        Text = "Lucie reaches up to touch the AMULET that swings around your neck and recoils. \"Ow, it's hot! How can you bear it?\"\n\n\"My leather jerkin protects me. If it is hot that means danger threatens. We must leave here.\"\n\nShe reaches up again and snatches at the AMULET, grimacing with pain. She rips it from your neck, scattering the links of the fine gold chain across the wbbles and runs quickly away from you. You give chase but she ducks beneath an overturned cart and down a hatch into a cellar. It is dark and you lose sight of her. Lucie knows the back ways and dives of the city even better than you do; you will never find her.\n\nYou cannot understand Lucie doing such a thing. She is a thief, admittedly, but it is not in her character to steal from friends. Perhaps she has been the victim of a dibbuk. These invisible creatures settle on a person's shoulder and take charge of their thoughts, causing them to do things that would normally be against their nature. Well, in that case it has made a mistake in causing her to take your AMULET. The protective magic will soon drive the dibbuk off, leaving Lucie with no memory of the event.\n\nStill, you have lost your AMULET. Until you find another you will not be able to use your [CHARMS] skill. There must be one somewhere in the city, so perhaps you should start looking. Alternatively, you could return to your hideout and see if anyone there knows where you might find one; after all, the Judain are famous for their skill in manufacturing magical AMULETs and luckstones.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Start scouring the city for a new AMULET to buy", 213));
+        Choices.push_back(Choice::Base("Look for Lucie to see if she still has it once the dibbuk has released her from its control", 257));
+        Choices.push_back(Choice::Base("Consult your own people first", 202));
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        if (Character::VERIFY_SKILL(player, Skill::Type::STREETWISE))
+        {
+            Choices[0].Destination = 243;
+        }
+        else
+        {
+            Choices[0].Destination = 213;
+        }
+    }
+};
+
+class Story346 : public Story::Base
+{
+public:
+    Story346()
+    {
+        ID = 346;
+
+        Text = "Lucie smirks coquettishly as you tell her off and says, \"Well, it's true. Hate take them all and good riddance to bad rubbish.\"\n\nYou sigh, knowing you will never change her. You suspect that at least one of the criminal inmates of Grond must have done something dreadful to her before his imprisonment.\n\n\"Surely there must be something you can do?\" you ask. \"Don't you know any of the guards?\"\n\n\"I suppose I do, one or two. There's Captain Khmer in the east tower. He oversees the towngate and the eastern courtyard. I could smuggle you in there.\"";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Go along with Lucie's plan to smuggle you into the prison fortress of Grond", 354));
+        Choices.push_back(Choice::Base("Thank Lucie but decline her brave offer of help", 366));
+        Choices.push_back(Choice::Base("[CHARMS] Consult your AMULET", 388, Skill::Type::CHARMS));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story347 : public Story::Base
+{
+public:
+    std::string PreText = "";
+
+    Story347()
+    {
+        ID = 347;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        PreText = "You drag the pallet into the murk beside the back wall and fall into an unnaturally deep slumber. You dream of searching a forest for your lost mother.\n\nYou awake feeling nauseous. You move to turn over and find a trail of viscous slime across your outstretched arm, like the track of a gigantic slug. Gagging, you feel vomit burn the back of your throat.";
+
+        if (Character::VERIFY_CODEWORDS(player, {Codeword::Type::VENEFIX}))
+        {
+            if (!Character::VERIFY_CODEWORDS(player, {Codeword::Type::SATORI}))
+            {
+                PreText += "\n\nYour arm is permanently withered.";
+
+                if (Character::VERIFY_ANY_SKILLS(player, {Skill::Type::SWORDPLAY, Skill::Type::AGILITY}))
+                {
+                    auto count = 0;
+
+                    std::string skills = " You can no longer use the ";
+
+                    if (Character::VERIFY_SKILL(player, Skill::Type::SWORDPLAY))
+                    {
+                        count++;
+
+                        PreText += "[SWORDPLAY]";
+                    }
+
+                    if (Character::VERIFY_SKILL(player, Skill::Type::AGILITY))
+                    {
+                        if (count > 0)
+                        {
+                            PreText += " and ";
+                        }
+
+                        count++;
+
+                        PreText += "[AGILITY]";
+                    }
+
+                    PreText += " skill";
+
+                    if (count > 1)
+                    {
+                        PreText += "s";
+                    }
+
+                    PreText += ".";
+
+                    Character::LOSE_SKILLS(player, {Skill::Type::SWORDPLAY, Skill::Type::AGILITY});
+                }
+            }
+            else
+            {
+                PreText += "\n\nYou wash off the slime in a barrel of rainwater and find that you are unscathed.";
+            }
+        }
+        else
+        {
+            PreText += "\n\nYour arm looks withered but you wash off the slime in a barrel of rainwater and find that you are unscathed.";
+        }
+
+        PreText += "\n\nThis is no place to stay -- it is time to find a new hideaway. You set out for Bumble Row, knowing that most of the shopkeepers there shut up shop long ago and it will be largely deserted.";
+
+        Text = PreText.c_str();
+    }
+
+    int Continue(Character::Base &player) { return 315; }
+};
+
+class Story348 : public Story::Base
+{
+public:
+    Story348()
+    {
+        ID = 348;
+
+        Text = "The slaughter is swift and bloody. The look of disgust in the eyes of your fellow Judain when it is over and there are only the moans of the dying is eloquent testimony that revenge is a bitter fruit. How could you have let your people commit such barbaric atrocities?";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        if (Character::VERIFY_CODEWORDS(player, {Codeword::Type::SATORI}))
+        {
+            Character::REMOVE_CODEWORD(player, Codeword::Type::SATORI);
+        }
+    }
+
+    int Continue(Character::Base &player) { return 159; }
+};
+
+class Story349 : public Story::Base
+{
+public:
+    std::string PreText = "";
+
+    Story349()
+    {
+        ID = 349;
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Forget about Lucie and smash the tentacle to pulp", 147));
+        Choices.push_back(Choice::Base("You hesitate", 103));
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        PreText = "There is no sunlight to power the Jewel down here in the street. Your gaze is drawn up to the towers and parapets of the city, where the sunset yet flickers like a golden flame against the blue-grey of the sky. You must scale the crumbling wall to reach the daylight. As you start to climb a pile of rubble, Hate lashes out at you.\n\n";
+
+        auto DAMAGE = -5;
+
+        if (Character::VERIFY_SKILL(player, Skill::Type::AGILITY))
+        {
+            DAMAGE = 0;
+
+            PreText += "[AGILITY] You effortlessly dodge the attack and continue climbing unscathed.";
+        }
+
+        if (DAMAGE < 0)
+        {
+            Character::GAIN_LIFE(player, DAMAGE);
+
+            PreText += "You LOST " + std::to_string(-DAMAGE) + " Life Points.";
+        }
+
+        if (player.Life > 0)
+        {
+            PreText += "\n\nAt last you reach the parapet withjust a few steps left to climb. Sunset bathes the stone wall just above where you stand. A huge bloated tentacle, the largest of all, rises up out of the canal and looms over the rampart at the top of the parapet. It is blocking your way but you only have to drive this last tentacle aside and you will be able to reach the sunlight. You prepare to smite the tentacle but looking out of it at you is Lucie! Her face and body are embedded in the purple mass which you must rend and smash if you are to reach the top.";
+        }
+
+        Text = PreText.c_str();
+    }
+};
+
 auto prologue = Prologue();
 auto story001 = Story001();
 auto story002 = Story002();
@@ -7993,6 +8286,16 @@ auto story336 = Story336();
 auto story337 = Story337();
 auto story338 = Story338();
 auto story339 = Story339();
+auto story340 = Story340();
+auto story341 = Story341();
+auto story342 = Story342();
+auto story343 = Story343();
+auto story344 = Story344();
+auto story345 = Story345();
+auto story346 = Story346();
+auto story347 = Story347();
+auto story348 = Story348();
+auto story349 = Story349();
 
 void InitializeStories()
 {
@@ -8030,7 +8333,8 @@ void InitializeStories()
         &story300, &story301, &story302, &story303, &story304, &story305, &story306, &story307, &story308, &story309,
         &story310, &story311, &story312, &story313, &story314, &story315, &story316, &story317, &story318, &story319,
         &story320, &story321, &story322, &story323, &story324, &story325, &story326, &story327, &story328, &story329,
-        &story330, &story331, &story332, &story333, &story334, &story335, &story336, &story337, &story338, &story339};
+        &story330, &story331, &story332, &story333, &story334, &story335, &story336, &story337, &story338, &story339,
+        &story340, &story341, &story342, &story343, &story344, &story345, &story346, &story347, &story348, &story349};
 }
 
 #endif
