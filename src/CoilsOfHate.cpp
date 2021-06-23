@@ -3434,11 +3434,11 @@ bool shopScreen(SDL_Window *window, SDL_Renderer *renderer, Character::Base &pla
             {
                 if (mode == Control::Type::BUY)
                 {
-                    putText(renderer, "Select an item to buy", font, text_space, clrWH, intMG, TTF_STYLE_NORMAL, splashw, boxh, startx, starty);
+                    putText(renderer, "Select an item to BUY", font, text_space, clrWH, intMG, TTF_STYLE_NORMAL, splashw, boxh, startx, starty);
                 }
                 else
                 {
-                    putText(renderer, "You may sell your items at prices indicated here", font, text_space, clrWH, intMG, TTF_STYLE_NORMAL, splashw, boxh, startx, starty);
+                    putText(renderer, "You may SELL your items at prices indicated here", font, text_space, clrWH, intMG, TTF_STYLE_NORMAL, splashw, boxh, startx, starty);
                 }
             }
 
@@ -3686,7 +3686,7 @@ bool barterScreen(SDL_Window *window, SDL_Renderer *renderer, Character::Base &p
 
             if (!error && !bartered)
             {
-                putText(renderer, "Select an item to barter", font, text_space, clrWH, intMG, TTF_STYLE_NORMAL, splashw, boxh, startx, starty);
+                putText(renderer, "Select an item to BARTER", font, text_space, clrWH, intMG, TTF_STYLE_NORMAL, splashw, boxh, startx, starty);
             }
 
             putText(renderer, "Possessions", font, text_space, clrWH, intMG, TTF_STYLE_NORMAL, splashw, infoh, startx, starty + text_bounds - (boxh + infoh - 1));

@@ -7027,6 +7027,214 @@ public:
     int Continue(Character::Base &player) { return 280; }
 };
 
+class Story310 : public Story::Base
+{
+public:
+    Story310()
+    {
+        ID = 310;
+
+        Text = "You are in luck. He emerges from the palace about noon, borne in his gilded litter by eight slaves in silk tabards. The escort of heavily armed soldiers would deter any assassin. As the litter progresses slowly down the Avenue of Silent Glory towards the Greenbark Plaza, some of the soldiers hurry ahead with halberds raised, urging the onlookers to raise a feeble cheer.\n\nInside the litter, the Overlord is reclining rather more than usual. When he twitches the curtain aside to wave less fulsomely than is his wont his face has the purplish hue of a man stricken by gout and a disease of the blood. His eyes are hooded and lacklustre.\n\nYou make your way back to your hidey-hole on Bumble Row and find a messenger waiting for you there, a Judain nipper with big brown eyes. He hands you a note. It is from a girl you used to know, called Lucie. Her name means 'rays of the dawn'. She wants to meet you tomorrow morning. You tell the little messenger you will be at the appointed place at the appointed hour and he scampers off.\n\nIt is not worth venturing out again. The streets are deserted as the curfew hour approaches. You settle down to sleep.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Sleep with a SWORD ready by your side", 156, {Item::SWORD}));
+        Choices.push_back(Choice::Base("Sleep with a SWORD tucked under the mattress", 90, {Item::SWORD}));
+        Choices.push_back(Choice::Base("You have no SWORD", 7));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story311 : public Story::Base
+{
+public:
+    Story311()
+    {
+        ID = 311;
+
+        Text = "Grand is as you left it. There are still prisoners clamouring to be set free. You open as many doors as you can, prising the shackles off the poor prisoners, some of whom are too far gone even to begrateful.\n\nSoon you have released a multitude from the prison fortress. A mob of escaped convicts and their cruel guards start fighting outside the fortress walls. You leave them to it. They probably deserve each other. The city has sunk into a desperate state. You could almost imagine you were in hell.\n\nA moment of inspiration lightens your mood, however, as you decide to have the massive CHAINS which support the portcullis of the prison taken out. A sorcerer of ancient times forged those metal links. Perhaps you can use them to tether Hate.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Character::GET_ITEMS(player, {Item::CHAINS});
+    }
+
+    int Continue(Character::Base &player) { return 45; }
+};
+
+class Story312 : public Story::Base
+{
+public:
+    Story312()
+    {
+        ID = 312;
+
+        Text = "It takes too long for you to concentrate your mind to produce the magical effect of the Visceral Pang. Your preparations are rudely and painfully interrupted by Skakshi's second stiletto dagger which buries its tip in your heart. You fall dead and there is no one left to save the wretched Judain from being wiped out for ever.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story313 : public Story::Base
+{
+public:
+    Story313()
+    {
+        ID = 313;
+
+        Text = "You speak the word of power that evokes the potent spell of Visceral Pang. Skakshi is seized by a palsy and he collapses to the sawdust-covered floor, writhing and frothing at the mouth.\n\n\"You, Skakshi, will take me to meet with your guildmaster, Melmelo. I have a proposition to put to him for his ears only.\"\n\n\"I'll do anything, Judain. Anything! Just release me from this wracking spell.\"\n\nYou take pity on the miserable wretch and banish the spell with a thought. Skakshi rises slowly to his feet and says he will take you to Melmelo's stronghold, claiming that only he knows the password. Skakshi must fear you are going to kill him.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 181; }
+};
+
+class Story314 : public Story::Base
+{
+public:
+    Story314()
+    {
+        ID = 314;
+
+        Image = "images/grand-canal.png";
+
+        Text = "You sing the song of the traveller's return with as jaunty an air as you can muster. The murky waters of the canal ripple and bubble unnervingly as you glide across the surface. You stare through the surface reflection for any signs of the roiling coils of Hate moving below the surface.\n\nYou turn out onto Grand Canal, where a puff of wind turns the gondola sideways and towards the sea. A flock of seagulls passes overhead and still you have seen no one. Looking ahead of the prow you notice a swelling in the water ahead of you. Something large is on its way towards you.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Jump over the side and swim for shore", 331));
+        Choices.push_back(Choice::Base("Remain in the boat and pole towards the shore", 205));
+        Choices.push_back(Choice::Base("Remain in the boat and pole towards the gargantuan underwater form", 251));
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        if (Character::VERIFY_SKILL(player, Skill::Type::SEAFARING))
+        {
+            Choices[0].Destination = 344;
+        }
+        else
+        {
+            Choices[0].Destination = 331;
+        }
+    }
+};
+
+class Story315 : public Story::Base
+{
+public:
+    Story315()
+    {
+        ID = 315;
+
+        Text = "Dodging the Overlord's soldiers turns what would be an easy walk into a nightmarish series of short hops between patrols. You are continually forced to lie low for long periods until the coast is clear. Not until early evening do you reach the row of crooked houses, long since abandoned an~ ransacked. They do, however, provide a snug hole in which to lie low. You make yourself as comfortable as possible in the dank cellar of one of the houses, using broken crates to make a rough pallet on which to sleep.\n\nYou begin to draw up your plans the next morning. It could be worth watching to see if the Overlord leaves his palace, as you might be able to spot a weak link in his security arrangements.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 310; }
+};
+
+class Story316 : public Story::Base
+{
+public:
+    Story316()
+    {
+        ID = 316;
+
+        Text = "Mameluke's garret is hung with silk prints and tapestries depicting the great cities of the Archipelago and their rulers. There is thick rush matting on the floor and Mameluke would have lit the fire to warm you both, but the smoking chimney would have given you away.\n\nYou don't feel well. The sickness is shaking you like a palsy. Your face burns where the ichor of Hate splashed you. Mameluke looks at you with concern in his eyes.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player)
+    {
+        if (Character::VERIFY_CODEWORDS(player, {Codeword::Type::VENEFIX}))
+        {
+            return 325;
+        }
+        else
+        {
+            return 340;
+        }
+    }
+};
+
+class Story317 : public Story::Base
+{
+public:
+    Story317()
+    {
+        ID = 317;
+
+        Text = "The invisibility spell works again for you and you quickly duck under the arboretum and back onto the street. Once there you make for Bumble Row as fast as you prudently can. Behind you the soldiers are cursing but they cannot even keep up with Lucie. She knows the dens and dives, the secret ways and ambushes of the city even better than you. You will have to keep an eye out for that little minx.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 160; }
+};
+
+class Story318 : public Story::Base
+{
+public:
+    Story318()
+    {
+        ID = 318;
+
+        Text = "Tarkamandor peeks out into the dusk, then hurriedly waves you in. \"I heard you'd fled the city,\" he says in a hushed voice as he closes the shutters.\n\nYou drop into a chair by the hearth without waiting for an invitation. \"Decided I don't much care for the countryside,\" you reply. \"Got anything for me?\"\n\nHe sighs. \"You're not thinking of fighting back against the Overlord?\"\n\n\"Why not?\" you say with a smile.\n\n\"The odds are stacked against you -- more than a hundred to one!\"\n\n\"That's why I need some gear off you, isn't it?\" you tell him.\n\nAt last he brings out a casket of special items which he is prepared to sell you. The first item on offer is a SALVE OF HEALING; you can use this once at any time except when in combat to RESTORE ALL LOST Life Points. The second item is a SHIELD which is only useful if you have [SWORDPLAY]; the SHIELD has 6 Life Points which it can LOSE instead of you in battle, but MUST THEN BE DISCARDED. The third item is a BOOK OF MYTHS AND LEGENDS; if you buy this you can choose options for [FOLKLORE] even if you do not have that skill.\n\nThe HEALING SALVE costs 100 gleenars. The one-use SHIELD costs 200 gleenars. The BOOK costs 150 gleenars.";
+
+        Bye = "You realize the others will be getting worried. Bidding Tarkamandor good evening, you hurry back to join them.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::SHOP;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Shop = {{Item::HEALING_SALVE, 100}, {Item::SHIELD, 200}, {Item::BOOK_OF_MYTHS_AND_LEGENDS, 150}};
+    }
+
+    int Continue(Character::Base &player) { return 190; }
+};
+
+class Story319 : public Story::Base
+{
+public:
+    Story319()
+    {
+        ID = 319;
+
+        Text = "You jump to safety, holding one corner of the bedspread, then tug it hard so that the girl slips from the bed and is dragged across the carpet. As soon as the swaddled form touches the filigreed carpet the wires spring forth to entangle themselves in the counterpane. Try as you might you cannot drag her any further.\n\nA large black form, like a manta ray or a vampire's cloak, detaches itself from the underside of the canopy of the Overlord's bed and drifts down through the air towards your head. You still have time to make a run for it if you want to leave the girl.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Leave the girl", 266));
+        Choices.push_back(Choice::Base("Go back onto the carpet to cut the concubine free", 322));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
 auto prologue = Prologue();
 auto story001 = Story001();
 auto story002 = Story002();
@@ -7337,6 +7545,16 @@ auto story306 = Story306();
 auto story307 = Story307();
 auto story308 = Story308();
 auto story309 = Story309();
+auto story310 = Story310();
+auto story311 = Story311();
+auto story312 = Story312();
+auto story313 = Story313();
+auto story314 = Story314();
+auto story315 = Story315();
+auto story316 = Story316();
+auto story317 = Story317();
+auto story318 = Story318();
+auto story319 = Story319();
 
 void InitializeStories()
 {
@@ -7371,7 +7589,8 @@ void InitializeStories()
         &story270, &story271, &story272, &story273, &story274, &story275, &story276, &story277, &story278, &story279,
         &story280, &story281, &story282, &story283, &story284, &story285, &story286, &story287, &story288, &story289,
         &story290, &story291, &story292, &story293, &story294, &story295, &story296, &story297, &story298, &story299,
-        &story300, &story301, &story302, &story303, &story304, &story305, &story306, &story307, &story308, &story309};
+        &story300, &story301, &story302, &story303, &story304, &story305, &story306, &story307, &story308, &story309,
+        &story310, &story311, &story312, &story313, &story314, &story315, &story316, &story317, &story318, &story319};
 }
 
 #endif
