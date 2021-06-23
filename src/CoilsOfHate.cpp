@@ -5324,16 +5324,22 @@ bool processStory(SDL_Window *window, SDL_Renderer *renderer, Character::Base &p
                         {
                             if (story->Bye)
                             {
-                                auto bye = createText(story->Bye, FONT_FILE, font_size + 4, clrBK, (SCREEN_WIDTH * (1.0 - 2.0 * Margin)) - 2 * text_space, TTF_STYLE_NORMAL);
+                                auto bye = createText(story->Bye, FONT_FILE, font_size + 4, clrDB, (SCREEN_WIDTH * (1.0 - 2.0 * Margin)) - 2 * text_space, TTF_STYLE_NORMAL);
                                 auto forward = createImage("icons/next.png");
 
                                 if (bye && forward)
                                 {
                                     fillWindow(renderer, intWH);
 
-                                    fillRect(renderer, (1.0 - 2.0 * Margin) * SCREEN_WIDTH, bye->h + 2 * text_space, startx, (SCREEN_HEIGHT - (bye->h + 2 * text_space)) / 2, intBE);
+                                    stretchImage(renderer, background, 0, 0, SCREEN_WIDTH, buttony - button_space);
 
-                                    renderText(renderer, bye, intBE, (SCREEN_WIDTH - bye->w) / 2, (SCREEN_HEIGHT - bye->h) / 2, SCREEN_HEIGHT, 0);
+                                    SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
+
+                                    fillRect(renderer, (1.0 - 2.0 * Margin) * SCREEN_WIDTH, bye->h + 2 * text_space, startx, ((buttony - button_space) - (bye->h + 2 * text_space)) / 2, BE_80);
+
+                                    renderText(renderer, bye, 0, (SCREEN_WIDTH - bye->w) / 2, ((buttony - button_space) - bye->h) / 2, (buttony - button_space), 0);
+
+                                    SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_NONE);
 
                                     renderImage(renderer, forward, SCREEN_WIDTH * (1.0 - Margin) - buttonw - button_space, buttony);
 

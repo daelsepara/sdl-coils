@@ -501,7 +501,7 @@ public:
 
         Image = "images/filler3.png";
 
-        Text = "Walk the streets you must, for there is no food and nothing to be gained from idling here in the hovel you call home. You push the rotten front door open gently. There is a wet cracking noise and it splinters, coming off its hinges. You jump past into Copper Street as it falls into the street and breaks. It is beyond repair.\n\nEven before you turn the corner of the narrow mired street a prowling thief, a sewer rat escaped from the fleet, is going into your home. Let him. You are carrying everything you own. He will find nothing but tick-ridden blankets and a leaking earthenware pot or two.\n\nAs you turn your back on the grey stone shacks of Copper Street a youth, gangling and pasty-faced, spits in your eye and calls out \"Judain scum.\" The boy is beneath not~ce. He sneers with his nose in the air, like the rich folk of the riverfront, but his sailcloth breeches are out at the knees. His father is probably a tanner or a tinker or some such.\n\nYour time in Godorno has taught you to ignore such insults.";
+        Text = "Walk the streets you must, for there is no food and nothing to be gained from idling here in the hovel you call home. You push the rotten front door open gently. There is a wet cracking noise and it splinters, coming off its hinges. You jump past into Copper Street as it falls into the street and breaks. It is beyond repair.\n\nEven before you turn the corner of the narrow mired street a prowling thief, a sewer rat escaped from the fleet, is going into your home. Let him. You are carrying everything you own. He will find nothing but tick-ridden blankets and a leaking earthenware pot or two.\n\nAs you turn your back on the grey stone shacks of Copper Street a youth, gangling and pasty-faced, spits in your eye and calls out \"Judain scum.\" The boy is beneath notice. He sneers with his nose in the air, like the rich folk of the riverfront, but his sailcloth breeches are out at the knees. His father is probably a tanner or a tinker or some such.\n\nYour time in Godorno has taught you to ignore such insults.";
 
         Choices.clear();
         Choices.push_back(Choice::Base("You cannot stand this treatment any longer: round on him", 33));
@@ -535,7 +535,7 @@ public:
     {
         ID = 3;
 
-        Text = "As nightfall approaches and a thunderstorm brews, you leave the road to find shelter in a copse of trees. But you are destined to sleep under better than a canopy of leaves -- hidden among the trees is a dilapidated cottage by a well. The dwelling's solid, green-tiled roof alone will mean you'll not get wet tonight.\n\nThe well is an even more welcome sight; you have fled Godorno ill-prepared and have travelled most of the day without a single drink. Drawing water from the well, you drink deeply.\n\nOn entering the rude shelter, you find it is empty but largely clean, with no signs of recent habitation by men or animals. Making yourself as comfortable as you can on the hard-packed earth floor you settle down to sleep.\n\nWhen you awake in the morning, however, you feel strangely feverish. The trials of your journey might have been too much for you and perhaps you have sunstroke. Or did you dehydrate too much, and that refreshing drink come too late? There again, perhaps the water from the well is tainted, though to you it was as sweet as honeyed wine upon thetongue.\n\nSuch thoughts plague your mind as you sink deeper into delirium, restlessly tossing and turning on the cottage's floor. A kind of madness possesses you, and you are sure that several times you run out into the copse in search of food, grasping at and eating anything that seems remotely edible. How many days must you be gripped by the. coils of madness that threaten to destroy your mind and body?\n\nYou LOSE 2 Life Points.";
+        Text = "As nightfall approaches and a thunderstorm brews, you leave the road to find shelter in a copse of trees. But you are destined to sleep under better than a canopy of leaves -- hidden among the trees is a dilapidated cottage by a well. The dwelling's solid, green-tiled roof alone will mean you'll not get wet tonight.\n\nThe well is an even more welcome sight; you have fled Godorno ill-prepared and have travelled most of the day without a single drink. Drawing water from the well, you drink deeply.\n\nOn entering the rude shelter, you find it is empty but largely clean, with no signs of recent habitation by men or animals. Making yourself as comfortable as you can on the hard-packed earth floor you settle down to sleep.\n\nWhen you awake in the morning, however, you feel strangely feverish. The trials of your journey might have been too much for you and perhaps you have sunstroke. Or did you dehydrate too much, and that refreshing drink come too late? There again, perhaps the water from the well is tainted, though to you it was as sweet as honeyed wine upon thetongue.\n\nSuch thoughts plague your mind as you sink deeper into delirium, restlessly tossing and turning on the cottage's floor. A kind of madness possesses you, and you are sure that several times you run out into the copse in search of food, grasping at and eating anything that seems remotely edible. How many days must you be gripped by the coils of madness that threaten to destroy your mind and body?\n\nYou LOSE 2 Life Points.";
 
         Choices.clear();
 
@@ -559,7 +559,7 @@ public:
 
         Image = "images/avenue-of-skulls.png";
 
-        Text = "The road leading up to Greenbank Plaza has been renamed the A venue of Skulls. At regular intervals posts have been erected from which iron cages swing. Inside the cages are executed Judain. Hundreds have been slain. The smell of rank corruption has drawn clouds of flies. Nearby you hear the clang of a bell and a dolorous voice calling, \"Bring out your dead. Bring out your dead.\"\n\nThe plague has struck Godorno like a ravaging scourge. No respecter of a man's station, it has carried off nobleman and beggar alike. The streets have not been swept for what must have been weeks.  Refuse is piling up in drifts in the wind. There is a blank look of despair on the faces of the people you pass and even the guards seem too preoccupied to notice a Judain. The sun is drawing the humours from the city like the fumes from a witch's kettle by the time you turn the corner into Copper Street.\n\nYou return to the hovel which you used to call home. You can use it as a base to see if you can contact some of your fellow Judain and learn what has taken place in the city. The old door has been broken up and used for firewood. There is nobody and nothing in the hovel -- but did you hear voices from beneath the trap door that leads to the hidden cellar?";
+        Text = "The road leading up to Greenbank Plaza has been renamed the Avenue of Skulls. At regular intervals posts have been erected from which iron cages swing. Inside the cages are executed Judain. Hundreds have been slain. The smell of rank corruption has drawn clouds of flies. Nearby you hear the clang of a bell and a dolorous voice calling, \"Bring out your dead. Bring out your dead.\"\n\nThe plague has struck Godorno like a ravaging scourge. No respecter of a man's station, it has carried off nobleman and beggar alike. The streets have not been swept for what must have been weeks.  Refuse is piling up in drifts in the wind. There is a blank look of despair on the faces of the people you pass and even the guards seem too preoccupied to notice a Judain. The sun is drawing the humours from the city like the fumes from a witch's kettle by the time you turn the corner into Copper Street.\n\nYou return to the hovel which you used to call home. You can use it as a base to see if you can contact some of your fellow Judain and learn what has taken place in the city. The old door has been broken up and used for firewood. There is nobody and nothing in the hovel -- but did you hear voices from beneath the trap door that leads to the hidden cellar?";
 
         Choices.clear();
         Choices.push_back(Choice::Base("Fling the trap door open", 61));
@@ -1336,7 +1336,7 @@ public:
     {
         ID = 38;
 
-        Text = "People turn to stare as you run past and then take up the hue and cry as they are engulfed by the mob that pursues you. You run on, your lungs beginning to hurt. They are not closing but you don't know how much longer you can keep going like this. Every time you see a likely place to hide t~ere seems to be someone else there. You turn a corner and run on in the direction of the main gate where the trade road enters the city. Behind you can hear the sound of hoofs on the cobbles. A squadron of the Overlord's cavalry is giving chase. Ahead there is a drinking house, outside is a HORSE tethered to a post.";
+        Text = "People turn to stare as you run past and then take up the hue and cry as they are engulfed by the mob that pursues you. You run on, your lungs beginning to hurt. They are not closing but you don't know how much longer you can keep going like this. Every time you see a likely place to hide there seems to be someone else there. You turn a corner and run on in the direction of the main gate where the trade road enters the city. Behind you can hear the sound of hoofs on the cobbles. A squadron of the Overlord's cavalry is giving chase. Ahead there is a drinking house, outside is a HORSE tethered to a post.";
 
         Choices.clear();
         Choices.push_back(Choice::Base("Steal the HORSE", 237));
@@ -1508,7 +1508,7 @@ public:
     {
         ID = 45;
 
-        Text = "You also manage to free two hundred of the grateful guards who cannot believe their luck. They wipe themselves off along the walls. Most of them look as if they are in shock. They shouldn't give you too much trouble. You are more likely to face trouble from the Judain you have set free. They can see their tormenters among them and they want to take their revenge. \"Now die, dogs, die slowly and in pain!\" they cry. \"Let us see how you like to be put to the torture. Kill them! Heat the irons and warm their vitals.\" The Judain are near hys~erical and they begin to slaughter the guards out of hand, while others try to drag some of them back to the torture chambers. The guards are petrified.\n\nWill you stop the slaughter by killing one of your fellow Judain? In the heat of the moment there is no time for finesse, and your people are behaving no better than savage beasts who have lost all control.";
+        Text = "You also manage to free two hundred of the grateful guards who cannot believe their luck. They wipe themselves off along the walls. Most of them look as if they are in shock. They shouldn't give you too much trouble. You are more likely to face trouble from the Judain you have set free. They can see their tormenters among them and they want to take their revenge. \"Now die, dogs, die slowly and in pain!\" they cry. \"Let us see how you like to be put to the torture. Kill them! Heat the irons and warm their vitals.\" The Judain are near hysterical and they begin to slaughter the guards out of hand, while others try to drag some of them back to the torture chambers. The guards are petrified.\n\nWill you stop the slaughter by killing one of your fellow Judain? In the heat of the moment there is no time for finesse, and your people are behaving no better than savage beasts who have lost all control.";
 
         Choices.clear();
         Choices.push_back(Choice::Base("Stop the slaughter", 269));
@@ -1641,9 +1641,9 @@ public:
     {
         ID = 52;
 
-        Text = "You advance quickly on Skakshi, getting in close to match your sword against his club. As you lunge forward, the haft of the club catches you a painful blow on the shoulder and you feel the spikes tear your jerkin and bite into the flesh beneath.\n\nYou LOSE 3 Life Points.";
+        Text = "You advance quickly on Skakshi, getting in close to match your SWORD against his club. As you lunge forward, the haft of the club catches you a painful blow on the shoulder and you feel the spikes tear your jerkin and bite into the flesh beneath.\n\nYou LOSE 3 Life Points.";
 
-        Bye = "You send the pommel of your sword crashing into Skakshi's jaw with stunning force. He gives a surprised grunt as his knees fold under him. Before he can rise and continue the battle, you have the point of your sword at his throat. \"Take me to Melmelo,\" you say to him as you get your breath back.\n\nHe looks at your sword uneasily as he slowly gets to his feet. \"I'll take you,\" he says sullenly.";
+        Bye = "You send the pommel of your SWORD crashing into Skakshi's jaw with stunning force. He gives a surprised grunt as his knees fold under him. Before he can rise and continue the battle, you have the point of your SWORD at his throat. \"Take me to Melmelo,\" you say to him as you get your breath back.\n\nHe looks at your SWORD uneasily as he slowly gets to his feet. \"I'll take you,\" he says sullenly.";
 
         Choices.clear();
 
@@ -2462,7 +2462,7 @@ public:
     {
         ID = 95;
 
-        Text = "Tormil's sword seems to stick fast in the body of the purple mass. The weapon is pulled from his grasp and then the whole bloated purple mass rolls . over, crushing Tormil beneath it. His flattened body is already being absorbed. Terror draws bile into your throat and you cannot help giving a small cry of horror. Averting your face, you leave the grisly scene behind. You are ashamed to think you could have led any foe into such a trap, even a cur like Tormil.";
+        Text = "Tormil's sword seems to stick fast in the body of the purple mass. The weapon is pulled from his grasp and then the whole bloated purple mass rolls over, crushing Tormil beneath it. His flattened body is already being absorbed. Terror draws bile into your throat and you cannot help giving a small cry of horror. Averting your face, you leave the grisly scene behind. You are ashamed to think you could have led any foe into such a trap, even a cur like Tormil.";
 
         Choices.clear();
 
@@ -2558,7 +2558,7 @@ public:
         Text = "Decide what to do next.";
 
         Choices.clear();
-        Choices.push_back(Choice::Base("Seek out Melmelo, the master of theGuild of Thieves", 153));
+        Choices.push_back(Choice::Base("Seek out Melmelo, the master of the Guild of Thieves", 153));
         Choices.push_back(Choice::Base("Visit the library to look for more information about Hate", 110));
         Choices.push_back(Choice::Base("Organize the defence of the city", 174));
         Choices.push_back(Choice::Base("Go to confront Hate itself", 272));
@@ -2943,7 +2943,7 @@ public:
     {
         ID = 118;
 
-        Text = "Rising quickly onto tiptoe you slip the noose snare from your ankle and somersault backwards. The black blanket, like a vampire's cloak, falls to the floor with a heavy thump. You have escaped the first of the defences of the , Overlord's bedchamber. The black monster flops about feebly then falls still.";
+        Text = "Rising quickly onto tiptoe you slip the noose snare from your ankle and somersault backwards. The black blanket, like a vampire's cloak, falls to the floor with a heavy thump. You have escaped the first of the defences of the Overlord's bedchamber. The black monster flops about feebly then falls still.";
 
         Choices.clear();
         Choices.push_back(Choice::Base("Stay here to see what new trick or trap will test you next", 139));
@@ -5168,7 +5168,7 @@ public:
     {
         ID = 223;
 
-        Text = "You draw your sword with a flourish and advance steadily on Skakshi. The landlord throws him a spiked club with which to defend himself. You can see by the way he hefts it he knows how to use it to pulp . brains. Your sword gives you the advantage over his rude weapon but you have never trained against a man wielding a spiked club.\n\nHow will you fight this battle?";
+        Text = "You draw your sword with a flourish and advance steadily on Skakshi. The landlord throws him a spiked club with which to defend himself. You can see by the way he hefts it he knows how to use it to pulp brains. Your sword gives you the advantage over his rude weapon but you have never trained against a man wielding a spiked club.\n\nHow will you fight this battle?";
 
         Choices.clear();
         Choices.push_back(Choice::Base("Move in close so that the smooth edge of the club shaft will fall on you if you are hit", 52));
@@ -5790,7 +5790,7 @@ public:
     {
         ID = 250;
 
-        Text = "The guards here on the city gate look bored. You find a piece of straw in the road and walk up chewing . this like a milch cow. In your best country yokel accent you ask them if you can try your hand at their job to see if you would like to join the city guard. They are taken in by your country bumpkin act and one of them is only too glad to give up his place on the gate to you so that he can begin the evening's drinking early.\n\nYou stay with the guards at the gate and learn much of what has passed since you fled the city. The Judain are hanging dead in iron cages by the hundred. A few managed to flee the city but most have gone to ground in what the guards call 'their lairs and slum pits'. Things have been very bad for your people. The Overlord is trying to wipe you Judain from the face of the earth -- with a large measure of success, by the sound of it. After three hours on the gate you manage to slink unseen into the city while the others are in the gatehouse, brewing a pot of tea.";
+        Text = "The guards here on the city gate look bored. You find a piece of straw in the road and walk up chewing this like a milch cow. In your best country yokel accent you ask them if you can try your hand at their job to see if you would like to join the city guard. They are taken in by your country bumpkin act and one of them is only too glad to give up his place on the gate to you so that he can begin the evening's drinking early.\n\nYou stay with the guards at the gate and learn much of what has passed since you fled the city. The Judain are hanging dead in iron cages by the hundred. A few managed to flee the city but most have gone to ground in what the guards call 'their lairs and slum pits'. Things have been very bad for your people. The Overlord is trying to wipe you Judain from the face of the earth -- with a large measure of success, by the sound of it. After three hours on the gate you manage to slink unseen into the city while the others are in the gatehouse, brewing a pot of tea.";
 
         Choices.clear();
 
@@ -6842,6 +6842,191 @@ public:
     int Continue(Character::Base &player) { return 6; }
 };
 
+class Story300 : public Story::Base
+{
+public:
+    Story300()
+    {
+        ID = 300;
+
+        Text = "At last you face the noisome streets of the city once more. The facades of the palaces seem even more chipped and sullied than they were before you left. Several of the rows of grand villas along the river-front and up the Grand Canal seem to have subsided several feet towards the waterline. Where once the roofline was an uninterrupted plane from one end of the canal to the other, now it is a crooked saw-toothed succession of pinnacles and collapsed roofs. Something has shaken the city to its foundations while you have been away.\n\nWill you find a safe place to hide until the worst of the terror is over? Your old hovel on Copper Street is only a couple more miles' tramp from here. You decide to go back there to find old friends.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 4; }
+};
+
+class Story301 : public Story::Base
+{
+public:
+    Story301()
+    {
+        ID = 301;
+
+        Image = "images/filler3.png";
+
+        Text = "Only a rogue like you would know how to save yourself. Slipping your dagger from your sleeve you step sideways and grab a timid-looking young woman, richly dressed, away from her aged retainer. You hold the blade to her throat. You are lucky, she is the only daughter of a nobleman and the soldiers check, fearful of her father's wrath.\n\n\"Put up your swords or the girl dies.\"\n\nThe mob falls silent and the soldiers look to the town crier who orders them to obey you.\n\nYou walk her away from the plaza, ordering everyone to stay where they are. As soon as you turn the corner you release her, shout a quick apology, and run for it.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 38; }
+};
+
+class Story302 : public Story::Base
+{
+public:
+    Story302()
+    {
+        ID = 302;
+
+        Text = "It is unusual for travellers to walk alone on the trade route. Brigands live in hill forts to the north of the road. Their crenellated keeps survey great sweeps of land from which they come down on poor travellers like wolves on the fold. They plunder the merchant caravans, doing battle with the mercenary guards. Walking alone you are not safe.\n\nThe road is already starting to climb towards the mountain passes, through meadowlands where the brigands keep herds of cattle.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Go along the road", 3));
+        Choices.push_back(Choice::Base("Strike off north through brigand territory towards the great forest", 14));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story303 : public Story::Base
+{
+public:
+    Story303()
+    {
+        ID = 303;
+
+        Image = "images/mameluke-eating.png";
+
+        Text = "Mameluke greets you warmly. He is preparing to eat a cat which he has skinned and roasted over a slow fire; he offers to share it with you. Famished, you thank him and eat greedily while trying not to think of the rats the cat has itself dined upon in the past, in the fouled gutters of the city.\n\nMameluke insists on telling you about a mishap which befell him this morning: \"In going about three hours ago, to a rendezvous with a girl of Godorno -- unmarried and a daughter to one of the nobles -- I tumbled into the Grand Canal, my foot slipping as I got out of my gondola owing to the cursed slippery steps of the palaces here. In I flounced like a carp, and went dripping like a Triton to my Sea Nymph and had to scramble up to a grated window -- 'fenced with iron within and without, lest the lover get in or the lady get out'.\"\n\nMameluke is in a whimiscal mood. You are reminded of the man who sat around fiddling while the city burned. Nevertheless you implore him to help you for the sake of your people.\n\n\"I will help you, my friend,\" he says, \"if only to rid myself of the wailing of the prisoners, which are a constant affront to my sanity.\"\n\n\"Should I ask Lucie for help?\" you suggest. \"She might know someone in the fortress.\"\n\n\"I'll warrant she does, but I don't trust that wench. She acts so innocent yet I've never known her want for protection on the streets of Godorno, have you?\"\n\n\"Perhaps you're right, but we need a way in.\"";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Take Mameluke to call on Lucie and ask for her help", 402));
+        Choices.push_back(Choice::Base("Take him into the catacombs to look for a way into the prison fortress of Grond", 412));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story304 : public Story::Base
+{
+public:
+    Story304()
+    {
+        ID = 304;
+
+        Text = "You stumble through a door which opens onto a short staircase down and almost tumble into an inviting-looking blue pool. This room looks too big. It is oval and too long to fit inside the tower. Its centre is taken up with a thirty-foot wide pool surrounded with marble and majolica. A waterfall plunges into the pool from out of the wall near the ceiling. If this waterfall has fed this pool for centuries, where has the water conie from and why isn't the pool overflowing? The door that leads on upwards is on the other side of the room.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Walk round the pool to the door", 203));
+        Choices.push_back(Choice::Base("Walk through the pool to it", 216));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story305 : public Story::Base
+{
+public:
+    Story305()
+    {
+        ID = 305;
+
+        Text = "There is a faint whispering sound above and the black shape settles heavily over you. Its skin sports rows of barbed spines that inject a poison into your bloodstream. Try as you might, you can't break free. The poison turns your blood to cloying syrup and your heart stops beating. You have died when revenge for the Judain was almost within your grasp. Hate will subdue all.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story306 : public Story::Base
+{
+public:
+    Story306()
+    {
+        ID = 306;
+
+        Text = "Sailing amid a froth of high flitting cloud, the moon casts a thin creamy light down to the narrow streets. You slide from shadow to shadow until you reach Mire Street, where you pause in the lee of a doorway to take stock of your target. No lamp shows in the windows. On the upper storey, one of the latticed windows overlooking the street has been left ajar. According to the etiquette of your chosen profession, this is tantamount to an effusive invitation. Detaching yourself from the darkness, you make a nimble ascent of the shop front and slither in through the open window. Tiptoeing lightly over a large slumbering guard dog lying across the landing, you quickly reconnoitre the house, discovering three of the Overlord's soldiers on watch in an upstairs room. Surveying them from behind a drape, you notice a small locked treasure-chest in an alcove at the back of the room. Without a doubt that is where the diamond is kept.\n\nYou bite your lip, sizing up the situation. The three sentries are intent on a dice game, and the flickering lamplight in the room provides ample shadows for concealment, but even so the job will not be easy. With all your dexterous talents, you are not sure that even you could creep past them unnoticed and pick the lock on the chest.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Give it a try", 391));
+        Choices.push_back(Choice::Base("Abandon the attempt and go back to where your comrades are waiting", 190));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story307 : public Story::Base
+{
+public:
+    Story307()
+    {
+        ID = 307;
+
+        Text = "You were bound to get taken sometime, using the streets as if they were your own before the resistance has cleared them for you. Two groups of guards have been tracking you and they ambush you in a cul-de-sac. You die in a pool of blood and there is no one left now to save the Judain. Hate will subdue all.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story308 : public Story::Base
+{
+public:
+    Story308()
+    {
+        ID = 308;
+
+        Image = "images/filler2.png";
+
+        Text = "Clutching the JEWEL OF SUNSET FIRE, you marvel at the play of coloured light in its facets.";
+
+        Bye = "The climb back down is easier than coming up.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Character::GET_ITEMS(player, {Item::JEWEL_OF_SUNSET_FIRE});
+
+        Character::REMOVE_CODEWORD(player, Codeword::Type::SUNSET);
+    }
+
+    int Continue(Character::Base &player) { return 160; }
+};
+
+class Story309 : public Story::Base
+{
+public:
+    Story309()
+    {
+        ID = 309;
+
+        Text = "You are looking out over the eastern courtyard where the prisoners are brought daily to exercise but there is no one in sight. The barred windows of the towers at each corner of the quadrangle are all shut. There is no sign of Captain Khmer, the commandant of the prison, or his men. You decide to go deeper into the prison and walk carefully to the opposite tower.\n\nThe door creaks open and the familiar cloying smell of Hate assails your nostrils. The silence is oppressive but you wonder why you can't hear the screams of the tormented prisoners. Screwing up your courage you walk on into the inner ring of the fortress. Piles of masonry and strange holes in the ground that lead to lightless pits among the old fortress foundations do nothing to calm your fears.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 280; }
+};
+
 auto prologue = Prologue();
 auto story001 = Story001();
 auto story002 = Story002();
@@ -7142,6 +7327,16 @@ auto story296 = Story296();
 auto story297 = Story297();
 auto story298 = Story298();
 auto story299 = Story299();
+auto story300 = Story300();
+auto story301 = Story301();
+auto story302 = Story302();
+auto story303 = Story303();
+auto story304 = Story304();
+auto story305 = Story305();
+auto story306 = Story306();
+auto story307 = Story307();
+auto story308 = Story308();
+auto story309 = Story309();
 
 void InitializeStories()
 {
@@ -7175,7 +7370,8 @@ void InitializeStories()
         &story260, &story261, &story262, &story263, &story264, &story265, &story266, &story267, &story268, &story269,
         &story270, &story271, &story272, &story273, &story274, &story275, &story276, &story277, &story278, &story279,
         &story280, &story281, &story282, &story283, &story284, &story285, &story286, &story287, &story288, &story289,
-        &story290, &story291, &story292, &story293, &story294, &story295, &story296, &story297, &story298, &story299};
+        &story290, &story291, &story292, &story293, &story294, &story295, &story296, &story297, &story298, &story299,
+        &story300, &story301, &story302, &story303, &story304, &story305, &story306, &story307, &story308, &story309};
 }
 
 #endif
