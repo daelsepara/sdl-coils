@@ -7467,6 +7467,192 @@ public:
     }
 };
 
+class Story330 : public Story::Base
+{
+public:
+    Story330()
+    {
+        ID = 330;
+
+        Text = "You manage to find a few hours' sleep, balm to your troubled spirit though you awake cold and stiff, at dawn. There is a weariness which numbs your soul but then adversity is said to bring out the best in people. The sun is shining and reflected off the millpond calm surface of the canals. You slink carefully along back alleyways to the rendezvous. By the time you are nearing Fortuny Street the wind has picked up, whipping the stench of death away from the city and bringing with it hope for renewal. Small waves lap at the canal walls.\n\nLucie is waiting just as she said she would, under the eaves of the tax collector's offices on Rackman Row. She smiles to see you, looking well, her cheeks are rosy red and she is as pretty as ever. She links her arm in yours and says she has something to show you. You walk beside her, enjoying a moment's peace from the burden of trying to save your people. She does have news for you.\n\n\"All is not well with the Overlord. He is being consumed by Hate like so many of his subjects. His concubine, Venus, has the marks of Hate on her body, yet still he lies with her. He has become morose and listless. Venus's handmaid told me all this. There is something terrible amiss at the palace. What will become of us if our leaders are falling into the embrace of the coils of Hate. How shall we be saved?\"\n\n\"I will save you, Lucie. Does the concubine's handmaid know why the Overlord ordered the purging of my people?\"\n\n\"He needed scapegoats so the wrath of the people could be deflected from him and his corrupt courtiers. The Judain have always made good scapegoats. Sorry, I didn't mean ...\" She puts her hand on your shoulder to show she likes you.\n\n\"It doesn't matter, we Judain brave the slings and arrows of outrageous fortune by habit. We are inured to the hatred of others.\"\n\nLucie runs her hand over your chest.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 345; }
+};
+
+class Story331 : public Story::Base
+{
+public:
+    Story331()
+    {
+        ID = 331;
+
+        Text = "You flounder in the polluted waters of the Grand Canal. Like most people who live in Godorno, within a stone's throw of the water, you can't swim. Your life passes before you as you drown. There is no one left to save the Judain. Hate will conquer all.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story332 : public Story::Base
+{
+public:
+    Story332()
+    {
+        ID = 332;
+
+        Text = "It is eerily silent down in the dank bones of the fortress. Hanging your lantern outside the nearest door reveals a starving pair of Judain, manacled to the wall. It takes three hours to set all the prisoners free. Most are pathetically grateful to you as their saviour, having long given up hope of any release save the merciful release of death. The prisoners are looking at you with awe. You hear them whispering that you are a god come down from the heavens to right the wrongs of the ancient city. You organize stretcher parties to bear those who cannot walk out of the prison. You might dare to set up a sanatorium now. that you have directly challenged the Overlord's power.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 320; }
+};
+
+class Story333 : public Story::Base
+{
+public:
+    Story333()
+    {
+        ID = 333;
+
+        Text = "\"I am one of the Overlord's paid informers,\" you shout with a commanding air. \"Follow me, I will take you to the nests of the Judain scum. Follow me.\" You turn your back and set out towards the fruit market. \"Come, I will show where three Judain spies and embezzlers are hiding out.\"\n\nThe mob follow eagerly, crying for Judain blood. One of them asks how they are to know you are the Overlord's informer. You start to run, calling: \"Hurry or we may be too late. If word reaches them before us they will flee the roost.\"\n\nYou run fast and the others can hardly keep up. Entering the fruit market you dive into a throng of people who are picking over a mound of rotting fruit that has been piled at the side of the road. As you make your escape into a narrow side-street, you hear the crowd calling for your blood.\n\nIt is not safe to remain in the city at the moment.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Leave by the usual means: the main gate to the trade road", 53));
+        Choices.push_back(Choice::Base("Try to slip from the city unseen", 70));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story334 : public Story::Base
+{
+public:
+    Story334()
+    {
+        ID = 334;
+
+        Text = "You find Skakshi at the Inn of the Inner Temple, occupying his usual booth. But now he has a morose look, and the bluster has gone out of him. \"You still want to meet Melmelo ?\" he asks.\n\n\"You've changed your tune, Skakshi.\"\n\nHe drains his mug and gets up. \"The city's changed. Now the Overlord has ordered the rounding-up of all foreigners. My sister-in-law is from Kishtaria. Did you know that, Judain?\"\n\n\"I didn't. But soon the Overlord's measures will become still harsher. I'm glad you've seen reason, Skakshi.\"\n\nHe takes you by narrow back streets to an ornamental villa on the edge of the criminal dens of the poor quarter. The villa itself is quite lavish, in contrast to the hovels nearby. Melmelo is the king of this dungheap, all right. Thanking Skakshi, you watch him slip away into the shadows before knocking on the door.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Character::REMOVE_CODEWORD(player, Codeword::Type::COOL);
+    }
+
+    int Continue(Character::Base &player) { return 12; }
+};
+
+class Story335 : public Story::Base
+{
+public:
+    Story335()
+    {
+        ID = 335;
+
+        Text = "Your mighty struggles are in vain. You are not ready for this untimely death. There is no one left now to save your people.\n\nMemories of the times you have felt Hate smoulder in your breast come unbidden into your mind and the strength seems to drain out of your muscles. The warm wet embrace of Hate welcomes you and your body is slowly and inexorably drawn inch by inch into the seething mass of the monster. Soon your head too is being drawn in. Your arms and legs have gone numb and you start to fight for breath as your nostrils and lips are sealed over by the soft purple flesh of Hate. You drown in the body of Hate and the city has lost its only saviour. Your tormented half-life has begun.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story336 : public Story::Base
+{
+public:
+    Story336()
+    {
+        ID = 336;
+
+        Text = "Lucie slaps you back and flounces away, back to her little hovel. She is a very headstrong young woman. There is no point in trying to follow her now, she knows at least as much as you do about the alleyways and dens of Godorno. You decide to ask your mulatto friend, Mameluke, to help you.\n\nMameluke greets you warmly. He is preparing to eat a cat which he has skinned and roasted over a slow fire; he offers to share it with you. Famished, you thank him and eat greedily while trying not to think of the rats the cat has itself dined upon in the past, in the fouled gutters of the city.\n\nMameluke insists on telling you about a mishap which befell him this morning: \"In going, about three hours ago, to a rendezvous with a girl of Godorno -- unmarried and a daughter to one of the nobles -- I tumbled into the Grand Canal, my foot slipping as I got out of my gondola owing to the cursed slippery steps of the palaces here. In I flounced like a carp, and went _ dripping like a Triton to my Sea Nymph and had to scramble up to a grated window -- 'fenced with iron within and without, lest the lover get in or the lady get out'.\"\n\nMameluke is in a whimsical mood. You are reminded of the man who sat around fiddling while the city burned. Nevertheless you implore him to help you for the sake of your people.\n\n\"I will help you, my friend,\" he says, \"if only to rid myself of the wailing of the prisoners, which is a constant affront to my sanity. What is your plan?\"\n\n\"I thought we'd descend into the catacombs below the city,\" you reply. \"There we can look for a way into the prison.\"";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 412; }
+};
+
+class Story337 : public Story::Base
+{
+public:
+    Story337()
+    {
+        ID = 337;
+
+        Image = "images/filler2.png";
+
+        Text = "You could go to find the jewel that Melmelo spoke of, somewhere in the Tower of the Sentinel.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Go to the Tower of the Sentinel", 144));
+        Choices.push_back(Choice::Base("Decide against that course of action for the present", 100));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story338 : public Story::Base
+{
+public:
+    Story338()
+    {
+        ID = 338;
+
+        Text = "Tyutchev is leading you by the back alleys towards the foreigners' quarter.";
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Choices.clear();
+
+        if (!Character::VERIFY_ANY_SKILLS(player, {Skill::Type::AGILITY, Skill::Type::SWORDPLAY}))
+        {
+            Choices.push_back(Choice::Base("Fight on", 377));
+            Choices.push_back(Choice::Base("Turn and flee", 199));
+        }
+    }
+
+    int Continue(Character::Base &player) { return 367; }
+};
+
+class Story339 : public Story::Base
+{
+public:
+    Story339()
+    {
+        ID = 339;
+
+        Text = "As far as you know no one who has desecrated the tombs of the Megiddo dynasty has ever come back out of the catacombs. You resolve to be very careful. It is said that four tomb robbers of the Savanorola years did escape but that they had been turned into foul-smelling scarab beetles, which were eaten alive by pigs.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 409; }
+};
+
 auto prologue = Prologue();
 auto story001 = Story001();
 auto story002 = Story002();
@@ -7797,6 +7983,16 @@ auto story326 = Story326();
 auto story327 = Story327();
 auto story328 = Story328();
 auto story329 = Story329();
+auto story330 = Story330();
+auto story331 = Story331();
+auto story332 = Story332();
+auto story333 = Story333();
+auto story334 = Story334();
+auto story335 = Story335();
+auto story336 = Story336();
+auto story337 = Story337();
+auto story338 = Story338();
+auto story339 = Story339();
 
 void InitializeStories()
 {
@@ -7833,7 +8029,8 @@ void InitializeStories()
         &story290, &story291, &story292, &story293, &story294, &story295, &story296, &story297, &story298, &story299,
         &story300, &story301, &story302, &story303, &story304, &story305, &story306, &story307, &story308, &story309,
         &story310, &story311, &story312, &story313, &story314, &story315, &story316, &story317, &story318, &story319,
-        &story320, &story321, &story322, &story323, &story324, &story325, &story326, &story327, &story328, &story329};
+        &story320, &story321, &story322, &story323, &story324, &story325, &story326, &story327, &story328, &story329,
+        &story330, &story331, &story332, &story333, &story334, &story335, &story336, &story337, &story338, &story339};
 }
 
 #endif
