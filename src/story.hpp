@@ -7946,6 +7946,223 @@ public:
     }
 };
 
+class Story350 : public Story::Base
+{
+public:
+    Story350()
+    {
+        ID = 350;
+
+        Text = "You have dared to wait in the lion's den for too long. The Overlord's personal bodyguard are led by a magician who binds your feet to the spot as soon as he sets eyes on you. You are borne away to be tormented in the fortress of Grond. You will not survive. There is no one left now to save the Judain. Hate will conquer all.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story351 : public Story::Base
+{
+public:
+    Story351()
+    {
+        ID = 351;
+
+        Text = "Lucie watches as Tyutchev's blade chops into you as though you were already dead meat. It is indeed butchery and it takes Tyutchev only a few moments more to finish you off. He isn't even wounded. You have fought one of the greatest living swordsmen and you don't live to tell the tale. Now there is no one left to save the Judain.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story352 : public Story::Base
+{
+public:
+    Story352()
+    {
+        ID = 352;
+
+        Image = "images/filler2.png";
+
+        Text = "When you reach the new breach iri the sea wall you find it choked with decaying bodies, almost as if Hate had voided itself into the sea. But they do not show the purple blotches of Hate's contagion. Something or someone else has piled these bodies here. Sickened by the stench you decide to find a different path.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 262; }
+};
+
+class Story353 : public Story::Base
+{
+public:
+    Story353()
+    {
+        ID = 353;
+
+        Image = "images/barricade.png";
+
+        Text = "The barricade is composed of pews from the nearest temple, doors stripped from nearby deserted houses, flagstones and carts. The carts have been laden with mud. Even an elephant could not break through.\n\nThe blockage is ten feet high and in places a parapet has been built on the defenders' side from which potshots can be taken at the Overlord's city guards as they advance. You have archers in the windows and on the roofs of the houses on either side of the barricade. Morale is high, the stories of how you killed scores of guards in the prison fortress of Grond have placed you high in the esteem of your people.\n\nYou are conferring with the captain of the archers stationed in the houses when everyone suddenly goes quiet. They are all staring down the cracked road towards the Grand Canal from which Hate is raising its dripping baleful-eyed face. Its feelers quest in the air for your scent and it rises out of the canal, smashing houses on either side as it comes. The barricade is proof against a stampede of elephants but not against Hate itself.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Order a tactical withdrawal", 326));
+        Choices.push_back(Choice::Base("Stand at the barricade and defy the monster", 233));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story354 : public Story::Base
+{
+public:
+    Story354()
+    {
+        ID = 354;
+
+        Text = "You wait in the bakery adjacent to the prison while Lucie goes in search of Captain Khmer. It is a long wait, but at least there is fresh bread to eat and the bakers and scullions will not give you away. They seem to be firm friends with Lucie. You have plenty of time to wonder how she binds people to her. These peasants are taking a terrible risk sheltering you under their roof.\n\nAt last Lucie comes back. She looks troubled. but says, \"I've arranged things for you. Walk up to the towngate in five minutes' time. They will open up and let you through. They won't harm you, but from then on you are on your own. I think something has gone terribly wrong in there. It wasn't easy to arrange. Don't waste my efforts in failure, Judain.\" She looks at you reproachfully. Mameluke is purple with embarrassment.\n\n\"I'm going to the Silver Eel. Come to me there and tell me how you fared.\" With that and a little squeeze of the shoulder she is gone.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Wait five minutes and then knock at the towngate of the prison fortress of Grond", 413));
+        Choices.push_back(Choice::Base("Slink off back to Bumble Row", 220));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story355 : public Story::Base
+{
+public:
+    Story355()
+    {
+        ID = 355;
+
+        Text = "You arrive back at the jeweller's house later that night and stand surveying it in the moonlight. Your overwhelming impression is that this has all the hallmarks of a trap. The Overlord would hardly leave a priceless DIAMOND unguarded -- and he must be aware that his security measures, while enough to deter the casual thieves of the town, are simply an enticement to the pride of any true professional. So without a doubt there will be soldiers stationed in the house.\n\nClimbing up to the first floor, you prise open a window and tiptoe along the landing, listening at each door in turn. Sure enough, from behind one of the doors comes the rattle of gaming dice and the unmistakable banter of bored soldiers. You pause. This is where the DIAMOND must be kept.\n\nContinuing along the landing .to the next door, you hear the sound of thundering snores. The jeweller's bedroom. Quietly inching the door open, you go to a cupb_o_ard and extract a nightshirt and cap, which you put on over your clothes. Then, darting swiftly along the landing, you fling open the first door and cry: \"Thief! There's a thief downstairs!\"\n\nThe three soldiers leap up in amazement and grab their weapons, rushing past you along the landing with excited shouts. They are so intent on catching the thief -- and thereby earning a bonus -- that they don't even glance at your face.\n\nYou tear off the nightshirt and look around the room. A small locked chest catches your eye. Surely that is where the DIAMOND is. The lock looks pretty secure, but you can break it at your leisure once you are safely away from here. You pick up the chest, tucking it under your arm for a hasty getaway, but then an unpleasant shadow of doubt clouds your elation: what if the chest is only a decoy, and the DIAMOND is really kept somewhere else?";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Leave at once with the chest", 358));
+        Choices.push_back(Choice::Base("First open it and make sure you have the DIAMOND", 394));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story356 : public Story::Base
+{
+public:
+    Story356()
+    {
+        ID = 356;
+
+        Text = "Melmelo's door is opened by his major-domo, a grizzled old man with a wooden leg, who growls, \"Get you gone, vile Skakshi, or you'll not live to see the dawn.\"\n\n\"What's this I hear about Hammer being hired to kill me?\" says Skakshi, ignoring his threat. \"I didn't know Melmelo feared me so strongly.\"\n\n\"You're beneath the notice of a man with Melmelo's wit and accomplishments. Melmelo wouldn't waste money on that greedy cutthroat Hammer over the likes of you, Skakshi.\"\"Do I have your word on that, pegleg?\"\n\nThe major-domo fixes him with an incandescent stare. \"Be off with you.\"\n\nSkakshi seems satisfied but as he goes he calls back over his shoulder, \"It was a Judain scumbag who told me Hammer was after me. Look out, you know what slippery customers the Judain are.\" He and the major-domo both hawk and spit into the gutter at the mention of the word Judain.\n\nYou wait till Skakshi has turned the corner out of sight before knocking on the door, not too loud and not too timid.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 12; }
+};
+
+class Story357 : public Story::Base
+{
+public:
+    Story357()
+    {
+        ID = 357;
+
+        Text = "As you square up to the cunning thief, he sends his throwing knife spinning end over end through the air towards your heart. Absolute quiet descends on the tavern as your life hangs in the balance.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player)
+    {
+        if (Character::VERIFY_SKILL(player, Skill::Type::AGILITY))
+        {
+            return 58;
+        }
+        else
+        {
+            return 108;
+        }
+    }
+};
+
+class Story358 : public Story::Base
+{
+public:
+    Story358()
+    {
+        ID = 358;
+
+        Text = "Only when you have put a safe distance between you and Mire Street do you pause to inspect the DIAMOND. It is as large as a walnut, and sparkles like a drop of crystallized starlight. The beauty takes your breath away -- and you have seen some excellent gems in your time. It would have made a fine sceptre for the Overlord, but you'll put it to more practical use. Dropping the DIAMOND into your pocket you go to fence it.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Character::GET_ITEMS(player, {Item::DIAMOND});
+    }
+
+    int Continue(Character::Base &player)
+    {
+        if (Character::VERIFY_SKILL(player, Skill::Type::STREETWISE))
+        {
+            return 114;
+        }
+        else
+        {
+            return 128;
+        }
+    }
+};
+
+class Story359 : public Story::Base
+{
+public:
+    std::string PreText = "";
+
+    Story359()
+    {
+        ID = 359;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        PreText = "The Judain are horrified at your suggestion they take the lepers in. Many of the unfortunates are suffering from wet leprosy, which is highly contagious. Your own people shun you for fear of catching the curse.\n\nThose who say the Judain are attracting too much attention to themselves with their campaign of assassinations win the vote in the general council of Judain. The resistance cells are disbanded. This will make it harder to get around the city, as before you could rely on the resistance for help.\n\nIt grieves you that you are unable to help the lepers. They go on their way, staggering about town, begging for scraps, fighting the dogs for any scraps of offal they can find in the gutter.";
+
+        if (Character::VERIFY_CODEWORDS(player, {Codeword::Type::VENEFIX}))
+        {
+            Character::REMOVE_CODEWORD(player, Codeword::Type::VENEFIX);
+        }
+        else
+        {
+            Character::GET_CODEWORDS(player, {Codeword::Type::SATORI});
+
+            PreText += "\n\nYou gained the codeword SATORI.";
+        }
+
+        Text = PreText.c_str();
+    }
+
+    int Continue(Character::Base &player) { return 20; }
+};
+
 auto prologue = Prologue();
 auto story001 = Story001();
 auto story002 = Story002();
@@ -8296,6 +8513,16 @@ auto story346 = Story346();
 auto story347 = Story347();
 auto story348 = Story348();
 auto story349 = Story349();
+auto story350 = Story350();
+auto story351 = Story351();
+auto story352 = Story352();
+auto story353 = Story353();
+auto story354 = Story354();
+auto story355 = Story355();
+auto story356 = Story356();
+auto story357 = Story357();
+auto story358 = Story358();
+auto story359 = Story359();
 
 void InitializeStories()
 {
@@ -8334,7 +8561,8 @@ void InitializeStories()
         &story310, &story311, &story312, &story313, &story314, &story315, &story316, &story317, &story318, &story319,
         &story320, &story321, &story322, &story323, &story324, &story325, &story326, &story327, &story328, &story329,
         &story330, &story331, &story332, &story333, &story334, &story335, &story336, &story337, &story338, &story339,
-        &story340, &story341, &story342, &story343, &story344, &story345, &story346, &story347, &story348, &story349};
+        &story340, &story341, &story342, &story343, &story344, &story345, &story346, &story347, &story348, &story349,
+        &story350, &story351, &story352, &story353, &story354, &story355, &story356, &story357, &story358, &story359};
 }
 
 #endif
