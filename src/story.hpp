@@ -8163,6 +8163,82 @@ public:
     int Continue(Character::Base &player) { return 20; }
 };
 
+class Story360 : public Story::Base
+{
+public:
+    std::string PreText = "";
+
+    Story360()
+    {
+        ID = 360;
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Do as Lucie implores", 387));
+        Choices.push_back(Choice::Base("First open it and make sure you have the DIAMOND", 273));
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        PreText = "";
+
+        if (Character::VERIFY_CODEWORDS(player, {Codeword::Type::VENEFIX}))
+        {
+            Character::REMOVE_CODEWORD(player, Codeword::Type::VENEFIX);
+        }
+        else
+        {
+            Character::GET_CODEWORDS(player, {Codeword::Type::SATORI});
+
+            PreText = "You gained the codeword SATORI.\n\n";
+        }
+
+        if (PreText.length() > 0)
+        {
+            PreText += "\n\n";
+        }
+        
+        PreText += "With great care, you crawl down into the basement. There is an unpleasant smell of honeysuckle and camphor. A glimmer of light filtering through the broken ceiling illuminates Lucie. She is too ill even to move from her bed. Her features are wan; the light in the room gives her a bluish look and her eyes are sunken slightly, ringed with dark circles of fatigue. She looks like a little lost soul.\n\nShe calls your name. Her arm falls limp after she beckons you to her side. \"Leave me. Go quickly. It is too late for me, but you can still save yourself. Don't let me die in vain.\"\n\n\"Lucie ...\" You take another step towards the bed.\n\n\"No, don't come close!\" she gasps. \"Go now, while you still can.\"";
+
+        Text = PreText.c_str();
+    }
+};
+
+class Story361 : public Story::Base
+{
+public:
+    Story361()
+    {
+        ID = 361;
+
+        Text = "You cast the spell and hail the guards behind the grilles in the gate. They do not answer and you are beginnin to think your magic has missed its mark when there is a great clanking and grinding and the gates start to inch apart. It is a great labour to open them with the iron machinery forged by smiths from the mountains and you call out hearty thanks, as if to long-lost friends, but there is no one to answer your call. It is as if the gate was opened by ghosts. The sweet cloying smell of crushed roses and honeysuckle lingers here. Something is terribly wrong.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 413; }
+};
+
+class Story362 : public Story::Base
+{
+public:
+    Story362()
+    {
+        ID = 362;
+
+        Text = "Speaking the word of power and clapping your hands vigorously brings forth a cloud of poisonous gas which smothers the guards and the old egg-seller. You leave them coughing and Tetching and set out into the once bustling city.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 300; }
+};
+
 auto prologue = Prologue();
 auto story001 = Story001();
 auto story002 = Story002();
