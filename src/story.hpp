@@ -2136,6 +2136,8 @@ public:
     {
         ID = 77;
 
+        Image = "images/hate-attacks.png";
+
         Text = "Hate has been grievously wounded fighting the Jade Warrior tomb guards of the Megiddo dynasty burial vaults. It cannot tear itself free from the chains and caltrops which bind and gall it.\n\nHate thrashes wildly and a tidal wave erupts from the canal, smashing against the Bargello keep, but it is the monster's death throes. Just as the sun sinks beneath the horizon the JEWEL glows white hot and the ruby light becomes a coruscating fan of many coloured motes that disintegrate the soft purple flesh. The monster falls and makes its own grave as the catacombs open up beneath its bulk to welcome it to its final rest. The sun sets and the city is quiet.";
 
         Choices.clear();
@@ -8174,7 +8176,7 @@ public:
 
         Choices.clear();
         Choices.push_back(Choice::Base("Do as Lucie implores", 387));
-        Choices.push_back(Choice::Base("First open it and make sure you have the DIAMOND", 273));
+        Choices.push_back(Choice::Base("Kneel at her side to comfort her", 273));
 
         Controls = Story::Controls::STANDARD;
     }
@@ -8194,11 +8196,6 @@ public:
             PreText = "You gained the codeword SATORI.\n\n";
         }
 
-        if (PreText.length() > 0)
-        {
-            PreText += "\n\n";
-        }
-        
         PreText += "With great care, you crawl down into the basement. There is an unpleasant smell of honeysuckle and camphor. A glimmer of light filtering through the broken ceiling illuminates Lucie. She is too ill even to move from her bed. Her features are wan; the light in the room gives her a bluish look and her eyes are sunken slightly, ringed with dark circles of fatigue. She looks like a little lost soul.\n\nShe calls your name. Her arm falls limp after she beckons you to her side. \"Leave me. Go quickly. It is too late for me, but you can still save yourself. Don't let me die in vain.\"\n\n\"Lucie ...\" You take another step towards the bed.\n\n\"No, don't come close!\" she gasps. \"Go now, while you still can.\"";
 
         Text = PreText.c_str();
@@ -8237,6 +8234,172 @@ public:
     }
 
     int Continue(Character::Base &player) { return 300; }
+};
+
+class Story363 : public Story::Base
+{
+public:
+    std::string PreText = "";
+
+    Story363()
+    {
+        ID = 363;
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Sit with her", 403));
+        Choices.push_back(Choice::Base("Follow Tyutchev", 321));
+        Choices.push_back(Choice::Base("Bid Lucie farewell and leave", 199));
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        PreText = "Tyutchev's sword lashes out, smashing your parry aside. The blade cuts into your breast just above the heart. Luckily your jerkin absorbs some of the impact and the blow does not penetrate . the muscle. Even so, it is very painful.\n\nYou LOSE 4 Life Points.";
+
+        Character::GAIN_LIFE(player, -4);
+
+        if (player.Life > 0)
+        {
+            PreText += "\n\nLucie suddenly says, \"Spare the Judain, Tyutchev, for me. The Overlord's men will do for the poor wretch soon anyway.\"\n\n\"If it makes you happy.\" Tyutchev shrugs and carefully slides his sword back into the scabbard strapped to his back. \"What's the Judain to you?\"\n\n\"A hero, valiant and true. The one that the Judain have put their faith in to save them.\"\n\n\"I didn't know you had added such undesirables to your list of lovers,\" he says, giving you a sneering sidelong look.\n\n\"We had a meeting arranged but we were disturbed,\" says Lucie. \"I wish to speak with the Judain. Leave us, please, Tyutchev.\"\n\n\"As you wish, girl. Will you come to my abode this evening?\"\n\n\"Will Cassandra be there?\"\n\n\"No. She took ship for Aleppo on the rising tide. We'll be alone.\" So saying he turns on his heel, his black cloak flaring out like a sail, and walks out of the Silver Eel in five great strides.\n\nLucie touches your sleeve. \"Come my friend, join me. Are you hurt?\" she says, motioning to what had been Tyutchev's chair.";
+        }
+
+        Text = PreText.c_str();
+    }
+};
+
+class Story364 : public Story::Base
+{
+public:
+    Story364()
+    {
+        ID = 364;
+
+        Text = "Hate squirms and writhes, shaking the city like an earthquake. The people creep out of hiding to pelt it with every missile they can find, but there seems to be no way of killing the monster. At length it tears itself free and slithers off. Its mighty efforts have undermined the plaza, which now collapses into the river. The facade of the Bargello topples and you plummet to your death in a cascade of falling masonry.\n\nThe city crumbles and is lost for ever beneath the waves. Hate has completed its work.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story365 : public Story::Base
+{
+public:
+    std::string PreText = "";
+
+    Story365()
+    {
+        ID = 365;
+
+        Image = "images/jade-warriors.png";
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        PreText = "The tunnels take you deeper and deeper into the bones of ancient Godorno. At last you stumble through a rotten tapestry into a chamber filled with gold-plated furniture and funeral biers with sarcophagi atop them. Four glassy green statues stand at the corners of the room.\n\nThe four Jade Warriors clank menacingly as they come to life before you. The green swords in their hands cut the beams of light, giving each blade an aura like a rainbow. The light shimmers off the jagged blades and off the chiselled planes of the huge warriors themselves. When they step towards you, their heavy tread grinds the rubble beneath their armoured feet to powder. The whole room reverberates to their measured advance.";
+
+        Choices.clear();
+
+        if (!Character::VERIFY_ANY_SKILLS(player, {Skill::Type::SWORDPLAY, Skill::Type::UNARMED_COMBAT, Skill::Type::SPELLS, Skill::Type::AGILITY}) && !Character::VERIFY_ITEMS(player, {Item::Type::CENSER_OF_FRAGRANT_INCENSE}))
+        {
+            PreText += "\n\nThe nearest Jade Warrior slashes you, inflicting the LOSS of 6 Life Points";
+
+            Character::GAIN_LIFE(player, -6);
+
+            if (player.Life > 0)
+            {
+                PreText += "\n\nYou realize you must flee.";
+            }
+        }
+        else
+        {
+            Choices.push_back(Choice::Base("[SWORDPLAY] Do battle", 389, Skill::Type::SWORDPLAY));
+            Choices.push_back(Choice::Base("Fight with [UNARMED COMBAT]", 296, Skill::Type::UNARMED_COMBAT));
+            Choices.push_back(Choice::Base("[SPELLS] Cast Encloud", 42, Skill::Type::SPELLS));
+            Choices.push_back(Choice::Base("[SPELLS] Cast Rulership", 66, Skill::Type::SPELLS));
+            Choices.push_back(Choice::Base("[SPELLS] Cast Bafflement", 96, Skill::Type::SPELLS));
+            Choices.push_back(Choice::Base("[SPELLS] Cast Vanish", 102, Skill::Type::SPELLS));
+            Choices.push_back(Choice::Base("Fall back on [AGILITY]", 277, Skill::Type::AGILITY));
+            Choices.push_back(Choice::Base("Use the CENSER OF FRAGRANT_INCENSE", 204, {Item::CENSER_OF_FRAGRANT_INCENSE}));
+        }
+
+        Text = PreText.c_str();
+    }
+
+    int Continue(Character::Base &player) { return 16; }
+};
+
+class Story366 : public Story::Base
+{
+public:
+    Story366()
+    {
+        ID = 366;
+
+        Text = "You drop in on your friend Mameluke, a man of far-off Tartary. He listens to your plans to enter Grond through the catacombs beneath the city, then shakes his head.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 412; }
+};
+
+class Story367 : public Story::Base
+{
+public:
+    Story367()
+    {
+        ID = 367;
+
+        Text = "Only a very agile fighter like yourself could slip past the mesmerizing point of Tyutchev's sword as it whistles through the air in deadly arcs. You crouch and spring forward, then lunge your SWORD into the gap in his armour, beneath his armpit. There is a satisfying groan from Tyutchev who staggers back and looks on you with new respect. But he is not beaten yet.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Call on him to put down his sword, saying that senseless slaughter serves no purpose", 397));
+        Choices.push_back(Choice::Base("Fight on", 373));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story368 : public Story::Base
+{
+public:
+    Story368()
+    {
+        ID = 368;
+
+        Text = "You leap high and brace yourself against the corner walls, edging your way up to the window as they call for you to stop skulking in the privy like a criminal. By the time they risk following you into the cramped confines of the privy you have reached the window and dropped down through it into an alley below. You get away before they can run round to the back alley.\n\nListening to the bloodcurdling yells of a mob that seems to be rampaging back and forth across the city you decide the time has come to leave Godorno.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Leave by the usual means, through the main gate to the trade road", 53));
+        Choices.push_back(Choice::Base("Try to slip from the city unseen", 70));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story369 : public Story::Base
+{
+public:
+    Story369()
+    {
+        ID = 369;
+
+        Text = "This is not the first time in your life you have had to escape from an angry mob. You turn down a side street and, seeing an open door, sneak into a house. The inhabitants are having supper and shouting at each other. You creep quietly upstairs, unnoticed, out onto a balcony from which you jump to the balcony of the house opposite. Creeping out through that house you rejoin another street and double back onto your old route to shake off your pursuers.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 201; }
 };
 
 auto prologue = Prologue();
@@ -8599,6 +8762,16 @@ auto story356 = Story356();
 auto story357 = Story357();
 auto story358 = Story358();
 auto story359 = Story359();
+auto story360 = Story360();
+auto story361 = Story361();
+auto story362 = Story362();
+auto story363 = Story363();
+auto story364 = Story364();
+auto story365 = Story365();
+auto story366 = Story366();
+auto story367 = Story367();
+auto story368 = Story368();
+auto story369 = Story369();
 
 void InitializeStories()
 {
@@ -8638,7 +8811,8 @@ void InitializeStories()
         &story320, &story321, &story322, &story323, &story324, &story325, &story326, &story327, &story328, &story329,
         &story330, &story331, &story332, &story333, &story334, &story335, &story336, &story337, &story338, &story339,
         &story340, &story341, &story342, &story343, &story344, &story345, &story346, &story347, &story348, &story349,
-        &story350, &story351, &story352, &story353, &story354, &story355, &story356, &story357, &story358, &story359};
+        &story350, &story351, &story352, &story353, &story354, &story355, &story356, &story357, &story358, &story359,
+        &story360, &story361, &story362, &story363, &story364, &story365, &story366, &story367, &story368, &story369};
 }
 
 #endif
