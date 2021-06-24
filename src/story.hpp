@@ -8402,6 +8402,204 @@ public:
     int Continue(Character::Base &player) { return 201; }
 };
 
+class Story370 : public Story::Base
+{
+public:
+    Story370()
+    {
+        ID = 370;
+
+        Text = "Using the flat of your blade reduces the viscous purple flesh of the monster to a jelly. Several of the guards are now able to pull themselves out of the body of Hate as it recoils from your punishing blows. Those still trapped implore their comrades to stay and free them, but not one of those you have rescued is prepared to risk his life for his friends. Eyes wide with terror, they bolt past you.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 34; }
+};
+
+class Story371 : public Story::Base
+{
+public:
+    Story371()
+    {
+        ID = 371;
+
+        Text = "Finding Lucie later in the day is easy. It turns out she has also been looking for you. \"Come!\" she says, tugging you by the sleeve. Her tone is urgent and breathless. \"I have someone important for you to meet. Someone who can help you to save your people. No friend of the Overlord, this man.\"\n\n\"Who is it? Who in all Godorno will help us Judain?\"\n\n\"You wouldn't believe me if I told you,\" she replies.\n\n\"Of course I would, Lucie, I believe every word you say.\"\n\n\"You'll see soon enough. Come, we must go to . Fortuny Street. We can meet him there.\"";
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Choices.clear();
+
+        if (!Character::VERIFY_ANY_SKILLS(player, {Skill::Type::CUNNING, Skill::Type::STREETWISE}))
+        {
+            Choices.push_back(Choice::Base("Put your trust in Lucie", 411));
+            Choices.push_back(Choice::Base("Refuse to go with her in case she is leading you into a trap", 324));
+        }
+    }
+
+    int Continue(Character::Base &player) { return 407; }
+};
+
+class Story372 : public Story::Base
+{
+public:
+    Story372()
+    {
+        ID = 372;
+
+        Text = "To your horror your spell backfires, singeing your eyebrows. Before you can recover the guards, who know better than to allow a magician time to cast a second spell, run you through with their rapiers, while the old woman screams with the shock of it. There is no one left alive to save the Judain now. They will all perish and be wiped from the face of the earth.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story373 : public Story::Base
+{
+public:
+    Story373()
+    {
+        ID = 373;
+
+        Text = "Now that he is wounded, Tyutchev is more deadly than ever. His blade cuts the air in a whirlwind of fury and you are driven back. You cannot parry Tyutchev' s flashing blade for ever and your ripostes fall short as the pale-faced swordsman then steps back to use his longer reach. There is no chance to break off combat or use a spell.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Beg Lucie to do something to save you", 363));
+        Choices.push_back(Choice::Base("Fight on", 351));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story374 : public Story::Base
+{
+public:
+    Story374()
+    {
+        ID = 374;
+
+        Image = "images/lepers.png";
+
+        Text = "You manage to hide in a doorway just as a band of lepers turns into sight. They are coming on up the street in a slow-moving throng, a parody of a dance troupe that shuffies from house to house striking guilt into the hearts of those who see it. They are starving and emaciated, many have lost fingers, toes and their noses. Some are missing a foot or a hand. A few are heaving themselves along on trolleys, with no legs left on which to walk. They have escaped from the sanatorium. No one has fed them for days.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Leave your hiding place and lead them to safety", 395));
+        Choices.push_back(Choice::Base("Let them wander on until Hate swallows them into its qmvermg grey-green maw", 404));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story375 : public Story::Base
+{
+public:
+    Story375()
+    {
+        ID = 375;
+
+        Text = "You have the JEWEL OF SUNSET FIRE with which to focus the rays of the setting sun on the monster but you have no way of tethering Hate so that it must suffer the searing agony of the JEWEL until death wracks it. You stand alone upon the parapet of the Bargello, focusing the JEWEL, and Hate writhes in anguish. But the monster raises itself up, towering above you and then drops like an avalanche, crushing you into the midst of a mound of rubble that was once the strongest building in the city. The monster carries all before it. You lose the SWORD inside its flesh and soon you are all partners in the eternal orgy of despair. The city crumbles and is lost for ever beneath the waves. Hate has completed its work.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story376 : public Story::Base
+{
+public:
+    Story376()
+    {
+        ID = 376;
+
+        Text = "You pass a troubled night but an undisturbed one. You awake feeling heavy headed but you RECOVER 2 Life Points.\n\nThis place is cold and, looking at the back wall, you see traces of translucent purple slime. Was a demon questing here in the night for your defenceless soul? Perhaps the very demon that embodies Hate itself?\n\nIt is clearly not safe here, however, and it is time to find a new hideaway. You set out for Bumble Row, as you know that most of the shopkeepers there shut up shop long ago and there should be plenty of hideaways to choose from.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Character::GAIN_LIFE(player, 2);
+    }
+
+    int Continue(Character::Base &player) { return 315; }
+};
+
+class Story377 : public Story::Base
+{
+public:
+    Story377()
+    {
+        ID = 377;
+
+        Text = "You have taken the wrong course. You have never seen a man so skilled with a sword as the tall pale-faced Tyutchev. He is fast and strong too, and he cuts you down in a welter of blood and iron. Lucie looks on mournfully as he delivers the coup de grace, severing your head from your shoulders. There is no one left to save the Judain now. Hate will subdue all.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story378 : public Story::Base
+{
+public:
+    Story378()
+    {
+        ID = 378;
+
+        Text = "The magic works. The guards are feeling calm and tranquil now, completely unmoved by the horrors which have overtaken Godorno. They feel similarly unmoved about the idea of opening the gate to you or doing anything, for that matter. You will have to try another way.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Wait until the spell wears off and offer them gold", 206));
+        Choices.push_back(Choice::Base("Try magic again in an attempt to terrorize them", 341));
+        Choices.push_back(Choice::Base("Make friends with them", 361));
+        Choices.push_back(Choice::Base("Return to your hideout now: bribes or magic will get you no further", 20));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story379 : public Story::Base
+{
+public:
+    Story379()
+    {
+        ID = 379;
+
+        Text = "The Judain look at you in horror. They are not suicide troops, nor religious zealots anxious to meet their maker. \"You have gone mad!\" shouts Caisphas. \"We follow you no more.\"\n\nWith that they start to flee the barricade and go back into hiding. You are left alone to face your foe. Dusk begins to fill the streets. Only the decaying spires of the cathedrals still catch the golden glint of daylight. This may be the last sunset you will ever see, as the great rolling bulk of Hate comes slithering through the canals and streets towards you.\n\nHate extrudes a tentacle. In the pits of its green eyes, a flicker of intelligence shows. It recognizes you as its foe. A beam of shimmering mauve light shines down on you as the monster unleashes its magic.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player)
+    {
+        if (Character::VERIFY_CODEWORDS(player, {Codeword::Type::VENEFIX}))
+        {
+            return 399;
+        }
+        else
+        {
+            return 274;
+        }
+    }
+};
+
 auto prologue = Prologue();
 auto story001 = Story001();
 auto story002 = Story002();
@@ -8772,6 +8970,16 @@ auto story366 = Story366();
 auto story367 = Story367();
 auto story368 = Story368();
 auto story369 = Story369();
+auto story370 = Story370();
+auto story371 = Story371();
+auto story372 = Story372();
+auto story373 = Story373();
+auto story374 = Story374();
+auto story375 = Story375();
+auto story376 = Story376();
+auto story377 = Story377();
+auto story378 = Story378();
+auto story379 = Story379();
 
 void InitializeStories()
 {
@@ -8812,7 +9020,8 @@ void InitializeStories()
         &story330, &story331, &story332, &story333, &story334, &story335, &story336, &story337, &story338, &story339,
         &story340, &story341, &story342, &story343, &story344, &story345, &story346, &story347, &story348, &story349,
         &story350, &story351, &story352, &story353, &story354, &story355, &story356, &story357, &story358, &story359,
-        &story360, &story361, &story362, &story363, &story364, &story365, &story366, &story367, &story368, &story369};
+        &story360, &story361, &story362, &story363, &story364, &story365, &story366, &story367, &story368, &story369,
+        &story370, &story371, &story372, &story373, &story374, &story375, &story376, &story377, &story378, &story379};
 }
 
 #endif
