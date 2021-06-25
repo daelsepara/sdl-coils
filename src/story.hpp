@@ -9001,6 +9001,178 @@ public:
     int Continue(Character::Base &player) { return 274; }
 };
 
+class Story400 : public Story::Base
+{
+public:
+    Story400()
+    {
+        ID = 400;
+
+        Text = "You disappear through the jaws of Hate. As it absorbs you into its being, it begins to be wracked by spasms of pain. It cannot tolerate the presence of goodness within its very being. Shuddering, Hate tries to flee back to the sewers, but it is rotting away by the moment. The people come out of hiding to watch as it dwindles. They take up rocks and sticks and pelt the dying monster. The Overlord's men stand shoulder to shoulder with Judain resistance fighters, smiting their common enemy. At last Hate gives a forlorn screech and dies, turning to dust which is carried off by the wind.\n\nYou lost your life, but you died a martyr's death, bringing salvation to your people and your city.";
+
+        Type = Story::Type::MARTYR_DEATH;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story401 : public Story::Base
+{
+public:
+    Story401()
+    {
+        ID = 401;
+
+        Image = "images/diamond.png";
+
+        Text = "Hate thrashes wildly and a tidal wave erupts from the canal, smashing against the Bargello keep. But it is the monster's death throes. Just as the sun sinks beneath the horizon, the JEWEL glows white hot and the ruby light becomes a coruscating fan of many-coloured motes that disintegrate the vile purple flesh. The monster falls and makes its own grave as the catacombs open up beneath its bulk, welcoming it to its final rest. The sun sets and the city is quiet.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 416; }
+};
+
+class Story402 : public Story::Base
+{
+public:
+    Story402()
+    {
+        ID = 402;
+
+        Text = "Lucie smiles as sweetly at Mameluke but Mameluke greets her gruffiy, disdaining to hide \"his dislike of the girl.\n\n\"I need strong and trusty Mameluke here as bodyguard if I am to go to Grand and get you smuggled into the prison,\" she says. \"Will you be my protector, Mameluke?\"\n\n\"If I must -- though I'd rather stick my head inside a lion's jaws.\"\n\n\"It's settled, then; come with me.\"\n\nLucie leads you by cunning back ways towards the prison fortress.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 354; }
+};
+
+class Story403 : public Story::Base
+{
+public:
+    Story403()
+    {
+        ID = 403;
+
+        Text = "You sit down beside Lucie, oblivious of the other vermin drinking in this slop hole. \"Why do people like him waste time in a place like this? I mean, I don't want to offend, but there must be girls like you in other cities north of the sea.\"\n\n\"Ah, but in Godorno everyone is desperate. Tyutchev likes desperate people.\"\n\n\"Are you desperate, Lucie?\"\n\n\"Aren't you, to survive?\"\n\nYou change the subject. \"I've never seen a man wield a sword like that before. I didn't know it was possible. He fights like a demigod.\"\n\n\"And he thinks he is demigod, too,\" says Lucie with an arch smile. \"It really gripes him when people don't treat him that way. And now you're going to ask what's a nice girl like me --\"\n\n\"-- doing with a murderous bastard like that?\"\n\n\"He amuses me.\"\n\n\"What about his woman friend, the one called Cassandra?\"\n\nLucie shivers. \"She'd like to kill me, that one. She's killed enough men in her time. Soon as she's tired of them she fires them with cold steel. I'll make a bargain with you, Judain. You kill her for me and I'll help you save your beloved people. I know I only look like a little sweetmeat of a girl, but I can do it, with people like Tyutchev on my side.\"\n\n\"He won't thank us for killing Cassandra.\"\n\n\"What's the matter, Judain? Are you frightened?\"\n\nYou coolly point out that Tyutchev said Cassandra had taken ship to Aleppo.\n\nLucie sneers prettily. \"She'll be back sooner or later.\"\n\n\"It's no business of mine,\" you reply.\n\nLucie looks annoyed for a moment, then turns a bright smile on you. \"You're quite the hero of your people, and I like heroes. You can call on me if you need me and I'll give you a reward for your heroism.\"\n\n\"Thank you, Lucie. All help is appreciated in these troubled days.\"\n\nBidding her farewell, you leave the inn.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 199; }
+};
+
+class Story404 : public Story::Base
+{
+public:
+    Story404()
+    {
+        ID = 404;
+
+        Text = "Who would have thought that lepers could have such a strong will to live? They wander unknowing onto a glassy mauve grey surface at the end of the street and fall into the morass of Hate. Their struggles to be free are every bit as mighty as the fit young people of Godorno who have also been summoned to the eternal embrace. With their harrowing cries still vivid in your memory, you return to Bumble Row.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 20; }
+};
+
+class Story405 : public Story::Base
+{
+public:
+    Story405()
+    {
+        ID = 405;
+
+        Text = "There is no way out. The crossbows of the guards pepper your body with quarrels and you fall dead to the cobbled street in a pool of blood. The old egg-seller steals your purse and goes on her way. There is no one left now to save the Judain. Hate will subdue all.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story406 : public Story::Base
+{
+public:
+    Story406()
+    {
+        ID = 406;
+
+        Text = "\"You want this?\" you cry. \"Then catch!\"\n\nSo saying, you throw the treasure-box. It catches one of the guards with a resounding crack and he reels back onto the landing, clutching his nose, as the others close in. You dart back, seize the edge of the carpet on which they're standing, and give it a sharp tug. The breath comes out of their lungs in sharp surprised grunts as they lose their footing and tumble over backwards. Using their stomachs as a springboard, you bound over to the doorway and snatch up the box. The other guard has started to recover his wits. Despite the blood streaming from his nose, he advances along the landing towards you with an angry snarl.\n\nYou see no gain in fighting him. A few swift steps carry you to the window at the end of the landing, where you execute an agile dive, twisting in midair to land softly in a cart which you noticed earlier. The guards crowd to the window. \"Come back here, you cur!\" growls the one with the bloody nose.\n\n\"Sirrah,\" you reply with a courtly boW, \"I regret I must decline your gracious request. Adieu!\" And with that you dart off down the street, sniggering at the angry shouts which soon recede into the distance far behind you.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 358; }
+};
+
+class Story407 : public Story::Base
+{
+public:
+    Story407()
+    {
+        ID = 407;
+
+        Text = "Though your instinct is to trust Lucie who seems open and without guile you know it makes no sense to agree to a meeting with a stranger, particularly in a city like Godorno where your people are the victims of genocide. You demand to be told who it is who can help you in your struggle to save your people.\n\n\"He made me promise to keep his identity secret, until you meet. He said he could help you only if you are able to trust. So many good people have fallen into the clutches of the coils of Hate. Trust me.\"\n\n\"Is he Judain?\"\n\n\"No, not Judain. Come, we are almost there.\"";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Follow Lucie", 411));
+        Choices.push_back(Choice::Base("Change your mind and tell her you are going back to your hideout", 324));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story408 : public Story::Base
+{
+public:
+    Story408()
+    {
+        ID = 408;
+
+        Text = "Your leadership has so inspired your people that they are prepared to man the barricade against Hate itself. They pelt it with missiles and arrows and hack at it with swords, cleavers and boathooks but all to no avail. Hate dines well today as it rolls over the barricade crushing everything there to a pulp. You could not desert your people now and you too are flattened and drawn in to the eternal orgy of despair. Hate will conquer all.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story409 : public Story::Base
+{
+public:
+    Story409()
+    {
+        ID = 409;
+
+        Text = "The catacombs under the palace are dark and eerie. There is an evil resonance here, as if unspeakable acts had been carried out far from the light of day. You find your way carefully forward until you reach the cellar stairs that lead up into the palace.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 279; }
+};
+
 auto prologue = Prologue();
 auto story001 = Story001();
 auto story002 = Story002();
@@ -9401,6 +9573,16 @@ auto story396 = Story396();
 auto story397 = Story397();
 auto story398 = Story398();
 auto story399 = Story399();
+auto story400 = Story400();
+auto story401 = Story401();
+auto story402 = Story402();
+auto story403 = Story403();
+auto story404 = Story404();
+auto story405 = Story405();
+auto story406 = Story406();
+auto story407 = Story407();
+auto story408 = Story408();
+auto story409 = Story409();
 
 void InitializeStories()
 {
@@ -9444,7 +9626,8 @@ void InitializeStories()
         &story360, &story361, &story362, &story363, &story364, &story365, &story366, &story367, &story368, &story369,
         &story370, &story371, &story372, &story373, &story374, &story375, &story376, &story377, &story378, &story379,
         &story380, &story381, &story382, &story383, &story384, &story385, &story386, &story387, &story388, &story389,
-        &story390, &story391, &story392, &story393, &story394, &story395, &story396, &story397, &story398, &story399};
+        &story390, &story391, &story392, &story393, &story394, &story395, &story396, &story397, &story398, &story399,
+        &story400, &story401, &story402, &story403, &story404, &story405, &story406, &story407, &story408, &story409};
 }
 
 #endif
