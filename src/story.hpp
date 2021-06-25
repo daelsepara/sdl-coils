@@ -6586,7 +6586,7 @@ public:
     {
         ID = 286;
 
-        Text = "She is surprisingly sprightly for an aged crone. She scuttles along after you cackling to herself in a witch-like way. You turn towards Green bark Plaza when two lines of guards block the road at either end of the narrow short street you are in. They are armed with crossbows which they are pointing at your chest.\n\n\"We're taking you to Grand, Judain. The Overlord's torturers can amuse themselves with you.\"";
+        Text = "She is surprisingly sprightly for an aged crone. She scuttles along after you cackling to herself in a witch-like way. You turn towards Green bark Plaza when two lines of guards block the road at either end of the narrow short street you are in. They are armed with crossbows which they are pointing at your chest.\n\n\"We're taking you to Grond, Judain. The Overlord's torturers can amuse themselves with you.\"";
 
         Choices.clear();
         Choices.push_back(Choice::Base("Surrender to them and be tortured", 238));
@@ -8600,6 +8600,208 @@ public:
     }
 };
 
+class Story380 : public Story::Base
+{
+public:
+    Story380()
+    {
+        ID = 380;
+
+        Text = "The old woman is looking at you shrewdly. She is dressed in rags and down-at-heels clogs. She probably comes to the city every second or third day to sell her eggs. She has the look of one who has outlived her children.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Confide in her that you are in fact a Judain", 275));
+        Choices.push_back(Choice::Base("Try to lose her in the streets and hope she does you no harm", 286));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story381 : public Story::Base
+{
+public:
+    Story381()
+    {
+        ID = 381;
+
+        Text = "With a word of power and a clap of your hands you bring forth a cloud of poisonous gas which has the guards and Lucie retching helplessly while you make your getaway. You have found out the hard way that Lucie is not to be trusted. You could spend time trying to track her down and perhaps even murder her but she knows the back ways and dives of the city even better than you. You will never find her. And now that you know her for a traitor she is unlikely to trouble you again. After all, she has no reason to hate you, does she?\n\nYou make your way back into hiding trying not to think about what a fool the young strumpet made of you.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 160; }
+};
+
+class Story382 : public Story::Base
+{
+public:
+    Story382()
+    {
+        ID = 382;
+
+        Text = "Rulership is a good choice under these circumstances, as you have a clearly identified leader who can be forced to give your commands. He is a bored gate guard to boot and falls easily under the sway of your magic. You order him to have you let through while the old woman is detained and searched for weapons. You leave the guards behind and enter the once bustling city proper.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 300; }
+};
+
+class Story383 : public Story::Base
+{
+public:
+    Story383()
+    {
+        ID = 383;
+
+        Text = "It is a good job you took the time to bandage your wound. The dripping blood would have left a trail which would allow your enemies to locate you in spite of all your sorcery.\n\nYou RECOVER 1 Life Point.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Character::GAIN_LIFE(player, 1);
+    }
+
+    int Continue(Character::Base &player) { return 300; }
+};
+
+class Story384 : public Story::Base
+{
+public:
+    Story384()
+    {
+        ID = 384;
+
+        Text = "Tyutchev orders the landlord to throw you a sword. You catch it; record it among your possessions. As you stand ready, trying to get the feel of your new weapon, Tyutchev draws his own sword over his shoulder in a single fluid motion full of grace and power. There is a merciless glint in his pale blue eyes as he advances steadily towards you. Lucie looks on with keen interest.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Rush past him and out of the inn", 199));
+        Choices.push_back(Choice::Base("Stay and fight Tyutchev", 328));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story385 : public Story::Base
+{
+public:
+    Story385()
+    {
+        ID = 385;
+
+        Text = "You walk quickly down a side street, taking every first turn you come to and skirting round Greenbark Plaza. You can hear the bell of the town crier and then hear him making a proclamation. The crowd that has gathered to hear the Overlord's commandments starts to shout excitedly. You can't make out their cries, but they remind you of a pack of hounds baying for blood. Your spine tingles at the sound and you hurry away. Rounding a corner you see three Judain, unknown to you, running from the plaza. The mob is in full cry behind them.\n\nSeeing a derelict villa nearby you push through the gate to hide in the overgrown garden. Listening to the bloodcurdling yells of a mob that seems to be rampaging back and forth across the city you decide the time has come to leave Godorno.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Leave Godorno by the usual means, through the main gate to the trade road", 53));
+        Choices.push_back(Choice::Base("Try to slip from the city unseen", 70));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story386 : public Story::Base
+{
+public:
+    std::string PreText = "";
+
+    Story386()
+    {
+        ID = 386;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        PreText = "Cloudswept moonlight washes the streets of Godorno, turning the dirty cobblestones and narrow cramped houses into eerie sculptures of silver. Rats scurry off into the shadows as you pass. Off in another street, you hear a drunkard singing bawdy songs only to fall suddenly silent as someone empties the contents of their bedpan over him.\n\nThe jeweller's house lies just ahead. Looking to left and right, you slink across the street and gain entry by forcing the door. You pray that no one heard the sound of splintering timber as the door frame gave way. There is no point in searching the ground floor; you expect to find the diamond locked away somewhere upstairs. Sure enough, the first floor on the landing opens onto a store room with a locked chest in the corner. You tiptoe over and bend over this, fingers twitching with greed as you pick it up, triumph spreading a smile across your face. Who would have thought it would be so easy?\n\nA lantern is suddenly unshuttered behind you. The smile disappears. You whirl around and find yourself face to face with three of the Overlord's soldiers. \"Drop that and stand where you are, villain!\" says one with a snarl.";
+
+        if (!Character::VERIFY_SKILL(player, Skill::Type::AGILITY))
+        {
+            PreText += "\n\nWithout [AGILITY], you will have to fight.";
+        }
+
+        Text = PreText.c_str();
+    }
+
+    int Continue(Character::Base &player)
+    {
+        if (Character::VERIFY_SKILL(player, Skill::Type::AGILITY))
+        {
+            return 406;
+        }
+        else
+        {
+            return 283;
+        }
+    }
+};
+
+class Story387 : public Story::Base
+{
+public:
+    Story387()
+    {
+        ID = 387;
+
+        Text = "You walk quickly down a side street, taking every first turn you come to and skirting round Greenbark Plaza. You can hear the bell of the town crier and then hear him making a proclamation. The crowd that has gathered to hear the Overlord's commandments starts to shout excitedly. You can't make out their cries, but they remind you of a pack of hounds baying for blood. Your spine tingles at the sound and you hurry away. Rounding a corner you see three Judain, unknown to you, running from the plaza. The mob is in full cry behind them.\n\nSeeing a derelict villa nearby you push through the gate to hide in the overgrown garden. Listening to the bloodcurdling yells of a mob that seems to be rampaging back and forth across the city you decide the time has come to leave Godorno.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Go back to her and comfort her", 273));
+        Choices.push_back(Choice::Base("Harden your heart and go on your way", 298));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story388 : public Story::Base
+{
+public:
+    Story388()
+    {
+        ID = 388;
+
+        Text = "Speaking a few magical riddle-me-rees you rub the AMULET and hold it up towards where Grond towers granite-grey against the violet twilighnky. It burns red and hot, but then what did you expect? Its function is to warn you of danger, after all. Only a fool would venture into Grond alone.\n\nYou cancel the charm and the stone grows cold once more. You catch Lucie eyeing the AMULET covetously. \"Of course,\" you say in a casual tone, \"this AMULET is magically attuned to my life force. It will not work for anyone else.\" You dart a look at Lucie to see if she believes you. \"In fact, it will explode in the face of anyone trying to steal it from me. What do you think of that?\"\n\n\"I think it sounds as if any thief would get a nasty surprise if they tried to steal from you.\"\n\n\"That's right, they would.\" Satisfied you have put Lucie off the idea of stealing your magical AMULET you tell her to lead on.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 354; }
+};
+
+class Story389 : public Story::Base
+{
+public:
+    Story389()
+    {
+        ID = 389;
+
+        Text = "You dart in to attack the first of the Jade Warriors. You fight well; your sword is an arcing blaze of light, but though it rings loudly against the jade bodies of your adversaries they are not dinted. Their heavy blows break down your guard and their blades are terribly sharp, as you find to your cost when one bites into your shoulder.\n\nYou LOSE 2 Life Points.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Attempt [UNARMED COMBAT] with the champions of the Megiddo dynasty", 296, Skill::Type::UNARMED_COMBAT));
+        Choices.push_back(Choice::Base("Flee", 16));
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Character::GAIN_LIFE(player, -2);
+    }
+};
+
 auto prologue = Prologue();
 auto story001 = Story001();
 auto story002 = Story002();
@@ -8980,6 +9182,16 @@ auto story376 = Story376();
 auto story377 = Story377();
 auto story378 = Story378();
 auto story379 = Story379();
+auto story380 = Story380();
+auto story381 = Story381();
+auto story382 = Story382();
+auto story383 = Story383();
+auto story384 = Story384();
+auto story385 = Story385();
+auto story386 = Story386();
+auto story387 = Story387();
+auto story388 = Story388();
+auto story389 = Story389();
 
 void InitializeStories()
 {
@@ -9021,7 +9233,8 @@ void InitializeStories()
         &story340, &story341, &story342, &story343, &story344, &story345, &story346, &story347, &story348, &story349,
         &story350, &story351, &story352, &story353, &story354, &story355, &story356, &story357, &story358, &story359,
         &story360, &story361, &story362, &story363, &story364, &story365, &story366, &story367, &story368, &story369,
-        &story370, &story371, &story372, &story373, &story374, &story375, &story376, &story377, &story378, &story379};
+        &story370, &story371, &story372, &story373, &story374, &story375, &story376, &story377, &story378, &story379,
+        &story380, &story381, &story382, &story383, &story384, &story385, &story386, &story387, &story388, &story389};
 }
 
 #endif
