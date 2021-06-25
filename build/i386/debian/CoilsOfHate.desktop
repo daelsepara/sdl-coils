@@ -1,0 +1,14 @@
+[Desktop Entry]
+Name=The Coils of Hate
+Comment=The Coils of Hate
+Version=1.0.0
+TryExec=/usr/local/games/CoilsOfHate/CoilsOfHate.exe
+Exec=/usr/local/games/CoilsOfHate/CoilsOfHate.exe
+Icon=/usr/local/games/CoilsOfHate/icons/snake.png
+Path=/usr/local/games/CoilsOfHate
+Terminal=false
+Categories=Game
+Type=Application
+
+Name[en_DK]=The Coils of Hate
+Name[en_US]=The Coils of Hate

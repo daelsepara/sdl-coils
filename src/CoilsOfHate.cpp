@@ -598,7 +598,7 @@ std::vector<Button> createItemList(SDL_Window *window, SDL_Renderer *renderer, s
 
 bool characterScreen(SDL_Window *window, SDL_Renderer *renderer, Character::Base &player, Story::Base *story)
 {
-    std::string title = "Coils of Hate: Adventure Sheet";
+    std::string title = "The Coils of Hate: Adventure Sheet";
 
     auto done = false;
 
@@ -730,7 +730,7 @@ bool characterScreen(SDL_Window *window, SDL_Renderer *renderer, Character::Base
 
 bool glossaryScreen(SDL_Window *window, SDL_Renderer *renderer, std::vector<Skill::Base> Skills)
 {
-    std::string title = "Coils of Hate: Skills Glossary";
+    std::string title = "The Coils of Hate: Skills Glossary";
 
     if (window && renderer)
     {
@@ -895,7 +895,7 @@ bool inventoryScreen(SDL_Window *window, SDL_Renderer *renderer, Character::Base
                 last = Items.size();
             }
 
-            SDL_SetWindowTitle(window, "Coils of Hate: Possessions");
+            SDL_SetWindowTitle(window, "The Coils of Hate: Possessions");
 
             fillWindow(renderer, intWH);
 
@@ -1268,7 +1268,7 @@ bool takeScreen(SDL_Window *window, SDL_Renderer *renderer, Character::Base &pla
                 last = items.size();
             }
 
-            SDL_SetWindowTitle(window, "Coils of Hate");
+            SDL_SetWindowTitle(window, "The Coils of Hate");
 
             fillWindow(renderer, intWH);
 
@@ -1551,7 +1551,7 @@ bool loseItems(SDL_Window *window, SDL_Renderer *renderer, Character::Base &play
                 last = item_types.size();
             }
 
-            SDL_SetWindowTitle(window, "Coils of Hate");
+            SDL_SetWindowTitle(window, "The Coils of Hate");
 
             fillWindow(renderer, intWH);
 
@@ -1980,7 +1980,7 @@ std::vector<Button> skillsList(SDL_Window *window, SDL_Renderer *renderer, int s
 
 Character::Base customCharacter(SDL_Window *window, SDL_Renderer *renderer)
 {
-    std::string title = "Coils of Hate: Create Character";
+    std::string title = "The Coils of Hate: Create Character";
 
     auto done = false;
 
@@ -2316,7 +2316,7 @@ Character::Base customCharacter(SDL_Window *window, SDL_Renderer *renderer)
 
 Character::Base selectCharacter(SDL_Window *window, SDL_Renderer *renderer)
 {
-    std::string title = "Coils of Hate: Select Character";
+    std::string title = "The Coils of Hate: Select Character";
 
     auto done = false;
 
@@ -2992,7 +2992,7 @@ Control::Type gameScreen(SDL_Window *window, SDL_Renderer *renderer, Character::
                 last = entries.size();
             }
 
-            SDL_SetWindowTitle(window, "Coils of Hate: LOAD/SAVE game");
+            SDL_SetWindowTitle(window, "The Coils of Hate: LOAD/SAVE game");
 
             // Fill the surface with background color
             fillWindow(renderer, intWH);
@@ -3402,7 +3402,7 @@ bool shopScreen(SDL_Window *window, SDL_Renderer *renderer, Character::Base &pla
             }
             else
             {
-                SDL_SetWindowTitle(window, "Coils of Hate: Shop");
+                SDL_SetWindowTitle(window, "The Coils of Hate: Shop");
             }
 
             fillWindow(renderer, intWH);
@@ -3657,7 +3657,7 @@ bool barterScreen(SDL_Window *window, SDL_Renderer *renderer, Character::Base &p
 
         while (!done)
         {
-            SDL_SetWindowTitle(window, "Coils of Hate: Barter");
+            SDL_SetWindowTitle(window, "The Coils of Hate: Barter");
 
             fillWindow(renderer, intWH);
 
@@ -4008,7 +4008,7 @@ Story::Base *processChoices(SDL_Window *window, SDL_Renderer *renderer, Characte
             }
             else
             {
-                SDL_SetWindowTitle(window, (std::string("Coils of Hate: ") + std::string(3 - std::to_string(std::abs(story->ID)).length(), '0') + std::to_string(std::abs(story->ID))).c_str());
+                SDL_SetWindowTitle(window, (std::string("The Coils of Hate: ") + std::string(3 - std::to_string(std::abs(story->ID)).length(), '0') + std::to_string(std::abs(story->ID))).c_str());
             }
 
             fillWindow(renderer, intWH);
@@ -4701,7 +4701,7 @@ bool loseSkills(SDL_Window *window, SDL_Renderer *renderer, Character::Base &pla
 
         while (!done)
         {
-            SDL_SetWindowTitle(window, "Coils of Hate");
+            SDL_SetWindowTitle(window, "The Coils of Hate");
 
             fillWindow(renderer, intWH);
 
@@ -5002,7 +5002,7 @@ bool processStory(SDL_Window *window, SDL_Renderer *renderer, Character::Base &p
                 }
                 else
                 {
-                    SDL_SetWindowTitle(window, (std::string("Coils of Hate: ") + std::string(3 - std::to_string(std::abs(story->ID)).length(), '0') + std::to_string(std::abs(story->ID))).c_str());
+                    SDL_SetWindowTitle(window, (std::string("The Coils of Hate: ") + std::string(3 - std::to_string(std::abs(story->ID)).length(), '0') + std::to_string(std::abs(story->ID))).c_str());
                 }
 
                 fillWindow(renderer, intWH);
@@ -5438,7 +5438,7 @@ bool mainScreen(SDL_Window *window, SDL_Renderer *renderer, int storyID)
 
     auto text = createText(introduction, FONT_FILE, font_size, clrWH, SCREEN_WIDTH * (1.0 - 3.0 * Margin) - splashw);
 
-    auto title = "Coils of Hate";
+    auto title = "The Coils of Hate";
 
     InitializeStories();
 
@@ -5573,7 +5573,7 @@ int main(int argc, char **argv)
     SDL_Window *window = NULL;
     SDL_Renderer *renderer = NULL;
 
-    auto title = "Coils of Hate";
+    auto title = "The Coils of Hate";
 
     createWindow(SDL_INIT_VIDEO, &window, &renderer, title, "icons/snake.png");
 

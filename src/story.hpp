@@ -772,7 +772,7 @@ public:
     {
         ID = 13;
 
-        Text = "\"You'll burn in hell for this, Judain scum, for all eternity. You'll join me here in the swamp of Hate. You'll rue the day you wouldn't offer a helping hand to an old soldier ...\"\n\nHe breaks off and moans in despair. His flesh is mottled horribly and a gaping wound on his neck seems to have the pus of Hate oozing into it rather than his own fluids leaking out. You could never describe the horror of seeing these lost souls in their degradation. All you can do is try to keep hold of your sanity. You close your ears to the sounds of torment and walk on.";
+        Text = "\"You'll burn in hell for this, Judain scum, for all eternity. You'll join me here in the swamp of Hate. You'll rue the day you wouldn't offer a helping hand to an old soldier...\"\n\nHe breaks off and moans in despair. His flesh is mottled horribly and a gaping wound on his neck seems to have the pus of Hate oozing into it rather than his own fluids leaking out. You could never describe the horror of seeing these lost souls in their degradation. All you can do is try to keep hold of your sanity. You close your ears to the sounds of torment and walk on.";
 
         Choices.clear();
 
@@ -1183,7 +1183,7 @@ public:
     {
         ID = 32;
 
-        Text = "You have made the right choice. Skakshi cannot get past your guard as your BLADE cuts through the air. He is becoming increasingly desperate. \"Impossible ...\" he gasps, face twisted into a look of fury. \"You must be cheating -- using some Judain sorcery to aid you!\"\n\nYou are about to step up the tempo of your attack when he throws down the club and tries to make a run for the door.";
+        Text = "You have made the right choice. Skakshi cannot get past your guard as your BLADE cuts through the air. He is becoming increasingly desperate. \"Impossible...\" he gasps, face twisted into a look of fury. \"You must be cheating -- using some Judain sorcery to aid you!\"\n\nYou are about to step up the tempo of your attack when he throws down the club and tries to make a run for the door.";
 
         Choices.clear();
         Choices.push_back(Choice::Base("Cut him down", 36));
@@ -1588,7 +1588,7 @@ public:
     {
         ID = 49;
 
-        Text = "You find the librarian outside the building, staring at a glimmering pile of ashes. As you go closer, you see that someone has piled up the books of the library and torched them. The librarian falls to his knees, overcome with distress. \"They burned my books!\" he groans, tears running into his beard. \n\n\"Who did? And why?\" you ask.\n\n\"The Overlord's men. They said that knowledge was the enemy oflaw and order. They claimed that lies had been written in the books by Judain authors. Oh, such a waste ... !\"\n\nThere is no chance now of finding more about Hate from the writings of ancient scholars; you may not visit the library again should you be given the option. You wonder if the Overlord has truly gone mad.";
+        Text = "You find the librarian outside the building, staring at a glimmering pile of ashes. As you go closer, you see that someone has piled up the books of the library and torched them. The librarian falls to his knees, overcome with distress. \"They burned my books!\" he groans, tears running into his beard. \n\n\"Who did? And why?\" you ask.\n\n\"The Overlord's men. They said that knowledge was the enemy oflaw and order. They claimed that lies had been written in the books by Judain authors. Oh, such a waste...!\"\n\nThere is no chance now of finding more about Hate from the writings of ancient scholars; you may not visit the library again should you be given the option. You wonder if the Overlord has truly gone mad.";
 
         Choices.clear();
 
@@ -2497,7 +2497,7 @@ public:
     {
         ID = 96;
 
-        Text = "Bafflement is a powerful spell to use against a single dire opponent. But even if you succeeded in confusing one of the Jade Warriors, the others would still cut you down.\n\nAs it is they have no mind as we understand it. They are automata, immune to your spell. The Jade Warriors whirr and click menacingly as they advance to surround you with swords aloft. There is no time to cast another spell: Their sharp blades lance your vitals and rob you of life. The burial vaults of the Megiddo dynasty remain inviolate. Your last thought is that, now you are slain, there is no one who can save the Judain and Hate will conquer all.\n\nVanity of vanities ...";
+        Text = "Bafflement is a powerful spell to use against a single dire opponent. But even if you succeeded in confusing one of the Jade Warriors, the others would still cut you down.\n\nAs it is they have no mind as we understand it. They are automata, immune to your spell. The Jade Warriors whirr and click menacingly as they advance to surround you with swords aloft. There is no time to cast another spell: Their sharp blades lance your vitals and rob you of life. The burial vaults of the Megiddo dynasty remain inviolate. Your last thought is that, now you are slain, there is no one who can save the Judain and Hate will conquer all.\n\nVanity of vanities...";
 
         Type = Story::Type::DOOM;
 
@@ -3371,7 +3371,7 @@ public:
     {
         ID = 137;
 
-        Text = "Hate sends another barrage of baneful magic against you, but you walk forth without fear. The sky above turns from indigo to the deep grey of night. The monster looms ahead of you like a great crag in the darkness of the street. You begin to recite to yourself: \"Yea, though I walk in the valley of the shadow of death, I will fear no evil ...\"\n\nA tentacle lashes out with the force of a steel cable, only to recoil in a hissing. Hate gives vent to a bellow of pain. It cannot abide to touch you, for your soul carries none of the taint on which it thrives.\n\nYou advance until you are right in front of the monster. Its maw gapes like a great cavern from which the fetid gusts of its breath waft dreadfully.";
+        Text = "Hate sends another barrage of baneful magic against you, but you walk forth without fear. The sky above turns from indigo to the deep grey of night. The monster looms ahead of you like a great crag in the darkness of the street. You begin to recite to yourself: \"Yea, though I walk in the valley of the shadow of death, I will fear no evil...\"\n\nA tentacle lashes out with the force of a steel cable, only to recoil in a hissing. Hate gives vent to a bellow of pain. It cannot abide to touch you, for your soul carries none of the taint on which it thrives.\n\nYou advance until you are right in front of the monster. Its maw gapes like a great cavern from which the fetid gusts of its breath waft dreadfully.";
 
         Choices.clear();
         Choices.push_back(Choice::Base("Step into Hate's maw", 400));
@@ -3446,7 +3446,7 @@ public:
 
         Image = "images/madman.png";
 
-        Text = "It is not hard to make contact with others of your kind. The Judain are well known for their sharpness and cunning. Word has been passed round among the Judain that all is not well with the other inhabitants of the city. Hundreds of people have mysteriously disappeared without trace. Something or somebody is carrying off the people of Godorno as they sleep.\n\nThere is a rumble outside as a town house crashes to the ground, killing its occupants. The very foundations of Godorno are rotten to the core.\n\nA madman totters down the street shouting in a hoarse croak, \"We have brought it all upon ourselves. Too much evil, bad living, we are miserable sinners suffering the retribution of divine punishment ...\" He totters on, lapsing into a babble as he is pelted with mud by women washing clothes in a water butt.";
+        Text = "It is not hard to make contact with others of your kind. The Judain are well known for their sharpness and cunning. Word has been passed round among the Judain that all is not well with the other inhabitants of the city. Hundreds of people have mysteriously disappeared without trace. Something or somebody is carrying off the people of Godorno as they sleep.\n\nThere is a rumble outside as a town house crashes to the ground, killing its occupants. The very foundations of Godorno are rotten to the core.\n\nA madman totters down the street shouting in a hoarse croak, \"We have brought it all upon ourselves. Too much evil, bad living, we are miserable sinners suffering the retribution of divine punishment...\" He totters on, lapsing into a babble as he is pelted with mud by women washing clothes in a water butt.";
 
         Choices.clear();
 
@@ -5176,7 +5176,7 @@ public:
     {
         ID = 221;
 
-        Text = "Mameluke comes back for you when he sees you are struggling to keep up. You rest one arm over his shoulder and stagger on, supported by his strong frame. The Overlord's guard trot round the corner ahead and you pull up, scanning their faces for signs of pity. There are none.\n\n\"Get out of our way,\" says Mameluke. \"I'm taking this poor citizen home -- got mistaken for a Judain and given a pretty savage beating. Known to me for years, I'll vouch for ...\"\n\n\"Get away from the wretched Judain.\"\n\nThe captain of the guard means to take you in for questioning.";
+        Text = "Mameluke comes back for you when he sees you are struggling to keep up. You rest one arm over his shoulder and stagger on, supported by his strong frame. The Overlord's guard trot round the corner ahead and you pull up, scanning their faces for signs of pity. There are none.\n\n\"Get out of our way,\" says Mameluke. \"I'm taking this poor citizen home -- got mistaken for a Judain and given a pretty savage beating. Known to me for years, I'll vouch for...\"\n\n\"Get away from the wretched Judain.\"\n\nThe captain of the guard means to take you in for questioning.";
 
         Choices.clear();
         Choices.push_back(Choice::Base("Give yourself up and try to save Mameluke", 148));
@@ -5370,7 +5370,7 @@ public:
     {
         ID = 229;
 
-        Text = "\"What do you think of the disguise?\" you say before the gate guards can challenge you. \"Eh? What do you think? What do I look like?\"\n\nYou seem utterly confident and they all look at you and smile. \"Reckon you're a spitting image of a Judain, \" says one.\n\n\"Ain't I just? And I'm going to make a lot of friends among the Judain scum of the city and turn them over to the Overlord's men, for the reward. I reckon I'll make a fortune.\"\n\n\"You want to watch out. They're powerful deep people, the Judain. They stick together like like ...\"\n\n\"Like rats and grain sacks!\" another puts in.\n\nYou and the old seller of eggs are allowed to proceed into the city. To your annoyance the old woman has the look of a tittle tattle. She mumbles constantly through toothless gums. \"I heard what you said in there. It ain't right. What have the Judain done to hurt you? Just raising their children as decent and honest as other folk, I'll warrant.\"";
+        Text = "\"What do you think of the disguise?\" you say before the gate guards can challenge you. \"Eh? What do you think? What do I look like?\"\n\nYou seem utterly confident and they all look at you and smile. \"Reckon you're a spitting image of a Judain, \" says one.\n\n\"Ain't I just? And I'm going to make a lot of friends among the Judain scum of the city and turn them over to the Overlord's men, for the reward. I reckon I'll make a fortune.\"\n\n\"You want to watch out. They're powerful deep people, the Judain. They stick together like like...\"\n\n\"Like rats and grain sacks!\" another puts in.\n\nYou and the old seller of eggs are allowed to proceed into the city. To your annoyance the old woman has the look of a tittle tattle. She mumbles constantly through toothless gums. \"I heard what you said in there. It ain't right. What have the Judain done to hurt you? Just raising their children as decent and honest as other folk, I'll warrant.\"";
 
         Choices.clear();
         Choices.push_back(Choice::Base("Tell the old woman that you really are Judain", 275));
@@ -5602,7 +5602,7 @@ public:
     {
         ID = 239;
 
-        Text = "It is the work of just a few minutes to throw Mameluke off your trail in the old quarter of the city. You hear him calling: \"Where are you, Judain? Let us be friends. I will help you against the Overlord. Come back ...\"\n\nHe screams suddenly and the gurgling sound is cut off, as though he were a pig being slaughtered. If you had taken him with you he would not now be dead -- but perhaps you should not blame yourself for the mindless ferocity of the Overlord's guards. No one in Godorno is safe these days.\n\nYou double back to your lair on Bumble Row.";
+        Text = "It is the work of just a few minutes to throw Mameluke off your trail in the old quarter of the city. You hear him calling: \"Where are you, Judain? Let us be friends. I will help you against the Overlord. Come back...\"\n\nHe screams suddenly and the gurgling sound is cut off, as though he were a pig being slaughtered. If you had taken him with you he would not now be dead -- but perhaps you should not blame yourself for the mindless ferocity of the Overlord's guards. No one in Godorno is safe these days.\n\nYou double back to your lair on Bumble Row.";
 
         Choices.clear();
 
@@ -5691,7 +5691,7 @@ public:
     {
         ID = 243;
 
-        Text = "You seek out a foreign trader named Sardis, finally tracking him down in a tavern off Tartars' Quay. He always has a few odd trinkets to sell, brought from distant lands. When you explain your requirements, he gives a wink and pulls something from his pocket. It is an AMULET on a silver chain. You recognize the aura at once, and reach to inspect it.\n\nSardis closes his fingers around it and smiles. \"First, let us discuss the price,\" he says. \"I have braved many dangers to traverse the seas with my wares. First there were the pirates of Far Cathay, then the sirens in the Straits of Nullity. I hardly care even to remember the frightening mist phantoms that beset the ship as we lay becalmed off Hengist Head ...\"\n\nYou sigh. \"Enough, Sardis. Spare me this tiresome routine. For once, will you break with the habit of a lifetime and just state the price!\"\n\n\"For this AMULET? A mere nine gleenars! And see, here I also have a fine SWORD of best Moorish steel, for which I ask only six gleenars.\"";
+        Text = "You seek out a foreign trader named Sardis, finally tracking him down in a tavern off Tartars' Quay. He always has a few odd trinkets to sell, brought from distant lands. When you explain your requirements, he gives a wink and pulls something from his pocket. It is an AMULET on a silver chain. You recognize the aura at once, and reach to inspect it.\n\nSardis closes his fingers around it and smiles. \"First, let us discuss the price,\" he says. \"I have braved many dangers to traverse the seas with my wares. First there were the pirates of Far Cathay, then the sirens in the Straits of Nullity. I hardly care even to remember the frightening mist phantoms that beset the ship as we lay becalmed off Hengist Head...\"\n\nYou sigh. \"Enough, Sardis. Spare me this tiresome routine. For once, will you break with the habit of a lifetime and just state the price!\"\n\n\"For this AMULET? A mere nine gleenars! And see, here I also have a fine SWORD of best Moorish steel, for which I ask only six gleenars.\"";
 
         Choices.clear();
 
@@ -7421,7 +7421,7 @@ public:
     {
         ID = 324;
 
-        Text = "\"No, I will not place myself in danger. I would be a fool to do so.\"\n\n\"Don't you trust me?\" Lucie looks shocked and hurt. \"I've been doing my best to help you and now you won't trust me.\"\n\n\"Lucie ...\" You reach out to touch her, but she spits at you and runs off. Bewildered at her strange behaviour, you return to Bumble Row.";
+        Text = "\"No, I will not place myself in danger. I would be a fool to do so.\"\n\n\"Don't you trust me?\" Lucie looks shocked and hurt. \"I've been doing my best to help you and now you won't trust me.\"\n\n\"Lucie...\" You reach out to touch her, but she spits at you and runs off. Bewildered at her strange behaviour, you return to Bumble Row.";
 
         Choices.clear();
 
@@ -7563,7 +7563,7 @@ public:
     {
         ID = 330;
 
-        Text = "You manage to find a few hours' sleep, balm to your troubled spirit though you awake cold and stiff, at dawn. There is a weariness which numbs your soul but then adversity is said to bring out the best in people. The sun is shining and reflected off the millpond calm surface of the canals. You slink carefully along back alleyways to the rendezvous. By the time you are nearing Fortuny Street the wind has picked up, whipping the stench of death away from the city and bringing with it hope for renewal. Small waves lap at the canal walls.\n\nLucie is waiting just as she said she would, under the eaves of the tax collector's offices on Rackman Row. She smiles to see you, looking well, her cheeks are rosy red and she is as pretty as ever. She links her arm in yours and says she has something to show you. You walk beside her, enjoying a moment's peace from the burden of trying to save your people. She does have news for you.\n\n\"All is not well with the Overlord. He is being consumed by Hate like so many of his subjects. His concubine, Venus, has the marks of Hate on her body, yet still he lies with her. He has become morose and listless. Venus's handmaid told me all this. There is something terrible amiss at the palace. What will become of us if our leaders are falling into the embrace of the coils of Hate. How shall we be saved?\"\n\n\"I will save you, Lucie. Does the concubine's handmaid know why the Overlord ordered the purging of my people?\"\n\n\"He needed scapegoats so the wrath of the people could be deflected from him and his corrupt courtiers. The Judain have always made good scapegoats. Sorry, I didn't mean ...\" She puts her hand on your shoulder to show she likes you.\n\n\"It doesn't matter, we Judain brave the slings and arrows of outrageous fortune by habit. We are inured to the hatred of others.\"\n\nLucie runs her hand over your chest.";
+        Text = "You manage to find a few hours' sleep, balm to your troubled spirit though you awake cold and stiff, at dawn. There is a weariness which numbs your soul but then adversity is said to bring out the best in people. The sun is shining and reflected off the millpond calm surface of the canals. You slink carefully along back alleyways to the rendezvous. By the time you are nearing Fortuny Street the wind has picked up, whipping the stench of death away from the city and bringing with it hope for renewal. Small waves lap at the canal walls.\n\nLucie is waiting just as she said she would, under the eaves of the tax collector's offices on Rackman Row. She smiles to see you, looking well, her cheeks are rosy red and she is as pretty as ever. She links her arm in yours and says she has something to show you. You walk beside her, enjoying a moment's peace from the burden of trying to save your people. She does have news for you.\n\n\"All is not well with the Overlord. He is being consumed by Hate like so many of his subjects. His concubine, Venus, has the marks of Hate on her body, yet still he lies with her. He has become morose and listless. Venus's handmaid told me all this. There is something terrible amiss at the palace. What will become of us if our leaders are falling into the embrace of the coils of Hate. How shall we be saved?\"\n\n\"I will save you, Lucie. Does the concubine's handmaid know why the Overlord ordered the purging of my people?\"\n\n\"He needed scapegoats so the wrath of the people could be deflected from him and his corrupt courtiers. The Judain have always made good scapegoats. Sorry, I didn't mean...\" She puts her hand on your shoulder to show she likes you.\n\n\"It doesn't matter, we Judain brave the slings and arrows of outrageous fortune by habit. We are inured to the hatred of others.\"\n\nLucie runs her hand over your chest.";
 
         Choices.clear();
 
@@ -8295,7 +8295,7 @@ public:
             PreText = "You gained the codeword SATORI.\n\n";
         }
 
-        PreText += "With great care, you crawl down into the basement. There is an unpleasant smell of honeysuckle and camphor. A glimmer of light filtering through the broken ceiling illuminates Lucie. She is too ill even to move from her bed. Her features are wan; the light in the room gives her a bluish look and her eyes are sunken slightly, ringed with dark circles of fatigue. She looks like a little lost soul.\n\nShe calls your name. Her arm falls limp after she beckons you to her side. \"Leave me. Go quickly. It is too late for me, but you can still save yourself. Don't let me die in vain.\"\n\n\"Lucie ...\" You take another step towards the bed.\n\n\"No, don't come close!\" she gasps. \"Go now, while you still can.\"";
+        PreText += "With great care, you crawl down into the basement. There is an unpleasant smell of honeysuckle and camphor. A glimmer of light filtering through the broken ceiling illuminates Lucie. She is too ill even to move from her bed. Her features are wan; the light in the room gives her a bluish look and her eyes are sunken slightly, ringed with dark circles of fatigue. She looks like a little lost soul.\n\nShe calls your name. Her arm falls limp after she beckons you to her side. \"Leave me. Go quickly. It is too late for me, but you can still save yourself. Don't let me die in vain.\"\n\n\"Lucie...\" You take another step towards the bed.\n\n\"No, don't come close!\" she gasps. \"Go now, while you still can.\"";
 
         Text = PreText.c_str();
     }
@@ -8915,7 +8915,7 @@ public:
     {
         ID = 390;
 
-        Text = "This is a very confined space in which to let loose the awful spell of the Miasma. The billowing cloud of gas which erupts fills the Inn of the Inner Temple and all inside fall retching_ helplessly to the floor. You have taken the precaution of winding a damp scarf about your mouth and nose and can still breathe. Grabbing Skakshi you drag him out.\n\n\"You, Skakshi, will take me to meet your guildmaster, Melmelo. I have a proposition for his ears only.\"\n\n\"I'll -- ack! -- do anything you say ... Just release me -- cough! -- from this wracking spell!\"\n\nSkakshi is only too glad to do your bidding as long as he is released from the pit of gas the Inn of the Inner Temple has become.";
+        Text = "This is a very confined space in which to let loose the awful spell of the Miasma. The billowing cloud of gas which erupts fills the Inn of the Inner Temple and all inside fall retching_ helplessly to the floor. You have taken the precaution of winding a damp scarf about your mouth and nose and can still breathe. Grabbing Skakshi you drag him out.\n\n\"You, Skakshi, will take me to meet your guildmaster, Melmelo. I have a proposition for his ears only.\"\n\n\"I'll -- ack! -- do anything you say... Just release me -- cough! -- from this wracking spell!\"\n\nSkakshi is only too glad to do your bidding as long as he is released from the pit of gas the Inn of the Inner Temple has become.";
 
         Choices.clear();
 
@@ -9070,7 +9070,7 @@ public:
     {
         ID = 398;
 
-        Text = "You offer one of the gate guards money, but he just says, \"It's more than my life's worth to open the gate when the bell tolls. You'd best come with me ... \"\n\nHe lays a calloused hand on your shoulder, then turns to call to his fellow guards: \"Got one here -- a Judain! Tried to bribe me.\"\n\nHe steps back as if to let you go but it is only to move away from you, the target of the other guards' crossbows. Your body is peppered with crossbow bolts and you fall to the ground.\n\n\"That's one less of those scum,\" says another guard as you die.";
+        Text = "You offer one of the gate guards money, but he just says, \"It's more than my life's worth to open the gate when the bell tolls. You'd best come with me...\"\n\nHe lays a calloused hand on your shoulder, then turns to call to his fellow guards: \"Got one here -- a Judain! Tried to bribe me.\"\n\nHe steps back as if to let you go but it is only to move away from you, the target of the other guards' crossbows. Your body is peppered with crossbow bolts and you fall to the ground.\n\n\"That's one less of those scum,\" says another guard as you die.";
 
         Type = Story::Type::DOOM;
 
@@ -9320,7 +9320,7 @@ public:
     {
         ID = 412;
 
-        Text = "Mameluke comes up with a plan. \"No need to brave the horrors of the catacombs ...\" He will distract the guards while you slip past into the fortress. You both scurry through the back alleys to the prison. At first it seems as though the plan will fail. When he hammers on the great gates of Grond there is no reply.\n\nHe hammers on the door again, saying he is the Overlord's messenger. Fortunately, the Overlord does use a Tartar like Mameluke as a courier. At length there is a great clanking and grinding and the gates start to inch apart. It is a great labour to open them with the iron machinery forged by smiths from the mountains and he calls out hearty thanks, but there is no one to answer his call. It is as if the gate was opened by ghosts. The sweet cloying smell of crushed roses and honeysuckle lingers here. Something is terribly wrong. You decide not to risk Mameluke's life any further and step inside the prison fortress alone, despite the Tartar's protestations.";
+        Text = "Mameluke comes up with a plan. \"No need to brave the horrors of the catacombs...\" He will distract the guards while you slip past into the fortress. You both scurry through the back alleys to the prison. At first it seems as though the plan will fail. When he hammers on the great gates of Grond there is no reply.\n\nHe hammers on the door again, saying he is the Overlord's messenger. Fortunately, the Overlord does use a Tartar like Mameluke as a courier. At length there is a great clanking and grinding and the gates start to inch apart. It is a great labour to open them with the iron machinery forged by smiths from the mountains and he calls out hearty thanks, but there is no one to answer his call. It is as if the gate was opened by ghosts. The sweet cloying smell of crushed roses and honeysuckle lingers here. Something is terribly wrong. You decide not to risk Mameluke's life any further and step inside the prison fortress alone, despite the Tartar's protestations.";
 
         Choices.clear();
 
