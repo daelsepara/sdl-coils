@@ -8802,6 +8802,205 @@ public:
     }
 };
 
+class Story390 : public Story::Base
+{
+public:
+    Story390()
+    {
+        ID = 390;
+
+        Text = "This is a very confined space in which to let loose the awful spell of the Miasma. The billowing cloud of gas which erupts fills the Inn of the Inner Temple and all inside fall retching_ helplessly to the floor. You have taken the precaution of winding a damp scarf about your mouth and nose and can still breathe. Grabbing Skakshi you drag him out.\n\n\"You, Skakshi, will take me to meet your guildmaster, Melmelo. I have a proposition for his ears only.\"\n\n\"I'll -- ack! -- do anything you say ... Just release me -- cough! -- from this wracking spell!\"\n\nSkakshi is only too glad to do your bidding as long as he is released from the pit of gas the Inn of the Inner Temple has become.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 181; }
+};
+
+class Story391 : public Story::Base
+{
+public:
+    Story391()
+    {
+        ID = 391;
+
+        Text = "Amateur rogues often assume that speed is the important thing in a job like this. Long experience has taught you better. The key to success is to take your time. Luckily patience is your only virtue, so you have had plenty of opportunity to practise it over the years.\n\nCreeping low, pressed hard back into the dingy shadows by the wainscoting, you inch round the room. All the while the three guards go on with their game. Though your eyes remain firmly fixed on the treasure-box you listen to the hisses of breath and grunts and curses that indicate when someone has lost a throw, to the gulps of watered wine taken during respites in the game, to the rattle of dice and the slap of copper coins on the wooden tabletop. But still the guards remain oblivious of the rogue at their backs who is intent on whisking away a greater fortune in this one night than they will win or lose in their whole lives.\n\nYou reach the treasure chest at last and allow yourself a backward glance. One of the guards is now slumped dozily across the table. Another fingers the dice idly, tired of squandering his pay. The third grunts and begins to clean his fingernails with a dagger. \"How much longer are we on duty for?\" he asks.\n\n\"The next watch ought to be here in a few minutes to relieve us,\" replies the man with the dice.\n\nNow you know you must work fast. When the next watch takes over they are bound to check the treasure chest. You can try picking the lock. On the other hand you could just take the chest with you and open it later. It isn't very large, but with any load under your arm you would find it harder to move silently.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Pick the lock", 217));
+        Choices.push_back(Choice::Base("Open it later", 253));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story392 : public Story::Base
+{
+public:
+    Story392()
+    {
+        ID = 392;
+
+        Text = "You must try to bind the monster long enough to find a way to destroy it.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player)
+    {
+        if (Character::VERIFY_ANY_SKILLS(player, {Skill::Type::ROGUERY, Skill::Type::CUNNING}))
+        {
+            return 89;
+        }
+        else
+        {
+            return 224;
+        }
+    }
+};
+
+class Story393 : public Story::Base
+{
+public:
+    Story393()
+    {
+        ID = 393;
+
+        Text = "If only you had taken the time to bandage your wound and staunch the flow of blood. The leg of your breeches is soaked and you are leaving red telltale footprints behind as you try to sidle past the line of guard. They could follow you as easily as if you had left chalk arrows on the ground. One of them sees the blood, shouts and points in your direction. They all fire their bows at you. It is a mercifully sudden death. There is no one left now to save the Judain. They will all perish and be wiped from the face of the earth.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story394 : public Story::Base
+{
+public:
+    Story394()
+    {
+        ID = 394;
+
+        Text = "A heavy footstep sounds in the open doorway. \"Hey, lads, we've been suckered!\" shouts the guard standing there. \"The thief is right here all along!\"\n\nAs you turn, you can already hear the other guards racing back to trap you.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player)
+    {
+        if (Character::VERIFY_SKILL(player, Skill::Type::AGILITY))
+        {
+            return 406;
+        }
+        else
+        {
+            return 283;
+        }
+    }
+};
+
+class Story395 : public Story::Base
+{
+public:
+    Story395()
+    {
+        ID = 395;
+
+        Text = "This motley crew would follow you anywhere. They shuffie along in your wake, calling out feebly for food and medicine, though there is no magic or medicine that can restore these disfigured unfortunates to health. You are not bothered by city guardsmen, nor thieves and cut-throats while surrounded by your crowd oflepers. The sweet putrefying smell that seeps from their bandages is an antidote to the stench of death that pervades the city.\n\nYou must decide where to lead your motley band.";
+
+        Choices.clear();
+        Choices.push_back(Choice::Base("Take them to the prison fortress of Grond, in the hope of using them to set the prisoners free", 194));
+        Choices.push_back(Choice::Base("Have them sheltered by the cells of the Judain resistance", 359));
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story396 : public Story::Base
+{
+public:
+    Story396()
+    {
+        ID = 396;
+
+        Text = "All you have in the way of weaponry to defeat Hate is the Jade Warrior's sword. It is a potent magical weapon but it is perhaps a forlorn hope that it will allow you to vanquish the monster. Still, it is all the hope you have. You lead your doomed people in a final stand against Hate. The monster carries all before it. You lose the sword inside its flesh and soon you are all partners in the eternal orgy of despair. The city crumbles and is lost for ever beneath the waves. Hate has completed its work.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story397 : public Story::Base
+{
+public:
+    Story397()
+    {
+        ID = 397;
+
+        Text = "\"Slaughter is a fine end in itself. No end is finer than death and destruction. Slaughter is the reason the god Anarchil put me on this world.\" He is smiling as he says it but he really means what he is saying. Tyutchev is a very dangerous lunatic. You have never heard of his god but you can rest assured it is a vicious and barbaric cult that reveres him.\n\nHe turns to Lucie. \"I leave you to talk with this Judain. But you may call on me this evening.\"\n\n\"Will we be alone?\" she asks.\n\n\"Yes. Cassandra took ship for Aleppo on the rising tide.\"\n\nLucie looks pleased. \"Till tonight, then.\"\n\nTyutchev quits the tavern, leaving you alone with Lucie.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    int Continue(Character::Base &player) { return 403; }
+};
+
+class Story398 : public Story::Base
+{
+public:
+    Story398()
+    {
+        ID = 398;
+
+        Text = "You offer one of the gate guards money, but he just says, \"It's more than my life's worth to open the gate when the bell tolls. You'd best come with me ... \"\n\nHe lays a calloused hand on your shoulder, then turns to call to his fellow guards: \"Got one here -- a Judain! Tried to bribe me.\"\n\nHe steps back as if to let you go but it is only to move away from you, the target of the other guards' crossbows. Your body is peppered with crossbow bolts and you fall to the ground.\n\n\"That's one less of those scum,\" says another guard as you die.";
+
+        Type = Story::Type::DOOM;
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+};
+
+class Story399 : public Story::Base
+{
+public:
+    Story399()
+    {
+        ID = 399;
+
+        Image = "images/filler3.png";
+
+        Text = "You scream in agony as the light seeps into your flesh. A moment later, you are horrified to see purple polyps sprouting from your chest. Hate has awakened the evil in your own heart, forming a cancer that gnaws at you from within.\n\nYou LOSE 5 Life Points.";
+
+        Bye = "You are determined to destroy the monster before it can subvert you to its cause.";
+
+        Choices.clear();
+
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
+        Character::GAIN_LIFE(player, -5);
+    }
+
+    int Continue(Character::Base &player) { return 274; }
+};
+
 auto prologue = Prologue();
 auto story001 = Story001();
 auto story002 = Story002();
@@ -9192,6 +9391,16 @@ auto story386 = Story386();
 auto story387 = Story387();
 auto story388 = Story388();
 auto story389 = Story389();
+auto story390 = Story390();
+auto story391 = Story391();
+auto story392 = Story392();
+auto story393 = Story393();
+auto story394 = Story394();
+auto story395 = Story395();
+auto story396 = Story396();
+auto story397 = Story397();
+auto story398 = Story398();
+auto story399 = Story399();
 
 void InitializeStories()
 {
@@ -9234,7 +9443,8 @@ void InitializeStories()
         &story350, &story351, &story352, &story353, &story354, &story355, &story356, &story357, &story358, &story359,
         &story360, &story361, &story362, &story363, &story364, &story365, &story366, &story367, &story368, &story369,
         &story370, &story371, &story372, &story373, &story374, &story375, &story376, &story377, &story378, &story379,
-        &story380, &story381, &story382, &story383, &story384, &story385, &story386, &story387, &story388, &story389};
+        &story380, &story381, &story382, &story383, &story384, &story385, &story386, &story387, &story388, &story389,
+        &story390, &story391, &story392, &story393, &story394, &story395, &story396, &story397, &story398, &story399};
 }
 
 #endif
