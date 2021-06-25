@@ -1020,22 +1020,21 @@ public:
 
         Text = "The wind whistles, causing the miserable wailing of the gargoyles to roll around you as the air streams through the holes in their faces. This is going to be a very dangerous climb.";
 
-        Choices.clear();
-
         Controls = Story::Controls::STANDARD;
     }
 
-    int Continue(Character::Base &player)
+    void Event(Character::Base &player)
     {
-        if (Character::VERIFY_SKILL(player, Skill::Type::AGILITY))
+        Choices.clear();
+
+        if (!Character::VERIFY_SKILL(player, Skill::Type::AGILITY))
         {
-            return 50;
-        }
-        else
-        {
-            return 203;
+            Choices.push_back(Choice::Base("(AGILITY) Use the ELFIN BOOTS", 50, Choice::Type::LOSE_ITEMS, {Item::ELFIN_BOOTS}));
+            Choices.push_back(Choice::Base("Otherwise", 203));
         }
     }
+
+    int Continue(Character::Base &player) { return 50; }
 };
 
 class Story024 : public Story::Base
@@ -1438,13 +1437,13 @@ public:
 
     int Continue(Character::Base &player)
     {
-        if (Character::VERIFY_SKILL(player, Skill::Type::FOLKLORE))
+        if (!Character::VERIFY_SKILL(player, Skill::Type::FOLKLORE) && !Character::VERIFY_ITEMS(player, {Item::Type::BOOK_OF_MYTHS_AND_LEGENDS}))
         {
-            return 119;
+            return 133;
         }
         else
         {
-            return 133;
+            return 119;
         }
     }
 };
@@ -1482,22 +1481,29 @@ public:
 
         Text = "Your steady run keeps you out of their clutches but you are already in sight of the city of Godorno once more. They seem intent on chasing you back as far as the city walls. Perhaps they mean to sneak into the city to rob the cityfolk, but they will not find it easy to pass through the city gates.";
 
-        Choices.clear();
-        Choices.push_back(Choice::Base("Change your mind about fleeing and offer to throw your lot in with them", 64));
-        Choices.push_back(Choice::Base("Keep running and hide in the city once more", 76));
-
         Controls = Story::Controls::STANDARD;
     }
 
     void Event(Character::Base &player)
     {
+        Choices.clear();
+
+        Choices.push_back(Choice::Base("Change your mind about fleeing and offer to throw your lot in with them", 64));
+
         if (Character::VERIFY_SKILL(player, Skill::Type::AGILITY))
         {
-            Choices[1].Destination = 188;
+            Choices.push_back(Choice::Base("Keep running and hide in the city once more", 188));
         }
         else
         {
-            Choices[1].Destination = 76;
+            if (Character::VERIFY_ITEMS(player, {Item::Type::ELFIN_BOOTS}))
+            {
+                Choices.push_back(Choice::Base("(ELFIN BOOTS) Keep running and hide in the city once more", 188, Choice::Type::LOSE_ITEMS, {Item::ELFIN_BOOTS}));
+            }
+            else
+            {
+                Choices.push_back(Choice::Base("Keep running and hide in the city once more", 76));
+            }
         }
     }
 };
@@ -1616,7 +1622,7 @@ public:
     {
         ID = 51;
 
-        Text = "Tarkamandor tells you he has decided to quit the city. \"Matters have gone too far,\" he says. \"Each day I fear the guards will come to drag me off to Grond.\"\n\n\"Why should you fear?\" you say with a trace of bitterness. \"You are not Judain.\"\n\nHe gives a snort of ironic laughter. \"Do you think that what has been going on is a simple matter of persecution? It goes deeper than that. The Overlord started his attacks on your people to distract attention from his disastrous policies, reasoning that once the populace had a scapegoat to blame they would be easier to control.\"\n\n\"That strategy has worked well, them\"\n\n\"Now it is out of control! Hate is rife in the city. It extends its influence like a cancer. Today it is you Judain who are marched off to the prison. Tomorrow it may he the aged, or the infirm, or those who dare to speak out against the Overlord. That's why I'm leaving.\" He takes a few more steps, the wheels of his cart sloshing through the rut of mire in the middle of the street, then pauses and looks back. \"As long as I'm going, I suppose I ought to sell some of my stock. Are you interested?\"\n\nHe has a HEALING SALVE which can be used once at any time except when in combat; it will RESTORE ALL LOST Life Points. Another item on the cart is a pair of ELFIN BOOTS which grant their wearer one use of the AGILITY skill and must then be discarded. Tarkamandor also offers you a CENSER OF FRAGRANT INCENSE which he swears is blessed by the temple, a SWORD, a set of THROWING KNIVES, and a MAGIC WAND.";
+        Text = "Tarkamandor tells you he has decided to quit the city. \"Matters have gone too far,\" he says. \"Each day I fear the guards will come to drag me off to Grond.\"\n\n\"Why should you fear?\" you say with a trace of bitterness. \"You are not Judain.\"\n\nHe gives a snort of ironic laughter. \"Do you think that what has been going on is a simple matter of persecution? It goes deeper than that. The Overlord started his attacks on your people to distract attention from his disastrous policies, reasoning that once the populace had a scapegoat to blame they would be easier to control.\"\n\n\"That strategy has worked well, them\"\n\n\"Now it is out of control! Hate is rife in the city. It extends its influence like a cancer. Today it is you Judain who are marched off to the prison. Tomorrow it may he the aged, or the infirm, or those who dare to speak out against the Overlord. That's why I'm leaving.\" He takes a few more steps, the wheels of his cart sloshing through the rut of mire in the middle of the street, then pauses and looks back. \"As long as I'm going, I suppose I ought to sell some of my stock. Are you interested?\"\n\nHe has a HEALING SALVE which can be used once at any time except when in combat; it will RESTORE ALL LOST Life Points. Another item on the cart is a pair of ELFIN BOOTS which grant their wearer one use of the AGILITY skill and MUST THEN BE DISCARDED. Tarkamandor also offers you a CENSER OF FRAGRANT INCENSE which he swears is blessed by the temple, a SWORD, a set of THROWING KNIVES, and a MAGIC WAND.";
 
         Bye = "Bidding Tarkamandor farewell, you set off to the meeting.";
 
@@ -1840,6 +1846,7 @@ public:
         if (!Character::VERIFY_SKILL(player, Skill::Type::AGILITY))
         {
             Choices.push_back(Choice::Base("[SWORDPLAY] Use a SWORD", 84, Skill::Type::SWORDPLAY));
+            Choices.push_back(Choice::Base("(AGILITY) Use the ELFIN BOOTS", 118, Choice::Type::LOSE_ITEMS, {Item::ELFIN_BOOTS}));
             Choices.push_back(Choice::Base("Cry for help", 109));
         }
     }
@@ -3196,6 +3203,12 @@ public:
         {
             PreText += "\n\n[AGILITY] You are faster and soon leave him behind.";
         }
+        else if (Character::VERIFY_ITEMS(player, {Item::Type::ELFIN_BOOTS}))
+        {
+            PreText += "\n\n[ELFIN BOOTS: AGILITY] You are faster and soon leave him behind.";
+
+            Character::LOSE_ITEMS(player, {Item::Type::ELFIN_BOOTS});
+        }
         else
         {
             PreText += "\n\nYou feel a sharp cold pain as the blade bites into sinew and muscle and rasps against your shoulder blade.\n\nYou LOSE 1 Life Point as blood stains your clothes dark red.";
@@ -3297,10 +3310,6 @@ public:
 
         Image = "images/filler1.png";
 
-        Choices.clear();
-        Choices.push_back(Choice::Base("Jump onto the bed without stepping on the carpet", 140));
-        Choices.push_back(Choice::Base("Look about to find where the danger lurks", 62));
-
         Controls = Story::Controls::STANDARD;
     }
 
@@ -3310,6 +3319,8 @@ public:
 
         Character::GAIN_LIFE(player, -1);
 
+        Choices.clear();
+
         if (player.Life > 0)
         {
             PreText += "\n\nThe odour of your own charred flesh is added to the pervading stench of corruption and decay that has settled over the city like a shroud. You have dropped the PENDANT and it is smouldering on the carpet, melting the filigree. It is too hot to pick up.";
@@ -3318,12 +3329,18 @@ public:
 
             if (Character::VERIFY_SKILL(player, Skill::Type::AGILITY))
             {
-                Choices[0].Destination = 98;
+                Choices.push_back(Choice::Base("Jump onto the bed without stepping on the carpet", 98));
+            }
+            else if (Character::VERIFY_ITEMS(player, {Item::Type::ELFIN_BOOTS}))
+            {
+                Choices.push_back(Choice::Base("(AGILITY) Use the ELFIN BOOTS to Jump onto the bed", 98, Choice::Type::LOSE_ITEMS, {Item::ELFIN_BOOTS}));
             }
             else
             {
-                Choices[0].Destination = 140;
+                Choices.push_back(Choice::Base("Jump onto the bed without stepping on the carpet", 140));
             }
+
+            Choices.push_back(Choice::Base("Look about to find where the danger lurks", 140));
         }
 
         Text = PreText.c_str();
@@ -3480,6 +3497,7 @@ public:
         PreText = "There are four guards, tall heavy-looking men with cold hard eyes. Each has a sword in his right hand and a dirk with a spike for catching blows in the left. You launch yourself into them with a ferocious cry which makes them hesitate. You cannon into the nearest, jabbing him hard in the midriff, and he doubles up in pain. Then another of the guards recovers his wits and lashes out at you. You have to fight your way past them.\n\n";
 
         auto DAMAGE = -3;
+        auto USE_SHIELD = true;
 
         if (Character::VERIFY_ANY_SKILLS(player, {Skill::Type::SWORDPLAY, Skill::Type::UNARMED_COMBAT, Skill::Type::AGILITY}))
         {
@@ -3493,17 +3511,38 @@ public:
             if (Character::VERIFY_SKILL(player, Skill::Type::UNARMED_COMBAT))
             {
                 PreText += "[UNARMED COMBAT] ";
+
+                USE_SHIELD = false;
             }
 
             if (Character::VERIFY_SKILL(player, Skill::Type::AGILITY))
             {
                 PreText += "[AGILITY] ";
+
+                USE_SHIELD = false;
             }
+        }
+        else if (Character::VERIFY_ITEMS(player, {Item::Type::ELFIN_BOOTS}))
+        {
+            DAMAGE = -1;
+
+            PreText += "[ELFIN BOOTS: AGILITY] ";
+
+            Character::LOSE_ITEMS(player, {Item::Type::ELFIN_BOOTS});
         }
 
         Character::GAIN_LIFE(player, DAMAGE);
 
-        PreText += "You LOST " + std::to_string(-DAMAGE) + " Life Point(s).";
+        if (USE_SHIELD && Character::VERIFY_SKILL(player, Skill::Type::SWORDPLAY) && Character::VERIFY_ITEMS(player, {Item::Type::SHIELD}))
+        {
+            Character::DAMAGE(player, Skill::Type::SWORDPLAY, Item::Type::SHIELD, DAMAGE);
+
+            PreText += "Your SHIELD absorbs " + std::to_string(-DAMAGE) + " Damage.";
+        }
+        else
+        {
+            PreText += "You LOST " + std::to_string(-DAMAGE) + " Life Point(s).";
+        }
 
         if (player.Life > 0)
         {
@@ -4813,13 +4852,13 @@ public:
 
     int Continue(Character::Base &player)
     {
-        if (Character::VERIFY_SKILL(player, Skill::Type::FOLKLORE))
+        if (!Character::VERIFY_SKILL(player, Skill::Type::FOLKLORE) && !Character::VERIFY_ITEMS(player, {Item::Type::BOOK_OF_MYTHS_AND_LEGENDS}))
         {
-            return 119;
+            return 133;
         }
         else
         {
-            return 133;
+            return 119;
         }
     }
 };
@@ -5208,7 +5247,15 @@ public:
         {
             DAMAGE = -1;
 
-            PreText += "[AGILITIY] You dodge aside from the brunt of the rubble. ";
+            PreText += "[AGILITY] You dodge aside from the brunt of the rubble. ";
+        }
+        else if (Character::VERIFY_ITEMS(player, {Item::Type::ELFIN_BOOTS}))
+        {
+            DAMAGE = -1;
+
+            PreText += "[ELFIN BOOTS: AGILITY] You dodge aside from the brunt of the rubble. ";
+
+            Character::LOSE_ITEMS(player, {Item::Type::ELFIN_BOOTS});
         }
 
         Character::GAIN_LIFE(player, DAMAGE);
@@ -5500,9 +5547,18 @@ public:
 
         Text = "The horse looks skittish. Its chestnut flanks are darkened by sweat and its eyes dart about nervously while it snorts and fidgets. It seems to be afraid of something.";
 
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
         Choices.clear();
 
-        Controls = Story::Controls::STANDARD;
+        if (!Character::VERIFY_ANY_SKILLS(player, {Skill::Type::AGILITY, Skill::Type::WILDERNESS_LORE}) && Character::VERIFY_ITEMS(player, {Item::Type::ELFIN_BOOTS}))
+        {
+            Choices.push_back(Choice::Base("(AGILITY) Use the ELFIN BOOTS", 271, Choice::Type::LOSE_ITEMS, {Item::ELFIN_BOOTS}));
+            Choices.push_back(Choice::Base("Otherwise", 289));
+        }
     }
 
     int Continue(Character::Base &player)
@@ -5700,7 +5756,7 @@ public:
     {
         Choices.clear();
 
-        if (!Character::VERIFY_ANY_SKILLS(player, {Skill::Type::FOLKLORE, Skill::Type::CHARMS}))
+        if (!Character::VERIFY_ANY_SKILLS(player, {Skill::Type::FOLKLORE, Skill::Type::CHARMS}) && !Character::VERIFY_ITEMS(player, {Item::Type::BOOK_OF_MYTHS_AND_LEGENDS}))
         {
             Choices.push_back(Choice::Base("Quaff the ale he has given you", 267));
             Choices.push_back(Choice::Base("Leave it untouched", 276));
@@ -5709,13 +5765,13 @@ public:
 
     int Continue(Character::Base &player)
     {
-        if (Character::VERIFY_SKILL(player, Skill::Type::FOLKLORE))
+        if (!Character::VERIFY_SKILL(player, Skill::Type::FOLKLORE) && !Character::VERIFY_ITEMS(player, {Item::Type::BOOK_OF_MYTHS_AND_LEGENDS}))
         {
-            return 256;
+            return 287;
         }
         else
         {
-            return 287;
+            return 256;
         }
     }
 };
@@ -5848,9 +5904,18 @@ public:
 
         Text = "Your fears were well founded. Put slightly off-balance because of the burden of the chest, you tread too heavily on a loose floorboard. There is an ominous creak. For a single ghastly moment your over-florid imagination likens it to the groan of scaffold timbers when a man is hanged. But the rope is not around your neck just yet -- even though the guards are already whirling, pulling the swords from their scabbards.\n\n\"A thief!\" they cry. \"Right under our very noses! Stop there, thief!\"";
 
+        Controls = Story::Controls::STANDARD;
+    }
+
+    void Event(Character::Base &player)
+    {
         Choices.clear();
 
-        Controls = Story::Controls::STANDARD;
+        if (!Character::VERIFY_SKILL(player, Skill::Type::AGILITY) && Character::VERIFY_ITEMS(player, {Item::Type::ELFIN_BOOTS}))
+        {
+            Choices.push_back(Choice::Base("(AGILITY) Use the ELFIN BOOTS", 406, Choice::Type::LOSE_ITEMS, {Item::ELFIN_BOOTS}));
+            Choices.push_back(Choice::Base("Otherwise", 283));
+        }
     }
 
     int Continue(Character::Base &player)
@@ -6054,13 +6119,13 @@ public:
 
     int Continue(Character::Base &player)
     {
-        if (Character::VERIFY_SKILL(player, Skill::Type::FOLKLORE))
+        if (!Character::VERIFY_SKILL(player, Skill::Type::FOLKLORE) && !Character::VERIFY_ITEMS(player, {Item::Type::BOOK_OF_MYTHS_AND_LEGENDS}))
         {
-            return 294;
+            return 339;
         }
         else
         {
-            return 339;
+            return 294;
         }
     }
 };
@@ -6521,23 +6586,37 @@ public:
         PreText = "The penalty for fighting with the Overlord's guards is to be hung in chains until the wind dries you out like a raisin. That's if you get caught, of course. But either way -- whether you are killed in this struggle, or arrested and taken to Grond -- it means you are now in a fight to the death.\n\nIt is a grim battle, fought almost in silence. The only sounds are frantic pants of breath and the scuff of quick footfalls as you manoeuvre back and forth across the room. At least you have one thing in your favour: although outnumbered, you are able to get your back to a corner, making it difficult for the soldiers to press their advantage.\n\n";
 
         auto DAMAGE = -5;
+        auto USE_SHIELD = false;
 
         if (Character::VERIFY_SKILL(player, Skill::Type::SWORDPLAY))
         {
             DAMAGE = -1;
 
             PreText += "[SWORDPLAY] ";
+
+            USE_SHIELD = true;
         }
         else if (Character::VERIFY_SKILL(player, Skill::Type::UNARMED_COMBAT))
         {
             DAMAGE = -3;
 
             PreText += "[UNARMED COMBAT] ";
+
+            USE_SHIELD = false;
         }
 
-        Character::GAIN_LIFE(player, DAMAGE);
+        if (USE_SHIELD && Character::VERIFY_SKILL(player, Skill::Type::SWORDPLAY) && Character::VERIFY_ITEMS(player, {Item::Type::SHIELD}))
+        {
+            Character::DAMAGE(player, Skill::Type::SWORDPLAY, Item::Type::SHIELD, DAMAGE);
 
-        PreText += "You LOST " + std::to_string(-DAMAGE) + " Life Point(s).";
+            PreText += "Your SHIELD absorbs " + std::to_string(-DAMAGE) + " Damage.";
+        }
+        else
+        {
+            Character::GAIN_LIFE(player, DAMAGE);
+
+            PreText += "You LOST " + std::to_string(-DAMAGE) + " Life Point(s).";
+        }
 
         Text = PreText.c_str();
     }
@@ -7439,18 +7518,26 @@ public:
     {
         ID = 329;
 
-        Choices.clear();
-
         Controls = Story::Controls::STANDARD;
     }
 
     void Event(Character::Base &player)
     {
+        Choices.clear();
+
         PreText = "The stinking latrine offers no escape but a very high window up near the ceiling.";
 
         if (!Character::VERIFY_SKILL(player, Skill::Type::AGILITY))
         {
-            PreText += "\n\nWithout [AGILITY], you have no choice but to surrender.";
+            if (!Character::VERIFY_ITEMS(player, {Item::Type::ELFIN_BOOTS}))
+            {
+                PreText += "\n\nWithout [AGILITY], you have no choice but to surrender.";
+            }
+            else
+            {
+                Choices.push_back(Choice::Base("(AGILITY) Use the ELFIN BOOTS", 368, Choice::Type::LOSE_ITEMS, {Item::ELFIN_BOOTS}));
+                Choices.push_back(Choice::Base("Surrender", 342));
+            }
         }
 
         Text = PreText.c_str();
@@ -7632,6 +7719,11 @@ public:
         {
             Choices.push_back(Choice::Base("Fight on", 377));
             Choices.push_back(Choice::Base("Turn and flee", 199));
+
+            if (Character::VERIFY_ITEMS(player, {Item::Type::ELFIN_BOOTS}))
+            {
+                Choices.push_back(Choice::Base("(AGILITY) Use the ELFIN BOOTS", 367, Choice::Type::LOSE_ITEMS, {Item::ELFIN_BOOTS}));
+            }
         }
     }
 
@@ -7931,6 +8023,14 @@ public:
 
             PreText += "[AGILITY] You effortlessly dodge the attack and continue climbing unscathed.";
         }
+        else if (Character::VERIFY_ITEMS(player, {Item::Type::ELFIN_BOOTS}))
+        {
+            DAMAGE = 0;
+
+            PreText += "[ELFIN BOOTS: AGILITY] You effortlessly dodge the attack and continue climbing unscathed.";
+
+            Character::LOSE_ITEMS(player, {Item::Type::ELFIN_BOOTS});
+        }
 
         if (DAMAGE < 0)
         {
@@ -8080,22 +8180,21 @@ public:
 
         Text = "As you square up to the cunning thief, he sends his throwing knife spinning end over end through the air towards your heart. Absolute quiet descends on the tavern as your life hangs in the balance.";
 
-        Choices.clear();
-
         Controls = Story::Controls::STANDARD;
     }
 
-    int Continue(Character::Base &player)
+    void Event(Character::Base &player)
     {
-        if (Character::VERIFY_SKILL(player, Skill::Type::AGILITY))
+        Choices.clear();
+
+        if (!Character::VERIFY_SKILL(player, Skill::Type::AGILITY))
         {
-            return 58;
-        }
-        else
-        {
-            return 108;
+            Choices.push_back(Choice::Base("(AGILITY) Use the ELFIN BOOTS", 58, Choice::Type::LOSE_ITEMS, {Item::ELFIN_BOOTS}));
+            Choices.push_back(Choice::Base("Otherwise", 108));
         }
     }
+
+    int Continue(Character::Base &player) { return 58; }
 };
 
 class Story358 : public Story::Base
@@ -8305,7 +8404,7 @@ public:
 
         Choices.clear();
 
-        if (!Character::VERIFY_ANY_SKILLS(player, {Skill::Type::SWORDPLAY, Skill::Type::UNARMED_COMBAT, Skill::Type::SPELLS, Skill::Type::AGILITY}) && !Character::VERIFY_ITEMS(player, {Item::Type::CENSER_OF_FRAGRANT_INCENSE}))
+        if (!Character::VERIFY_ANY_SKILLS(player, {Skill::Type::SWORDPLAY, Skill::Type::UNARMED_COMBAT, Skill::Type::SPELLS, Skill::Type::AGILITY}) && !Character::VERIFY_ITEMS(player, {Item::Type::CENSER_OF_FRAGRANT_INCENSE}) && !Character::VERIFY_ITEMS(player, {Item::Type::ELFIN_BOOTS}))
         {
             PreText += "\n\nThe nearest Jade Warrior slashes you, inflicting the LOSS of 6 Life Points";
 
@@ -8324,7 +8423,16 @@ public:
             Choices.push_back(Choice::Base("[SPELLS] Cast Rulership", 66, Skill::Type::SPELLS));
             Choices.push_back(Choice::Base("[SPELLS] Cast Bafflement", 96, Skill::Type::SPELLS));
             Choices.push_back(Choice::Base("[SPELLS] Cast Vanish", 102, Skill::Type::SPELLS));
-            Choices.push_back(Choice::Base("Fall back on [AGILITY]", 277, Skill::Type::AGILITY));
+
+            if (Character::VERIFY_SKILL(player, Skill::Type::AGILITY))
+            {
+                Choices.push_back(Choice::Base("Fall back on [AGILITY]", 277, Skill::Type::AGILITY));
+            }
+            else
+            {
+                Choices.push_back(Choice::Base("(AGILITY) Use the ELFIN BOOTS", 277, Choice::Type::LOSE_ITEMS, {Item::ELFIN_BOOTS}));
+            }
+
             Choices.push_back(Choice::Base("Use the CENSER OF FRAGRANT_INCENSE", 204, {Item::CENSER_OF_FRAGRANT_INCENSE}));
         }
 
@@ -8716,8 +8824,6 @@ public:
     {
         ID = 386;
 
-        Choices.clear();
-
         Controls = Story::Controls::STANDARD;
     }
 
@@ -8725,25 +8831,25 @@ public:
     {
         PreText = "Cloudswept moonlight washes the streets of Godorno, turning the dirty cobblestones and narrow cramped houses into eerie sculptures of silver. Rats scurry off into the shadows as you pass. Off in another street, you hear a drunkard singing bawdy songs only to fall suddenly silent as someone empties the contents of their bedpan over him.\n\nThe jeweller's house lies just ahead. Looking to left and right, you slink across the street and gain entry by forcing the door. You pray that no one heard the sound of splintering timber as the door frame gave way. There is no point in searching the ground floor; you expect to find the diamond locked away somewhere upstairs. Sure enough, the first floor on the landing opens onto a store room with a locked chest in the corner. You tiptoe over and bend over this, fingers twitching with greed as you pick it up, triumph spreading a smile across your face. Who would have thought it would be so easy?\n\nA lantern is suddenly unshuttered behind you. The smile disappears. You whirl around and find yourself face to face with three of the Overlord's soldiers. \"Drop that and stand where you are, villain!\" says one with a snarl.";
 
+        Choices.clear();
+
         if (!Character::VERIFY_SKILL(player, Skill::Type::AGILITY))
         {
-            PreText += "\n\nWithout [AGILITY], you will have to fight.";
+            if (!Character::VERIFY_ITEMS(player, {Item::Type::ELFIN_BOOTS}))
+            {
+                PreText += "\n\nWithout [AGILITY], you will have to fight.";
+            }
+            else
+            {
+                Choices.push_back(Choice::Base("(AGILITY) Use the ELFIN BOOTS", 406, Choice::Type::LOSE_ITEMS, {Item::ELFIN_BOOTS}));
+                Choices.push_back(Choice::Base("Fight", 283));
+            }
         }
 
         Text = PreText.c_str();
     }
 
-    int Continue(Character::Base &player)
-    {
-        if (Character::VERIFY_SKILL(player, Skill::Type::AGILITY))
-        {
-            return 406;
-        }
-        else
-        {
-            return 283;
-        }
-    }
+    int Continue(Character::Base &player) { return 406; }
 };
 
 class Story387 : public Story::Base
@@ -8889,22 +8995,21 @@ public:
 
         Text = "A heavy footstep sounds in the open doorway. \"Hey, lads, we've been suckered!\" shouts the guard standing there. \"The thief is right here all along!\"\n\nAs you turn, you can already hear the other guards racing back to trap you.";
 
-        Choices.clear();
-
         Controls = Story::Controls::STANDARD;
     }
 
-    int Continue(Character::Base &player)
+    void Event(Character::Base &player)
     {
-        if (Character::VERIFY_SKILL(player, Skill::Type::AGILITY))
+        Choices.clear();
+
+        if (!Character::VERIFY_SKILL(player, Skill::Type::AGILITY))
         {
-            return 406;
-        }
-        else
-        {
-            return 283;
+            Choices.push_back(Choice::Base("(AGILITY) Use the ELFIN BOOTS", 406, Choice::Type::LOSE_ITEMS, {Item::ELFIN_BOOTS}));
+            Choices.push_back(Choice::Base("Otherwise", 283));
         }
     }
+
+    int Continue(Character::Base &player) { return 406; }
 };
 
 class Story395 : public Story::Base

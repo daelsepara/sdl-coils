@@ -71,7 +71,7 @@ namespace Item
     auto KNIFE = Item::Base("KNIFE", "KNIFE", Item::Type::KNIFE);
     auto DIAMOND = Item::Base("DIAMOND", "DIAMOND", Item::Type::DIAMOND);
     auto CHAINS = Item::Base("CHAINS", "CHAINS", Item::Type::CHAINS);
-    auto SHIELD = Item::Base("SHIELD", "SHIELD", Item::Type::SHIELD);
+    auto SHIELD = Item::Base("SHIELD", "SHIELD", Item::Type::SHIELD, 6);
     auto BOOK_OF_MYTHS_AND_LEGENDS = Item::Base("BOOK OF MYTHS AND LEGENDS", "BOOK OF MYTHS AND LEGENDS", Item::Type::BOOK_OF_MYTHS_AND_LEGENDS);
 
     std::vector<Item::Type> UniqueItems = {};

@@ -543,6 +543,37 @@ namespace Character
         }
     }
 
+    void DAMAGE(Character::Base &player, Skill::Type skill, Item::Type type, int damage)
+    {
+        if (Character::VERIFY_SKILL(player, skill))
+        {
+            if (Character::VERIFY_ITEMS(player, {type}))
+            {
+                auto result = Item::FIND_LEAST(player.Items, type);
+
+                if (result >= 0)
+                {
+                    if (player.Items[result].Charge + damage <= 0)
+                    {
+                        player.Items.erase(player.Items.begin() + result);
+                    }
+                    else
+                    {
+                        player.Items[result].Charge += damage;
+                    }
+                }
+                else
+                {
+                    Character::GAIN_LIFE(player, damage);
+                }
+            }
+            else
+            {
+                Character::GAIN_LIFE(player, damage);
+            }
+        }
+    }
+
 } // namespace Character
 
 #endif

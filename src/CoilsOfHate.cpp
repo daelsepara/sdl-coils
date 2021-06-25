@@ -536,7 +536,7 @@ std::vector<Button> createItemList(SDL_Window *window, SDL_Renderer *renderer, s
 
             std::string item_string = list[index].Name;
 
-            if (list[index].Charge >= 0)
+            if (list[index].Charge > 0)
             {
                 item_string += " (";
 
@@ -1059,7 +1059,7 @@ bool inventoryScreen(SDL_Window *window, SDL_Renderer *renderer, Character::Base
 
                             if (item.Charge == 0)
                             {
-                                description += " (empty)";
+                                description += " (destroyed)";
                             }
 
                             temp_message = description + " DROPPED!";
@@ -1104,7 +1104,7 @@ bool inventoryScreen(SDL_Window *window, SDL_Renderer *renderer, Character::Base
 
                                 if (item.Charge == 0)
                                 {
-                                    description += " (empty)";
+                                    description += " (destroyed)";
                                 }
 
                                 temp_message = description + " DROPPED!";
@@ -1329,7 +1329,7 @@ bool takeScreen(SDL_Window *window, SDL_Renderer *renderer, Character::Base &pla
 
                     if (items[selection[i]].Charge == 0)
                     {
-                        description += " (empty)";
+                        description += " (destroyed)";
                     }
 
                     take += description;
@@ -1605,7 +1605,7 @@ bool loseItems(SDL_Window *window, SDL_Renderer *renderer, Character::Base &play
 
                     if (player.Items[selection[i]].Charge == 0)
                     {
-                        description += " (empty)";
+                        description += " (destroyed)";
                     }
 
                     lose += description;
@@ -1862,7 +1862,7 @@ void renderAdventurer(SDL_Window *window, SDL_Renderer *renderer, TTF_Font *font
 
             if (player.Items[i].Charge == 0)
             {
-                possessions += "empty";
+                possessions += "destroyed";
             }
 
             possessions += ")";
@@ -3357,7 +3357,7 @@ bool shopScreen(SDL_Window *window, SDL_Renderer *renderer, Character::Base &pla
             {
                 if (item.Charge == 0)
                 {
-                    choice += " (empty)";
+                    choice += " (destroyed)";
                 }
             }
 
@@ -3501,7 +3501,7 @@ bool shopScreen(SDL_Window *window, SDL_Renderer *renderer, Character::Base &pla
 
                                     if (item.Charge == 0)
                                     {
-                                        description += " (empty)";
+                                        description += " (destroyed)";
                                     }
 
                                     message = description + " purchased.";
