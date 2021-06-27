@@ -2115,7 +2115,7 @@ Character::Base customCharacter(SDL_Window *window, SDL_Renderer *renderer)
             {
                 putText(renderer, "MALE", font, -1, clrBK, intWH, TTF_STYLE_NORMAL, genderw, genderh, startx, starty + boxh + box_space);
                 putText(renderer, "FEMALE", font, -1, clrBK, intWH, TTF_STYLE_NORMAL, genderw, genderh, startx, starty + boxh + box_space + genderh + text_space);
-                
+
                 if (gender == Character::Gender::MALE)
                 {
                     drawRect(renderer, genderw, genderh, startx, starty + boxh + box_space, intBK);
