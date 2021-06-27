@@ -2247,6 +2247,10 @@ Character::Base customCharacter(SDL_Window *window, SDL_Renderer *renderer)
                             {
                                 Character::CUSTOM.Items.push_back(Item::MAGIC_WAND);
                             }
+                            else if (Skill::ALL[selection[i]].Type == Skill::Type::CHARMS)
+                            {
+                                Character::CUSTOM.Items.push_back(Item::MAGIC_AMULET);
+                            }
                         }
 
                         Character::CUSTOM.Money = 12;
