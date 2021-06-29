@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=The Coils of Hate
 Comment=The Coils of Hate
-Version=1.0.0
+Version=1.0.1
 TryExec=/usr/local/games/CoilsOfHate/CoilsOfHate.exe
 Exec=/usr/local/games/CoilsOfHate/CoilsOfHate.exe
 Icon=/usr/local/games/CoilsOfHate/icons/snake.png

@@ -24,7 +24,7 @@ namespace Item
         SHIELD,
         BOOK_OF_MYTHS_AND_LEGENDS,
         First = MAGIC_AMULET,
-        Last = SHIELD
+        Last = BOOK_OF_MYTHS_AND_LEGENDS
     };
 
     class Base
