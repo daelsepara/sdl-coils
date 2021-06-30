@@ -1864,6 +1864,10 @@ void renderAdventurer(SDL_Window *window, SDL_Renderer *renderer, TTF_Font *font
             {
                 possessions += "destroyed";
             }
+            else if (player.Items[i].Charge > 0)
+            {
+                possessions += std::to_string(player.Items[i].Charge);
+            }
 
             possessions += ")";
         }
