@@ -1,4 +1,5 @@
 # Coils of Hate (Virtual Reality Adventure)
+[![C/C++ CI](https://github.com/daelsepara/sdl-coils/actions/workflows/CoilsOfHate.yml/badge.svg)](https://github.com/daelsepara/sdl-coils/actions/workflows/CoilsOfHate.yml)
 
 This is an implementation of the **The Coils of Hate** game book (Virtual Reality Adventures) by Mark Smith. The game is written in C/C++ and uses the [Simple DirectMedia Library (SDL)](https://www.libsdl.org/).
 
