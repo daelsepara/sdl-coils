@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Coils of Hate
+Exec=CoilsOfHate.exe
+TryExec=CoilsOfHate.exe
+Icon=snake
+Terminal=false
+Categories=Game;
+Type=Application
+Name[en_DK]=Coils of Hate
+Name[en_US]=Coils of Hate

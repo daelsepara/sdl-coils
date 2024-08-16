@@ -66,6 +66,7 @@ Story::Base *processChoices(SDL_Window *window, SDL_Renderer *renderer, Characte
 Story::Base *renderChoices(SDL_Window *window, SDL_Renderer *renderer, Character::Base &player, Story::Base *story);
 
 void clipValue(int &val, int min, int max);
+void createMouseMotion(int x, int y, int xrel, int yrel);
 void renderAdventurer(SDL_Window *window, SDL_Renderer *renderer, TTF_Font *font, Character::Base &player, Character::Gender gender);
 
 SDL_Surface *createImage(const char *image)
@@ -166,8 +167,8 @@ void renderImage(SDL_Renderer *renderer, SDL_Surface *image, int x, int y)
 
 int fitImage(SDL_Renderer *renderer, SDL_Surface *image, int x, int y, int w, int h)
 {
-    int splash_h = image->h;
-    int splash_w = w;
+    auto splash_h = image->h;
+    auto splash_w = w;
 
     if (image && renderer)
     {
@@ -214,8 +215,8 @@ int fitImage(SDL_Renderer *renderer, SDL_Surface *image, int x, int y, int w, in
 
 void stretchImage(SDL_Renderer *renderer, SDL_Surface *image, int x, int y, int w, int h)
 {
-    int splash_h = image->h;
-    int splash_w = w;
+    auto splash_h = image->h;
+    auto splash_w = w;
 
     if (image && renderer)
     {
@@ -383,8 +384,8 @@ void renderTextButtons(SDL_Renderer *renderer, std::vector<TextButton> controls,
         {
             auto text = createText(controls[i].Text, ttf, fontsize, fg, controls[i].W, style);
 
-            int x = controls[i].X + (controls[i].W - text->w) / 2;
-            int y = controls[i].Y + (controls[i].H - text->h) / 2;
+            auto x = controls[i].X + (controls[i].W - text->w) / 2;
+            auto y = controls[i].Y + (controls[i].H - text->h) / 2;
 
             SDL_Rect rect;
 
@@ -496,10 +497,10 @@ std::vector<TextButton> createHTextButtons(const char **choices, int num, int te
 
         for (auto i = 0; i < num; i++)
         {
-            int left = i > 0 ? i - 1 : i;
-            int right = i < num - 1 ? i + 1 : i;
-            int up = i;
-            int down = i;
+            auto left = i > 0 ? i - 1 : i;
+            auto right = i < num - 1 ? i + 1 : i;
+            auto up = i;
+            auto down = i;
 
             auto x = text_x + i * (text_buttonw + text_space * 2) + text_space;
 
@@ -561,7 +562,7 @@ std::vector<Button> createItemList(SDL_Window *window, SDL_Renderer *renderer, s
 
     if (list.size() > 0)
     {
-        for (int i = 0; i < last - start; i++)
+        for (auto i = 0; i < last - start; i++)
         {
             auto index = start + i;
 
@@ -697,9 +698,9 @@ bool characterScreen(SDL_Window *window, SDL_Renderer *renderer, Character::Base
 
                 renderButtons(renderer, controls, current, intMG, space, space / 2);
 
-                bool scrollUp = false;
-                bool scrollDown = false;
-                bool hold = false;
+                auto scrollUp = false;
+                auto scrollDown = false;
+                auto hold = false;
 
                 done = Input::GetInput(renderer, controls, current, selected, scrollUp, scrollDown, hold);
 
@@ -796,8 +797,8 @@ bool glossaryScreen(SDL_Window *window, SDL_Renderer *renderer, std::vector<Skil
 
             renderButtons(renderer, controls, current, intMG, border_space, border_pts, (offset > 0), glossary && offset < (glossary->h - text_bounds + 2 * space));
 
-            bool scrollUp = false;
-            bool scrollDown = false;
+            auto scrollUp = false;
+            auto scrollDown = false;
 
             quit = Input::GetInput(renderer, controls, current, selected, scrollUp, scrollDown, hold);
 
@@ -1131,7 +1132,7 @@ bool inventoryScreen(SDL_Window *window, SDL_Renderer *renderer, Character::Base
                         }
                         else if (mode == Control::Type::USE)
                         {
-                            bool used_up = false;
+                            auto used_up = false;
 
                             if (item.Type == Item::Type::HEALING_SALVE)
                             {
@@ -1930,7 +1931,7 @@ std::vector<Button> skillsList(SDL_Window *window, SDL_Renderer *renderer, int s
 
     auto controls = std::vector<Button>();
 
-    for (int i = 0; i < last - start; i++)
+    for (auto i = 0; i < last - start; i++)
     {
         auto index = start + i;
 
@@ -2023,9 +2024,9 @@ Character::Base customCharacter(SDL_Window *window, SDL_Renderer *renderer)
 
         auto font = TTF_OpenFont(FONT_FILE, font_size);
 
-        bool scrollUp = false;
-        bool scrollDown = false;
-        bool hold = false;
+        auto scrollUp = false;
+        auto scrollDown = false;
+        auto hold = false;
         auto scrollSpeed = 1;
         auto selection = std::vector<int>();
         auto infoh = 0.07 * SCREEN_HEIGHT;
@@ -2357,9 +2358,9 @@ Character::Base selectCharacter(SDL_Window *window, SDL_Renderer *renderer)
 
             renderTextButtons(renderer, controls, FONT_FILE, current, clrWH, intBK, intRD, font20, TTF_STYLE_NORMAL);
 
-            bool scrollUp = false;
-            bool scrollDown = false;
-            bool hold = false;
+            auto scrollUp = false;
+            auto scrollDown = false;
+            auto hold = false;
 
             Input::GetInput(renderer, controls, current, selected, scrollUp, scrollDown, hold);
 
@@ -2488,9 +2489,9 @@ bool aboutScreen(SDL_Window *window, SDL_Renderer *renderer)
 
             renderTextButtons(renderer, controls, FONT_FILE, current, clrWH, intBK, intRD, font_size, TTF_STYLE_NORMAL);
 
-            bool scrollUp = false;
-            bool scrollDown = false;
-            bool hold = false;
+            auto scrollUp = false;
+            auto scrollDown = false;
+            auto hold = false;
 
             done = Input::GetInput(renderer, controls, current, selected, scrollUp, scrollDown, hold);
 
@@ -2796,7 +2797,7 @@ std::vector<Button> createFilesList(SDL_Window *window, SDL_Renderer *renderer, 
 
     if (list.size() > 0)
     {
-        for (int i = 0; i < last - start; i++)
+        for (auto i = 0; i < last - start; i++)
         {
             std::string game_string = "";
 
@@ -3830,7 +3831,7 @@ bool mapScreen(SDL_Window *window, SDL_Renderer *renderer)
 
         std::vector<Button> controls = {Button(0, "icons/back-button.png", 0, 0, 0, 0, (1 - Margin) * SCREEN_WIDTH - buttonw, buttony, Control::Type::BACK)};
 
-        int offset_x = (marginw - (double)text_bounds / splash->h * splash->w) / 2;
+        auto offset_x = (marginw - (double)text_bounds / splash->h * splash->w) / 2;
 
         while (!done)
         {
@@ -3843,9 +3844,9 @@ bool mapScreen(SDL_Window *window, SDL_Renderer *renderer)
 
             renderButtons(renderer, controls, current, intMG, 8, 4);
 
-            bool scrollUp = false;
-            bool scrollDown = false;
-            bool hold = false;
+            auto scrollUp = false;
+            auto scrollDown = false;
+            auto hold = false;
 
             if (splash && texture)
             {
@@ -3967,7 +3968,7 @@ Story::Base *processChoices(SDL_Window *window, SDL_Renderer *renderer, Characte
         auto infoh = 0.07 * SCREEN_HEIGHT;
         auto box_space = 10;
 
-        for (int i = 0; i < choices.size(); i++)
+        for (auto i = 0; i < choices.size(); i++)
         {
             auto text = createText(choices[i].Text, FONT_FILE, font_size, clrBK, textwidth - (4 * text_space), TTF_STYLE_NORMAL);
 
@@ -3991,7 +3992,7 @@ Story::Base *processChoices(SDL_Window *window, SDL_Renderer *renderer, Characte
 
         auto font = TTF_OpenFont(FONT_FILE, font_size);
 
-        int splash_h = splashw;
+        auto splash_h = splashw;
 
         if (splash)
         {
@@ -4109,8 +4110,9 @@ Story::Base *processChoices(SDL_Window *window, SDL_Renderer *renderer, Characte
                             }
                             else
                             {
-                                bool loaded = true;
-                                int weapons = 0;
+                                auto loaded = true;
+
+                                auto weapons = 0;
 
                                 for (auto i = 0; i < story->Choices[current].Items.size(); i++)
                                 {
@@ -4237,7 +4239,7 @@ Story::Base *processChoices(SDL_Window *window, SDL_Renderer *renderer, Characte
                         {
                             if (story->Choices[current].Items.size() > 0)
                             {
-                                int count = Item::COUNT_TYPES(player.Items, story->Choices[current].Items[0].Type);
+                                auto count = Item::COUNT_TYPES(player.Items, story->Choices[current].Items[0].Type);
 
                                 if (count >= story->Choices[current].Value)
                                 {
@@ -4266,7 +4268,7 @@ Story::Base *processChoices(SDL_Window *window, SDL_Renderer *renderer, Characte
                         {
                             if (story->Choices[current].Items.size() > 0)
                             {
-                                int count = Item::COUNT_TYPES(player.Items, story->Choices[current].Items[0].Type);
+                                auto count = Item::COUNT_TYPES(player.Items, story->Choices[current].Items[0].Type);
 
                                 if (count > 0)
                                 {
@@ -4569,7 +4571,7 @@ Story::Base *processChoices(SDL_Window *window, SDL_Renderer *renderer, Characte
                         }
                         else if (story->Choices[current].Type == Choice::Type::LOSE_SKILLS)
                         {
-                            int limit = story->Choices[current].Value;
+                            auto limit = story->Choices[current].Value;
 
                             auto result = loseSkills(window, renderer, player, limit);
 
@@ -4947,7 +4949,7 @@ bool processStory(SDL_Window *window, SDL_Renderer *renderer, Character::Base &p
             story->Event(player);
         }
 
-        int splash_h = 250;
+        auto splash_h = 250;
 
         if (story->Image)
         {
@@ -5034,7 +5036,7 @@ bool processStory(SDL_Window *window, SDL_Renderer *renderer, Character::Base &p
 
                 fillWindow(renderer, intWH);
 
-                //Fill the surface with background
+                // Fill the surface with background
                 stretchImage(renderer, background, 0, 0, SCREEN_WIDTH, buttony - button_space);
 
                 if (splash)
@@ -5087,8 +5089,8 @@ bool processStory(SDL_Window *window, SDL_Renderer *renderer, Character::Base &p
                     }
                 }
 
-                bool scrollUp = false;
-                bool scrollDown = false;
+                auto scrollUp = false;
+                auto scrollDown = false;
 
                 if (splash)
                 {
@@ -5115,8 +5117,8 @@ bool processStory(SDL_Window *window, SDL_Renderer *renderer, Character::Base &p
                         auto scalex = (double)(mousex - startx) / boundx;
                         auto scaley = (double)(mousey - starty) / splash_h;
 
-                        int centerx = (int)(scalex * (double)splash->w);
-                        int centery = (int)(scaley * (double)splash->h);
+                        auto centerx = (int)(scalex * (double)splash->w);
+                        auto centery = (int)(scaley * (double)splash->h);
 
                         clipValue(centerx, zoomw / 2, splash->w - zoomw / 2);
                         clipValue(centery, zoomh / 2, splash->h - zoomh / 2);
@@ -5449,6 +5451,25 @@ bool storyScreen(SDL_Window *window, SDL_Renderer *renderer, Character::Base &pl
     return processStory(window, renderer, player, story);
 }
 
+void createMouseMotion(int x, int y, int xrel, int yrel)
+{
+    SDL_Event user_event;
+
+    user_event.type = SDL_MOUSEMOTION;
+
+    user_event.motion.x = x;
+
+    user_event.motion.y = y;
+
+    user_event.motion.xrel = xrel;
+
+    user_event.motion.yrel = yrel;
+
+    SDL_PushEvent(&user_event);
+
+    SDL_PumpEvents();
+}
+
 bool mainScreen(SDL_Window *window, SDL_Renderer *renderer, int storyID)
 {
     auto font_size = 20;
@@ -5489,6 +5510,8 @@ bool mainScreen(SDL_Window *window, SDL_Renderer *renderer, int storyID)
 
         auto text_space = 8;
 
+        createMouseMotion(controls[0].X, controls[0].Y, controls[0].W / 2, controls[0].H / 2);
+
         while (!done)
         {
             // Fill the surface with background
@@ -5502,9 +5525,9 @@ bool mainScreen(SDL_Window *window, SDL_Renderer *renderer, int storyID)
 
             renderTextButtons(renderer, controls, FONT_FILE, current, clrWH, intBK, intRD, font_size, TTF_STYLE_NORMAL);
 
-            bool scrollUp = false;
-            bool scrollDown = false;
-            bool hold = false;
+            auto scrollUp = false;
+            auto scrollDown = false;
+            auto hold = false;
 
             Control::Type result;
 
